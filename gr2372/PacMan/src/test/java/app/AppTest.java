@@ -1,6 +1,5 @@
 package app;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,20 +7,22 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import org.testfx.framework.junit5.ApplicationTest;
+
 /**
- * JavaFX App
+ * TestFX App test
  */
-public class App extends Application {
+public class AppTest extends ApplicationTest {
+
+    private PacManController controller;
+    private Parent root;
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("App.fxml"));
-        Parent parent = fxmlLoader.load();
-        stage.setScene(new Scene(parent));
+        root = fxmlLoader.load();
+        controller = fxmlLoader.getController();
+        stage.setScene(new Scene(root));
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
 }
