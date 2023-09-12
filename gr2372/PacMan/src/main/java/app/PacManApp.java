@@ -18,6 +18,7 @@ public class PacManApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacMan.fxml"));
         Parent parent = fxmlLoader.load();
         stage.setScene(new Scene(parent));
+        stage.setMaximized(true);
         stage.show();
     }
     public static void main(String[] args) {
