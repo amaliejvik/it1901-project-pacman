@@ -15,13 +15,13 @@ import javafx.util.Duration;
 
 public class PacManController {
 
-    //ATTRIBUTTER
+    // ATTRIBUTTER
     @FXML
     private ImageView mapGrid;
-    
+
     @FXML
-    private Button startButton; 
-    
+    private Button startButton;
+
     @FXML
     private Rectangle startScreen;
 
@@ -40,50 +40,45 @@ public class PacManController {
     @FXML
     private AnchorPane mainBackground;
 
-    //TIMELINE
+    // TIMELINE
 
-    Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>(){
+    Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
 
         @Override
         public void handle(ActionEvent event) {
             // TODO Auto-generated method stub
             throw new UnsupportedOperationException("Unimplemented method 'handle'");
         }
-        
 
-        
     }));
-    
 
     @FXML
-    private void handleStartButton(){
-        try{
-            mainBackground.getChildren().removeAll(startbutton, startScreen,username,usernameInput,pacManText);
-        }
-        catch (Exception e){
-            System.out.println("Could not start animation");
+    private void handleStartButton() {
+        try {
+            startButton.setVisible(false);
+            startScreen.setVisible(false);
+            username.setVisible(false);
+            usernameInput.setVisible(false);
+            pacManText.setVisible(false);
+        } catch (Exception e) {
         }
 
     }
 
-    public void gameOver(){
+    public void gameOver() {
         timeline1.stop();
         Rectangle gameoverScreen = new Rectangle(250, 250);
         Button restartGame = new Button("Restart Game", gameoverScreen);
-        //Legge inn fxml sånn at vi får en game over screen med highscore
-        mainBackground.getChildren().add( gameoverScreen);
-        
-         //lagre score automatisk på brukernavnet som er oppgitt
-        
+        // Legge inn fxml sånn at vi får en game over screen med highscore
+        mainBackground.getChildren().add(gameoverScreen);
     }
 
-    public void restartGame(){
+    // lagre score automatisk på brukrnavnet som er o
+
+    public void restartGame() {
         handleStartButton();
-        //starte spillet på nytt igjen
+        // starte spillet på n ytt igjen
     }
-
-
-    private PacMan pacMan;
 
     public PacManController() {
 
