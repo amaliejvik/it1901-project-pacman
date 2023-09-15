@@ -40,9 +40,15 @@ public class PacManController {
     @FXML
     private AnchorPane mainBackground;
 
+    public void initialize() {
+        startButton.setDisable(true);
+        updateGUI();
+    }
+
     // TIMELINE
 
     Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
+        // initialize();
 
         @Override
         public void handle(ActionEvent event) {
@@ -67,6 +73,7 @@ public class PacManController {
 
     public void gameOver() {
         timeline1.stop();
+
         Rectangle gameoverScreen = new Rectangle(250, 250);
         Button restartGame = new Button("Restart Game", gameoverScreen);
         // Legge inn fxml sånn at vi får en game over screen med highscore
@@ -78,6 +85,19 @@ public class PacManController {
     public void restartGame() {
         handleStartButton();
         // starte spillet på n ytt igjen
+    }
+
+    @FXML
+    public void updateGUI() {
+        String name = usernameInput.getText();
+        if (name.contains(" ")) {
+            System.out.println("Name cannot contain spaces");
+        } else if (name == "") {
+            System.out.println("Namefield cannot be empty");
+        } else if (name.length() > 2) {
+            startButton.setDisable(false);
+        }
+
     }
 
     public PacManController() {
