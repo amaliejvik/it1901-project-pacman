@@ -19,7 +19,7 @@ public class PacManController {
     private ImageView mapGrid;
     
     @FXML
-    private Button startbutton; 
+    private Button startButton; 
     
     @FXML
     private Rectangle startScreen;
@@ -54,7 +54,7 @@ public class PacManController {
     @FXML
     private void handleStartButton(){
         try{
-            startbutton.setVisible(false);
+            startButton.setVisible(false);
             startScreen.setVisible(false);
             username.setVisible(false);
             usernameInput.setVisible(false);

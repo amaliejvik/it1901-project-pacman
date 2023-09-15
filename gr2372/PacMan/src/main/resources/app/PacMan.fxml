@@ -44,7 +44,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutY="-5.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="848.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="429.0" layoutY="17.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutY="441.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="848.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="430.0" layoutX="832.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="430.0" layoutX="832.0" layoutY="16.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="87.0" layoutX="218.0" layoutY="16.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="89.0" layoutX="218.0" layoutY="356.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="612.0" layoutY="12.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
@@ -76,7 +76,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="pacMan" layoutX="333.0" layoutY="128.0" text="PacMan">
+      <Label fx:id="pacManText" layoutX="333.0" layoutY="128.0" text="PacMan">
          <font>
             <Font name="Impact" size="62.0" />
          </font>
