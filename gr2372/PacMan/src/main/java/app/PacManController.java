@@ -20,7 +20,7 @@ public class PacManController {
     private ImageView mapGrid;
     
     @FXML
-    private Button startbutton; 
+    private Button startButton; 
     
     @FXML
     private Rectangle startScreen;
