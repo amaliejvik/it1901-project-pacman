@@ -39,6 +39,12 @@ public class PacManController {
     //TIMELINE
 
     Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>(){
+
+        @Override
+        public void handle(ActionEvent event) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'handle'");
+        }
         
 
         
