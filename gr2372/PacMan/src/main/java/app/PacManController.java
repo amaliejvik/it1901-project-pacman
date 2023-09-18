@@ -20,14 +20,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class PacManController {
-
-
+    
+    //REGULAR ATTRIBUTES
     private Stage stage;
-    // ATTRIBUTTER
+    private PacMan pacMan;
+    private List<Rectangle> walls = new ArrayList<>();
+    private List<ImageView> pellets = new ArrayList<>();
+
+    //FXML-ATTRIBUTES
     @FXML
     private ImageView mapGrid;
 
@@ -58,7 +63,15 @@ public class PacManController {
     @FXML
     private AnchorPane mainBackground;
 
-    private PacMan pacMan;
+    @FXML
+    private Label score;
+
+    @FXML
+    private Text yourScoreText;
+
+    @FXML 
+    private Rectangle rectScore;
+
 
     // PacManGameOver
     @FXML
@@ -66,17 +79,16 @@ public class PacManController {
 
     // PacManHighScores
     @FXML
-    TextArea highScores;
+    private TextArea highScores;
 
     @FXML
-    Button backButton;
+    private Button backButton;
 
-    private List<Rectangle> walls = new ArrayList<>();
-
-    private List<ImageView> pellets = new ArrayList<>();
-    private Group pelletGroup = new Group();
-
+  
+    //INITIALIZES GAME
     public void initialize() {
+
+        //ARRAY OF WALLS
         walls.add(rect1);
         walls.add(rect2);
         walls.add(rect3);
@@ -105,39 +117,47 @@ public class PacManController {
         walls.add(rect26);
         walls.add(rect27);
 
+        //ARRAY OF PELLETS
         pellets.add(pellet1);
         pellets.add(pellet2);
         pellets.add(pellet3);
         pellets.add(pellet4);
 
-        // pelletGroup.getChildren().addAll(pellet1, pellet2, pellet3, pellet4);
-
+        //DISABLES BUTTON
         startButton.setDisable(true);
+
+        //SCORE
+        rectScore.setVisible(false);
+        yourScoreText.setVisible(false);
+        score.setVisible(false);
+        
+
         updateGUI();
     }
 
     
-
-
-    // TIMELINE
-
+    //TIMELINE
     Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
-        // initialize();
 
         @Override
         public void handle(ActionEvent event) {
 
+            //UPDATES PACMAN'S POSITION ("backend")
             pacMan.setXPosition(pacMan.getXPosition() + PacMan.dx);
             pacMan.setYPosition(pacMan.getYPosition() + PacMan.dy);
 
+            //UPDATES PACMAN'S POSITION ("frontend")
             pacManGif.setLayoutX(pacMan.getXPosition());
             pacManGif.setLayoutY(pacMan.getYPosition());
 
+            //COLLISION CHECK
             pacMan.checkWallCollision(pacManGif, walls);
             pacMan.checkPelletCollision(pacManGif, pellets);
 
-           
+            //UPDATES SCORE
+            score.setText(Integer.toString(pacMan.getScore()));
 
+            //ROTATES PACMAN
             pacManGif.setRotate(pacMan.rotationAngle());
         }
     }));
@@ -153,14 +173,28 @@ public class PacManController {
     @FXML
     private void handleStartButton() {
         try {
+
+            //REMOVES STARTSCREEN
             startButton.setVisible(false);
             startScreen.setVisible(false);
             username.setVisible(false);
             usernameInput.setVisible(false);
             pacManText.setVisible(false);
+
+            //STARTS TIMELINE 
             timeline1.setCycleCount(Timeline.INDEFINITE);
             timeline1.play();
+
+            //GENERATES NEW PACMAN
             pacMan = new PacMan();
+
+            //SHOWS SCOREVIEW
+            score.setText("0");
+            rectScore.setVisible(true);
+            yourScoreText.setVisible(true);
+            score.setVisible(true);
+
+
             PacmanReadAndWrite.saveUserName(usernameInput.getText());
         } catch (Exception e) {
             e.printStackTrace();
@@ -208,6 +242,7 @@ public class PacManController {
 
     // Handle switch between separate sceenbuilder screens
 
+    //SWITCH TO GAME-OVER-SCREEN
     public void switchToGameOverBackground() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacManGameOver.fxml"));
@@ -221,6 +256,7 @@ public class PacManController {
         }
     }
 
+    //SWITCH TO HIGHSCORE-SCREEN
     public void switchToPacManHighScore() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacManHighScore.fxml"));
@@ -234,6 +270,7 @@ public class PacManController {
         }
     }
 
+    //SWITCH TO PACMAN-SCREEN
     public void switchToPacMan() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacMan.fxml"));
@@ -247,6 +284,7 @@ public class PacManController {
         }
     }
 
+    //CONSTRUCTOR
     public PacManController() {
         return;
 

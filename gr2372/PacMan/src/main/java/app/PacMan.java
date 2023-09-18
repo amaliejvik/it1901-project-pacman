@@ -7,15 +7,20 @@ import javafx.scene.shape.Rectangle;
 
 public class PacMan {
 
-    private double xPosition = 333;
-    private double yPosition = 124;
-    
+    //ATTRIBUTES
     public static double dx = 0;
     public static double dy = 0;
-
+    private double xPosition = 330;
+    private double yPosition = 115;
     private static double rotate;
     private int score;
+    
+    //CONSTRUCTOR
+    public PacMan() {
+        return;
+    }
 
+    //GENERAL METHODS
     public int getScore() {
         return this.score;
     }
@@ -41,10 +46,7 @@ public class PacMan {
     }
 
 
-    public PacMan() {
-        return;
-    }
-
+    //CHANGES PACMANS MOVEMENT-DIRECTION
     public static void changeDirection(String string) {
         if(string.equals("RIGHT")) {
             dy = 0;
@@ -69,6 +71,7 @@ public class PacMan {
         }
     }
 
+    //CHECKS IF PACMAN HAS COLLIDED WITH WALL
     public void checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
         for (Rectangle wall : walls){
             
@@ -92,18 +95,18 @@ public class PacMan {
         }
     }
 
-
+    //CHECKS IF PACMAN HAS COLLIDED WITH PELLETS
     public void checkPelletCollision(ImageView pacMan, List<ImageView> pellets){
         for (ImageView pellet : pellets){
             if(pacMan.getBoundsInParent().intersects(pellet.getBoundsInParent()) && pellet.isVisible()){
                 score += 10;
                 pellet.setVisible(false);
-                System.out.println(score);
             }
         }
    
     }
 
+    //GIVES ROTATIONANGLE
     public double rotationAngle() {
         //RIGHT
         if(rotate == 0){
