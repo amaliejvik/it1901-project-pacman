@@ -9,7 +9,7 @@ public class PacmanReadAndWrite {
   // pacmancontroller
   public static void saveUserName(String name) {
     try {
-      File userScores = new File("src/main/sources");
+      File userScores = new File("gr2372/PacMan/src/main/resources/" + "scores");
       FileWriter userNameWriter = new FileWriter(userScores, true);
       userNameWriter.write(name);
       userNameWriter.close();
@@ -23,9 +23,10 @@ public class PacmanReadAndWrite {
   public String fetchScoreBoard() {
     String scores = null;
     try {
-      Scanner reader = new Scanner("src/main/resources");
+      Scanner reader = new Scanner("gr2372/PacMan/src/main/resources/" + "scores");
       while (reader.hasNextLine()) {
         scores = reader.nextLine();
+        reader.close();
         // her kan vi endre på highscoretabell i PacManController, når vi får på plass
         // FXML til det
         System.out.println(scores);
