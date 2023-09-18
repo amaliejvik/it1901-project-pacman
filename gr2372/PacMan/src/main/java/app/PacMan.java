@@ -14,6 +14,15 @@ public class PacMan {
     public static double dy = 0;
 
     private static double rotate;
+    private int score;
+
+    public int getScore() {
+        return this.score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     public double getXPosition() {
         return this.xPosition;
@@ -81,6 +90,18 @@ public class PacMan {
                 dy = 0;
             }
         }
+    }
+
+
+    public void checkPelletCollision(ImageView pacMan, List<ImageView> pellets){
+        for (ImageView pellet : pellets){
+            if(pacMan.getBoundsInParent().intersects(pellet.getBoundsInParent()) && pellet.isVisible()){
+                score += 10;
+                pellet.setVisible(false);
+                System.out.println(score);
+            }
+        }
+   
     }
 
     public double rotationAngle() {

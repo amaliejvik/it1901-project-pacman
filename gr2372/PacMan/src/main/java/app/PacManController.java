@@ -1,7 +1,6 @@
 package app;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -25,7 +25,7 @@ import javafx.util.Duration;
 
 public class PacManController {
 
-    private int score = 10;
+
     private Stage stage;
     // ATTRIBUTTER
     @FXML
@@ -39,6 +39,9 @@ public class PacManController {
 
     @FXML
     private Rectangle rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27;
+
+    @FXML
+    private ImageView pellet1, pellet2, pellet3, pellet4;
 
     @FXML
     private TextField usernameInput;
@@ -70,6 +73,9 @@ public class PacManController {
 
     private List<Rectangle> walls = new ArrayList<>();
 
+    private List<ImageView> pellets = new ArrayList<>();
+    private Group pelletGroup = new Group();
+
     public void initialize() {
         walls.add(rect1);
         walls.add(rect2);
@@ -98,17 +104,20 @@ public class PacManController {
         walls.add(rect25);
         walls.add(rect26);
         walls.add(rect27);
+
+        pellets.add(pellet1);
+        pellets.add(pellet2);
+        pellets.add(pellet3);
+        pellets.add(pellet4);
+
+        // pelletGroup.getChildren().addAll(pellet1, pellet2, pellet3, pellet4);
+
         startButton.setDisable(true);
         updateGUI();
     }
 
-    public int getScore() {
-        return score;
-    }
+    
 
-    public void setScore(int point) {
-        score += point;
-    }
 
     // TIMELINE
 
@@ -125,6 +134,9 @@ public class PacManController {
             pacManGif.setLayoutY(pacMan.getYPosition());
 
             pacMan.checkWallCollision(pacManGif, walls);
+            pacMan.checkPelletCollision(pacManGif, pellets);
+
+           
 
             pacManGif.setRotate(pacMan.rotationAngle());
         }
@@ -133,7 +145,7 @@ public class PacManController {
 
     public void gameOver() {
         timeline1.stop();
-        PacmanReadAndWrite.saveScore(score); // save score to username
+        PacmanReadAndWrite.saveScore(pacMan.getScore()); // save score to username
         setScoreGameOverScreen(); // Changes text so user can see their score
         switchToGameOverBackground(); // switch to game over screen
     }
@@ -176,7 +188,7 @@ public class PacManController {
     }
 
     public void setScoreGameOverScreen() {
-        seeHighScore.appendText(String.valueOf(score));
+        seeHighScore.appendText(String.valueOf(pacMan.getScore()));
     }
 
     @FXML
