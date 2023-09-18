@@ -194,7 +194,7 @@ public class PacManController implements KeyListener {
         Pattern pattern = Pattern.compile("\\s");
         Matcher matcher = pattern.matcher(name);
         boolean found = matcher.find();
-        if (name.length() >= 2) {
+        if (PacmanReadAndWrite.validateUserName(name)) {
             startButton.setDisable(false);
         }
         if (found) {
