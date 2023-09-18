@@ -15,7 +15,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 public class PacManController implements KeyListener{
@@ -108,7 +107,6 @@ public class PacManController implements KeyListener{
             dy = -1;
             dx = 0;
             rotate = 2;
-
         }
         else if(string.equals("DOWN")) {
             dy = 1;
@@ -116,22 +114,6 @@ public class PacManController implements KeyListener{
             rotate = 3;
         }
     }
-
-    // @FXML
-    // public static void changeRotation(String direction) {
-    //     if(direction.equals("RIGHT")) {
-            
-    //     }
-    //     else if(direction.equals("LEFT")) {
-
-    //     }
-    //     else if(direction.equals("UP")) {
-            
-    //     }
-    //     else if(direction.equals("DOWN")) {
-            
-    //     }
-    // }
 
     @FXML
     private void handleStartButton() {
