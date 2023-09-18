@@ -16,7 +16,7 @@
             <Image url="@../mapgrid.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pacManGif" fitHeight="71.0" fitWidth="72.0" layoutX="521.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pacManGif" fitHeight="52.0" fitWidth="52.0" layoutX="521.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PacManModel.gif" />
          </image>

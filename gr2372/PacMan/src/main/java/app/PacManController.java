@@ -13,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -48,8 +48,8 @@ public class PacManController implements KeyListener{
     private double xPosition = 333;
     private double yPosition = 128;
 
-    private double dx = 0;
-    private double dy = 0;
+    private static double dx = 0;
+    private static double dy = 0;
 
     
 
@@ -59,7 +59,7 @@ public class PacManController implements KeyListener{
 
         @Override
         public void handle(ActionEvent event) {
-            
+
             xPosition += dx;
             yPosition += dy;
 
@@ -69,6 +69,26 @@ public class PacManController implements KeyListener{
 
     }));
 
+    public static void changeDirection(String string) {
+        if(string.equals("RIGHT")) {
+            dy = 0;
+            dx = 1;
+            
+        }
+        else if(string.equals("LEFT")) {
+            dy = 0;
+            dx = -1;
+        }
+        else if(string.equals("UP")) {
+            dy = -1;
+            dx = 0;
+        }
+        else if(string.equals("DOWN")) {
+            dy = 1;
+            dx = 0;
+        }
+    }
+
     @FXML
     private void handleStartButton() {
         try {
@@ -77,9 +97,10 @@ public class PacManController implements KeyListener{
             username.setVisible(false);
             usernameInput.setVisible(false);
             pacManText.setVisible(false);
+            timeline1.setCycleCount(Timeline.INDEFINITE);
+            timeline1.play();
         } catch (Exception e) {
         }
-
     }
 
     public void gameOver() {
@@ -131,7 +152,6 @@ public class PacManController implements KeyListener{
         //     dy = -1;
         //     System.out.println();
         // }
-        System.out.println("test");
     }
 
     @Override
