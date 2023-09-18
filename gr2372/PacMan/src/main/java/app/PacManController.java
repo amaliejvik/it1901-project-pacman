@@ -69,25 +69,27 @@ public class PacManController {
             username.setVisible(false);
             usernameInput.setVisible(false);
             pacManText.setVisible(false);
+            PacmanReadAndWrite.saveUserName(usernameInput.getText());
         } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Could not start game");
         }
-
     }
 
     public void gameOver() {
         timeline1.stop();
-
+        // Fetche highscore, og lagre highscore til brukernavnet
         Rectangle gameoverScreen = new Rectangle(250, 250);
         Button restartGame = new Button("Restart Game", gameoverScreen);
-        // Legge inn fxml sånn at vi får en game over screen med highscore
-        mainBackground.getChildren().add(gameoverScreen);
-    }
+        // TODO: Legge inn fxml sånn at vi får en game over screen med highscore
 
-    // lagre score automatisk på brukrnavnet som er o
+        mainBackground.getChildren().add(gameoverScreen);
+        // TODO: lagre score automatisk på brukernavnet
+    }
 
     public void restartGame() {
         handleStartButton();
-        // starte spillet på n ytt igjen
+        // starte spillet på nytt igjen
     }
 
     @FXML
@@ -106,7 +108,6 @@ public class PacManController {
     }
 
     public PacManController() {
-
         return;
     }
 }
