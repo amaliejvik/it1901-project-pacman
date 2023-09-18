@@ -21,22 +21,22 @@
             <Image url="@../PacManModel.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="55.0" layoutX="245.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pellet1" fitHeight="60.0" fitWidth="55.0" layoutX="245.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../smalldot.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="55.0" layoutX="591.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pellet2" fitHeight="60.0" fitWidth="55.0" layoutX="591.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../smalldot.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="55.0" layoutX="307.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pellet3" fitHeight="60.0" fitWidth="55.0" layoutX="307.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../smalldot.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="55.0" layoutX="769.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pellet4" fitHeight="60.0" fitWidth="55.0" layoutX="769.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../smalldot.png" />
          </image>
