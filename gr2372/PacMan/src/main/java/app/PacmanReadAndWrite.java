@@ -5,8 +5,23 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class PacmanReadAndWrite {
+  public static boolean validateUserName(String name) {
+    if (name.contains(" ")) {
+      System.out.println("Name cannot contain spacing");
+      return false;
+    } else if (name == "") {
+      System.out.println("Namefield cannot be empty");
+      return false;
+    } else if (name.length() <= 2) {
+      return false;
+    }
+    return true;
+  }
 
   public static void saveUserName(String name) {
+    if (!validateUserName(name)) {
+      throw new IllegalArgumentException("Invalid name");
+    }
     try {
       File userScores = new File("gr2372/PacMan/src/main/resources/" + "scores");
       FileWriter userNameWriter = new FileWriter(userScores, true);
