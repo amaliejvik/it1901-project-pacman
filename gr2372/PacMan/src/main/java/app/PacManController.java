@@ -1,6 +1,8 @@
 package app;
 
-import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.animation.KeyFrame;
@@ -21,7 +23,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class PacManController implements KeyListener {
+public class PacManController {
 
     private int score = 10;
     private Stage stage;
@@ -34,6 +36,9 @@ public class PacManController implements KeyListener {
 
     @FXML
     private Rectangle startScreen;
+
+    @FXML
+    private Rectangle rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27;
 
     @FXML
     private TextField usernameInput;
@@ -50,6 +55,8 @@ public class PacManController implements KeyListener {
     @FXML
     private AnchorPane mainBackground;
 
+    private PacMan pacMan;
+
     // PacManGameOver
     @FXML
     private TextArea seeHighScore;
@@ -61,15 +68,36 @@ public class PacManController implements KeyListener {
     @FXML
     Button backButton;
 
-    private double xPosition = 333;
-    private double yPosition = 128;
-
-    private static double dx = 0;
-    private static double dy = 0;
-
-    private static double rotate = 0;
+    private List<Rectangle> walls = new ArrayList<>();
 
     public void initialize() {
+        walls.add(rect1);
+        walls.add(rect2);
+        walls.add(rect3);
+        walls.add(rect4);
+        walls.add(rect5);
+        walls.add(rect6);
+        walls.add(rect7);
+        walls.add(rect8);
+        walls.add(rect9);
+        walls.add(rect10);
+        walls.add(rect11);
+        walls.add(rect12);
+        walls.add(rect13);
+        walls.add(rect14);
+        walls.add(rect15);
+        walls.add(rect16);
+        walls.add(rect17);
+        walls.add(rect18);
+        walls.add(rect19);
+        walls.add(rect20);
+        walls.add(rect21);
+        walls.add(rect22);
+        walls.add(rect23);
+        walls.add(rect24);
+        walls.add(rect25);
+        walls.add(rect26);
+        walls.add(rect27);
         startButton.setDisable(true);
         updateGUI();
     }
@@ -90,55 +118,18 @@ public class PacManController implements KeyListener {
         @Override
         public void handle(ActionEvent event) {
 
-            xPosition += dx;
-            yPosition += dy;
+            pacMan.setXPosition(pacMan.getXPosition() + PacMan.dx);
+            pacMan.setYPosition(pacMan.getYPosition() + PacMan.dy);
 
-            pacManGif.setLayoutX(xPosition);
-            pacManGif.setLayoutY(yPosition);
+            pacManGif.setLayoutX(pacMan.getXPosition());
+            pacManGif.setLayoutY(pacMan.getYPosition());
 
-            //RIGHT
-            if(rotate == 0){
-                pacManGif.setRotate(0);
-            }
-            //LEFT
-            else if (rotate == 1) {
-                pacManGif.setRotate(180);
-            }
-            //UP
-            else if (rotate == 2) {
-                pacManGif.setRotate(270);
-            }
-            //DOWN
-            else if (rotate == 3) {
-                pacManGif.setRotate(90);
-            }
+            pacMan.checkWallCollision(pacManGif, walls);
 
+            pacManGif.setRotate(pacMan.rotationAngle());
         }
-
     }));
 
-    public static void changeDirection(String string) {
-        if (string.equals("RIGHT")) {
-            dy = 0;
-            dx = 1;
-            rotate = 0;
-        }
-        else if(string.equals("LEFT")) {
-            dy = 0;
-            dx = -1;
-            rotate = 1;
-        }
-        else if(string.equals("UP")) {
-            dy = -1;
-            dx = 0;
-            rotate = 2;
-        }
-        else if(string.equals("DOWN")) {
-            dy = 1;
-            dx = 0;
-            rotate = 3;
-        }
-    }
 
     public void gameOver() {
         timeline1.stop();
@@ -157,6 +148,7 @@ public class PacManController implements KeyListener {
             pacManText.setVisible(false);
             timeline1.setCycleCount(Timeline.INDEFINITE);
             timeline1.play();
+            pacMan = new PacMan();
             PacmanReadAndWrite.saveUserName(usernameInput.getText());
         } catch (Exception e) {
             e.printStackTrace();
@@ -247,38 +239,4 @@ public class PacManController implements KeyListener {
         return;
 
     }
-
-    @Override
-    public void keyTyped(java.awt.event.KeyEvent e) {
-        return;
-    }
-
-    @Override
-    public void keyPressed(java.awt.event.KeyEvent e) {
-        // int code = e.getKeyCode();
-
-        // if (code == 37) {
-        // dx = -1;
-        // dy = 0;
-        // System.out.println("Pressed Left");
-        // } else if (code == 39) {
-        // dx = 1;
-        // dy = 0;
-        // System.out.println("Pressed Right");
-        // } else if (code == 38) {
-        // dx = 0;
-        // dy = 1;
-        // System.out.println("Pressed Up");
-        // } else if (code == 40) {
-        // dx = 0;
-        // dy = -1;
-        // System.out.println();
-        // }
-    }
-
-    @Override
-    public void keyReleased(java.awt.event.KeyEvent e) {
-        return;
-    }
-
 }
