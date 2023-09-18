@@ -1,9 +1,8 @@
 package app;
 
-
-
 import java.awt.event.KeyListener;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -51,11 +50,15 @@ public class PacManController implements KeyListener{
     private static double dx = 0;
     private static double dy = 0;
 
-    
+    public void initialize() {
+        startButton.setDisable(true);
+        updateGUI();
+    }
 
     // TIMELINE
 
     Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
+        // initialize();
 
         @Override
         public void handle(ActionEvent event) {
@@ -99,27 +102,45 @@ public class PacManController implements KeyListener{
             pacManText.setVisible(false);
             timeline1.setCycleCount(Timeline.INDEFINITE);
             timeline1.play();
+            PacmanReadAndWrite.saveUserName(usernameInput.getText());
         } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Could not start game");
         }
     }
 
     public void gameOver() {
         timeline1.stop();
+        // Fetche highscore, og lagre highscore til brukernavnet
         Rectangle gameoverScreen = new Rectangle(250, 250);
         Button restartGame = new Button("Restart Game", gameoverScreen);
-        // Legge inn fxml sånn at vi får en game over screen med highscore
-        mainBackground.getChildren().add(gameoverScreen);
-    }
+        // TODO: Legge inn fxml sånn at vi får en game over screen med highscore
 
-    // lagre score automatisk på brukrnavnet som er o
+        mainBackground.getChildren().add(gameoverScreen);
+        // TODO: lagre score automatisk på brukernavnet
+    }
 
     public void restartGame() {
         handleStartButton();
-        // starte spillet på n ytt igjen
+        // starte spillet på nytt igjen
+    }
+
+    @FXML
+    public void updateGUI() {
+        startButton.setDisable(true);
+        String name = usernameInput.getText();
+        Pattern pattern = Pattern.compile("\\s");
+        Matcher matcher = pattern.matcher(name);
+        boolean found = matcher.find();
+        if (name.length() >= 2) {
+            startButton.setDisable(false);
+        }
+        if (found) {
+            startButton.setDisable(true);
+        }
     }
 
     public PacManController() {
-
         return;
     }
 
