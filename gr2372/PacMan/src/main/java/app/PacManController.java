@@ -10,16 +10,23 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class PacManController {
 
+    private int score = 10;
+    private Stage stage;
     // ATTRIBUTTER
     @FXML
     private ImageView mapGrid;
@@ -50,7 +57,20 @@ public class PacManController {
 
     private PacMan pacMan;
 
+    // PacManGameOver
+    @FXML
+    private TextArea seeHighScore;
+
+    // PacManHighScores
+    @FXML
+    TextArea highScores;
+
+    @FXML
+    Button backButton;
+
     private List<Rectangle> walls = new ArrayList<>();
+
+    private static double rotate = 0;
 
     public void initialize() {
         walls.add(rect1);
@@ -84,6 +104,14 @@ public class PacManController {
         updateGUI();
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int point) {
+        score += point;
+    }
+
     // TIMELINE
 
     Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
@@ -99,8 +127,33 @@ public class PacManController {
             pacManGif.setLayoutY(pacMan.getYPosition());
 
             pacMan.checkWallCollision(pacManGif, walls);
+
+            //RIGHT
+            if(rotate == 0){
+                pacManGif.setRotate(0);
+            }
+            //LEFT
+            else if (rotate == 1) {
+                pacManGif.setRotate(180);
+            }
+            //UP
+            else if (rotate == 2) {
+                pacManGif.setRotate(270);
+            }
+            //DOWN
+            else if (rotate == 3) {
+                pacManGif.setRotate(90);
+            }
         }
     }));
+
+
+    public void gameOver() {
+        timeline1.stop();
+        PacmanReadAndWrite.saveScore(score); // save score to username
+        setScoreGameOverScreen(); // Changes text so user can see their score
+        switchToGameOverBackground(); // switch to game over screen
+    }
 
     @FXML
     private void handleStartButton() {
@@ -120,20 +173,27 @@ public class PacManController {
         }
     }
 
-    public void gameOver() {
-        timeline1.stop();
-        // Fetche highscore, og lagre highscore til brukernavnet
-        Rectangle gameoverScreen = new Rectangle(250, 250);
-        Button restartGame = new Button("Restart Game", gameoverScreen);
-        // TODO: Legge inn fxml sånn at vi får en game over screen med highscore
-
-        mainBackground.getChildren().add(gameoverScreen);
-        // TODO: lagre score automatisk på brukernavnet
+    @FXML
+    private void handleHighScoreButton() {
+        highScores.setText(PacmanReadAndWrite.fetchScoreBoard()); // fetches highscores and sets text area to this
+        // TODO: update and reset highscoretable every time highscore button is pressed
+        switchToPacManHighScore();
+        // TODO: legge inn restart knapp her også
     }
 
-    public void restartGame() {
+    @FXML
+    public void handleRestartButton() {
         handleStartButton();
-        // starte spillet på nytt igjen
+        switchToPacMan(); // change to PacMan screen, unsure if this is needed here
+    }
+
+    @FXML
+    public void handleBackButton() {
+        switchToGameOverBackground();
+    }
+
+    public void setScoreGameOverScreen() {
+        seeHighScore.appendText(String.valueOf(score));
     }
 
     @FXML
@@ -149,5 +209,51 @@ public class PacManController {
         if (found) {
             startButton.setDisable(true);
         }
+    }
+
+    // Handle switch between separate sceenbuilder screens
+
+    public void switchToGameOverBackground() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacManGameOver.fxml"));
+            Parent parent = fxmlLoader.load();
+            stage.setScene(new Scene(parent));
+            stage.setMaximized(true);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Could not switch background");
+        }
+    }
+
+    public void switchToPacManHighScore() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacManHighScore.fxml"));
+            Parent parent = fxmlLoader.load();
+            stage.setScene(new Scene(parent));
+            stage.setMaximized(true);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Could not switch background");
+        }
+    }
+
+    public void switchToPacMan() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacMan.fxml"));
+            Parent parent = fxmlLoader.load();
+            stage.setScene(new Scene(parent));
+            stage.setMaximized(true);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Could not switch background");
+        }
+    }
+
+    public PacManController() {
+        return;
+
     }
 }
