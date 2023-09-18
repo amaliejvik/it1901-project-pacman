@@ -1,5 +1,8 @@
 package app;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -91,13 +94,16 @@ public class PacManController {
 
     @FXML
     public void updateGUI() {
+        startButton.setDisable(true);
         String name = usernameInput.getText();
-        if (name.contains(" ")) {
-            System.out.println("Name cannot contain spaces");
-        } else if (name == "") {
-            System.out.println("Namefield cannot be empty");
-        } else if (name.length() > 2) {
+        Pattern pattern = Pattern.compile("\\s");
+        Matcher matcher = pattern.matcher(name);
+        boolean found = matcher.find();
+        if (name.length() >= 2) {
             startButton.setDisable(false);
+        }
+        if (found) {
+            startButton.setDisable(true);
         }
     }
 
