@@ -13,6 +13,8 @@ public class PacMan {
     public static double dx = 0;
     public static double dy = 0;
 
+    private static double rotate;
+
     public double getXPosition() {
         return this.xPosition;
     }
@@ -38,19 +40,23 @@ public class PacMan {
         if(string.equals("RIGHT")) {
             dy = 0;
             dx = 1;
+            rotate = 0;
             
         }
         else if(string.equals("LEFT")) {
             dy = 0;
             dx = -1;
+            rotate = 1;
         }
         else if(string.equals("UP")) {
             dy = -1;
             dx = 0;
+            rotate = 2;
         }
         else if(string.equals("DOWN")) {
             dy = 1;
             dx = 0;
+            rotate = 3;
         }
     }
 
@@ -75,5 +81,22 @@ public class PacMan {
                 dy = 0;
             }
         }
+    }
+
+    public double rotationAngle() {
+        //RIGHT
+        if(rotate == 0){
+            return 0;
+        }
+        //LEFT
+        else if (rotate == 1) {
+            return 180;
+        }
+        //UP
+        else if (rotate == 2) {
+            return 270;
+        }
+        //DOWN
+        return 90;
     }
 }
