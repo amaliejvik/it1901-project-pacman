@@ -13,19 +13,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class PacManController implements KeyListener{
+public class PacManController implements KeyListener {
 
-    private int score = 0;
+    private int score = 10;
     private Stage stage;
-    private Scene scene;
     // ATTRIBUTTER
     @FXML
     private ImageView mapGrid;
@@ -51,6 +50,17 @@ public class PacManController implements KeyListener{
     @FXML
     private AnchorPane mainBackground;
 
+    // PacManGameOver
+    @FXML
+    private TextArea seeHighScore;
+
+    // PacManHighScores
+    @FXML
+    TextArea highScores;
+
+    @FXML
+    Button backButton;
+
     private double xPosition = 333;
     private double yPosition = 128;
 
@@ -62,10 +72,18 @@ public class PacManController implements KeyListener{
         updateGUI();
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int point) {
+        score += point;
+    }
+
     // TIMELINE
 
     Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
-        //initialize();
+        // initialize();
 
         @Override
         public void handle(ActionEvent event) {
@@ -80,23 +98,27 @@ public class PacManController implements KeyListener{
     }));
 
     public static void changeDirection(String string) {
-        if(string.equals("RIGHT")) {
+        if (string.equals("RIGHT")) {
             dy = 0;
             dx = 1;
-            
-        }
-        else if(string.equals("LEFT")) {
+
+        } else if (string.equals("LEFT")) {
             dy = 0;
             dx = -1;
-        }
-        else if(string.equals("UP")) {
+        } else if (string.equals("UP")) {
             dy = -1;
             dx = 0;
-        }
-        else if(string.equals("DOWN")) {
+        } else if (string.equals("DOWN")) {
             dy = 1;
             dx = 0;
         }
+    }
+
+    public void gameOver() {
+        timeline1.stop();
+        PacmanReadAndWrite.saveScore(score); // save score to username
+        setScoreGameOverScreen(); // Changes text so user can see their score
+        switchToGameOverBackground(); // switch to game over screen
     }
 
     @FXML
@@ -116,25 +138,27 @@ public class PacManController implements KeyListener{
         }
     }
 
-    public void gameOver() {
-        timeline1.stop();
-        switchToGameOverBackground();
-        // Fetche highscore, og lagre highscore til brukernavnet
-        // TODO: Legge inn fxml sånn at vi får en game over screen med highscore
-        // TODO: lagre score automatisk på brukernavnet
+    @FXML
+    private void handleHighScoreButton() {
+        highScores.setText(PacmanReadAndWrite.fetchScoreBoard()); // fetches highscores and sets text area to this
+        // TODO: update and reset highscoretable every time highscore button is pressed
+        switchToPacManHighScore();
+        // TODO: legge inn restart knapp her også
     }
 
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int point) {
-        score += point;
-    }
-
-    public void restartGame() {
+    @FXML
+    public void handleRestartButton() {
         handleStartButton();
-        // starte spillet på nytt igjen
+        switchToPacMan(); // change to PacMan screen, unsure if this is needed here
+    }
+
+    @FXML
+    public void handleBackButton() {
+        switchToGameOverBackground();
+    }
+
+    public void setScoreGameOverScreen() {
+        seeHighScore.appendText(String.valueOf(score));
     }
 
     @FXML
@@ -152,12 +176,24 @@ public class PacManController implements KeyListener{
         }
     }
 
-    // Handle switch between the two separate screens: mainbackground and
-    // Gameoverbackground
+    // Handle switch between separate sceenbuilder screens
 
     public void switchToGameOverBackground() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacManGameOver.fxml"));
+            Parent parent = fxmlLoader.load();
+            stage.setScene(new Scene(parent));
+            stage.setMaximized(true);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Could not switch background");
+        }
+    }
+
+    public void switchToPacManHighScore() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacManHighScore.fxml"));
             Parent parent = fxmlLoader.load();
             stage.setScene(new Scene(parent));
             stage.setMaximized(true);
@@ -181,20 +217,13 @@ public class PacManController implements KeyListener{
         }
     }
 
-   
-
-
-
     public PacManController() {
         return;
 
     }
 
-
-
     @Override
     public void keyTyped(java.awt.event.KeyEvent e) {
-        
         return;
     }
 
@@ -203,21 +232,21 @@ public class PacManController implements KeyListener{
         // int code = e.getKeyCode();
 
         // if (code == 37) {
-        //     dx = -1;
-        //     dy = 0;
-        //     System.out.println("Pressed Left");
+        // dx = -1;
+        // dy = 0;
+        // System.out.println("Pressed Left");
         // } else if (code == 39) {
-        //     dx = 1;
-        //     dy = 0;
-        //     System.out.println("Pressed Right");
+        // dx = 1;
+        // dy = 0;
+        // System.out.println("Pressed Right");
         // } else if (code == 38) {
-        //     dx = 0;
-        //     dy = 1;
-        //     System.out.println("Pressed Up");
+        // dx = 0;
+        // dy = 1;
+        // System.out.println("Pressed Up");
         // } else if (code == 40) {
-        //     dx = 0;
-        //     dy = -1;
-        //     System.out.println();
+        // dx = 0;
+        // dy = -1;
+        // System.out.println();
         // }
     }
 
@@ -225,6 +254,5 @@ public class PacManController implements KeyListener{
     public void keyReleased(java.awt.event.KeyEvent e) {
         return;
     }
-
 
 }
