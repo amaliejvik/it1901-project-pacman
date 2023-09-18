@@ -70,8 +70,6 @@ public class PacManController {
 
     private List<Rectangle> walls = new ArrayList<>();
 
-    private static double rotate = 0;
-
     public void initialize() {
         walls.add(rect1);
         walls.add(rect2);
@@ -128,22 +126,7 @@ public class PacManController {
 
             pacMan.checkWallCollision(pacManGif, walls);
 
-            //RIGHT
-            if(rotate == 0){
-                pacManGif.setRotate(0);
-            }
-            //LEFT
-            else if (rotate == 1) {
-                pacManGif.setRotate(180);
-            }
-            //UP
-            else if (rotate == 2) {
-                pacManGif.setRotate(270);
-            }
-            //DOWN
-            else if (rotate == 3) {
-                pacManGif.setRotate(90);
-            }
+            pacManGif.setRotate(pacMan.rotationAngle());
         }
     }));
 
