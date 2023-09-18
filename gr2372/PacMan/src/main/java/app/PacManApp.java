@@ -29,13 +29,13 @@ public class PacManApp extends Application {
             @Override
             public void handle(KeyEvent event){
                 if (event.getCode() == KeyCode.RIGHT) {
-                    PacManController.changeDirection("RIGHT");
+                    PacMan.changeDirection("RIGHT");
                 } else if (event.getCode() == KeyCode.LEFT) {
-                    PacManController.changeDirection("LEFT");
+                    PacMan.changeDirection("LEFT");
                 } else if (event.getCode() == KeyCode.DOWN) {
-                    PacManController.changeDirection("DOWN");
+                    PacMan.changeDirection("DOWN");
                 } else if (event.getCode() == KeyCode.UP) {
-                    PacManController.changeDirection("UP");
+                    PacMan.changeDirection("UP");
                 }
             }
         });
