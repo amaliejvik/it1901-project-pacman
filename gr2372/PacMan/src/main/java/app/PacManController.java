@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 public class PacManController implements KeyListener{
@@ -50,6 +51,8 @@ public class PacManController implements KeyListener{
     private static double dx = 0;
     private static double dy = 0;
 
+    private static double rotate = 0;
+
     public void initialize() {
         startButton.setDisable(true);
         updateGUI();
@@ -68,6 +71,24 @@ public class PacManController implements KeyListener{
 
             pacManGif.setLayoutX(xPosition);
             pacManGif.setLayoutY(yPosition);
+
+            //RIGHT
+            if(rotate == 0){
+                pacManGif.setRotate(0);
+            }
+            //LEFT
+            else if (rotate == 1) {
+                pacManGif.setRotate(180);
+            }
+            //UP
+            else if (rotate == 2) {
+                pacManGif.setRotate(270);
+            }
+            //DOWN
+            else if (rotate == 3) {
+                pacManGif.setRotate(90);
+            }
+
         }
 
     }));
@@ -76,21 +97,41 @@ public class PacManController implements KeyListener{
         if(string.equals("RIGHT")) {
             dy = 0;
             dx = 1;
-            
+            rotate = 0;
         }
         else if(string.equals("LEFT")) {
             dy = 0;
             dx = -1;
+            rotate = 1;
         }
         else if(string.equals("UP")) {
             dy = -1;
             dx = 0;
+            rotate = 2;
+
         }
         else if(string.equals("DOWN")) {
             dy = 1;
             dx = 0;
+            rotate = 3;
         }
     }
+
+    // @FXML
+    // public static void changeRotation(String direction) {
+    //     if(direction.equals("RIGHT")) {
+            
+    //     }
+    //     else if(direction.equals("LEFT")) {
+
+    //     }
+    //     else if(direction.equals("UP")) {
+            
+    //     }
+    //     else if(direction.equals("DOWN")) {
+            
+    //     }
+    // }
 
     @FXML
     private void handleStartButton() {
