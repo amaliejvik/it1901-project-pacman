@@ -100,6 +100,6 @@
          </font>
       </Label>
        <Button id="seeScore" fx:id="seeScore" layoutX="384.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleSeeScoreButton" prefHeight="25.0" prefWidth="110.0" text="High Scores" />
-      <Button fx:id="restartGame" layoutX="384.0" layoutY="277.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
+      <Button fx:id="restartGame" layoutX="384.0" layoutY="277.0" mnemonicParsing="false" onAction="#handleRestartGameButton" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
    </children>
 </AnchorPane>
