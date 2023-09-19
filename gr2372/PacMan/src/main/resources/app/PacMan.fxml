@@ -93,6 +93,13 @@
             <Font size="33.0" />
          </font>
       </Label>
-      <Button id="seeScore" fx:id="seeScore" layoutX="407.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleSeeScoreButton" text="High Scores" />
+      <Rectangle fx:id="gameOverScreen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="268.0" layoutX="218.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="439.0" />
+       <Label fx:id="gameOverText" layoutX="309.0" layoutY="128.0" text="GameOver">
+         <font>
+            <Font name="Impact" size="62.0" />
+         </font>
+      </Label>
+       <Button id="seeScore" fx:id="seeScore" layoutX="384.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleSeeScoreButton" prefHeight="25.0" prefWidth="110.0" text="High Scores" />
+      <Button fx:id="restartGame" layoutX="384.0" layoutY="277.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
    </children>
 </AnchorPane>
