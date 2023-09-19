@@ -15,6 +15,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -28,11 +29,11 @@ public class PacManController {
     private PacMan pacMan;
     private List<Rectangle> walls = new ArrayList<>();
     private List<ImageView> pellets = new ArrayList<>();
-    // Settes etterhvert
-    private Text gameOverText;
-    private Rectangle gameoverScreen;
 
     // FXML-ATTRIBUTES
+    @FXML
+    private AnchorPane mainBackground;
+
     @FXML
     private ImageView mapGrid;
 
@@ -63,9 +64,6 @@ public class PacManController {
     private ImageView pacManGif;
 
     @FXML
-    private AnchorPane mainBackground;
-
-    @FXML
     private Label score;
 
     @FXML
@@ -74,12 +72,21 @@ public class PacManController {
     @FXML
     private Rectangle rectScore;
 
-    @FXML
-    private Button seeScore;
-
     // PacManGameOver
     @FXML
     private TextArea seeHighScore;
+
+    @FXML
+    private Label gameOverText;
+
+    @FXML
+    private Rectangle gameOverScreen;
+
+    @FXML
+    private Button restartGame;
+
+    @FXML
+    private Button seeScore;
 
     // PacManHighScores
     @FXML
@@ -139,6 +146,9 @@ public class PacManController {
         yourScoreText.setVisible(false);
         score.setVisible(false);
         seeScore.setVisible(false);
+        gameOverScreen.setVisible(false);
+        gameOverText.setVisible(false);
+        restartGame.setVisible(false);
 
         updateGUI();
     }
@@ -167,7 +177,7 @@ public class PacManController {
             // ROTATES PACMAN
             pacManGif.setRotate(pacMan.rotationAngle());
 
-            if (pacMan.getScore() >= 10) {
+            if (pacMan.getScore() >= 40) {
                 gameOver();
             }
 
@@ -221,22 +231,18 @@ public class PacManController {
 
     public void gameOver() {
         timeline1.stop();
+        gameOverScreen.setVisible(true);
+        gameOverText.setVisible(true);
         seeScore.setVisible(true);
-
-        gameOverText = new Text();
-        gameOverText.setText("Game Over");
-        gameOverText.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
-
-        gameoverScreen = new Rectangle();
-        mainBackground.getChildren().addAll(gameOverText, gameoverScreen);
+        restartGame.setVisible(true);
         PacmanReadAndWrite.saveScore(pacMan.getScore()); // save score to username
+        mapGrid.setViewOrder(2);
 
-        // setScoreGameOverScreen(); // Changes text so user can see their score
     }
 
     @FXML
     private void handleSeeScoreButton() {
-        //TODO: switch to gameoverscreen
+        // TODO: switch to gameoverscreen
     }
 
 }
