@@ -4,6 +4,6 @@ This is the main documentation for a JavaFX version of the game PacMan, from the
 It has been made collaboratively with Søren Boucher, Jenny Müller, Amalie Johansen-Wik and Herman Østenby.
 It will contain a total of 3 releases (only 1 has currently been made).
 
-# Location of release1-folder
+# Location of folder for release1
 
-The folder for release1 is gr2372\PacMan
+The folder for all code associated with release1 is gr2372\PacMan
