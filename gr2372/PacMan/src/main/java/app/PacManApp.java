@@ -25,7 +25,7 @@ public class PacManApp extends Application {
         stage.setMaximized(true);
         stage.show();
 
-        //CONNECTS MOVEMENT TO ARROW KEYS
+        //Registers keypresses of the different arrows
         scene.setOnKeyPressed(new EventHandler<KeyEvent>(){
             @Override
             public void handle(KeyEvent event){
