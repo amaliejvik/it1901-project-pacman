@@ -7,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 
 public class PacMan {
 
-    //ATTRIBUTES
+    //Attributes
     public static double dx = 0;
     public static double dy = 0;
     private double xPosition = 330;
@@ -15,38 +15,67 @@ public class PacMan {
     private static double rotate;
     private int score;
     
-    //CONSTRUCTOR
+    /**
+     * Constructor for PacMan
+     */
     public PacMan() {
         return;
     }
 
-    //GENERAL METHODS
+    /**
+     * Getter for score
+     * @return current score
+     */
     public int getScore() {
         return this.score;
     }
 
+    /**
+     * Setter for score
+     * @param score score to be set
+     */
     public void setScore(int score) {
         this.score = score;
     }
 
+    /**
+     * Getter for PacMan's x-position
+     * @return current x-position
+     */
     public double getXPosition() {
         return this.xPosition;
     }
 
+    /**
+     * Setter for PacMan's x-position
+     * @param xPosition x-position to be set
+     */
     public void setXPosition(double xPosition) {
         this.xPosition = xPosition;
     }
 
+    /**
+     * Getter for PacMan's y-position
+     * @return current y-position
+     */
     public double getYPosition() {
         return this.yPosition;
     }
 
+    /**
+     * Setter for PacMan's y-position
+     * @param yPosition y-position to be set
+     */
     public void setYPosition(double yPosition) {
         this.yPosition = yPosition;
     }
 
 
-    //CHANGES PACMANS MOVEMENT-DIRECTION
+    
+    /**
+     * Changes which direction PacMan is moving and facing
+     * @param string string to indicate what arrow is pressed
+     */
     public static void changeDirection(String string) {
         if(string.equals("RIGHT")) {
             dy = 0;
@@ -71,7 +100,12 @@ public class PacMan {
         }
     }
 
-    //CHECKS IF PACMAN HAS COLLIDED WITH WALL
+    
+    /**
+     * Checks if PacMan is colliding with any wall
+     * @param pacMan the PacMan model
+     * @param walls array with all walls
+     */
     public void checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
         for (Rectangle wall : walls){
             
@@ -95,7 +129,12 @@ public class PacMan {
         }
     }
 
-    //CHECKS IF PACMAN HAS COLLIDED WITH PELLETS
+    /**
+     * Checks if PacMan is colliding with any pellets,
+     * if so, removes pellet, adds to score
+     * @param pacMan the PacMan model
+     * @param walls array with all pellets
+     */
     public void checkPelletCollision(ImageView pacMan, List<ImageView> pellets){
         for (ImageView pellet : pellets){
             if(pacMan.getBoundsInParent().intersects(pellet.getBoundsInParent()) && pellet.isVisible()){
@@ -106,21 +145,24 @@ public class PacMan {
    
     }
 
-    //GIVES ROTATIONANGLE
+    /**
+     * Translates rotation index to degrees
+     * @return angle to point PacMan
+     */
     public double rotationAngle() {
-        //RIGHT
+        //Right
         if(rotate == 0){
             return 0;
         }
-        //LEFT
+        //Left
         else if (rotate == 1) {
             return 180;
         }
-        //UP
+        //Up
         else if (rotate == 2) {
             return 270;
         }
-        //DOWN
+        //Down
         return 90;
     }
 }
