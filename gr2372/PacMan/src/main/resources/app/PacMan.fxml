@@ -100,7 +100,7 @@
             <Font name="Impact" size="62.0" />
          </font>
       </Label>
-      <Button fx:id="restartGame" layoutX="557.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Restart game" />
+      <Button fx:id="restartGame" layoutX="384.0" layoutY="277.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
       <TextArea fx:id="highScores" layoutX="339.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0" promptText="HIGHSCORES TEST:" text=" " />
    </children>
 </AnchorPane>

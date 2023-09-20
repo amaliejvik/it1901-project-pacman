@@ -2,8 +2,6 @@ package app;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -179,13 +177,10 @@ public class PacManController {
     public void updateGUI() {
         startButton.setDisable(true);
         String name = usernameInput.getText();
-        Pattern pattern = Pattern.compile("\\s");
-        Matcher matcher = pattern.matcher(name);
-        boolean found = matcher.find();
         if (PacmanReadAndWrite.validateUserName(name)) {
             startButton.setDisable(false);
         }
-        if (found) {
+        else {
             startButton.setDisable(true);
         }
     }
@@ -239,6 +234,30 @@ public class PacManController {
     public void setScoreBoard(String newscoreboard) {
         highScores.setText(newscoreboard + "\n");
         System.out.println(newscoreboard + "\n");
+    }
+
+    @FXML
+    private void handleRestartGameButton() {
+        gameOverScreen.setVisible(false);
+        gameOverText.setVisible(false);
+        restartGame.setVisible(false);
+        startButton.setVisible(true);
+        startScreen.setVisible(true);
+        username.setVisible(true);
+        usernameInput.clear();
+        usernameInput.setVisible(true);
+        pacManText.setVisible(true);
+        for (ImageView pellet : pellets) {
+            pellet.setVisible(true);
+        }
+        
+        pacMan.setScore(0);
+        pacManGif.setLayoutX(330);
+        pacManGif.setLayoutY(115);
+        PacMan.dx = 0;
+        PacMan.dy = 0;
+
+        updateGUI();
     }
 
 }
