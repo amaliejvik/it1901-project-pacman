@@ -232,8 +232,7 @@ public class PacManController {
     }
 
     public void setScoreBoard(String newscoreboard) {
-        highScores.setText(newscoreboard + "\n");
-        System.out.println(newscoreboard + "\n");
+        highScores.setText(newscoreboard );
     }
 
     @FXML
