@@ -2,8 +2,6 @@ package app;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -15,11 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -188,13 +182,10 @@ public class PacManController {
     public void updateGUI() {
         startButton.setDisable(true);
         String name = usernameInput.getText();
-        Pattern pattern = Pattern.compile("\\s");
-        Matcher matcher = pattern.matcher(name);
-        boolean found = matcher.find();
         if (PacmanReadAndWrite.validateUserName(name)) {
             startButton.setDisable(false);
         }
-        if (found) {
+        else {
             startButton.setDisable(true);
         }
     }
