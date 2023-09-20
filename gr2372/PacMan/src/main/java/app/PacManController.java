@@ -67,8 +67,6 @@ public class PacManController {
     private Rectangle rectScore;
 
     // PacManGameOver
-    @FXML
-    private TextArea seeHighScore;
 
     @FXML
     private Label gameOverText;
@@ -80,10 +78,6 @@ public class PacManController {
     private Button restartGame;
 
     @FXML
-    private Button seeScore;
-
-    // PacManHighScores
-    @FXML
     private TextArea highScores;
 
     @FXML
@@ -91,6 +85,7 @@ public class PacManController {
 
     // CONSTRUCTOR
     public PacManController() {
+
         return;
     }
 
@@ -139,10 +134,10 @@ public class PacManController {
         rectScore.setVisible(false);
         yourScoreText.setVisible(false);
         score.setVisible(false);
-        seeScore.setVisible(false);
         gameOverScreen.setVisible(false);
         gameOverText.setVisible(false);
         restartGame.setVisible(false);
+        highScores.setVisible(false);
 
         updateGUI();
     }
@@ -221,25 +216,29 @@ public class PacManController {
     }
 
     public void gameOver() {
+        // Stop timeline
         timeline1.stop();
+        // Set GameOver screen visible
         gameOverScreen.setVisible(true);
         gameOverText.setVisible(true);
-        seeScore.setVisible(true);
         restartGame.setVisible(true);
+        highScores.setVisible(true);
+        // Save score to username in file
         PacmanReadAndWrite.saveScore(pacMan.getScore()); // save score to username
+        // Update highScore table, not working
+
+        highScores.setText(PacmanReadAndWrite.fetchScoreBoard());
 
     }
 
-    @FXML
-    private void handleSeeScoreButton() {
-        // TODO: switch to gameoverscreen
+    public void setScoreBoard(String newscoreboard) {
+        highScores.setText(newscoreboard );
     }
 
     @FXML
     private void handleRestartGameButton() {
         gameOverScreen.setVisible(false);
         gameOverText.setVisible(false);
-        seeScore.setVisible(false);
         restartGame.setVisible(false);
         startButton.setVisible(true);
         startScreen.setVisible(true);

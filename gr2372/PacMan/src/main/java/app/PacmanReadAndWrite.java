@@ -50,21 +50,29 @@ public class PacmanReadAndWrite {
   // TODO: create restart method so that score is set again
 
   public static String fetchScoreBoard() {
-    String scores = null;
+    // PacManController pcm = new PacManController();
+    String scores = "";
     try {
-      Scanner reader = new Scanner("gr2372/PacMan/src/main/resources/" + "scores");
+      Scanner reader = new Scanner(new File("gr2372/PacMan/src/main/resources/scores"));
       while (reader.hasNextLine()) {
-        scores = reader.nextLine();
-        reader.close();
+        String line = reader.nextLine();
+        scores = scores + line + "\n";
+        //pcm.setScoreBoard(scores);
         // her kan vi endre på highscoretabell i PacManController, når vi får på plass
         // FXML til det
         System.out.println(scores);
       }
+      reader.close();
     } catch (Exception e) {
       e.printStackTrace();
       System.out.println("Could not find file");
+      System.out.println(e.getLocalizedMessage());
     }
     return scores;
+  }
+
+  public static void main() {
+    fetchScoreBoard();
   }
 
 }
