@@ -65,6 +65,14 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>org.jacoco.agent</artifactId>
+            <version>0.8.7</version> <!-- Siste versjon på tidspunktet for skriving -->
+            <scope>runtime</scope>
+        </dependency>
+
+   
     </dependencies>
 
     <build>
@@ -82,6 +90,7 @@
 		        <version>3.1.2</version>
                 <configuration>
                     <argLine>
+                   -Xmx1024M ${argLine}
                     --add-opens app/app=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
                     </argLine>
                 </configuration>
@@ -97,6 +106,30 @@
                     <mainClass>app/app.PacManApp</mainClass>
                 </configuration>
             </plugin>
+
+                <!-- Konfigurer JaCoCo-agenten -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version> <!-- Siste versjon på tidspunktet for skriving -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+    
+                
         </plugins>
     </build>
 </project>
