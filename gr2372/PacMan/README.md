@@ -13,6 +13,8 @@ The first release of PacMan contains basic gameplay mechanics. It includes:
 - Functionality for replaying
 - A user story to highlight the possibilities and limitations of the game
 
+
+
 ## Repo structure
 ```
 ├── README.md                               : Description of this repository

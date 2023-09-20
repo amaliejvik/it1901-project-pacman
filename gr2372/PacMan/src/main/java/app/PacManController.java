@@ -236,13 +236,37 @@ public class PacManController {
         seeScore.setVisible(true);
         restartGame.setVisible(true);
         PacmanReadAndWrite.saveScore(pacMan.getScore()); // save score to username
-        mapGrid.setViewOrder(2);
 
     }
 
     @FXML
     private void handleSeeScoreButton() {
         // TODO: switch to gameoverscreen
+    }
+
+    @FXML
+    private void handleRestartGameButton() {
+        gameOverScreen.setVisible(false);
+        gameOverText.setVisible(false);
+        seeScore.setVisible(false);
+        restartGame.setVisible(false);
+        startButton.setVisible(true);
+        startScreen.setVisible(true);
+        username.setVisible(true);
+        usernameInput.clear();
+        usernameInput.setVisible(true);
+        pacManText.setVisible(true);
+        for (ImageView pellet : pellets) {
+            pellet.setVisible(true);
+        }
+        
+        pacMan.setScore(0);
+        pacManGif.setLayoutX(330);
+        pacManGif.setLayoutY(115);
+        PacMan.dx = 0;
+        PacMan.dy = 0;
+
+        updateGUI();
     }
 
 }
