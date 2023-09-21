@@ -212,7 +212,7 @@ public class PacManController {
             yourScoreText.setVisible(true);
             score.setVisible(true);
 
-            PacmanReadAndWrite.saveUserName(usernameInput.getText());
+            pacMan.setUsername(usernameInput.getText());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Could not start game");
@@ -232,7 +232,7 @@ public class PacManController {
         restartGame.setVisible(true);
         highScores.setVisible(true);
         // Save score to username in file
-        PacmanReadAndWrite.saveScore(pacMan.getScore());
+        PacmanReadAndWrite.saveHighscore(pacMan.getUsername(), pacMan.getScore());
         // Displays score in scoreboard
         highScores.setText(PacmanReadAndWrite.fetchScoreBoard());
     }

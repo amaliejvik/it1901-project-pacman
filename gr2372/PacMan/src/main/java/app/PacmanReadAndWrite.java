@@ -13,10 +13,8 @@ public class PacmanReadAndWrite {
    */
   public static boolean validateUserName(String name) {
     if (name.contains(" ")) {
-      System.out.println("Name cannot contain spacing");
       return false;
     } else if (name == "") {
-      System.out.println("Namefield cannot be empty");
       return false;
     } else if (name.length() <= 2) {
       return false;
@@ -26,32 +24,16 @@ public class PacmanReadAndWrite {
 
   /**
    * Writes username and score to highscore file
-   * @param name username of the player
+   * @param name
+   * @param score
    */
-  public static void saveUserName(String name) {
-    if (!validateUserName(name)) {
-      throw new IllegalArgumentException("Invalid name");
-    }
+  public static void saveHighscore(String name, double score) {
     try {
-      File userScores = new File("gr2372/PacMan/src/main/resources/" + "scores.txt");
-      FileWriter userNameWriter = new FileWriter(userScores, true);
-      userNameWriter.write(name + ": ");
-      userNameWriter.close();
-      System.out.println("Username saved");
-    } catch (Exception e) {
-      e.printStackTrace();
-      System.out.println("Username failed to save");
-    }
-  }
-
-  //TODO: combine with saveUserName to one function that saves name and score at gameover
-  public static void saveScore(int score) {
-    try {
-      FileWriter scoreWriter = new FileWriter("gr2372/PacMan/src/main/resources/" + "scores.txt", true);
-      scoreWriter.write(score + "\n");
-      scoreWriter.close();
+      File highScoreFile = new File("gr2372/PacMan/src/main/resources/" + "scores.txt");
+      FileWriter highScoreWriter = new FileWriter(highScoreFile, true);
+      highScoreWriter.write(name + ": " + score + "\n");
+      highScoreWriter.close();
       System.out.println("Score saved");
-
     } catch (Exception e) {
       e.printStackTrace();
       System.out.println("Score failed to save");
@@ -79,9 +61,4 @@ public class PacmanReadAndWrite {
     }
     return scores;
   }
-
-  public static void main() {
-    fetchScoreBoard();
-  }
-
 }

@@ -14,6 +14,7 @@ public class PacMan {
     private double yPosition = 115;
     private static double rotate;
     private int score;
+    private String username;
     
     //CONSTRUCTOR
     public PacMan() {
@@ -43,6 +44,14 @@ public class PacMan {
 
     public void setYPosition(double yPosition) {
         this.yPosition = yPosition;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String usr) {
+        username = usr;
     }
 
     /**
