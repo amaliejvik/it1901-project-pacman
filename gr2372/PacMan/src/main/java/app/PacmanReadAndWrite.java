@@ -24,6 +24,8 @@ public class PacmanReadAndWrite {
 
   /**
    * Writes username and score to highscore file
+   * @param name
+   * @param score
    */
   public static void saveHighscore(String name, double score) {
     try {
