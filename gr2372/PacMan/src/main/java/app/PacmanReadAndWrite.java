@@ -23,7 +23,7 @@ public class PacmanReadAndWrite {
       throw new IllegalArgumentException("Invalid name");
     }
     try {
-      File userScores = new File("gr2372/PacMan/src/main/resources/" + "scores");
+      File userScores = new File("gr2372/PacMan/src/main/resources/" + "scores.txt");
       FileWriter userNameWriter = new FileWriter(userScores, true);
       userNameWriter.write(name + ": ");
       userNameWriter.close();
@@ -36,7 +36,7 @@ public class PacmanReadAndWrite {
 
   public static void saveScore(int score) {
     try {
-      FileWriter scoreWriter = new FileWriter("gr2372/PacMan/src/main/resources/" + "scores", true);
+      FileWriter scoreWriter = new FileWriter("gr2372/PacMan/src/main/resources/" + "scores.txt", true);
       scoreWriter.write(score + "\n");
       scoreWriter.close();
       System.out.println("Score saved");
@@ -53,7 +53,7 @@ public class PacmanReadAndWrite {
     // PacManController pcm = new PacManController();
     String scores = "";
     try {
-      Scanner reader = new Scanner(new File("gr2372/PacMan/src/main/resources/scores"));
+      Scanner reader = new Scanner(new File("gr2372/PacMan/src/main/resources/scores.txt"));
       while (reader.hasNextLine()) {
         String line = reader.nextLine();
         scores = scores + line + "\n";
