@@ -7,3 +7,8 @@ It will contain a total of 3 releases (only 1 has currently been made).
 # Location of folder for release1
 
 The folder for all code associated with release1 is gr2372\PacMan
+
+# Current versions of software
+
+Java version: 17.0.8
+Maven version: 3.9.4
