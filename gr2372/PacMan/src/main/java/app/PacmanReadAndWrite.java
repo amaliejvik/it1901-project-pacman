@@ -47,8 +47,6 @@ public class PacmanReadAndWrite {
     }
   }
 
-  // TODO: create restart method so that score is set again
-
   public static String fetchScoreBoard() {
     // PacManController pcm = new PacManController();
     String scores = "";
