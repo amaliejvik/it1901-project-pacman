@@ -7,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 
 public class PacMan {
 
-    //ATTRIBUTES
+    // ATTRIBUTES
     public static double dx = 0;
     public static double dy = 0;
     private double xPosition = 330;
@@ -61,7 +61,7 @@ public class PacMan {
      * sets the static variables dx, dy and rotation which are fed into the timeline function in the controller
      */
     public static void changeDirection(String string) {
-        if(string.equals("RIGHT")) {
+        if (string.equals("RIGHT")) {
             dy = 0;
             dx = 1;
             rotate = 0;
@@ -70,13 +70,11 @@ public class PacMan {
             dy = 0;
             dx = -1;
             rotate = 1;
-        }
-        else if(string.equals("UP")) {
+        } else if (string.equals("UP")) {
             dy = -1;
             dx = 0;
             rotate = 2;
-        }
-        else if(string.equals("DOWN")) {
+        } else if (string.equals("DOWN")) {
             dy = 1;
             dx = 0;
             rotate = 3;
@@ -91,19 +89,16 @@ public class PacMan {
      * pacman's position bounces back from the wall.
      */
     public void checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
-        for (Rectangle wall : walls){
-            
+        for (Rectangle wall : walls) {
+
             if (pacMan.getBoundsInParent().intersects(wall.getBoundsInParent())) {
                 if (dx == 1) {
                     xPosition -= 3;
-                }
-                else if (dx == -1) {
+                } else if (dx == -1) {
                     xPosition += 3;
-                }
-                else if (dy == 1) {
+                } else if (dy == 1) {
                     yPosition -= 3;
-                }
-                else if (dy == -1) {
+                } else if (dy == -1) {
                     yPosition += 3;
                 }
 
@@ -128,7 +123,7 @@ public class PacMan {
                 pellet.setVisible(false);
             }
         }
-   
+
     }
 
     //GIVES ROTATION-ANGLE
@@ -136,19 +131,19 @@ public class PacMan {
      * @return correct rotation angle corresponding to direction of travel
      */
     public double rotationAngle() {
-        //RIGHT
-        if(rotate == 0){
+        // RIGHT
+        if (rotate == 0) {
             return 0;
         }
-        //LEFT
+        // LEFT
         else if (rotate == 1) {
             return 180;
         }
-        //UP
+        // UP
         else if (rotate == 2) {
             return 270;
         }
-        //DOWN
+        // DOWN
         return 90;
     }
 }
