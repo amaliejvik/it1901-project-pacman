@@ -240,6 +240,7 @@ public class PacManController {
         gameOverScreen.setVisible(false);
         gameOverText.setVisible(false);
         restartGame.setVisible(false);
+        highScores.setVisible(false);
         startButton.setVisible(true);
         startScreen.setVisible(true);
         username.setVisible(true);
