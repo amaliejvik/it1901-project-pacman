@@ -66,8 +66,6 @@ public class PacManController {
     @FXML
     private Rectangle rectScore;
 
-    // PacManGameOver
-
     @FXML
     private Label gameOverText;
 
@@ -127,10 +125,10 @@ public class PacManController {
         pellets.add(pellet3);
         pellets.add(pellet4);
 
-        // DISABLES BUTTON
+        // DISABLES START BUTTON
         startButton.setDisable(true);
 
-        // SCORE
+        // HIDES SCORE AND GAMEOVER SCREEN
         rectScore.setVisible(false);
         yourScoreText.setVisible(false);
         score.setVisible(false);
@@ -148,11 +146,11 @@ public class PacManController {
         @Override
         public void handle(ActionEvent event) {
 
-            // UPDATES PACMAN'S POSITION ("backend")
+            // UPDATES PACMAN'S POSITION-VARIABLES
             pacMan.setXPosition(pacMan.getXPosition() + PacMan.dx);
             pacMan.setYPosition(pacMan.getYPosition() + PacMan.dy);
 
-            // UPDATES PACMAN'S POSITION ("frontend")
+            // GRAPHICALLY UPDATES PACMAN'S POSITION
             pacManGif.setLayoutX(pacMan.getXPosition());
             pacManGif.setLayoutY(pacMan.getYPosition());
 
@@ -173,6 +171,9 @@ public class PacManController {
         }
     }));
 
+    /**
+     * Disables the startbutton if the username is invalid
+     */
     @FXML
     public void updateGUI() {
         startButton.setDisable(true);
@@ -185,6 +186,9 @@ public class PacManController {
         }
     }
 
+    /**
+     * Hides the startscreen and starts the game when startbutton is pressed
+     */
     @FXML
     private void handleStartButton() {
         try {
@@ -215,6 +219,10 @@ public class PacManController {
         }
     }
 
+    /**
+     * Stops game when all pellets are collected, 
+     * displays gameover-screen
+     */
     public void gameOver() {
         // Stop timeline
         timeline1.stop();
@@ -224,17 +232,18 @@ public class PacManController {
         restartGame.setVisible(true);
         highScores.setVisible(true);
         // Save score to username in file
-        PacmanReadAndWrite.saveScore(pacMan.getScore()); // save score to username
-        // Update highScore table, not working
-
+        PacmanReadAndWrite.saveScore(pacMan.getScore());
+        // Displays score in scoreboard
         highScores.setText(PacmanReadAndWrite.fetchScoreBoard());
-
     }
 
     public void setScoreBoard(String newscoreboard) {
         highScores.setText(newscoreboard );
     }
 
+    /**
+     * Restarts game when restart button is pressed
+     */
     @FXML
     private void handleRestartGameButton() {
         gameOverScreen.setVisible(false);
@@ -259,5 +268,4 @@ public class PacManController {
 
         updateGUI();
     }
-
 }

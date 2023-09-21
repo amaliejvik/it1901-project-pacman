@@ -5,6 +5,12 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class PacmanReadAndWrite {
+
+  /**
+   * Input validation on username, e.g. no spaces or empty strings
+   * @param name username from player
+   * @return true if the username is valid, else false
+   */
   public static boolean validateUserName(String name) {
     if (name.contains(" ")) {
       System.out.println("Name cannot contain spacing");
@@ -18,6 +24,10 @@ public class PacmanReadAndWrite {
     return true;
   }
 
+  /**
+   * Writes username and score to highscore file
+   * @param name username of the player
+   */
   public static void saveUserName(String name) {
     if (!validateUserName(name)) {
       throw new IllegalArgumentException("Invalid name");
@@ -34,6 +44,7 @@ public class PacmanReadAndWrite {
     }
   }
 
+  //TODO: combine with saveUserName to one function that saves name and score at gameover
   public static void saveScore(int score) {
     try {
       FileWriter scoreWriter = new FileWriter("gr2372/PacMan/src/main/resources/" + "scores.txt", true);
@@ -47,17 +58,17 @@ public class PacmanReadAndWrite {
     }
   }
 
+  /**
+   * Reads scores.txt into leaderboard
+   * @return
+   */
   public static String fetchScoreBoard() {
-    // PacManController pcm = new PacManController();
     String scores = "";
     try {
       Scanner reader = new Scanner(new File("gr2372/PacMan/src/main/resources/scores.txt"));
       while (reader.hasNextLine()) {
         String line = reader.nextLine();
         scores = scores + line + "\n";
-        //pcm.setScoreBoard(scores);
-        // her kan vi endre på highscoretabell i PacManController, når vi får på plass
-        // FXML til det
         System.out.println(scores);
       }
       reader.close();
