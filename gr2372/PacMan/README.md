@@ -47,3 +47,7 @@ This is the main game-screen:
 This is the gameover-screen, where previous results are displayed:
 
 ![GameoverScreen](src/main/resources/README-Images/gameoverScreen.png)
+
+# Goal for final release
+
+The goal for the final release of this project is for the application to resemble the PacMan video game as closely as practicable. Ideally, in future releases the board would have a full set of pellets, power pellets would be implemented and four monsters would roam the board trying to catch PacMan. The highscore list would will be store globally as well as locally in future releases.
