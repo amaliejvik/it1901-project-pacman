@@ -8,10 +8,11 @@ The first release of PacMan contains basic gameplay mechanics. It includes:
 - A PacMan that is controllable with the corresponding arrow-keys
 - A map with functional walls
 - A set of "pellets", that PacMan is supposed to collect
-- A scoring system to display how many pellets PacMan has collected
-- A system for storing scores and reading highscores
-- Functionality for replaying
+- A scoring system to keep track of how many pellets PacMan has collected
+- A system for storing scores, reading and displaying highscores
+- Functionality for replay
 - A user story to highlight the possibilities and limitations of the game
+- Documentation of the current state of the game
 
 ## Repo structure
 ```
@@ -32,3 +33,17 @@ The first release of PacMan contains basic gameplay mechanics. It includes:
         ├── AppTest.java                    : 
         └── PacManReadAndWriteTest.java     : Testing reading and writing
 ```
+
+# Images from the game
+
+This is the start-screen for the game, where the player can register their score with a username:
+
+![Startscreen](src/main/resources/README-Images/startScreen.png)
+
+This is the main game-screen:
+
+![Gamescreen](src/main/resources/README-Images/gameScreen.png)
+
+This is the gameover-screen, where previous results are displayed:
+
+![GameoverScreen](src/main/resources/README-Images/gameoverScreen.png)
