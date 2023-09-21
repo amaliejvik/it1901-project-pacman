@@ -5,12 +5,16 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class PacmanReadAndWrite {
+
+  /**
+   * Input validation on username, e.g. no spaces or empty strings
+   * @param name username from player
+   * @return true if the username is valid, else false
+   */
   public static boolean validateUserName(String name) {
     if (name.contains(" ")) {
-      System.out.println("Name cannot contain spacing");
       return false;
     } else if (name == "") {
-      System.out.println("Namefield cannot be empty");
       return false;
     } else if (name.length() <= 2) {
       return false;
@@ -18,46 +22,35 @@ public class PacmanReadAndWrite {
     return true;
   }
 
-  public static void saveUserName(String name) {
-    if (!validateUserName(name)) {
-      throw new IllegalArgumentException("Invalid name");
-    }
+  /**
+   * Writes username and score to highscore file
+   * @param name
+   * @param score
+   */
+  public static void saveHighscore(String name, double score) {
     try {
-      File userScores = new File("gr2372/PacMan/src/main/resources/" + "scores.txt");
-      FileWriter userNameWriter = new FileWriter(userScores, true);
-      userNameWriter.write(name + ": ");
-      userNameWriter.close();
-      System.out.println("Username saved");
-    } catch (Exception e) {
-      e.printStackTrace();
-      System.out.println("Username failed to save");
-    }
-  }
-
-  public static void saveScore(int score) {
-    try {
-      FileWriter scoreWriter = new FileWriter("gr2372/PacMan/src/main/resources/" + "scores.txt", true);
-      scoreWriter.write(score + "\n");
-      scoreWriter.close();
+      File highScoreFile = new File("gr2372/PacMan/src/main/resources/" + "scores.txt");
+      FileWriter highScoreWriter = new FileWriter(highScoreFile, true);
+      highScoreWriter.write(name + ": " + score + "\n");
+      highScoreWriter.close();
       System.out.println("Score saved");
-
     } catch (Exception e) {
       e.printStackTrace();
       System.out.println("Score failed to save");
     }
   }
 
+  /**
+   * Reads scores.txt into leaderboard
+   * @return
+   */
   public static String fetchScoreBoard() {
-    // PacManController pcm = new PacManController();
     String scores = "";
     try {
       Scanner reader = new Scanner(new File("gr2372/PacMan/src/main/resources/scores.txt"));
       while (reader.hasNextLine()) {
         String line = reader.nextLine();
         scores = scores + line + "\n";
-        //pcm.setScoreBoard(scores);
-        // her kan vi endre på highscoretabell i PacManController, når vi får på plass
-        // FXML til det
         System.out.println(scores);
       }
       reader.close();
@@ -68,9 +61,4 @@ public class PacmanReadAndWrite {
     }
     return scores;
   }
-
-  public static void main() {
-    fetchScoreBoard();
-  }
-
 }

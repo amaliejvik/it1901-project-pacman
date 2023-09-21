@@ -25,7 +25,7 @@ public class PacManApp extends Application {
         stage.setMaximized(false);
         stage.show();
 
-        // CONNECTS MOVEMENT TO ARROW KEYS
+        // REGISTERS KEY INPUTS FROM USER
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
