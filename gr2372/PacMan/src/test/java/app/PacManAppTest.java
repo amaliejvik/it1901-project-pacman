@@ -50,7 +50,6 @@ public class PacManAppTest extends ApplicationTest {
         // Simulate clicking on startbutton
         clickOn("#startButton");
 
-
     }
 
 }
