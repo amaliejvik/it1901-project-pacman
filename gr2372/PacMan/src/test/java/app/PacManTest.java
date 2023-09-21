@@ -9,28 +9,26 @@ public class PacManTest {
     @Test
     @DisplayName("Test Pacman changeDirection()")
     public void testPacManChangeDirection() {
-        PacMan pacman = new PacMan();
-
         // Test Right
-        pacman.changeDirection("RIGHT");
+        PacMan.changeDirection("RIGHT");
 
-        Assertions.assertEquals(1, pacman.getDx());
-        Assertions.assertEquals(0, pacman.getDy());
+        Assertions.assertEquals(1, PacMan.dx);
+        Assertions.assertEquals(0, PacMan.dy);
 
         // Test Left
-        pacman.changeDirection("LEFT");
-        Assertions.assertEquals(-1, pacman.getDx());
-        Assertions.assertEquals(0, pacman.getDy());
+        PacMan.changeDirection("LEFT");
+        Assertions.assertEquals(-1, PacMan.dx);
+        Assertions.assertEquals(0, PacMan.dy);
 
         // Test Up
-        pacman.changeDirection("UP");
-        Assertions.assertEquals(-1, pacman.getDy());
-        Assertions.assertEquals(0, pacman.getDx());
+        PacMan.changeDirection("UP");
+        Assertions.assertEquals(-1, PacMan.dy);
+        Assertions.assertEquals(0, PacMan.dx);
 
         // Test Down
-        pacman.changeDirection("DOWN");
-        Assertions.assertEquals(1, pacman.getDy());
-        Assertions.assertEquals(0, pacman.getDx());
+        PacMan.changeDirection("DOWN");
+        Assertions.assertEquals(1, PacMan.dy);
+        Assertions.assertEquals(0, PacMan.dx);
     }
 
     @Test
