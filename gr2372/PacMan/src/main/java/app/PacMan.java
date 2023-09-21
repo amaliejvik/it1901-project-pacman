@@ -20,7 +20,7 @@ public class PacMan {
         return;
     }
 
-    //GENERAL METHODS
+    //GETTERS AND SETTERS
     public int getScore() {
         return this.score;
     }
@@ -41,19 +41,14 @@ public class PacMan {
         return this.yPosition;
     }
 
-    /**
-     * @param yPosition
-     * 
-     */
     public void setYPosition(double yPosition) {
         this.yPosition = yPosition;
     }
 
-
     /**
-     * Changes PacMan's direction and rotation
-     * Receives key inputs from PacManApp class
-     * @param string the direction of the corresponding arrow key typed
+     * Changes PacMan's direction and rotation.
+     * Receives key inputs from PacManApp class.
+     * @param string the direction of the corresponding arrow key typed.
      * sets the static variables dx, dy and rotation which are fed into the timeline function in the controller
      */
     public static void changeDirection(String string) {
@@ -80,12 +75,11 @@ public class PacMan {
     }
 
     //CHECKS IF PACMAN HAS COLLIDED WITH WALL
-
     /**
      * @param pacMan pacman's position
      * @param walls lsit of all walls on map
-     * if pacman collides with a wall, movement stops, dx&y set to 0
-     * pacman's position bounces back from the wall
+     * if pacman collides with a wall, movement stops, dx dy set to 0.
+     * pacman's position bounces back from the wall.
      */
     public void checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
         for (Rectangle wall : walls){
@@ -112,9 +106,9 @@ public class PacMan {
 
     //CHECKS IF PACMAN HAS COLLIDED WITH PELLETS
     /**
-     * When pacman collides with a pellet
-     * If statement checks if pellet has already been consumed
-     * if not, user is given 10 points and pellet is set to invisible
+     * When pacman collides with a pellet,
+     * If-statement checks if pellet has already been consumed.
+     * If not, user is given 10 points and pellet is set to invisible
      * @param pacMan pacman's position
      * @param pellets list of pellet positions
      */
@@ -128,7 +122,7 @@ public class PacMan {
    
     }
 
-    //GIVES ROTATIONANGLE
+    //GIVES ROTATION-ANGLE
     /**
      * @return correct rotation angle corresponding to direction of travel
      */
