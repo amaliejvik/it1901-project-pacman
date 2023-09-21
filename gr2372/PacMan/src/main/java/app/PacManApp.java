@@ -22,13 +22,13 @@ public class PacManApp extends Application {
         Parent parent = fxmlLoader.load();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
-        stage.setMaximized(true);
+        stage.setMaximized(false);
         stage.show();
 
-        //CONNECTS MOVEMENT TO ARROW KEYS
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>(){
+        // CONNECTS MOVEMENT TO ARROW KEYS
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
-            public void handle(KeyEvent event){
+            public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.RIGHT) {
                     PacMan.changeDirection("RIGHT");
                 } else if (event.getCode() == KeyCode.LEFT) {

@@ -2,8 +2,6 @@ package app;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -15,11 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -73,8 +67,6 @@ public class PacManController {
     private Rectangle rectScore;
 
     // PacManGameOver
-    @FXML
-    private TextArea seeHighScore;
 
     @FXML
     private Label gameOverText;
@@ -86,10 +78,6 @@ public class PacManController {
     private Button restartGame;
 
     @FXML
-    private Button seeScore;
-
-    // PacManHighScores
-    @FXML
     private TextArea highScores;
 
     @FXML
@@ -97,6 +85,7 @@ public class PacManController {
 
     // CONSTRUCTOR
     public PacManController() {
+
         return;
     }
 
@@ -145,10 +134,10 @@ public class PacManController {
         rectScore.setVisible(false);
         yourScoreText.setVisible(false);
         score.setVisible(false);
-        seeScore.setVisible(false);
         gameOverScreen.setVisible(false);
         gameOverText.setVisible(false);
         restartGame.setVisible(false);
+        highScores.setVisible(false);
 
         updateGUI();
     }
@@ -188,13 +177,10 @@ public class PacManController {
     public void updateGUI() {
         startButton.setDisable(true);
         String name = usernameInput.getText();
-        Pattern pattern = Pattern.compile("\\s");
-        Matcher matcher = pattern.matcher(name);
-        boolean found = matcher.find();
         if (PacmanReadAndWrite.validateUserName(name)) {
             startButton.setDisable(false);
         }
-        if (found) {
+        else {
             startButton.setDisable(true);
         }
     }
@@ -230,19 +216,48 @@ public class PacManController {
     }
 
     public void gameOver() {
+        // Stop timeline
         timeline1.stop();
+        // Set GameOver screen visible
         gameOverScreen.setVisible(true);
         gameOverText.setVisible(true);
-        seeScore.setVisible(true);
         restartGame.setVisible(true);
+        highScores.setVisible(true);
+        // Save score to username in file
         PacmanReadAndWrite.saveScore(pacMan.getScore()); // save score to username
-        mapGrid.setViewOrder(2);
+        // Update highScore table, not working
+
+        highScores.setText(PacmanReadAndWrite.fetchScoreBoard());
 
     }
 
+    public void setScoreBoard(String newscoreboard) {
+        highScores.setText(newscoreboard );
+    }
+
     @FXML
-    private void handleSeeScoreButton() {
-        // TODO: switch to gameoverscreen
+    private void handleRestartGameButton() {
+        gameOverScreen.setVisible(false);
+        gameOverText.setVisible(false);
+        restartGame.setVisible(false);
+        highScores.setVisible(false);
+        startButton.setVisible(true);
+        startScreen.setVisible(true);
+        username.setVisible(true);
+        usernameInput.clear();
+        usernameInput.setVisible(true);
+        pacManText.setVisible(true);
+        for (ImageView pellet : pellets) {
+            pellet.setVisible(true);
+        }
+        
+        pacMan.setScore(0);
+        pacManGif.setLayoutX(330);
+        pacManGif.setLayoutY(115);
+        PacMan.dx = 0;
+        PacMan.dy = 0;
+
+        updateGUI();
     }
 
 }
