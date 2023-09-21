@@ -14,7 +14,7 @@ The first release of PacMan contains basic gameplay mechanics. It includes:
 - A user story to highlight the possibilities and limitations of the game
 - Documentation of the current state of the game
 
-## Repo structure
+# Repo structure
 ```
 ├── README.md                               : Description of this repository
 ├── pom.txt                                 : Maven file to correctly load structure and dependecies in the project
