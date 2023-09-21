@@ -29,7 +29,7 @@ public class PacmanReadAndWrite {
    */
   public static void saveHighscore(String name, double score) {
     try {
-      File highScoreFile = new File("gr2372/PacMan/src/main/resources/" + "scores.txt");
+      File highScoreFile = new File("src/main/resources/" + "scores.txt");
       FileWriter highScoreWriter = new FileWriter(highScoreFile, true);
       highScoreWriter.write(name + ": " + score + "\n");
       highScoreWriter.close();
@@ -47,7 +47,7 @@ public class PacmanReadAndWrite {
   public static String fetchScoreBoard() {
     String scores = "";
     try {
-      Scanner reader = new Scanner(new File("gr2372/PacMan/src/main/resources/scores.txt"));
+      Scanner reader = new Scanner(new File("src/main/resources/scores.txt"));
       while (reader.hasNextLine()) {
         String line = reader.nextLine();
         scores = scores + line + "\n";
