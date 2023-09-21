@@ -7,20 +7,20 @@ import javafx.scene.shape.Rectangle;
 
 public class PacMan {
 
-    //ATTRIBUTES
+    // ATTRIBUTES
     public static double dx = 0;
     public static double dy = 0;
     private double xPosition = 330;
     private double yPosition = 115;
     private static double rotate;
     private int score;
-    
-    //CONSTRUCTOR
+
+    // CONSTRUCTOR
     public PacMan() {
         return;
     }
 
-    //GENERAL METHODS
+    // GENERAL METHODS
     public int getScore() {
         return this.score;
     }
@@ -45,47 +45,48 @@ public class PacMan {
         this.yPosition = yPosition;
     }
 
+    public double getDx() {
+        return dx;
+    }
 
-    //CHANGES PACMANS MOVEMENT-DIRECTION
+    public double getDy() {
+        return dy;
+    }
+
+    // CHANGES PACMANS MOVEMENT-DIRECTION
     public static void changeDirection(String string) {
-        if(string.equals("RIGHT")) {
+        if (string.equals("RIGHT")) {
             dy = 0;
             dx = 1;
             rotate = 0;
-            
-        }
-        else if(string.equals("LEFT")) {
+
+        } else if (string.equals("LEFT")) {
             dy = 0;
             dx = -1;
             rotate = 1;
-        }
-        else if(string.equals("UP")) {
+        } else if (string.equals("UP")) {
             dy = -1;
             dx = 0;
             rotate = 2;
-        }
-        else if(string.equals("DOWN")) {
+        } else if (string.equals("DOWN")) {
             dy = 1;
             dx = 0;
             rotate = 3;
         }
     }
 
-    //CHECKS IF PACMAN HAS COLLIDED WITH WALL
+    // CHECKS IF PACMAN HAS COLLIDED WITH WALL
     public void checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
-        for (Rectangle wall : walls){
-            
+        for (Rectangle wall : walls) {
+
             if (pacMan.getBoundsInParent().intersects(wall.getBoundsInParent())) {
                 if (dx == 1) {
                     xPosition -= 3;
-                }
-                else if (dx == -1) {
+                } else if (dx == -1) {
                     xPosition += 3;
-                }
-                else if (dy == 1) {
+                } else if (dy == 1) {
                     yPosition -= 3;
-                }
-                else if (dy == -1) {
+                } else if (dy == -1) {
                     yPosition += 3;
                 }
 
@@ -95,32 +96,32 @@ public class PacMan {
         }
     }
 
-    //CHECKS IF PACMAN HAS COLLIDED WITH PELLETS
-    public void checkPelletCollision(ImageView pacMan, List<ImageView> pellets){
-        for (ImageView pellet : pellets){
-            if(pacMan.getBoundsInParent().intersects(pellet.getBoundsInParent()) && pellet.isVisible()){
+    // CHECKS IF PACMAN HAS COLLIDED WITH PELLETS
+    public void checkPelletCollision(ImageView pacMan, List<ImageView> pellets) {
+        for (ImageView pellet : pellets) {
+            if (pacMan.getBoundsInParent().intersects(pellet.getBoundsInParent()) && pellet.isVisible()) {
                 score += 10;
                 pellet.setVisible(false);
             }
         }
-   
+
     }
 
-    //GIVES ROTATIONANGLE
+    // GIVES ROTATIONANGLE
     public double rotationAngle() {
-        //RIGHT
-        if(rotate == 0){
+        // RIGHT
+        if (rotate == 0) {
             return 0;
         }
-        //LEFT
+        // LEFT
         else if (rotate == 1) {
             return 180;
         }
-        //UP
+        // UP
         else if (rotate == 2) {
             return 270;
         }
-        //DOWN
+        // DOWN
         return 90;
     }
 }
