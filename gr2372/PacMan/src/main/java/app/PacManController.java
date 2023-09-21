@@ -1,6 +1,6 @@
 package app;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -18,30 +18,29 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class PacManController {
-
+    
     // REGULAR ATTRIBUTES
     private PacMan pacMan;
-    private List<Rectangle> walls = new ArrayList<>();
-    private List<ImageView> pellets = new ArrayList<>();
+    private List<Rectangle> walls;
+    private List<ImageView> pellets;
 
     // FXML-ATTRIBUTES
     @FXML
     private AnchorPane mainBackground;
-
+    
     @FXML
     private ImageView mapGrid;
-
+    
     @FXML
     private Button startButton;
-
+    
     @FXML
     private Rectangle startScreen;
-
+    
     @FXML
     private Rectangle rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13,
-            rect14, rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26,
-            rect27;
-
+                        rect14, rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27;
+    
     @FXML
     private ImageView pellet1, pellet2, pellet3, pellet4;
 
@@ -81,49 +80,15 @@ public class PacManController {
     @FXML
     private Button backButton;
 
-    // CONSTRUCTOR
-    public PacManController() {
-
-        return;
-    }
-
     // INITIALIZES GAME
     public void initialize() {
 
         // ARRAY OF WALLS
-        walls.add(rect1);
-        walls.add(rect2);
-        walls.add(rect3);
-        walls.add(rect4);
-        walls.add(rect5);
-        walls.add(rect6);
-        walls.add(rect7);
-        walls.add(rect8);
-        walls.add(rect9);
-        walls.add(rect10);
-        walls.add(rect11);
-        walls.add(rect12);
-        walls.add(rect13);
-        walls.add(rect14);
-        walls.add(rect15);
-        walls.add(rect16);
-        walls.add(rect17);
-        walls.add(rect18);
-        walls.add(rect19);
-        walls.add(rect20);
-        walls.add(rect21);
-        walls.add(rect22);
-        walls.add(rect23);
-        walls.add(rect24);
-        walls.add(rect25);
-        walls.add(rect26);
-        walls.add(rect27);
+        walls = Arrays.asList(rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, 
+                            rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27);
 
         // ARRAY OF PELLETS
-        pellets.add(pellet1);
-        pellets.add(pellet2);
-        pellets.add(pellet3);
-        pellets.add(pellet4);
+        pellets = Arrays.asList(pellet1, pellet2, pellet3, pellet4);
 
         // DISABLES START BUTTON
         startButton.setDisable(true);
