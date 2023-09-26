@@ -1,5 +1,4 @@
 module PacMan.core {
-    requires transitive javafx.graphics;
-
+    requires javafx.graphics;
     exports core;
 }
