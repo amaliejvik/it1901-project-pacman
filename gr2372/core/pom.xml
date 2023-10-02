@@ -2,13 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>gr2372</groupId>
-    <artifactId>PacMan-core</artifactId>
+    <artifactId>core</artifactId>
 
     <parent>
         <groupId>gr2372</groupId>
         <artifactId>PacMan</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>..</relativePath>
     </parent>
 
     <dependencies>

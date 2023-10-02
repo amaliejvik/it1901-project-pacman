@@ -37,7 +37,7 @@
     </dependencyManagement>
 
     <build>
-        <outputDirectory>gr2372</outputDirectory>
+        <outputDirectory>PacMan</outputDirectory>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -47,6 +47,17 @@
                     <configuration>
                     </configuration>
                 </plugin>
+                <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <!-- Default configuration for running -->
+                <!-- Usage: mvn javafx:run -->
+                <configuration>
+                    <!-- syntax: module-name/full-app-class-name -->
+                    <mainClass>PacMan.ui/ui.PacManApp</mainClass>
+                </configuration>
+            </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
