@@ -119,6 +119,7 @@ public class PacManController {
     public void startTimeline(){
         timeline.play();
     }
+
     // INITIALIZES GAME
     public void initialize() {
 
@@ -147,37 +148,6 @@ public class PacManController {
         updateGUI();
     }
 
-
-    // // TIMELINE
-    // Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
-
-    //     @Override
-    //     public void handle(ActionEvent event) {
-
-    //         // UPDATES PACMAN'S POSITION-VARIABLES
-    //         pacMan.setXPosition(pacMan.getXPosition() + PacMan.dx);
-    //         pacMan.setYPosition(pacMan.getYPosition() + PacMan.dy);
-
-    //         // GRAPHICALLY UPDATES PACMAN'S POSITION
-    //         pacManGif.setLayoutX(pacMan.getXPosition());
-    //         pacManGif.setLayoutY(pacMan.getYPosition());
-
-    //         // COLLISION CHECK
-    //         pacMan.checkWallCollision(pacManGif, walls);
-    //         pacMan.checkPelletCollision(pacManGif, pellets);
-
-    //         // UPDATES SCORE
-    //         score.setText(Integer.toString(pacMan.getScore()));
-
-    //         // ROTATES PACMAN
-    //         pacManGif.setRotate(pacMan.rotationAngle());
-
-    //         if (pacMan.getScore() >= 40) {
-    //             gameOver();
-    //         }
-
-    //     }
-    // }));
 
     /**
      * Disables the startbutton if the username is invalid
@@ -275,5 +245,9 @@ public class PacManController {
         PacMan.dy = 0;
 
         updateGUI();
+    }
+
+    public PacMan getPacMan(){
+        return pacMan;
     }
 }
