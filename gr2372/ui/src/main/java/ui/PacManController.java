@@ -1,7 +1,10 @@
-package app;
+package ui;
 
 import java.util.Arrays;
 import java.util.List;
+
+import core.PacMan;
+import core.PacmanReadAndWrite;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;

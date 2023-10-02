@@ -1,4 +1,4 @@
-package app;
+package ui;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import core.PacMan;
+
 /**
  * JavaFX App
  */
@@ -18,7 +20,7 @@ public class PacManApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacMan.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("app/PacMan.fxml"));
         Parent parent = fxmlLoader.load();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
