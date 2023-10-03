@@ -18,27 +18,27 @@
             <Image url="@../mapgrid.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pacManGif" fitHeight="52.0" fitWidth="52.0" layoutX="521.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pacManGif" fitHeight="65.0" fitWidth="56.0" layoutX="546.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PacManModel.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="pellet1" fitHeight="60.0" fitWidth="55.0" layoutX="245.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pellet38" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../smalldot.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pellet2" fitHeight="60.0" fitWidth="55.0" layoutX="591.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pellet32" fitHeight="40.0" fitWidth="27.0" layoutX="563.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../smalldot.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pellet3" fitHeight="60.0" fitWidth="55.0" layoutX="307.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pellet5" fitHeight="29.0" fitWidth="27.0" layoutX="326.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../smalldot.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pellet4" fitHeight="60.0" fitWidth="55.0" layoutX="769.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pellet28" fitHeight="29.0" fitWidth="27.0" layoutX="782.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../smalldot.png" />
          </image>
@@ -70,37 +70,297 @@
       <Rectangle fx:id="rect25" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="702.0" layoutY="91.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
       <Rectangle fx:id="rect26" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="99.0" layoutY="91.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
       <Rectangle fx:id="rect27" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="99.0" layoutY="355.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+      <ImageView fx:id="pellet34" fitHeight="40.0" fitWidth="27.0" layoutX="782.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet45" fitHeight="40.0" fitWidth="27.0" layoutX="782.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet56" fitHeight="40.0" fitWidth="27.0" layoutX="782.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet20" fitHeight="29.0" fitWidth="27.0" layoutX="782.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet11" fitHeight="29.0" fitWidth="27.0" layoutX="782.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet10" fitHeight="29.0" fitWidth="27.0" layoutX="720.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet9" fitHeight="29.0" fitWidth="27.0" layoutX="656.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet55" fitHeight="40.0" fitWidth="27.0" layoutX="720.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet54" fitHeight="40.0" fitWidth="27.0" layoutX="656.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet43" fitHeight="40.0" fitWidth="27.0" layoutX="642.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet18" fitHeight="40.0" fitWidth="27.0" layoutX="628.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet44" fitHeight="40.0" fitWidth="27.0" layoutX="711.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet33" fitHeight="40.0" fitWidth="27.0" layoutX="707.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet27" fitHeight="40.0" fitWidth="27.0" layoutX="707.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet19" fitHeight="40.0" fitWidth="27.0" layoutX="707.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet17" fitHeight="40.0" fitWidth="27.0" layoutX="563.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet1" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet2" fitHeight="29.0" fitWidth="27.0" layoutX="99.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet3" fitHeight="29.0" fitWidth="27.0" layoutX="176.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet12" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet21" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet29" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet35" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet46" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet47" fitHeight="29.0" fitWidth="27.0" layoutX="99.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet48" fitHeight="29.0" fitWidth="27.0" layoutX="176.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet37" fitHeight="29.0" fitWidth="27.0" layoutX="176.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet36" fitHeight="29.0" fitWidth="27.0" layoutX="113.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet30" fitHeight="29.0" fitWidth="27.0" layoutX="113.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet22" fitHeight="29.0" fitWidth="27.0" layoutX="113.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet13" fitHeight="29.0" fitWidth="27.0" layoutX="113.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet14" fitHeight="29.0" fitWidth="27.0" layoutX="190.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet4" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet6" fitHeight="29.0" fitWidth="27.0" layoutX="409.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet7" fitHeight="29.0" fitWidth="27.0" layoutX="483.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet8" fitHeight="29.0" fitWidth="27.0" layoutX="563.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet53" fitHeight="29.0" fitWidth="27.0" layoutX="563.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet52" fitHeight="29.0" fitWidth="27.0" layoutX="483.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet51" fitHeight="29.0" fitWidth="27.0" layoutX="409.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet50" fitHeight="29.0" fitWidth="27.0" layoutX="326.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet49" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet31" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet24" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet15" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet16" fitHeight="29.0" fitWidth="27.0" layoutX="483.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet42" fitHeight="29.0" fitWidth="27.0" layoutX="563.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet25" fitHeight="40.0" fitWidth="27.0" layoutX="563.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet39" fitHeight="29.0" fitWidth="27.0" layoutX="326.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet40" fitHeight="29.0" fitWidth="27.0" layoutX="409.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet41" fitHeight="29.0" fitWidth="27.0" layoutX="483.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet26" fitHeight="40.0" fitWidth="27.0" layoutX="642.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pellet23" fitHeight="40.0" fitWidth="27.0" layoutX="177.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../smalldot.png" />
+         </image>
+      </ImageView>
+      
       <Rectangle fx:id="startScreen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="268.0" layoutX="218.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="439.0" />
-      <Button fx:id="startButton" layoutX="381.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="40.0" prefWidth="110.0" text="Start Game" />
+      <Label fx:id="pacManText" layoutX="333.0" layoutY="128.0" text="PacMan">
+         <font>
+            <Font name="Impact" size="62.0" />
+         </font>
+      </Label>
       <TextField fx:id="usernameInput" layoutX="358.0" layoutY="257.0" onKeyPressed="#updateGUI" onKeyTyped="#updateGUI" />
       <Label fx:id="username" layoutX="390.0" layoutY="231.0" prefHeight="29.0" prefWidth="98.0" text="Username:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="pacManText" layoutX="333.0" layoutY="128.0" text="PacMan">
+      <Text fx:id="yourScoreText" fill="WHITE" layoutX="728.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Score:" wrappingWidth="201.4999999999999">
          <font>
-            <Font name="Impact" size="62.0" />
-         </font>
-      </Label>
-      <Rectangle fx:id="rectScore" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="121.0" layoutX="848.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-      <Text fx:id="yourScoreText" layoutX="868.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Score:">
-         <font>
-            <Font name="Impact" size="35.0" />
+            <Font name="Impact" size="15.0" />
          </font>
       </Text>
-      <Label fx:id="score" alignment="CENTER" layoutX="896.0" layoutY="57.0" prefHeight="47.0" prefWidth="106.0" text="0" textAlignment="JUSTIFY">
+      <Label fx:id="score" alignment="CENTER" layoutX="804.0" layoutY="-2.0" prefHeight="23.0" prefWidth="38.0" text="0" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
-            <Font size="33.0" />
+            <Font name="Impact" size="15.0" />
          </font>
       </Label>
-      <Rectangle fx:id="gameOverScreen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="351.0" layoutX="217.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="439.0" />
+      <Button fx:id="startButton" layoutX="381.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="40.0" prefWidth="110.0" text="Start Game" />
+      <Rectangle fx:id="gameOverScreen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="351.0" layoutX="217.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="439.0" />
+      <Button fx:id="restartGame" layoutX="384.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#handleRestartGameButton" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
+      <TextArea fx:id="highScores" layoutX="339.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0" promptText="HIGHSCORES TEST:" text=" " />
        <Label fx:id="gameOverText" layoutX="303.0" layoutY="94.0" text="GameOver">
          <font>
             <Font name="Impact" size="62.0" />
          </font>
       </Label>
-      <TextArea fx:id="highScores" layoutX="339.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0" promptText="HIGHSCORES TEST:" text=" " />
-      <Button fx:id="restartGame" layoutX="384.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#handleRestartGameButton" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
    </children>
 </AnchorPane>
