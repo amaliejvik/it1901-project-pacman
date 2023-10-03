@@ -5,6 +5,9 @@ import java.io.IOException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
+
+import core.PacMan;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -95,6 +98,7 @@ public class PacManAppTest extends ApplicationTest {
         press(KeyCode.LEFT);
         press(KeyCode.LEFT);
         press(KeyCode.LEFT);
+     
        
         double pacManXLeft = controller.getPacMan().getXPosition();
         double pacManYLeft = controller.getPacMan().getYPosition();
@@ -147,7 +151,7 @@ public class PacManAppTest extends ApplicationTest {
         press(KeyCode.RIGHT);
         press(KeyCode.RIGHT);
     
-        assertEquals(10, controller.getPacMan().getScore(), "Check that score increases when PacMan eats a pellet");
+        assertEquals(50, controller.getPacMan().getScore(), "Check that score increases when PacMan eats a pellet");
     
     
     }   

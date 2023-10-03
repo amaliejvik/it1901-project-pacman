@@ -26,6 +26,7 @@ public class PacManController {
     private PacMan pacMan;
     private List<Rectangle> walls;
     private List<ImageView> pellets;
+    private Timeline timeline;
 
     // FXML-ATTRIBUTES
     @FXML
@@ -45,7 +46,11 @@ public class PacManController {
                         rect14, rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27;
     
     @FXML
-    private ImageView pellet1, pellet2, pellet3, pellet4;
+    private ImageView pellet1, pellet2, pellet3, pellet4, pellet5, pellet6, pellet7, pellet8, pellet9, pellet10, pellet11, pellet12, pellet13,
+                        pellet14, pellet15, pellet16, pellet17, pellet18, pellet19, pellet20, pellet21, pellet22, pellet23, pellet24, pellet25,
+                        pellet26, pellet27, pellet28, pellet29, pellet30, pellet31, pellet32, pellet33, pellet34, pellet35, pellet36, pellet37,
+                        pellet38, pellet39, pellet40, pellet41, pellet42, pellet43, pellet44, pellet45, pellet46, pellet47, pellet48, pellet49,
+                        pellet50, pellet51, pellet52, pellet53, pellet54, pellet55, pellet56;
 
     @FXML
     private TextField usernameInput;
@@ -66,9 +71,6 @@ public class PacManController {
     private Text yourScoreText;
 
     @FXML
-    private Rectangle rectScore;
-
-    @FXML
     private Label gameOverText;
 
     @FXML
@@ -83,9 +85,9 @@ public class PacManController {
     @FXML
     private Button backButton;
 
-    private Timeline timeline;
 
-    //SPLIT TIMELINE INTO TWO FUNCTIONS; ONE THAT CREATES AND CONFIGURES IT AND ONE THAT STARTS IT
+
+		//SPLIT TIMELINE INTO TWO FUNCTIONS; ONE THAT CREATES AND CONFIGURES IT AND ONE THAT STARTS IT
     public void createAndConfigureTimeline(){
         this.timeline = new Timeline(new KeyFrame(Duration.millis(10),new EventHandler<ActionEvent>() {
 
@@ -110,7 +112,7 @@ public class PacManController {
             // ROTATES PACMAN
             pacManGif.setRotate(pacMan.rotationAngle());
 
-            if (pacMan.getScore() >= 40) {
+            if (pacMan.getScore() >= 560) {
                 gameOver();
             }
 
@@ -131,26 +133,28 @@ public class PacManController {
                             rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27);
 
         // ARRAY OF PELLETS
-        pellets = Arrays.asList(pellet1, pellet2, pellet3, pellet4);
+        pellets = Arrays.asList(pellet1, pellet2, pellet3, pellet4, pellet5, pellet6, pellet7, pellet8, pellet9, pellet10, pellet11, pellet12, pellet13,
+                        pellet14, pellet15, pellet16, pellet17, pellet18, pellet19, pellet20, pellet21, pellet22, pellet23, pellet24, pellet25,
+                        pellet26, pellet27, pellet28, pellet29, pellet30, pellet31, pellet32, pellet33, pellet34, pellet35, pellet36, pellet37,
+                        pellet38, pellet39, pellet40, pellet41, pellet42, pellet43, pellet44, pellet45, pellet46, pellet47, pellet48, pellet49,
+                        pellet50, pellet51, pellet52, pellet53, pellet54, pellet55, pellet56);
 
         // DISABLES START BUTTON
         startButton.setDisable(true);
 
         // HIDES SCORE AND GAMEOVER SCREEN
-        rectScore.setVisible(false);
-        yourScoreText.setVisible(false);
-        score.setVisible(false);
-        gameOverScreen.setVisible(false);
+		    gameOverScreen.setVisible(false);
         gameOverText.setVisible(false);
         restartGame.setVisible(false);
         highScores.setVisible(false);
 
-        //CREATE AND CONFIGURE TIMELANE
+				//CREATE AND CONFIGURE TIMELANE
         createAndConfigureTimeline();
 
         updateGUI();
     }
 
+   
 
     /**
      * Disables the startbutton if the username is invalid
@@ -183,12 +187,12 @@ public class PacManController {
             // STARTS TIMELINE
             startTimeline();
 
-            //GENERATES NEW PACMAN
+            // GENERATES NEW PACMAN
             pacMan = new PacMan();
 
             // SHOWS SCOREVIEW
             score.setText("0");
-            rectScore.setVisible(true);
+            
             yourScoreText.setVisible(true);
             score.setVisible(true);
 
@@ -236,7 +240,6 @@ public class PacManController {
         usernameInput.clear();
         usernameInput.setVisible(true);
         pacManText.setVisible(true);
-        this.timeline = null;
         for (ImageView pellet : pellets) {
             pellet.setVisible(true);
         }
