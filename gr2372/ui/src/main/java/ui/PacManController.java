@@ -83,35 +83,13 @@ public class PacManController {
     @FXML
     private Button backButton;
 
-    // INITIALIZES GAME
-    public void initialize() {
+    private Timeline timeline;
 
-        // ARRAY OF WALLS
-        walls = Arrays.asList(rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, 
-                            rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27);
+    //SPLIT TIMELINE INTO TWO FUNCTIONS; ONE THAT CREATES AND CONFIGURES IT AND ONE THAT STARTS IT
+    public void createAndConfigureTimeline(){
+        this.timeline = new Timeline(new KeyFrame(Duration.millis(10),new EventHandler<ActionEvent>() {
 
-        // ARRAY OF PELLETS
-        pellets = Arrays.asList(pellet1, pellet2, pellet3, pellet4);
-
-        // DISABLES START BUTTON
-        startButton.setDisable(true);
-
-        // HIDES SCORE AND GAMEOVER SCREEN
-        rectScore.setVisible(false);
-        yourScoreText.setVisible(false);
-        score.setVisible(false);
-        gameOverScreen.setVisible(false);
-        gameOverText.setVisible(false);
-        restartGame.setVisible(false);
-        highScores.setVisible(false);
-
-        updateGUI();
-    }
-
-    // TIMELINE
-    Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
-
-        @Override
+            @Override
         public void handle(ActionEvent event) {
 
             // UPDATES PACMAN'S POSITION-VARIABLES
@@ -136,8 +114,43 @@ public class PacManController {
                 gameOver();
             }
 
-        }
-    }));
+        }            
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+    }
+
+    public void startTimeline(){
+        timeline.play();
+    }
+
+    // INITIALIZES GAME
+    public void initialize() {
+
+        // ARRAY OF WALLS
+        walls = Arrays.asList(rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, 
+                            rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27);
+
+        // ARRAY OF PELLETS
+        pellets = Arrays.asList(pellet1, pellet2, pellet3, pellet4);
+
+        // DISABLES START BUTTON
+        startButton.setDisable(true);
+
+        // HIDES SCORE AND GAMEOVER SCREEN
+        rectScore.setVisible(false);
+        yourScoreText.setVisible(false);
+        score.setVisible(false);
+        gameOverScreen.setVisible(false);
+        gameOverText.setVisible(false);
+        restartGame.setVisible(false);
+        highScores.setVisible(false);
+
+        //CREATE AND CONFIGURE TIMELANE
+        createAndConfigureTimeline();
+
+        updateGUI();
+    }
+
 
     /**
      * Disables the startbutton if the username is invalid
@@ -168,10 +181,9 @@ public class PacManController {
             pacManText.setVisible(false);
 
             // STARTS TIMELINE
-            timeline1.setCycleCount(Timeline.INDEFINITE);
-            timeline1.play();
+            startTimeline();
 
-            // GENERATES NEW PACMAN
+            //GENERATES NEW PACMAN
             pacMan = new PacMan();
 
             // SHOWS SCOREVIEW
@@ -193,7 +205,7 @@ public class PacManController {
      */
     public void gameOver() {
         // Stop timeline
-        timeline1.stop();
+        timeline.stop();
         // Set GameOver screen visible
         gameOverScreen.setVisible(true);
         gameOverText.setVisible(true);
@@ -224,6 +236,7 @@ public class PacManController {
         usernameInput.clear();
         usernameInput.setVisible(true);
         pacManText.setVisible(true);
+        this.timeline = null;
         for (ImageView pellet : pellets) {
             pellet.setVisible(true);
         }
@@ -235,5 +248,9 @@ public class PacManController {
         PacMan.dy = 0;
 
         updateGUI();
+    }
+
+    public PacMan getPacMan(){
+        return pacMan;
     }
 }
