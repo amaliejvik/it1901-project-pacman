@@ -18,7 +18,7 @@ public class PacManAppTest extends ApplicationTest {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("PacMan.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("app/PacMan.fxml"));
         root = fxmlLoader.load();
         stage.setScene(new Scene(root));
         stage.show();
