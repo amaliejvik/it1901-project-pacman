@@ -37,7 +37,7 @@
     </dependencyManagement>
 
     <build>
-        <outputDirectory>target</outputDirectory>
+        <outputDirectory>PacMan</outputDirectory>
         <pluginManagement>
             <plugins>
                 <plugin>
