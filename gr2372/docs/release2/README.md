@@ -1,0 +1,60 @@
+# README for release 2 of PacMan
+
+
+
+This is the README for the second release of our PacMan game.
+
+# What have we done since the first release?
+
+**1. Changed the file structure from javafx-template to modular file structure**
+   
+   Our application is now split into a three-tier architecture. We have the
+   - presentation tier; the userinterface (**ui**-folder)
+   - application tier; the logic (**core**-folder)
+   - data tier; the storing of the application data (**json**)
+  
+**2. Implemented some new features**
+   - The board is filled with pellets
+   - A soundtrack is added to enhance resembelence with the old-school PacMan
+   - The score is visible in the top right corner whilst playing
+
+<br>
+
+**3. Improved the test coverage**
+   
+   We have written a more detailed test for the user-interface and PacManController ([PacManAppTest](/gr2372/ui/src/test/java/ui/PacManAppTest.java))
+   We now have a test coverage above 60%.
+
+<br>
+   
+**4. Connected our data tier to JSON**
+
+    ...
+   
+<br>
+
+**5. Created a seqential-diagram and class-diagram with PlantUML**
+   
+   The sequential-diagram illustrates the sequence of messages between objects in an interaction
+
+   The class-diagram gives a clear picture on how the different classes are connected. 
+
+<br>
+
+**6. Implemented Spotbugs and Checkstyle**
+   
+   Spotbugs and Checkstyle are tools for checking our code quality. While Spotbugs looks for bug patterns in the code, Checkstyle makes sure that our code adheres to a coding standard. Together with jacoco which was implemented in release 1, these tools guarantees a solid code quality check.
+
+<br>
+
+**7. Eclipse Che**
+
+
+# Images from the game
+
+The board is now filled with pellets, and you can see the player's score in the top right corner. 
+
+![Pellets and score](src/main/resources/README-Images/../../../../../../ui/PacMan/ui/README-Images/pellets-and-score.png)
+
+
+
