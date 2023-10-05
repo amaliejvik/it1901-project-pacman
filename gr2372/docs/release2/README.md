@@ -49,6 +49,9 @@ This is the README for the second release of our PacMan game.
 
 **7. Eclipse Che**
 
+   Click the link below to open the project in Eclipse Che. Please note you must have access to the repository in GitLab, as this is a private project.
+
+   [Open in Eclipse Che](https://che.stud.ntnu.no/dashboard/#https://gitlab.stud.idi.ntnu.no/it1901/groups-2023/gr2372/gr2372?new)
 
 # Images from the game
 

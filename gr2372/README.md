@@ -19,6 +19,12 @@ To build the application, run  `mvn install` from the root-folder (**gr2372**-fo
 
 To run the application, run  `mvn javafx:run` from the **ui**-module (>gr2372>**ui**). This can be done by first running `cd gr2372/ui` followed by `mvn javafx:run`. 
 
+**Eclipse Che**
+
+   Click the link below to open the project in Eclipse Che. Please note you must have access to the repository in GitLab, as this is a private project.
+
+   [Open in Eclipse Che](https://che.stud.ntnu.no/dashboard/#https://gitlab.stud.idi.ntnu.no/it1901/groups-2023/gr2372/gr2372?new)
+
 
 # Current versions of software
 
