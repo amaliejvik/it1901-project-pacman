@@ -25,7 +25,7 @@ public class PacmanPersistence {
       scores.add(pacManUser);
 
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
-      File highScoreFile = new File("gr2372/core/src/main/java/Persistence/JSON/scores.json");
+      File highScoreFile = new File("src/main/resources/ui/JSON/scores.json");
       FileWriter highScoreWriter = new FileWriter(highScoreFile);
       gson.toJson(scores, highScoreWriter);
       System.out.println("Score saved");
@@ -44,7 +44,7 @@ public class PacmanPersistence {
     Gson gson = new Gson();
     List<PacManUser> scores = new ArrayList<PacManUser>();
     try {
-      FileReader reader = new FileReader("gr2372/core/src/main/java/Persistence/JSON/scores.json");
+      FileReader reader = new FileReader("src/main/resources/ui/JSON/scores.json");
       PacManUser[] scoreData = gson.fromJson(reader, PacManUser[].class);
 
       //Convert to list for easier access
