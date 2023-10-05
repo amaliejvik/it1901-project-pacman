@@ -3,8 +3,9 @@ package ui;
 import java.util.Arrays;
 import java.util.List;
 
+import Persistence.PacmanPersistence;
 import core.PacMan;
-import core.PacmanReadAndWrite;
+import core.PacManUser;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -112,7 +113,7 @@ public class PacManController {
             // ROTATES PACMAN
             pacManGif.setRotate(pacMan.rotationAngle());
 
-            if (pacMan.getScore() >= 560) {
+            if (pacMan.getScore() >= 40) {
                 gameOver();
             }
 
@@ -139,6 +140,9 @@ public class PacManController {
                         pellet38, pellet39, pellet40, pellet41, pellet42, pellet43, pellet44, pellet45, pellet46, pellet47, pellet48, pellet49,
                         pellet50, pellet51, pellet52, pellet53, pellet54, pellet55, pellet56);
 
+        // GENERATES NEW PACMAN
+        pacMan = new PacMan();
+
         // DISABLES START BUTTON
         startButton.setDisable(true);
 
@@ -163,7 +167,7 @@ public class PacManController {
     public void updateGUI() {
         startButton.setDisable(true);
         String name = usernameInput.getText();
-        if (PacmanReadAndWrite.validateUserName(name)) {
+        if (pacMan.validateUsername(name)) {
             startButton.setDisable(false);
         }
         else {
@@ -186,9 +190,6 @@ public class PacManController {
 
             // STARTS TIMELINE
             startTimeline();
-
-            // GENERATES NEW PACMAN
-            pacMan = new PacMan();
 
             // SHOWS SCOREVIEW
             score.setText("0");
@@ -216,9 +217,14 @@ public class PacManController {
         restartGame.setVisible(true);
         highScores.setVisible(true);
         // Save score to username in file
-        PacmanReadAndWrite.saveHighscore(pacMan.getUsername(), pacMan.getScore());
+        PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore());
         // Displays score in scoreboard
-        highScores.setText(PacmanReadAndWrite.fetchScoreBoard());
+        String usersString = "";
+        List<PacManUser> UserArray = PacmanPersistence.fetchHighscore();
+        for (PacManUser user : UserArray) {
+            usersString += user.toString();
+        }
+        highScores.setText(usersString);
     }
 
     public void setScoreBoard(String newscoreboard) {
@@ -249,6 +255,9 @@ public class PacManController {
         pacManGif.setLayoutY(115);
         PacMan.dx = 0;
         PacMan.dy = 0;
+        PacMan.rotate = 0;
+        pacMan.setXPosition(330);
+        pacMan.setYPosition(115);
 
         updateGUI();
     }
