@@ -16,6 +16,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -27,6 +29,7 @@ public class PacManController {
     private List<Rectangle> walls;
     private List<ImageView> pellets;
     private Timeline timeline;
+    private MediaPlayer mediaPlayer;
 
     // FXML-ATTRIBUTES
     @FXML
@@ -127,6 +130,16 @@ public class PacManController {
 
     // INITIALIZES GAME
     public void initialize() {
+        //  INITIALIZE AUDIO
+        mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/ui/PacManAudio.mp3").toString()));
+        //  RESTART AUDIO IF FINISHED
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.seek(Duration.ZERO);
+                mediaPlayer.play();
+            }
+        }); 
 
         // ARRAY OF WALLS
         walls = Arrays.asList(rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, 
@@ -176,6 +189,8 @@ public class PacManController {
      */
     @FXML
     private void handleStartButton() {
+        //STARTS MUSIC
+        mediaPlayer.play();
         try {
             // REMOVES STARTSCREEN
             startButton.setVisible(false);
@@ -208,6 +223,8 @@ public class PacManController {
      * displays gameover-screen
      */
     public void gameOver() {
+        // STOP MUSIC
+        mediaPlayer.stop();
         // Stop timeline
         timeline.stop();
         // Set GameOver screen visible
@@ -243,7 +260,6 @@ public class PacManController {
         for (ImageView pellet : pellets) {
             pellet.setVisible(true);
         }
-        
         pacMan.setScore(0);
         pacManGif.setLayoutX(330);
         pacManGif.setLayoutY(115);
@@ -251,6 +267,7 @@ public class PacManController {
         PacMan.dy = 0;
 
         updateGUI();
+
     }
 
     public PacMan getPacMan(){
