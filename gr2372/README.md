@@ -54,3 +54,7 @@ Maven version: 3.9.4
 **Jacoco:**
 
     org.jacoco.agent
+
+**GSON:**
+
+    com.google.code.gson

@@ -29,7 +29,12 @@ This is the README for the second release of our PacMan game.
    
 **4. Connected our data tier to JSON**
 
-    ...
+   Userdata is now stored in [Scores](/gr2372/ui/src/main/resources/ui/JSON/scores.json) as a .json file, instead of being stored in a .txt-file. This has a few practical consequences:
+
+   - Instead of storing the userdata as strings in a .txt file, the scores are stored as objects
+   - An object of this type (PacManUser), is an object that stores the username (String) and the score (int) of the player.
+   - This has been changed since JSON allows text representation of java-objects. This makes the code easier to understand than with strings.
+   - The conversion from java-objects to JSON and back has been done with GSON in the class [PacManPersistence.java](/gr2372/core/src/main/java/Persistence/PacManPersistence.java) to simplify the conversion-process. Version of the GSON-dependency is documented in the root-README.
    
 <br>
 
