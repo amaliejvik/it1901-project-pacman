@@ -12,11 +12,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -69,7 +72,7 @@ public class PacManController {
     private Label score;
 
     @FXML
-    private Text yourScoreText;
+    private Text scoreText;
 
     @FXML
     private Label gameOverText;
@@ -85,6 +88,9 @@ public class PacManController {
 
     @FXML
     private Button backButton;
+
+    @FXML
+    private CheckBox toggleLightmode;
 
 
 
@@ -187,6 +193,29 @@ public class PacManController {
             username.setVisible(false);
             usernameInput.setVisible(false);
             pacManText.setVisible(false);
+            toggleLightmode.setVisible(false);
+
+            //SELECTS BETWEEN LIGHT- AND DARKMODE
+            if (toggleLightmode.isSelected()) {
+                mapGrid.setImage(new Image("file:src/main/resources/ui/mapgridLight.png"));
+
+                for (ImageView pellet : pellets) {
+                    pellet.setImage(new Image("file:src/main/resources/ui/smalldotLight.png"));
+                }
+                pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelLight.gif"));
+                scoreText.setFill(Color.BLACK);
+                score.setTextFill(Color.BLACK);
+            }
+            else {
+                mapGrid.setImage(new Image("file:src/main/resources/ui/mapgrid.png"));
+
+                for (ImageView pellet : pellets) {
+                    pellet.setImage(new Image("file:src/main/resources/ui/smalldot.png"));
+                }
+                pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModel.gif"));
+                scoreText.setFill(Color.WHITE);
+                score.setTextFill(Color.WHITE);
+            }
 
             // STARTS TIMELINE
             startTimeline();
@@ -194,7 +223,7 @@ public class PacManController {
             // SHOWS SCOREVIEW
             score.setText("0");
             
-            yourScoreText.setVisible(true);
+            scoreText.setVisible(true);
             score.setVisible(true);
 
             pacMan.setUsername(usernameInput.getText());
@@ -216,6 +245,7 @@ public class PacManController {
         gameOverText.setVisible(true);
         restartGame.setVisible(true);
         highScores.setVisible(true);
+        toggleLightmode.setVisible(true);
         // Save score to username in file
         PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore());
         // Displays score in scoreboard
