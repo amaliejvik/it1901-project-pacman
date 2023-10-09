@@ -18,8 +18,4 @@ public class PacManPersistenceTest {
     Assertions.assertEquals(true, pacMan.validateUsername(testName3));
   }
 
-
-
-
-
 }

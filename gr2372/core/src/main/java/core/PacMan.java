@@ -8,20 +8,20 @@ import javafx.scene.shape.Rectangle;
 public class PacMan {
 
     // ATTRIBUTES
-    public static double dx = 0;
-    public static double dy = 0;
-    public static double rotate;
-    private double xPosition = 330;
-    private double yPosition = 115;
+    private static double dx = 0;
+    private static double dy = 0;
+    private static double rotate;
+    private static double xPosition = 330;
+    private static double yPosition = 115;
     private int score;
     private String username;
-    
-    //CONSTRUCTOR
+
+    // CONSTRUCTOR
     public PacMan() {
         return;
     }
 
-    //GETTERS AND SETTERS
+    // GETTERS AND SETTERS
     public int getScore() {
         return this.score;
     }
@@ -30,20 +30,20 @@ public class PacMan {
         this.score = score;
     }
 
-    public double getXPosition() {
-        return this.xPosition;
+    public static double getXPosition() {
+        return xPosition;
     }
 
-    public void setXPosition(double xPosition) {
-        this.xPosition = xPosition;
+    public static void setXPosition(double x) {
+        xPosition = x;
     }
 
-    public double getYPosition() {
-        return this.yPosition;
+    public static double getYPosition() {
+        return yPosition;
     }
 
-    public void setYPosition(double yPosition) {
-        this.yPosition = yPosition;
+    public static void setYPosition(double y) {
+        yPosition = y;
     }
 
     public String getUsername() {
@@ -54,18 +54,43 @@ public class PacMan {
         username = usr;
     }
 
+    public static double getDX() {
+        return dx;
+    }
+
+    public static double getDY() {
+        return dy;
+    }
+
+    public static double getRotate() {
+        return rotate;
+    }
+
+    public static void setDX(double x) {
+        dx = x;
+    }
+
+    public static void setDY(double y) {
+        dy = y;
+    }
+
+    public static void setRotate(double r) {
+        rotate = r;
+    }
+
     /**
-   * Input validation on username, e.g. no spaces or empty strings
-   * @param name username from player
-   * @return true if the username is valid, else false
-   */
+     * Input validation on username, e.g. no spaces or empty strings
+     * 
+     * @param name username from player
+     * @return true if the username is valid, else false
+     */
     public boolean validateUsername(String name) {
         if (name.contains(" ")) {
-        return false;
-        } else if (name == "") {
-        return false;
+            return false;
+        } else if (name.equals("")) {
+            return false;
         } else if (name.length() <= 2) {
-        return false;
+            return false;
         }
         return true;
     }
@@ -73,16 +98,17 @@ public class PacMan {
     /**
      * Changes PacMan's direction and rotation.
      * Receives key inputs from PacManApp class.
+     * 
      * @param string the direction of the corresponding arrow key typed.
-     * sets the static variables dx, dy and rotation which are fed into the timeline function in the controller
+     *               sets the static variables dx, dy and rotation which are fed
+     *               into the timeline function in the controller
      */
     public static void changeDirection(String string) {
         if (string.equals("RIGHT")) {
             dy = 0;
             dx = 1;
             rotate = 0;
-        }
-        else if(string.equals("LEFT")) {
+        } else if (string.equals("LEFT")) {
             dy = 0;
             dx = -1;
             rotate = 1;
@@ -97,14 +123,14 @@ public class PacMan {
         }
     }
 
-    //CHECKS IF PACMAN HAS COLLIDED WITH WALL
+    // CHECKS IF PACMAN HAS COLLIDED WITH WALL
     /**
      * @param pacMan pacman's position
-     * @param walls lsit of all walls on map
-     * if pacman collides with a wall, movement stops, dx dy set to 0.
-     * pacman's position bounces back from the wall.
+     * @param walls  lsit of all walls on map
+     *               if pacman collides with a wall, movement stops, dx dy set to 0.
+     *               pacman's position bounces back from the wall.
      */
-    public void checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
+    public static void checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
         for (Rectangle wall : walls) {
 
             if (pacMan.getBoundsInParent().intersects(wall.getBoundsInParent())) {
@@ -124,17 +150,18 @@ public class PacMan {
         }
     }
 
-    //CHECKS IF PACMAN HAS COLLIDED WITH PELLETS
+    // CHECKS IF PACMAN HAS COLLIDED WITH PELLETS
     /**
      * When pacman collides with a pellet,
      * If-statement checks if pellet has already been consumed.
      * If not, user is given 10 points and pellet is set to invisible
-     * @param pacMan pacman's position
+     * 
+     * @param pacMan  pacman's position
      * @param pellets list of pellet positions
      */
-    public void checkPelletCollision(ImageView pacMan, List<ImageView> pellets){
-        for (ImageView pellet : pellets){
-            if(pacMan.getBoundsInParent().intersects(pellet.getBoundsInParent()) && pellet.isVisible()){
+    public void checkPelletCollision(ImageView pacMan, List<ImageView> pellets) {
+        for (ImageView pellet : pellets) {
+            if (pacMan.getBoundsInParent().intersects(pellet.getBoundsInParent()) && pellet.isVisible()) {
                 score += 10;
                 pellet.setVisible(false);
             }
@@ -142,7 +169,7 @@ public class PacMan {
 
     }
 
-    //GIVES ROTATION-ANGLE
+    // GIVES ROTATION-ANGLE
     /**
      * @return correct rotation angle corresponding to direction of travel
      */

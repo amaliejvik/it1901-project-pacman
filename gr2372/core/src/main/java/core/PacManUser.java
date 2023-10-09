@@ -1,7 +1,7 @@
 package core;
 
 public class PacManUser {
-    
+
     private String username;
     private double score;
 
@@ -28,8 +28,7 @@ public class PacManUser {
 
     @Override
     public String toString() {
-        return
-            "Username=" + getUsername() + ", Score=" + getScore() + "\n";
+        return "Username=" + getUsername() + ", Score=" + getScore() + "\n";
     }
-    
+
 }

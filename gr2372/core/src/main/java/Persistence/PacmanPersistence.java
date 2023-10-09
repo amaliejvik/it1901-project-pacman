@@ -3,6 +3,7 @@ package Persistence;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class PacmanPersistence {
 
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
       File highScoreFile = new File("src/main/resources/ui/JSON/scores.json");
-      FileWriter highScoreWriter = new FileWriter(highScoreFile);
+      FileWriter highScoreWriter = new FileWriter(highScoreFile, StandardCharsets.UTF_8);
       gson.toJson(scores, highScoreWriter);
       System.out.println("Score saved");
       highScoreWriter.close();
@@ -44,7 +45,7 @@ public class PacmanPersistence {
     Gson gson = new Gson();
     List<PacManUser> scores = new ArrayList<PacManUser>();
     try {
-      FileReader reader = new FileReader("src/main/resources/ui/JSON/scores.json");
+      FileReader reader = new FileReader("src/main/resources/ui/JSON/scores.json", StandardCharsets.UTF_8);
       PacManUser[] scoreData = gson.fromJson(reader, PacManUser[].class);
 
       //Convert to list for easier access
