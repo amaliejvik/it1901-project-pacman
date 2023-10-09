@@ -10,9 +10,9 @@ public class PacMan {
     // ATTRIBUTES
     public static double dx = 0;
     public static double dy = 0;
+    public static double rotate;
     private double xPosition = 330;
     private double yPosition = 115;
-    private static double rotate;
     private int score;
     private String username;
     
@@ -52,6 +52,22 @@ public class PacMan {
 
     public void setUsername(String usr) {
         username = usr;
+    }
+
+    /**
+   * Input validation on username, e.g. no spaces or empty strings
+   * @param name username from player
+   * @return true if the username is valid, else false
+   */
+    public boolean validateUsername(String name) {
+        if (name.contains(" ")) {
+        return false;
+        } else if (name == "") {
+        return false;
+        } else if (name.length() <= 2) {
+        return false;
+        }
+        return true;
     }
 
     /**
