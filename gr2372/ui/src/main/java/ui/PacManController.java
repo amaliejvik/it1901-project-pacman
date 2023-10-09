@@ -122,7 +122,7 @@ public class PacManController {
             // ROTATES PACMAN
             pacManGif.setRotate(pacMan.rotationAngle());
 
-            if (pacMan.getScore() >= 40) {
+            if (pacMan.getScore() >= 560) {
                 gameOver();
             }
 
