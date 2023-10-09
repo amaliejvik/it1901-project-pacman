@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class PacManPersistenceTest {
 
+  //TODO: Move testUserNameValidation, create persistence test.
   @Test
   @DisplayName("Test validation of username")
   public void testUserNameValidation() {
