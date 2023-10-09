@@ -28,14 +28,14 @@ import javafx.util.Duration;
 
 public class PacManController {
     
-    // REGULAR ATTRIBUTES
+    //Data-oriented and gameloop attributes
     private PacMan pacMan;
     private List<Rectangle> walls;
     private List<ImageView> pellets;
     private Timeline timeline;
     private MediaPlayer mediaPlayer;
 
-    // FXML-ATTRIBUTES
+    // Fxml-attributes
     @FXML
     private AnchorPane mainBackground;
     
@@ -97,49 +97,62 @@ public class PacManController {
 
 
 
-		//SPLIT TIMELINE INTO TWO FUNCTIONS; ONE THAT CREATES AND CONFIGURES IT AND ONE THAT STARTS IT
+	/**
+     * Creates the main game-loop for the application.
+     * Updates pacmans position and rotation, checks for collisions, updates score, triggers gameover
+     */
     public void createAndConfigureTimeline(){
         this.timeline = new Timeline(new KeyFrame(Duration.millis(10),new EventHandler<ActionEvent>() {
 
-            @Override
+        @Override
         public void handle(ActionEvent event) {
 
-            // UPDATES PACMAN'S POSITION-VARIABLES
+            //Updates position variables
             pacMan.setXPosition(pacMan.getXPosition() + PacMan.dx);
             pacMan.setYPosition(pacMan.getYPosition() + PacMan.dy);
 
-            // GRAPHICALLY UPDATES PACMAN'S POSITION
+            //Moves Pacman's graphic
             pacManGif.setLayoutX(pacMan.getXPosition());
             pacManGif.setLayoutY(pacMan.getYPosition());
+            pacManGif.setRotate(pacMan.rotationAngle());
 
-            // COLLISION CHECK
             pacMan.checkWallCollision(pacManGif, walls);
             pacMan.checkPelletCollision(pacManGif, pellets);
 
-            // UPDATES SCORE
             score.setText(Integer.toString(pacMan.getScore()));
 
-            // ROTATES PACMAN
-            pacManGif.setRotate(pacMan.rotationAngle());
 
             if (pacMan.getScore() >= 40) {
                 gameOver();
             }
-
         }            
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
     }
 
+    /*
+     * Starts main game-loop
+     */
     public void startTimeline(){
         timeline.play();
     }
 
-    // INITIALIZES GAME
+    /*
+     * Getter for PacMan-object
+     */
+    public PacMan getPacMan(){
+        return pacMan;
+    }
+
+    /*
+     * Is executed as game initializes.
+     * Initializes music-player, organises FXML-elements into lists, generates PacMan object, hides various FXML-elements from the screen,
+     * configures timeline
+     */
     public void initialize() {
-        //  INITIALIZE AUDIO
+        //Music-player
         mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/ui/PacManAudio.mp3").toString()));
-        //  RESTART AUDIO IF FINISHED
+        //If music ends, restart
         mediaPlayer.setOnEndOfMedia(new Runnable() {
             @Override
             public void run() {
@@ -148,30 +161,23 @@ public class PacManController {
             }
         }); 
 
-        // ARRAY OF WALLS
         walls = Arrays.asList(rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, 
                             rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27);
 
-        // ARRAY OF PELLETS
         pellets = Arrays.asList(pellet1, pellet2, pellet3, pellet4, pellet5, pellet6, pellet7, pellet8, pellet9, pellet10, pellet11, pellet12, pellet13,
                         pellet14, pellet15, pellet16, pellet17, pellet18, pellet19, pellet20, pellet21, pellet22, pellet23, pellet24, pellet25,
                         pellet26, pellet27, pellet28, pellet29, pellet30, pellet31, pellet32, pellet33, pellet34, pellet35, pellet36, pellet37,
                         pellet38, pellet39, pellet40, pellet41, pellet42, pellet43, pellet44, pellet45, pellet46, pellet47, pellet48, pellet49,
                         pellet50, pellet51, pellet52, pellet53, pellet54, pellet55, pellet56);
 
-        // GENERATES NEW PACMAN
         pacMan = new PacMan();
 
-        // DISABLES START BUTTON
-        startButton.setDisable(true);
-
-        // HIDES SCORE AND GAMEOVER SCREEN
-		    gameOverScreen.setVisible(false);
+		gameOverScreen.setVisible(false);
         gameOverText.setVisible(false);
         restartGame.setVisible(false);
         highScores.setVisible(false);
+        startButton.setDisable(true);
 
-				//CREATE AND CONFIGURE TIMELANE
         createAndConfigureTimeline();
 
         updateGUI();
@@ -195,14 +201,13 @@ public class PacManController {
     }
 
     /**
-     * Hides the startscreen and starts the game when startbutton is pressed
+     * Hides the startscreen and starts the game and music when startbutton is pressed.
+     * Updates map to light- or darkmode depending on users choice in startscreen
      */
     @FXML
     private void handleStartButton() {
-        //STARTS MUSIC
         mediaPlayer.play();
         try {
-            // REMOVES STARTSCREEN
             startButton.setVisible(false);
             startScreen.setVisible(false);
             username.setVisible(false);
@@ -210,7 +215,6 @@ public class PacManController {
             pacManText.setVisible(false);
             toggleLightmode.setVisible(false);
 
-            //SELECTS BETWEEN LIGHT- AND DARKMODE
             if (toggleLightmode.isSelected()) {
                 mapGrid.setImage(new Image("file:src/main/resources/ui/mapgridLight.png"));
 
@@ -232,12 +236,9 @@ public class PacManController {
                 score.setTextFill(Color.WHITE);
             }
 
-            // STARTS TIMELINE
             startTimeline();
 
-            // SHOWS SCOREVIEW
             score.setText("0");
-            
             scoreText.setVisible(true);
             score.setVisible(true);
 
@@ -249,37 +250,35 @@ public class PacManController {
     }
 
     /**
-     * Stops game when all pellets are collected, 
-     * displays gameover-screen
+     * Stops game and music when all pellets are collected.
+     * Displays gameover-screen with highscores.
+     * Saves userdata to file.
      */
     public void gameOver() {
-        // STOP MUSIC
-        mediaPlayer.stop();
-        // Stop timeline
         timeline.stop();
-        // Set GameOver screen visible
-        gameOverScreen.setVisible(true);
-        gameOverText.setVisible(true);
-        restartGame.setVisible(true);
-        highScores.setVisible(true);
-        toggleLightmode.setVisible(true);
-        // Save score to username in file
+        mediaPlayer.stop();
+
+        
         PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore());
-        // Displays score in scoreboard
+
         String usersString = "";
         List<PacManUser> UserArray = PacmanPersistence.fetchHighscore();
         for (PacManUser user : UserArray) {
             usersString += user.toString();
         }
         highScores.setText(usersString);
-    }
 
-    public void setScoreBoard(String newscoreboard) {
-        highScores.setText(newscoreboard );
+        gameOverScreen.setVisible(true);
+        gameOverText.setVisible(true);
+        restartGame.setVisible(true);
+        highScores.setVisible(true);
+        toggleLightmode.setVisible(true);
     }
 
     /**
-     * Restarts game when restart button is pressed
+     * Restarts game when restart button is pressed.
+     * Resets Pacman's position, speed, direction and score.
+     * Displays the startscreen.
      */
     @FXML
     private void handleRestartGameButton() {
@@ -309,7 +308,4 @@ public class PacManController {
 
     }
 
-    public PacMan getPacMan(){
-        return pacMan;
-    }
 }
