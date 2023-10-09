@@ -37,24 +37,42 @@ Maven version: 3.9.4
 **JavaFX:**
 
     javafx-controls
+    Version 17.0.8
+
     javafx-fxml
+    Version 17.0.8
+
+    javafx-media
+    Version 17.0.8
 
 **JUnit testing with jupiter:**
 
     junit-jupiter-api
+    Version 5.10.0
+
     junit-jupiter-engine
+    Version 5.10.0
+
     junit-jupiter-params
+    Version 5.10.0
 
 **Test JavaFX with TextFX:**
 
     testfx-junit5
-    hamcrest
+    Version 4.0.16-alpha
+
     testfx-core
+    Version 4.0.16-alpha
+
+    hamcrest
+    Version 2.2
 
 **Jacoco:**
 
     org.jacoco.agent
+    Version 0.8.7
 
 **GSON:**
 
     com.google.code.gson
+    Version 2.10.1
