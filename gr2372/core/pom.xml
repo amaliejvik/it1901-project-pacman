@@ -52,14 +52,6 @@
             <version>2.2</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.jacoco</groupId>
-            <artifactId>org.jacoco.agent</artifactId>
-            <version>0.8.7</version> <!-- Siste versjon på tidspunktet for skriving -->
-            <scope>runtime</scope>
-        </dependency>
-
         <dependency>
             <groupId>org.testfx</groupId>
             <artifactId>testfx-core</artifactId>
@@ -84,6 +76,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>
+                    @{jaCoCoArgLine}
+                    </argLine>
+                </configuration>
             </plugin>
             <!-- Run the checkstyle code quality tool -->
             <plugin>
@@ -101,18 +98,23 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.10</version> <!-- Replace with the latest version -->
+                <configuration>
+                    <propertyName>jaCoCoArgLine</propertyName>
+                    </configuration>
                 <executions>
                     <execution>
-                        <phase>verify</phase>
+                        <id>prepare-agent</id>
                         <goals>
-                            <goal>report-aggregate</goal>
+                            <goal>prepare-agent</goal>
                         </goals>
-                        <configuration>
-                            <dataFileIncludes>
-                                <dataFileInclude>**/jacoco.exec</dataFileInclude>
-                            </dataFileIncludes>
-                            <outputDirectory>PacMan/jacoco-aggregate</outputDirectory>
-                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
