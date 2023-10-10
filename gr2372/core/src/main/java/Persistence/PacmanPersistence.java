@@ -18,14 +18,14 @@ public class PacmanPersistence {
    * @param name
    * @param score
    */
-  public static void saveHighscore(String name, double score) {
+  public static void saveHighscore(String name, double score, String path) {
     try {
-      List<PacManUser> scores = fetchHighscore();
+      List<PacManUser> scores = fetchHighscore(path);
       PacManUser pacManUser = new PacManUser(name, score);
       scores.add(pacManUser);
 
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
-      File highScoreFile = new File("src/main/resources/ui/JSON/scores.json");
+      File highScoreFile = new File(path);
       FileWriter highScoreWriter = new FileWriter(highScoreFile);
       gson.toJson(scores, highScoreWriter);
       System.out.println("Score saved");
@@ -40,11 +40,11 @@ public class PacmanPersistence {
    * Reads scores.txt into leaderboard
    * @return
    */
-  public static List<PacManUser> fetchHighscore() {
+  public static List<PacManUser> fetchHighscore(String path) {
     Gson gson = new Gson();
     List<PacManUser> scores = new ArrayList<PacManUser>();
     try {
-      FileReader reader = new FileReader("src/main/resources/ui/JSON/scores.json");
+      FileReader reader = new FileReader(path);
       PacManUser[] scoreData = gson.fromJson(reader, PacManUser[].class);
 
       //Convert to list for easier access

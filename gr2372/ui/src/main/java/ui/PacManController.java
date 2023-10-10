@@ -264,10 +264,10 @@ public class PacManController {
         highScores.setVisible(true);
         toggleLightmode.setVisible(true);
         // Save score to username in file
-        PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore());
+        PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore(), "src/main/resources/ui/JSON/scores.json");
         // Displays score in scoreboard
         String usersString = "";
-        List<PacManUser> UserArray = PacmanPersistence.fetchHighscore();
+        List<PacManUser> UserArray = PacmanPersistence.fetchHighscore("src/main/resources/ui/JSON/scores.json");
         for (PacManUser user : UserArray) {
             usersString += user.toString();
         }
