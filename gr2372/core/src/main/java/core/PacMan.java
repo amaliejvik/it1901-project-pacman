@@ -104,7 +104,7 @@ public class PacMan {
      * if pacman collides with a wall, movement stops, dx dy set to 0.
      * pacman's position bounces back from the wall.
      */
-    public void checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
+    public boolean checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
         for (Rectangle wall : walls) {
 
             if (pacMan.getBoundsInParent().intersects(wall.getBoundsInParent())) {
@@ -118,10 +118,10 @@ public class PacMan {
                     yPosition += 3;
                 }
 
-                dx = 0;
-                dy = 0;
+                return true;
             }
         }
+        return false;
     }
 
     //CHECKS IF PACMAN HAS COLLIDED WITH PELLETS

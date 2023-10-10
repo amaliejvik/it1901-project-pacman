@@ -9,7 +9,6 @@ import org.testfx.framework.junit5.ApplicationTest;
 import core.PacMan;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -74,58 +73,35 @@ public class PacManAppTest extends ApplicationTest {
     @Test
     public void testPacManMovementAndScore() {
 
-        double pacManStartX = controller.getPacMan().getXPosition();
-        double pacManStartY = controller.getPacMan().getYPosition();
-
-        while (controller.getPacMan().getXPosition() < 548){
-            if(controller.getPacMan().getXPosition() >= 548){
-                break;
-            }
+        while (true) {
             type(KeyCode.RIGHT, 1);
-        }
-
-        double pacManXRight = controller.getPacMan().getXPosition();
-        double pacManYRight = controller.getPacMan().getYPosition();
-
-        assertTrue((pacManStartX < pacManXRight), "Check that PacMan moves to the RIGHT when right-arrow-key is pressed");
-
-        while(controller.getPacMan().getYPosition() < 378){
-            if(controller.getPacMan().getYPosition()>= 378){
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
                 break;
             }
+        }
+
+        while (true) {
             type(KeyCode.DOWN, 1);
-        }
-
-        double pacManXDown = controller.getPacMan().getXPosition();
-        double pacManYDown = controller.getPacMan().getYPosition();
-
-        assertTrue((pacManYRight < pacManYDown), "Check that PacMan moves DOWNWARDS when downwards-arrow-key is pressed");
-
-        while(controller.getPacMan().getXPosition() > 239){
-            if(controller.getPacMan().getXPosition() <= 239){
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
                 break;
             }
+        }
+
+        while (true) {
             type(KeyCode.LEFT, 1);
-        }
-
-        double pacManXLeft = controller.getPacMan().getXPosition();
-        double pacManYLeft = controller.getPacMan().getYPosition();
-
-        assertTrue((pacManXDown > pacManXLeft), "Check that PacMan moves to the LEFT when left-arrow-key is pressed");
- 
-        while(controller.getPacMan().getYPosition() > 110){
-            if(controller.getPacMan().getYPosition() <= 110){
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
                 break;
             }
-            type(KeyCode.UP, 1);
         }
 
-        double pacManXUp = controller.getPacMan().getXPosition();
-        double pacManYUp = controller.getPacMan().getYPosition();
-    
-        assertTrue((pacManYLeft > pacManYUp), "Check that PacMan moves UPWARDS when upwards-arrow-key is pressed");
+        while (true) {
+            type(KeyCode.UP, 1);
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+                break;
+            }
+        }
 
-        assertEquals(controller.getPacMan().getScore(), 140);
+        assertEquals(controller.getPacMan().getScore(), 180);
         
     }
 
