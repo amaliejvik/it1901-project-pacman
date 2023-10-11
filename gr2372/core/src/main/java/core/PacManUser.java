@@ -4,7 +4,7 @@ package core;
  * Handles userdata s.a. username and score
  */
 public class PacManUser {
-    
+
     private String username;
     private double score;
 
@@ -38,8 +38,7 @@ public class PacManUser {
     //toString method to give PacManUser-objects a text-representation
     @Override
     public String toString() {
-        return
-            "Username=" + getUsername() + ", Score=" + getScore() + "\n";
+        return "Username=" + getUsername() + ", Score=" + getScore() + "\n";
     }
-    
+
 }
