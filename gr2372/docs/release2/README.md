@@ -58,6 +58,7 @@ This is the README for the second release of our PacMan game.
 
    [Open in Eclipse Che](https://che.stud.ntnu.no/dashboard/#https://gitlab.stud.idi.ntnu.no/it1901/groups-2023/gr2372/gr2372?new)
 
+
 # Images from the game
 
 The board is now filled with pellets, and you can see the player's score in the top right corner. 
