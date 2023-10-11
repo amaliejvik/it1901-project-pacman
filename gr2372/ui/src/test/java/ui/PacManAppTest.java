@@ -9,7 +9,6 @@ import org.testfx.framework.junit5.ApplicationTest;
 import core.PacMan;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -73,86 +72,37 @@ public class PacManAppTest extends ApplicationTest {
 
     @Test
     public void testPacManMovementAndScore() {
-    
-        double pacManStartX = controller.getPacMan().getXPosition();
-        double pacManStartY = controller.getPacMan().getYPosition();
-    
-        press(KeyCode.RIGHT);
-        press(KeyCode.RIGHT);
-        press(KeyCode.RIGHT);
-        press(KeyCode.RIGHT);
-    
-        double pacManXRight = controller.getPacMan().getXPosition();
-        double pacManYRight = controller.getPacMan().getYPosition();
-    
-        assertTrue((pacManStartX < pacManXRight)&&(pacManStartY == pacManYRight), "Check that PacMan moves to the right when right-arrow-key is pressed");
-        
-        press(KeyCode.LEFT);
-        press(KeyCode.LEFT);
-        press(KeyCode.LEFT);
-        press(KeyCode.LEFT);
-        press(KeyCode.LEFT);
-        press(KeyCode.LEFT);
-        press(KeyCode.LEFT);
-        press(KeyCode.LEFT);
-        press(KeyCode.LEFT);
-        press(KeyCode.LEFT);
-        press(KeyCode.LEFT);
-     
-       
-        double pacManXLeft = controller.getPacMan().getXPosition();
-        double pacManYLeft = controller.getPacMan().getYPosition();
-    
-        assertTrue((pacManXRight > pacManXLeft) && (pacManYLeft == pacManYRight), "Check that PacMan moves to the left when left-arrow-key is pressed");
-    
-        press(KeyCode.UP);
-        press(KeyCode.UP);
-        press(KeyCode.UP);
-        press(KeyCode.UP);
-    
-        double pacManXUp = controller.getPacMan().getXPosition();
-        double pacManYUp = controller.getPacMan().getYPosition();
-    
-        assertTrue((pacManXLeft == pacManXUp) && (pacManYLeft > pacManYUp), "Check that PacMan moves UPWARDS when upwards-arrow-key is pressed");
-    
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        press(KeyCode.DOWN);
-        release(KeyCode.DOWN);
-    
-    
-        double pacManXDown = controller.getPacMan().getXPosition();
-        double pacManYDown = controller.getPacMan().getYPosition();
 
-        assertTrue((pacManXUp == pacManXDown) && (pacManYUp < pacManYDown), "Check that PacMan moves DOWNWARDS when downwards-arrow-key is pressed");
+        while (true) {
+            type(KeyCode.RIGHT, 1);
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+                break;
+            }
+        }
+
+        while (true) {
+            type(KeyCode.DOWN, 1);
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+                break;
+            }
+        }
+
+        while (true) {
+            type(KeyCode.LEFT, 1);
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+                break;
+            }
+        }
+
+        while (true) {
+            type(KeyCode.UP, 1);
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+                break;
+            }
+        }
+
+        assertEquals(controller.getPacMan().getScore(), 180);
         
-        press(KeyCode.RIGHT);
-        press(KeyCode.RIGHT);
-        press(KeyCode.RIGHT);
-        press(KeyCode.RIGHT);
-        press(KeyCode.RIGHT);
-        press(KeyCode.RIGHT);
-    
-        assertEquals(50, controller.getPacMan().getScore(), "Check that score increases when PacMan eats a pellet");
-    
-    
-    }   
-}
+    }
+
+}   

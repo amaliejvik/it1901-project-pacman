@@ -31,6 +31,7 @@ public class PacManController {
     //Data-oriented and gameloop attributes
     private PacMan pacMan;
     private List<Rectangle> walls;
+    private List<Rectangle> collisionRectangles;
     private List<ImageView> pellets;
     private Timeline timeline;
     private MediaPlayer mediaPlayer;
@@ -47,6 +48,9 @@ public class PacManController {
     
     @FXML
     private Rectangle startScreen;
+
+    @FXML
+    private Rectangle collisionRect1, collisionRect2, collisionRect3, collisionRect4;
     
     @FXML
     private Rectangle rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13,
@@ -116,13 +120,17 @@ public class PacManController {
             pacManGif.setLayoutY(pacMan.getYPosition());
             pacManGif.setRotate(pacMan.rotationAngle());
 
-            pacMan.checkWallCollision(pacManGif, walls);
+            // COLLISION CHECK
+            if (pacMan.checkWallCollision(pacManGif, walls)) {
+                PacMan.dx = 0;
+                PacMan.dy = 0;
+            }
             pacMan.checkPelletCollision(pacManGif, pellets);
 
             score.setText(Integer.toString(pacMan.getScore()));
 
 
-            if (pacMan.getScore() >= 40) {
+            if (pacMan.getScore() >= 560) {
                 gameOver();
             }
         }            
@@ -163,6 +171,8 @@ public class PacManController {
 
         walls = Arrays.asList(rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, 
                             rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27);
+        
+        collisionRectangles = Arrays.asList(collisionRect1, collisionRect2, collisionRect3, collisionRect4);
 
         pellets = Arrays.asList(pellet1, pellet2, pellet3, pellet4, pellet5, pellet6, pellet7, pellet8, pellet9, pellet10, pellet11, pellet12, pellet13,
                         pellet14, pellet15, pellet16, pellet17, pellet18, pellet19, pellet20, pellet21, pellet22, pellet23, pellet24, pellet25,
@@ -183,7 +193,14 @@ public class PacManController {
         updateGUI();
     }
 
-   
+    public ImageView getPacmanGif() {
+        return pacManGif;
+    }
+
+    public List<Rectangle> getCollisionRectangles() {
+        return collisionRectangles;
+    }
+
 
     /**
      * Disables the startbutton if the username is invalid
@@ -256,13 +273,17 @@ public class PacManController {
      */
     public void gameOver() {
         timeline.stop();
-        mediaPlayer.stop();
-
-        
-        PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore());
-
+        // Set GameOver screen visible
+        gameOverScreen.setVisible(true);
+        gameOverText.setVisible(true);
+        restartGame.setVisible(true);
+        highScores.setVisible(true);
+        toggleLightmode.setVisible(true);
+        // Save score to username in file
+        PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore(), "src/main/resources/ui/JSON/scores.json");
+        // Displays score in scoreboard
         String usersString = "";
-        List<PacManUser> UserArray = PacmanPersistence.fetchHighscore();
+        List<PacManUser> UserArray = PacmanPersistence.fetchHighscore("src/main/resources/ui/JSON/scores.json");
         for (PacManUser user : UserArray) {
             usersString += user.toString();
         }

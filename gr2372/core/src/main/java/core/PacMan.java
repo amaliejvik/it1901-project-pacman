@@ -109,7 +109,7 @@ public class PacMan {
      * @param pacMan pacman-image
      * @param walls lsit of all walls on map
      */
-    public void checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
+    public boolean checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
         for (Rectangle wall : walls) {
 
             if (pacMan.getBoundsInParent().intersects(wall.getBoundsInParent())) {
@@ -123,10 +123,10 @@ public class PacMan {
                     yPosition += 3;
                 }
 
-                dx = 0;
-                dy = 0;
+                return true;
             }
         }
+        return false;
     }
 
     /**

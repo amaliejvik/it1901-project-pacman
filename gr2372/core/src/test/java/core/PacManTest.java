@@ -38,4 +38,16 @@ public class PacManTest {
         Assertions.assertEquals(330, pacman.getXPosition());
         Assertions.assertEquals(115, pacman.getYPosition());
     }
+
+    @Test
+    @DisplayName("Test validation of username")
+    public void testUserNameValidation() {
+        PacMan pacMan = new PacMan();
+        String testName1 = "";
+        String testName2 = "n";
+        String testName3 = "Name";
+        Assertions.assertEquals(false, pacMan.validateUsername(testName1));
+        Assertions.assertEquals(false, pacMan.validateUsername(testName2));
+        Assertions.assertEquals(true, pacMan.validateUsername(testName3));
+  }
 }
