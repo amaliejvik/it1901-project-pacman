@@ -11,12 +11,17 @@ import com.google.gson.GsonBuilder;
 
 import core.PacManUser;
 
+/**
+ * Handles the persistence-layer of the app.
+ * E.g. reads from and writes to a .json-file
+ */
 public class PacmanPersistence {
 
   /**
-   * Writes username and score to highscore file
-   * @param name
-   * @param score
+   * Writes username and score to .json file "scores.json"
+   * Uses gson (see README)
+   * @param username username of player
+   * @param score score of player at gameover
    */
   public static void saveHighscore(String name, double score, String path) {
     try {
@@ -37,8 +42,8 @@ public class PacmanPersistence {
   }
 
   /**
-   * Reads scores.txt into leaderboard
-   * @return
+   * Reads from .json and transforms into list of PacManUser-objects
+   * @return list of PacManUser-objects
    */
   public static List<PacManUser> fetchHighscore(String path) {
     Gson gson = new Gson();
