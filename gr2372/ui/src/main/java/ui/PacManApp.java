@@ -14,7 +14,8 @@ import java.io.IOException;
 import core.PacMan;
 
 /**
- * JavaFX App
+ * Launches the JavaFX application.
+ * Registers user-input.
  */
 public class PacManApp extends Application {
 
@@ -27,7 +28,7 @@ public class PacManApp extends Application {
         stage.setMaximized(false);
         stage.show();
 
-        // REGISTERS KEY INPUTS FROM USER
+        //Registers keyboard-input
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -44,6 +45,9 @@ public class PacManApp extends Application {
         });
     }
 
+    /**
+    * Main start method for application
+    */
     public static void main(String[] args) {
         launch();
     }

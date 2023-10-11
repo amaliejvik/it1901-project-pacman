@@ -7,6 +7,11 @@ import org.testfx.framework.junit5.ApplicationTest;
 import static org.testfx.matcher.control.TextInputControlMatchers.hasText;
 import static org.testfx.api.FxAssert.verifyThat;
 
+import core.PacMan;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -46,4 +51,39 @@ public class PacManAppTest extends ApplicationTest {
 
     }
 
-}
+    @Test
+    public void testPacManMovementAndScore() {
+
+        while (true) {
+            type(KeyCode.RIGHT, 1);
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+                break;
+            }
+        }
+
+        while (true) {
+            type(KeyCode.DOWN, 1);
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+                break;
+            }
+        }
+
+        while (true) {
+            type(KeyCode.LEFT, 1);
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+                break;
+            }
+        }
+
+        while (true) {
+            type(KeyCode.UP, 1);
+            if (controller.getPacMan().checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+                break;
+            }
+        }
+
+        assertEquals(controller.getPacMan().getScore(), 180);
+        
+    }
+
+}   

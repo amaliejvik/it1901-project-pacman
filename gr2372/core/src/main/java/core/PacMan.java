@@ -5,9 +5,13 @@ import java.util.List;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * Controlls the logic of collision and user-input, and the response to these events.
+ * Also performs username-validation.
+ * 
+ */
 public class PacMan {
 
-    // ATTRIBUTES
     private static double dx = 0;
     private static double dy = 0;
     private static double rotate;
@@ -15,13 +19,15 @@ public class PacMan {
     private static double yPosition = 115;
     private int score;
     private String username;
-
-    // CONSTRUCTOR
+    
+    /*
+     * Constructor for a PacMan-object
+     */
     public PacMan() {
         return;
     }
 
-    // GETTERS AND SETTERS
+    //Various getters and setters
     public int getScore() {
         return this.score;
     }
@@ -50,8 +56,8 @@ public class PacMan {
         return username;
     }
 
-    public void setUsername(String usr) {
-        username = usr;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public static double getDX() {
@@ -96,12 +102,10 @@ public class PacMan {
     }
 
     /**
-     * Changes PacMan's direction and rotation.
-     * Receives key inputs from PacManApp class.
-     * 
+     * Changes PacMan's direction of travel and rotation.
+     * Receives key inputs from PacManApp.java.
+     * Sets the static variables dx, dy and rotation which are read by the timeline function in the controller.
      * @param string the direction of the corresponding arrow key typed.
-     *               sets the static variables dx, dy and rotation which are fed
-     *               into the timeline function in the controller
      */
     public static void changeDirection(String string) {
         if (string.equals("RIGHT")) {
@@ -123,14 +127,14 @@ public class PacMan {
         }
     }
 
-    // CHECKS IF PACMAN HAS COLLIDED WITH WALL
     /**
-     * @param pacMan pacman's position
-     * @param walls  lsit of all walls on map
-     *               if pacman collides with a wall, movement stops, dx dy set to 0.
-     *               pacman's position bounces back from the wall.
+     * if pacman collides with a wall, movement stops, e.g. dx and dy are set to 0.
+     * Pacman's position bounces back 3px from the wall to ensure Pacman does not stop in a wall.
+     * @param pacMan pacman-image
+     * @param walls lsit of all walls on map
+     * @return boolean if PacMan has collided with wall, false if no collision
      */
-    public static void checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
+    public static boolean checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
         for (Rectangle wall : walls) {
 
             if (pacMan.getBoundsInParent().intersects(wall.getBoundsInParent())) {
@@ -144,20 +148,18 @@ public class PacMan {
                     yPosition += 3;
                 }
 
-                dx = 0;
-                dy = 0;
+                return true;
             }
         }
+        return false;
     }
 
-    // CHECKS IF PACMAN HAS COLLIDED WITH PELLETS
     /**
      * When pacman collides with a pellet,
-     * If-statement checks if pellet has already been consumed.
+     * if-statement checks if pellet has already been consumed.
      * If not, user is given 10 points and pellet is set to invisible
-     * 
-     * @param pacMan  pacman's position
-     * @param pellets list of pellet positions
+     * @param pacMan pacman-image
+     * @param pellets list of all pellets on map
      */
     public void checkPelletCollision(ImageView pacMan, List<ImageView> pellets) {
         for (ImageView pellet : pellets) {
@@ -169,8 +171,12 @@ public class PacMan {
 
     }
 
-    // GIVES ROTATION-ANGLE
     /**
+     * Translates rotation-index to degrees.
+     * 0 -> right,
+     * 1 -> left,
+     * 2 -> up,
+     * 3 -> down.
      * @return correct rotation angle corresponding to direction of travel
      */
     public double rotationAngle() {
