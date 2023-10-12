@@ -1,0 +1,25 @@
+@startuml
+actor       User        as Foo
+Foo -> "~#userNameInput: TextField": write name
+"~#userNameInput: TextField" <- PacManController: getText
+
+PacManController-> PacMan: updateGui
+Foo -> "~#handleStartButton": click
+
+PacManController <- "~#handleStartButton": handleStartButton
+PacManController -> PacMan: setUserName
+
+Foo -> PacManApp: arrowkeys
+PacManApp -> PacMan: changeDirection
+
+PacManController -> pacManController: gameOver
+PacManController -> PacManPersistance: saveHighScore
+PacManPersistance -> PacMan: getUsername, getScore
+
+PacManController -> PacManPersistance: fetchScoreBoard
+pacManController -> "~#highScores: TextArea" : setText
+
+Foo -> "~#handleRestartGameButton": click
+"~#handleRestartGameButton" -> pacManController: handleRestartGameButton
+
+@enduml

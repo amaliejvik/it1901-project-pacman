@@ -1,0 +1,78 @@
+@startuml
+class PacMan {
++ static dx: double = 0
++ static dy: double = 0
+- xPosition: double = 330
+- yPosition: double = 115
+- static rotate: double
+- score: int
+- username: String
++ PacMan()
++ int getScore()
++ void setScore()
++ double getXPosition()
++ double getYPosition()
++ void setXPosition(double)
++ void setYPosition(double)
++ String getUsername()
++ void setUsername(String)
++ static double getDX()
++ static double getDY()
++ static void setDY(double)
++ static void setRotate(double)
++ static double getRotate()
++ boolean validateUsername(String)
++ static void changeDirection(String)
++ void checkWallCollision(ImageView, List<Rectangle>)
++ void checkPelletCollision(ImageView, List<Rectangle>)
++ double rotationAngle()
+}
+
+class PacManUser{
+- username: String
+- score: double
++ PacManUser(String, double)
++ String getUsername()
++ void setUsername(String)
++ double getScore()
++ void setScore(int)
++ String toString()
+}
+
+class PacManPersistance{
++ static void saveHighscore(String, double, String)
++ static List<PacManUser> fetchHighscore(String)
+}
+
+class PacManApp {
++static void main(String[])
++void start(Stage)
+}
+
+class PacManController {
+- pacMan: PacMan
+- walls: List<Rectangle>
+- collisionRectangles: List<Rectangle>
+- pellets: List<ImageView>
+- timeline: Timeline
+- mediaPlayer: MediaPlayer
++ void createAndConfigureTimeline()
++ void startTimeline()
++ PacMan getPacMan()
+- void initialize()
++ ImageView getPacManGif()
++ List<Rectangle> getCollisionRectangles()
+- void updateGUI()
+- void handle(ActionEvent)
+- void handleStartButton()
+- void gameOver()
+- void handleRestartGameButton()
+}
+
+
+PacManApp "1" -- "1" PacManController 
+PacManController  "1" -- "1" PacMan
+PacManController "1" -- "1" PacManPersistance
+PacManPersistance "1" -- "many" PacManUser
+
+@enduml
