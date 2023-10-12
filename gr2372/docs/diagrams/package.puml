@@ -1,0 +1,20 @@
+@startuml
+component core {
+	package PacMan.core
+	package PacMan.Persistance
+}
+component gson {
+}
+component ui {
+	package PacMan.ui
+}
+component javafx {
+	component fxml {
+	}
+}
+PacMan.ui ..> fxml
+ui ..> fxml
+ui ..> core
+PacMan.core ..> PacMan.Persistance
+PacMan.Persistance ..> gson
+@enduml
