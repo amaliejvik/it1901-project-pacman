@@ -123,7 +123,11 @@ public class PacManController {
                 pacManGif.setLayoutY(PacMan.getYPosition());
 
                 // COLLISION CHECK
-                PacMan.checkWallCollision(pacManGif, walls);
+                if (PacMan.checkWallCollision(pacManGif, walls)) {
+                    PacMan.setDX(0);
+                    PacMan.setDY(0);
+                }
+
                 pacMan.checkPelletCollision(pacManGif, pellets);
 
                 // UPDATES SCORE
@@ -132,7 +136,7 @@ public class PacManController {
                 // ROTATES PACMAN
                 pacManGif.setRotate(pacMan.rotationAngle());
 
-                if (pacMan.getScore() >= 40) {
+                if (pacMan.getScore() >= 560) {
                     gameOver();
                 }
 
@@ -153,6 +157,10 @@ public class PacManController {
      */
     public PacMan getPacMan(){
         return pacMan;
+    }
+
+    public PacManController() {
+        return ;
     }
 
     /*
@@ -284,7 +292,7 @@ public class PacManController {
         PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore(), "src/main/resources/ui/JSON/scores.json");
         // Displays score in scoreboard
         String usersString = "";
-        List<PacManUser> UserArray = PacmanPersistence.fetchHighscore();
+        List<PacManUser> UserArray = PacmanPersistence.fetchHighscore("src/main/resources/ui/JSON/scores.json");
         StringBuffer buf = new StringBuffer();
         for (PacManUser user : UserArray) {
             buf.append(user.toString());
