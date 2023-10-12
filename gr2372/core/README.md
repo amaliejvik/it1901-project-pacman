@@ -16,3 +16,10 @@ The data tier is responsible for storing and managing data as well as the logic 
 In our application, this data is mainly the username and the score of a player.
 We have implemented JSON with GSON in order to write username and score to the highscore list. 
 This code can be found in [persistence](gr2372/core/src/main/java/persistence).
+
+<br>
+
+
+**Implicit storage**
+
+In our program PacMan, we have chosen to use implicit storage, meaning that the user doesn't have to handle the storage process. In other words, when a user interacts with the program, such as saving their name, our program automatically determines the appropriate location for storing this data. This makes it easier for users to manage their data, since they don't need to worry about the details surrounding the storage process, and therefore giving a more user-friendly experience.
