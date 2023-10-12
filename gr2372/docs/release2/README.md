@@ -247,9 +247,9 @@ The board is now filled with pellets, and you can see the player's score in the 
 <br>
 Ligth mode can be enabled/disabled from start screen by a toggle switch
 
-![LightmodeToggle](src/main/resources/README-Images/../../../../../../ui/PacMan/ui/README-Images/light-mode-toggle.jpg)
+![LightmodeToggle](src/main/resources/README-Images/../../../../../../ui/PacMan/ui/README-Images/light-mode-toggle.png)
 
 <br>
 Ligth mode visualised with a lighter maze and an orange PacMan
 
-![LightmodeToggle](src/main/resources/README-Images/../../../../../../ui/PacMan/ui/README-Images/light-mode.jpg)
+![LightmodeToggle](src/main/resources/README-Images/../../../../../../ui/PacMan/ui/README-Images/light-mode.png)
