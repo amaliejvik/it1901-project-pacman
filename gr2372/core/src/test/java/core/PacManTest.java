@@ -12,30 +12,42 @@ public class PacManTest {
         // Test Right
         PacMan.changeDirection("RIGHT");
 
-        Assertions.assertEquals(1, PacMan.dx);
-        Assertions.assertEquals(0, PacMan.dy);
+        Assertions.assertEquals(1, PacMan.getDX());
+        Assertions.assertEquals(0, PacMan.getDY());
 
         // Test Left
         PacMan.changeDirection("LEFT");
-        Assertions.assertEquals(-1, PacMan.dx);
-        Assertions.assertEquals(0, PacMan.dy);
+        Assertions.assertEquals(-1, PacMan.getDX());
+        Assertions.assertEquals(0, PacMan.getDY());
 
         // Test Up
         PacMan.changeDirection("UP");
-        Assertions.assertEquals(-1, PacMan.dy);
-        Assertions.assertEquals(0, PacMan.dx);
+        Assertions.assertEquals(-1, PacMan.getDY());
+        Assertions.assertEquals(0, PacMan.getDX());
 
         // Test Down
         PacMan.changeDirection("DOWN");
-        Assertions.assertEquals(1, PacMan.dy);
-        Assertions.assertEquals(0, PacMan.dx);
+        Assertions.assertEquals(1, PacMan.getDY());
+        Assertions.assertEquals(0, PacMan.getDX());
     }
 
     @Test
     @DisplayName("Test Pacman start position")
     public void testPacManStartPos() {
-        PacMan pacman = new PacMan();
-        Assertions.assertEquals(330, pacman.getXPosition());
-        Assertions.assertEquals(115, pacman.getYPosition());
+        // PacMan pacman = new PacMan();
+        Assertions.assertEquals(330, PacMan.getXPosition());
+        Assertions.assertEquals(115, PacMan.getYPosition());
     }
+
+    @Test
+    @DisplayName("Test validation of username")
+    public void testUserNameValidation() {
+        PacMan pacMan = new PacMan();
+        String testName1 = "";
+        String testName2 = "n";
+        String testName3 = "Name";
+        Assertions.assertEquals(false, pacMan.validateUsername(testName1));
+        Assertions.assertEquals(false, pacMan.validateUsername(testName2));
+        Assertions.assertEquals(true, pacMan.validateUsername(testName3));
+  }
 }

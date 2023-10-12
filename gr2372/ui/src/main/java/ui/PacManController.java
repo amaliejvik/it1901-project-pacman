@@ -27,10 +27,11 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class PacManController {
-    
+
     //Data-oriented and gameloop attributes
     private PacMan pacMan;
     private List<Rectangle> walls;
+    private List<Rectangle> collisionRectangles;
     private List<ImageView> pellets;
     private Timeline timeline;
     private MediaPlayer mediaPlayer;
@@ -38,26 +39,34 @@ public class PacManController {
     // Fxml-attributes
     @FXML
     private AnchorPane mainBackground;
-    
+
     @FXML
     private ImageView mapGrid;
-    
+
     @FXML
     private Button startButton;
-    
+
     @FXML
     private Rectangle startScreen;
+
+    @FXML
+    private Rectangle collisionRect1, collisionRect2, collisionRect3, collisionRect4;
     
     @FXML
     private Rectangle rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13,
-                        rect14, rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27;
-    
+            rect14, rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26,
+            rect27;
+
     @FXML
-    private ImageView pellet1, pellet2, pellet3, pellet4, pellet5, pellet6, pellet7, pellet8, pellet9, pellet10, pellet11, pellet12, pellet13,
-                        pellet14, pellet15, pellet16, pellet17, pellet18, pellet19, pellet20, pellet21, pellet22, pellet23, pellet24, pellet25,
-                        pellet26, pellet27, pellet28, pellet29, pellet30, pellet31, pellet32, pellet33, pellet34, pellet35, pellet36, pellet37,
-                        pellet38, pellet39, pellet40, pellet41, pellet42, pellet43, pellet44, pellet45, pellet46, pellet47, pellet48, pellet49,
-                        pellet50, pellet51, pellet52, pellet53, pellet54, pellet55, pellet56;
+    private ImageView pellet1, pellet2, pellet3, pellet4, pellet5, pellet6, pellet7, pellet8, pellet9, pellet10,
+            pellet11, pellet12, pellet13,
+            pellet14, pellet15, pellet16, pellet17, pellet18, pellet19, pellet20, pellet21, pellet22, pellet23,
+            pellet24, pellet25,
+            pellet26, pellet27, pellet28, pellet29, pellet30, pellet31, pellet32, pellet33, pellet34, pellet35,
+            pellet36, pellet37,
+            pellet38, pellet39, pellet40, pellet41, pellet42, pellet43, pellet44, pellet45, pellet46, pellet47,
+            pellet48, pellet49,
+            pellet50, pellet51, pellet52, pellet53, pellet54, pellet55, pellet56;
 
     @FXML
     private TextField usernameInput;
@@ -95,37 +104,39 @@ public class PacManController {
     @FXML
     private CheckBox toggleLightmode;
 
-
-
 	/**
      * Creates the main game-loop for the application.
      * Updates pacmans position and rotation, checks for collisions, updates score, triggers gameover
      */
-    public void createAndConfigureTimeline(){
-        this.timeline = new Timeline(new KeyFrame(Duration.millis(10),new EventHandler<ActionEvent>() {
+    public void createAndConfigureTimeline() {
+        this.timeline = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
 
-        @Override
-        public void handle(ActionEvent event) {
+            @Override
+            public void handle(ActionEvent event) {
 
-            //Updates position variables
-            pacMan.setXPosition(pacMan.getXPosition() + PacMan.dx);
-            pacMan.setYPosition(pacMan.getYPosition() + PacMan.dy);
+                // UPDATES PACMAN'S POSITION-VARIABLES
+                PacMan.setXPosition(PacMan.getXPosition() + PacMan.getDX());
+                PacMan.setYPosition(PacMan.getYPosition() + PacMan.getDY());
 
-            //Moves Pacman's graphic
-            pacManGif.setLayoutX(pacMan.getXPosition());
-            pacManGif.setLayoutY(pacMan.getYPosition());
-            pacManGif.setRotate(pacMan.rotationAngle());
+                // GRAPHICALLY UPDATES PACMAN'S POSITION
+                pacManGif.setLayoutX(PacMan.getXPosition());
+                pacManGif.setLayoutY(PacMan.getYPosition());
 
-            pacMan.checkWallCollision(pacManGif, walls);
-            pacMan.checkPelletCollision(pacManGif, pellets);
+                // COLLISION CHECK
+                PacMan.checkWallCollision(pacManGif, walls);
+                pacMan.checkPelletCollision(pacManGif, pellets);
 
-            score.setText(Integer.toString(pacMan.getScore()));
+                // UPDATES SCORE
+                score.setText(Integer.toString(pacMan.getScore()));
 
+                // ROTATES PACMAN
+                pacManGif.setRotate(pacMan.rotationAngle());
 
-            if (pacMan.getScore() >= 40) {
-                gameOver();
+                if (pacMan.getScore() >= 40) {
+                    gameOver();
+                }
+
             }
-        }            
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
     }
@@ -146,8 +157,8 @@ public class PacManController {
 
     /*
      * Is executed as game initializes.
-     * Initializes music-player, organises FXML-elements into lists, generates PacMan object, hides various FXML-elements from the screen,
-     * configures timeline
+     * Initializes music-player, organises FXML-elements into lists, generates PacMan object, hides various FXML-elements 
+     * from the screen, configures timeline
      */
     public void initialize() {
         //Music-player
@@ -159,10 +170,12 @@ public class PacManController {
                 mediaPlayer.seek(Duration.ZERO);
                 mediaPlayer.play();
             }
-        }); 
+        });
 
         walls = Arrays.asList(rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, 
                             rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27);
+        
+        collisionRectangles = Arrays.asList(collisionRect1, collisionRect2, collisionRect3, collisionRect4);
 
         pellets = Arrays.asList(pellet1, pellet2, pellet3, pellet4, pellet5, pellet6, pellet7, pellet8, pellet9, pellet10, pellet11, pellet12, pellet13,
                         pellet14, pellet15, pellet16, pellet17, pellet18, pellet19, pellet20, pellet21, pellet22, pellet23, pellet24, pellet25,
@@ -183,7 +196,13 @@ public class PacManController {
         updateGUI();
     }
 
-   
+    public ImageView getPacmanGif() {
+        return pacManGif;
+    }
+
+    public List<Rectangle> getCollisionRectangles() {
+        return collisionRectangles;
+    }
 
     /**
      * Disables the startbutton if the username is invalid
@@ -194,8 +213,7 @@ public class PacManController {
         String name = usernameInput.getText();
         if (pacMan.validateUsername(name)) {
             startButton.setDisable(false);
-        }
-        else {
+        } else {
             startButton.setDisable(true);
         }
     }
@@ -224,8 +242,7 @@ public class PacManController {
                 pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelLight.gif"));
                 scoreText.setFill(Color.BLACK);
                 score.setTextFill(Color.BLACK);
-            }
-            else {
+            } else {
                 mapGrid.setImage(new Image("file:src/main/resources/ui/mapgrid.png"));
 
                 for (ImageView pellet : pellets) {
@@ -239,6 +256,7 @@ public class PacManController {
             startTimeline();
 
             score.setText("0");
+
             scoreText.setVisible(true);
             score.setVisible(true);
 
@@ -256,16 +274,22 @@ public class PacManController {
      */
     public void gameOver() {
         timeline.stop();
-        mediaPlayer.stop();
-
-        
-        PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore());
-
+        // Set GameOver screen visible
+        gameOverScreen.setVisible(true);
+        gameOverText.setVisible(true);
+        restartGame.setVisible(true);
+        highScores.setVisible(true);
+        toggleLightmode.setVisible(true);
+        // Save score to username in file
+        PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore(), "src/main/resources/ui/JSON/scores.json");
+        // Displays score in scoreboard
         String usersString = "";
         List<PacManUser> UserArray = PacmanPersistence.fetchHighscore();
+        StringBuffer buf = new StringBuffer();
         for (PacManUser user : UserArray) {
-            usersString += user.toString();
+            buf.append(user.toString());
         }
+        usersString = buf.toString();
         highScores.setText(usersString);
 
         gameOverScreen.setVisible(true);
@@ -298,14 +322,13 @@ public class PacManController {
         pacMan.setScore(0);
         pacManGif.setLayoutX(330);
         pacManGif.setLayoutY(115);
-        PacMan.dx = 0;
-        PacMan.dy = 0;
-        PacMan.rotate = 0;
-        pacMan.setXPosition(330);
-        pacMan.setYPosition(115);
+        PacMan.setDX(0);;
+        PacMan.setDY(0);;
+        PacMan.setRotate(0);
+        PacMan.setXPosition(330);
+        PacMan.setYPosition(115);
 
         updateGUI();
 
     }
-
 }
