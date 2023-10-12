@@ -12,6 +12,69 @@ This is the README for the second release of our PacMan game.
    - presentation tier; the userinterface (**ui**-folder)
    - application tier; the logic (**core**-folder)
    - data tier; the storing of the application data (**json**)
+
+   ```
+├── .vscode  
+|      ├── launch.json
+|      └── settings.json                        
+├── config
+|      ├── checkstyles
+|      |     └── eclipse-java-google-style.xml
+|      └──spotbugs
+|            └──exlude.xml
+├── core
+|      └── src
+|      |      ├── main
+|      |      |   ├── core
+|      |      |   |     ├── PacMan.java
+|      |      |   |     └── PacManUser.java
+|      |      |   ├── Persistance
+|      |      |   |         ├── PacManPersistence.java
+|      |      |   └── module-info.java
+|      |      └── test
+|      |            ├──JSON
+|      |             |    └── testScores.json
+|      |            ├── PacManPersistenceTest.java
+|      |            └── PacManTest.java
+|      ├── README.md
+|      └── pom.xml           
+├── docs
+|      ├── diagrams
+|      |         ├── class.png
+|      |         ├── class.puml
+|      |         ├── package.png
+|      |         ├── package.puml
+|      |         ├── sequence.png
+|      |         └── sequence.puml
+|      ├── release1
+|      |       ├── PacMan , code coverage - JaCoCoReport, release1.png
+|      |       └── README.md
+|      ├── release2
+|      |        ├── README.md
+|      |        └── PacMan , code coverage - JaCoCoReport, release2.png
+|      └── userstories
+|               ├── userstory1.md
+|               ├── userstory2.md
+|               └── userstory3.md
+├── ui
+|    ├── src
+|    |     ├── main
+|    |     |    ├── java
+|    |     |    |      ├──ui
+|    |     |    |      |   ├──PacManApp.java
+|    |     |    |      |   └──PacManController.java
+|    |     |    |      └── module-info.java
+|    |     |    └── resources   
+|    |     └──test
+|    |         └──PacManAppTest.java
+|    ├── pom.xml
+|    └──README.       
+├── pom.txt                                 : Maven file to correctly load structure and dependecies in the project
+├── README.md                               : Description of this repository
+├── .gitignore                              : Files and directories to be ignored by git
+├── devfile.yaml                            : File that enables the project to be opened with Eclipse Che 
+```
+
   
 **2. Implemented some new features**
    - The board is filled with pellets
