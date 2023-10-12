@@ -12,6 +12,7 @@ Since we are making PacMan, our application tier consists of a class to represen
 
 ## The data tier
 
-The data tier is responsible for storing and managing data. 
+The data tier is responsible for storing and managing data as well as the logic connected to this. 
 In our application, this data is mainly the username and the score of a player.
-We have implemented JSON in order to write username and score to the highscore. 
+We have implemented JSON with GSON in order to write username and score to the highscore list. 
+This code can be found in [persistence](gr2372/core/src/main/java/persistence).

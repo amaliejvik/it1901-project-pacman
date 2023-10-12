@@ -5,10 +5,10 @@ Turid is 78 years old and wants to reminisce about the times when she took her c
 
 Her children feel it's necessary for the game not to be as fast-paced as the original, and it shouldn't be too complicated so that Turid can also experience a sense of achievement. The most important thing is to include all the classic elements, such as the music. Additionally, Turid doesn't have internet at home, so it's important that she can play offline when her children are not around to share their internet connection.
 
-### Important features I, Roger, would like to see:
+### Important features I, Turid, would like to see:
 - Score during the game
 - The original Pacman characters
 
-### Important features I, Roger, would like to do:
+### Important features I, Turid, would like to do:
 - Hear the original PacMan music
 - Play without internet connection
