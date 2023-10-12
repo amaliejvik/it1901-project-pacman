@@ -1,2 +1,8 @@
 <FindBugsFilter>
+    <Match>
+        <Bug pattern="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" /> 
+    </Match>
+    <Match>
+        <bug pattern="EI_EXPOSE_REP" />
+    </Match>
 </FindBugsFilter>
