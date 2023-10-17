@@ -50,7 +50,10 @@ public class PacManController {
     private Rectangle startScreen;
 
     @FXML
-    private Rectangle collisionRect1, collisionRect2, collisionRect3, collisionRect4;
+    private Rectangle collisionRect1, collisionRect2, collisionRect3, collisionRect4, collisionRect5, collisionRect6,
+            collisionRect7, collisionRect8, collisionRect9, collisionRect10, collisionRect11, collisionRect12, collisionRect13,
+            collisionRect14, collisionRect15, collisionRect16, collisionRect17, collisionRect18, collisionRect19, collisionRect20,
+            collisionRect21, collisionRect22;
     
     @FXML
     private Rectangle rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13,
