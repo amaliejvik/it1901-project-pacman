@@ -343,7 +343,6 @@ public class PacManController {
         }
         usersString = buf.toString();
         highScores.setText(usersString);
-
         gameOverScreen.setVisible(true);
         gameOverText.setVisible(true);
         restartGame.setVisible(true);
@@ -371,7 +370,6 @@ public class PacManController {
         greenPacManPhoto.setVisible(true);
         pinkPacManPhoto.setVisible(true);
         orangePacManPhoto.setVisible(true);
-        
         usernameInput.clear();
         usernameInput.setVisible(true);
         pacManText.setVisible(true);
