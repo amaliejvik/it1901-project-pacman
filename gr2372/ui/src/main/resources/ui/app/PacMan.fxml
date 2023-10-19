@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PacManController">
+<AnchorPane fx:id="mainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PacManController">
    <children>
       <ImageView fx:id="mapGrid" fitHeight="458.0" fitWidth="933.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -21,7 +21,7 @@
       </ImageView>
       <ImageView fx:id="pacManGif" fitHeight="65.0" fitWidth="56.0" layoutX="330.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../PacManModel.gif" />
+            <Image url="@../PacManModelYellow.gif" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet38" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
@@ -332,14 +332,14 @@
          </image>
       </ImageView>
       
-      <Rectangle fx:id="startScreen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="268.0" layoutX="218.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="439.0" />
-      <Label fx:id="pacManText" layoutX="333.0" layoutY="128.0" text="PacMan">
+      <Rectangle fx:id="startScreen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="327.0" layoutX="156.0" layoutY="64.0" stroke="BLACK" strokeType="INSIDE" width="539.0" />
+      <Label fx:id="pacManText" layoutX="322.0" layoutY="77.0" text="PacMan">
          <font>
             <Font name="Impact" size="62.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameInput" layoutX="358.0" layoutY="230.0" onKeyPressed="#updateGUI" onKeyTyped="#updateGUI" />
-      <Label fx:id="username" layoutX="390.0" layoutY="198.0" prefHeight="29.0" prefWidth="98.0" text="Username:">
+      <TextField fx:id="usernameInput" layoutX="397.0" layoutY="166.0" onKeyPressed="#updateGUI" onKeyTyped="#updateGUI" />
+      <Label fx:id="username" layoutX="277.0" layoutY="165.0" prefHeight="29.0" prefWidth="98.0" text="Username:">
          <font>
             <Font size="20.0" />
          </font>
@@ -354,19 +354,49 @@
             <Font name="Impact" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="startButton" layoutX="381.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="40.0" prefWidth="110.0" text="Start Game" />
-      <CheckBox fx:id="toggleLightmode" layoutX="384.0" layoutY="265.0" mnemonicParsing="false" text="Lightmode" />
+      <Button fx:id="startButton" layoutX="378.0" layoutY="325.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="40.0" prefWidth="110.0" text="Start Game" />
+      <CheckBox fx:id="toggleLightmode" layoutX="391.0" layoutY="275.0" mnemonicParsing="false" text="Lightmode" />
+      <Rectangle fx:id="collisionRect1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="737.0" layoutY="110.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
+      <Rectangle fx:id="collisionRect3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="16.0" layoutX="94.0" layoutY="334.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
+      <Rectangle fx:id="collisionRect2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="730.0" layoutY="345.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
+      <Rectangle fx:id="collisionRect4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="102.0" layoutY="98.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Label fx:id="choosePacManText" layoutX="187.0" layoutY="219.0" text="Choose your PacMan:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="yellowPacManPhoto" fitHeight="46.0" fitWidth="44.0" layoutX="401.0" layoutY="209.0" onMouseClicked="#chooseYellowPacMan" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../PacManPhoto-yellow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="greenPacManPhoto" fitHeight="46.0" fitWidth="44.0" layoutX="472.0" layoutY="209.0" onMouseClicked="#chooseGreenPacMan" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../PacManPhoto-green.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pinkPacManPhoto" fitHeight="46.0" fitWidth="44.0" layoutX="541.0" layoutY="210.0" onMouseClicked="#choosePinkPacMan" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../PacManPhoto-pink.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="orangePacManPhoto" fitHeight="46.0" fitWidth="44.0" layoutX="604.0" layoutY="210.0" onMouseClicked="#chooseOrangePacMan" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../PacManPhoto-orange.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="checkMark" fitHeight="24.0" fitWidth="29.0" layoutX="625.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../chekcmark.png" />
+         </image>
+      </ImageView>
       <Rectangle fx:id="gameOverScreen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="351.0" layoutX="217.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="439.0" />
-      <Button fx:id="restartGame" layoutX="384.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#handleRestartGameButton" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
-      <TextArea fx:id="highScores" layoutX="339.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0" promptText="HIGHSCORES TEST:" text=" " />
        <Label fx:id="gameOverText" layoutX="303.0" layoutY="94.0" text="GameOver">
          <font>
             <Font name="Impact" size="62.0" />
          </font>
       </Label>
-      <Rectangle fx:id="collisionRect1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="737.0" layoutY="110.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
-      <Rectangle fx:id="collisionRect3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="16.0" layoutX="94.0" layoutY="334.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
-      <Rectangle fx:id="collisionRect2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="730.0" layoutY="345.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
-      <Rectangle fx:id="collisionRect4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="102.0" layoutY="98.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <TextArea fx:id="highScores" layoutX="339.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0" promptText="HIGHSCORES TEST:" text=" " />
+      <Button fx:id="restartGame" layoutX="384.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#handleRestartGameButton" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
    </children>
 </AnchorPane>
