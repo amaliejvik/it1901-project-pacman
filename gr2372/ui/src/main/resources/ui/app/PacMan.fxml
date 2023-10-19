@@ -331,19 +331,24 @@
             <Image url="@../smalldot.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="65.0" fitWidth="56.0" layoutX="23.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="blinkyPNG" fitHeight="65.0" fitWidth="56.0" layoutX="23.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../ghosts/ghostBlinky.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="65.0" fitWidth="56.0" layoutX="768.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="clydePNG" fitHeight="65.0" fitWidth="56.0" layoutX="768.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../ghosts/ghostClyde.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="56.0" layoutX="395.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pinkyPNG" fitHeight="150.0" fitWidth="56.0" layoutX="395.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../ghosts/ghostPinky.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inkyPNG" fitHeight="65.0" fitWidth="56.0" layoutX="548.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../ghosts/ghostInky.png" />
          </image>
       </ImageView>
       
@@ -379,27 +384,29 @@
             <Font name="Impact" size="62.0" />
          </font>
       </Label>
-      <Rectangle fx:id="collisionRect1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="737.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
-      <Rectangle fx:id="collisionRect3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="16.0" layoutX="94.0" layoutY="334.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
-      <Rectangle fx:id="collisionRect2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="730.0" layoutY="345.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
-      <Rectangle fx:id="collisionRect4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="102.0" layoutY="98.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <Rectangle fx:id="CollisionRect6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="210.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <Rectangle fx:id="CollisionRect13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="172.0" layoutY="171.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle fx:id="CollisionRect11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="296.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <Rectangle fx:id="CollisionRect7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="241.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle fx:id="CollisionRect8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="605.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <Rectangle fx:id="CollisionRect20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="571.0" layoutY="432.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle fx:id="CollisionRect19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="225.0" layoutY="395.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <Rectangle fx:id="CollisionRect14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="247.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle fx:id="CollisionRect16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="136.0" layoutY="298.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <Rectangle fx:id="CollisionRect18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="170.0" layoutY="432.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle fx:id="CollisionRect17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="7.0" layoutY="386.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <Rectangle fx:id="CollisionRect5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="19.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle fx:id="CollisionRect21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="621.0" layoutY="395.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <Rectangle fx:id="CollisionRect15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="638.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle fx:id="CollisionRect12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="695.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <Rectangle fx:id="CollisionRect9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="642.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle fx:id="CollisionRect10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="825.0" layoutY="32.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <Rectangle fx:id="CollisionRect22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="777.0" layoutY="437.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+      <Rectangle fx:id="collisionRect1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="737.0" layoutY="110.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
+      <Rectangle fx:id="collisionRect3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="16.0" layoutX="94.0" layoutY="334.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
+      <Rectangle fx:id="collisionRect2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="730.0" layoutY="345.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
+      <Rectangle fx:id="collisionRect4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="102.0" layoutY="98.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Rectangle fx:id="collisionRect6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="210.0" layoutY="18.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Rectangle fx:id="collisionRect13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="172.0" layoutY="175.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="13.0" />
+      <Rectangle fx:id="collisionRect11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="296.0" layoutY="122.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Rectangle fx:id="collisionRect7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="241.0" layoutY="10.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+      <Rectangle fx:id="collisionRect8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="605.0" layoutY="19.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Rectangle fx:id="collisionRect20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="571.0" layoutY="432.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+      <Rectangle fx:id="collisionRect19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="225.0" layoutY="395.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Rectangle fx:id="collisionRect14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="247.0" layoutY="273.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+      <Rectangle fx:id="collisionRect16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="136.0" layoutY="298.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Rectangle fx:id="collisionRect18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="170.0" layoutY="432.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+      <Rectangle fx:id="collisionRect17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="7.0" layoutY="386.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Rectangle fx:id="collisionRect5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="19.0" layoutY="8.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+      <Rectangle fx:id="collisionRect21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="621.0" layoutY="395.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Rectangle fx:id="collisionRect15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="638.0" layoutY="273.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+      <Rectangle fx:id="collisionRect12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="695.0" layoutY="122.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Rectangle fx:id="collisionRect9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="642.0" layoutY="11.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+      <Rectangle fx:id="collisionRect10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="825.0" layoutY="32.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+      <Rectangle fx:id="collisionRect22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="777.0" layoutY="437.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+      <Rectangle fx:id="collisionRect23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="558.0" layoutY="171.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+      <Rectangle fx:id="collisionRect24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="533.0" layoutY="299.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
    </children>
 </AnchorPane>
