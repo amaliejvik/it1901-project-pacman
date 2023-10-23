@@ -168,7 +168,15 @@ public class PacMan {
                 pellet.setVisible(false);
             }
         }
+    }
 
+    public boolean checkGhostCollision(ImageView pacMan, List<ImageView> ghosts) {
+        for (ImageView ghost : ghosts) {
+            if (pacMan.getBoundsInParent().intersects(ghost.getBoundsInParent())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

@@ -38,6 +38,7 @@ public class PacManController {
     private List<Rectangle> walls;
     private List<Rectangle> collisionRectangles;
     private List<ImageView> pellets;
+    private List<ImageView> ghosts;
     private Timeline timeline;
     private MediaPlayer mediaPlayer;
 
@@ -157,6 +158,10 @@ public class PacManController {
                 }
                 
                 pacMan.checkPelletCollision(pacManGif, pellets);
+
+                if (pacMan.checkGhostCollision(pacManGif, ghosts)) {
+                    gameOver();
+                }
                 
                 inkyPathing();
                 blinkyPathing();
@@ -381,6 +386,8 @@ public class PacManController {
         blinky = new Ghost();
         clyde = new Ghost();
 
+        ghosts = Arrays.asList(inkyPNG, pinkyPNG, blinkyPNG, clydePNG);
+
         inky.changeDirection("DOWN");
         inky.setXPosition(548);
         inky.setYPosition(24);
@@ -539,6 +546,22 @@ public class PacManController {
         PacMan.setRotate(0);
         PacMan.setXPosition(330);
         PacMan.setYPosition(115);
+        
+        inky.changeDirection("DOWN");
+        inky.setXPosition(548);
+        inky.setYPosition(24);
+        
+        pinky.changeDirection("LEFT");
+        pinky.setXPosition(395);
+        pinky.setYPosition(290);
+
+        blinky.changeDirection("RIGHT");
+        blinky.setXPosition(23);
+        blinky.setYPosition(32);
+
+        clyde.changeDirection("LEFT");
+        clyde.setXPosition(768);
+        clyde.setYPosition(378);
 
         updateGUI();
 
