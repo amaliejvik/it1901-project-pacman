@@ -73,23 +73,6 @@ public class PacMan {
     }
 
     /**
-     * Input validation on username, e.g. no spaces or empty strings
-     * 
-     * @param name username from player
-     * @return true if the username is valid, else false
-     */
-    public boolean validateUsername(String name) {
-        if (name.contains(" ")) {
-            return false;
-        } else if (name.equals("")) {
-            return false;
-        } else if (name.length() <= 2) {
-            return false;
-        }
-        return true;
-    }
-
-    /**
      * Changes PacMan's direction of travel and rotation.
      * Receives key inputs from PacManApp.java.
      * Sets the static variables dx, dy and rotation which are read by the timeline function in the controller.

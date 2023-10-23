@@ -35,6 +35,23 @@ public class PacManUser {
         this.score = score;
     }
 
+    /**
+     * Input validation on username, e.g. no spaces or empty strings
+     * 
+     * @param name username from player
+     * @return true if the username is valid, else false
+     */
+    public static boolean validateUsername(String name) {
+        if (name.contains(" ")) {
+            return false;
+        } else if (name.equals("")) {
+            return false;
+        } else if (name.length() <= 2) {
+            return false;
+        }
+        return true;
+    }
+
     //toString method to give PacManUser-objects a text-representation
     @Override
     public String toString() {

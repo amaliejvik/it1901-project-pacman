@@ -243,6 +243,9 @@ public class PacManController {
         else if (inky.checkWallCollision(inkyPNG, collisionRect7)) {
             inky.changeDirection("RIGHT");
         }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect8)) {
+            inky.changeDirection("DOWN");
+        }
     }
     
     public void blinkyPathing() {
@@ -432,7 +435,7 @@ public class PacManController {
     public void updateGUI() {
         startButton.setDisable(true);
         String name = usernameInput.getText();
-        if (pacMan.validateUsername(name)) {
+        if (PacManUser.validateUsername(name)) {
             startButton.setDisable(false);
         } else {
             startButton.setDisable(true);
