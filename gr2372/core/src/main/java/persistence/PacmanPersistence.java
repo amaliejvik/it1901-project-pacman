@@ -1,4 +1,4 @@
-package Persistence;
+package persistence;
 
 import java.io.File;
 import java.io.FileReader;
@@ -12,12 +12,8 @@ import com.google.gson.GsonBuilder;
 
 import core.PacManUser;
 
-/**
- * Handles the persistence-layer of the app.
- * E.g. reads from and writes to a .json-file
- */
 public class PacmanPersistence {
-
+    
   /**
    * Writes username and score to .json file "scores.json"
    * Uses gson (see README)

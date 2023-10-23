@@ -3,7 +3,7 @@ module PacMan.core {
     requires com.google.gson;
 
     exports core;
-    exports Persistence;
+    exports persistence;
 
     opens core to com.google.gson;
 }
