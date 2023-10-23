@@ -5,6 +5,7 @@ import java.util.List;
 
 import core.PacMan;
 import core.PacManUser;
+import core.Ghost;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -30,9 +31,14 @@ public class PacManController {
 
     //Data-oriented and gameloop attributes
     private PacMan pacMan;
+    private Ghost inky;
+    private Ghost pinky;
+    private Ghost blinky;
+    private Ghost clyde;
     private List<Rectangle> walls;
     private List<Rectangle> collisionRectangles;
     private List<ImageView> pellets;
+    private List<ImageView> ghosts;
     private Timeline timeline;
     private MediaPlayer mediaPlayer;
     private String chosenPacManColor;
@@ -51,7 +57,10 @@ public class PacManController {
     private Rectangle startScreen;
 
     @FXML
-    private Rectangle collisionRect1, collisionRect2, collisionRect3, collisionRect4;
+    private Rectangle collisionRect1, collisionRect2, collisionRect3, collisionRect4, collisionRect5, collisionRect6,
+            collisionRect7, collisionRect8, collisionRect9, collisionRect10, collisionRect11, collisionRect12, collisionRect13,
+            collisionRect14, collisionRect15, collisionRect16, collisionRect17, collisionRect18, collisionRect19, collisionRect20,
+            collisionRect21, collisionRect22, collisionRect23, collisionRect24;
     
     @FXML
     private Rectangle rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13,
@@ -79,7 +88,7 @@ public class PacManController {
     private Label username;
 
     @FXML
-    private ImageView pacManGif;
+    private ImageView pacManGif, blinkyPNG, pinkyPNG, clydePNG, inkyPNG;
 
     @FXML
     private ImageView yellowPacManPhoto;
@@ -140,22 +149,53 @@ public class PacManController {
                 // GRAPHICALLY UPDATES PACMAN'S POSITION
                 pacManGif.setLayoutX(PacMan.getXPosition());
                 pacManGif.setLayoutY(PacMan.getYPosition());
+                
+                inky.setXPosition(inky.getXPosition() + inky.getDX());
+                inky.setYPosition(inky.getYPosition() + inky.getDY());
+                inkyPNG.setLayoutX(inky.getXPosition());
+                inkyPNG.setLayoutY(inky.getYPosition());
 
+                blinky.setXPosition(blinky.getXPosition() + blinky.getDX());
+                blinky.setYPosition(blinky.getYPosition() + blinky.getDY());
+                blinkyPNG.setLayoutX(blinky.getXPosition());
+                blinkyPNG.setLayoutY(blinky.getYPosition());
+
+                pinky.setXPosition(pinky.getXPosition() + pinky.getDX());
+                pinky.setYPosition(pinky.getYPosition() + pinky.getDY());
+                pinkyPNG.setLayoutX(pinky.getXPosition());
+                pinkyPNG.setLayoutY(pinky.getYPosition());
+
+                clyde.setXPosition(clyde.getXPosition() + clyde.getDX());
+                clyde.setYPosition(clyde.getYPosition() + clyde.getDY());
+                clydePNG.setLayoutX(clyde.getXPosition());
+                clydePNG.setLayoutY(clyde.getYPosition());
+                
                 // COLLISION CHECK
-                if (PacMan.checkWallCollision(pacManGif, walls)) {
+                if (Collisions.PacmanWallCollision(pacManGif, walls)) {
                     PacMan.setDX(0);
                     PacMan.setDY(0);
                 }
+                
+                if (Collisions.PacmanPelletCollision(pacManGif, pellets)) {
+                    PacMan.setScore(PacMan.getScore()+10);
+                }
 
-                pacMan.checkPelletCollision(pacManGif, pellets);
+                if (Collisions.PacmanGhostCollision(pacManGif, ghosts)) {
+                    gameOver();
+                }
+                
+                inkyPathing();
+                blinkyPathing();
+                pinkyPathing();
+                clydePathing();
 
                 // UPDATES SCORE
-                score.setText(Integer.toString(pacMan.getScore()));
+                score.setText(Integer.toString(PacMan.getScore()));
 
                 // ROTATES PACMAN
                 pacManGif.setRotate(pacMan.rotationAngle());
 
-                if (pacMan.getScore() >= 40) {
+                if (PacMan.getScore() >= 560) {
                     gameOver();
                 }
 
@@ -163,6 +203,159 @@ public class PacManController {
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
     }
+
+    public void inkyPathing() {
+        if (inky.checkWallCollision(inkyPNG, collisionRect23)) {
+            inky.changeDirection("RIGHT");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect12)) {
+            inky.changeDirection("UP");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect9)) {
+            inky.changeDirection("RIGHT");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect10)) {
+            inky.changeDirection("DOWN");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect22)) {
+            inky.changeDirection("LEFT");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect21)) {
+            inky.changeDirection("UP");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect15)) {
+            inky.changeDirection("LEFT");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect24)) {
+            inky.changeDirection("DOWN");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect20)) {
+            inky.changeDirection("LEFT");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect19)) {
+            inky.changeDirection("UP");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect14)) {
+            inky.changeDirection("LEFT");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect16)) {
+            inky.changeDirection("DOWN");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect18)) {
+            inky.changeDirection("LEFT");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect17)) {
+            inky.changeDirection("UP");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect5)) {
+            inky.changeDirection("RIGHT");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect6)) {
+            inky.changeDirection("DOWN");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect13)) {
+            inky.changeDirection("RIGHT");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect11)) {
+            inky.changeDirection("UP");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect7)) {
+            inky.changeDirection("RIGHT");
+        }
+        else if (inky.checkWallCollision(inkyPNG, collisionRect8)) {
+            inky.changeDirection("DOWN");
+        }
+    }
+    
+    public void blinkyPathing() {
+        if (blinky.checkWallCollision(blinkyPNG, collisionRect6)) {
+            blinky.changeDirection("DOWN");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect13)) {
+            blinky.changeDirection("RIGHT");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect11)) {
+            blinky.changeDirection("UP");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect7)) {
+            blinky.changeDirection("RIGHT");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect8)) {
+            blinky.changeDirection("DOWN");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect20)) {
+            blinky.changeDirection("LEFT");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect19)) {
+            blinky.changeDirection("UP");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect14)) {
+            blinky.changeDirection("LEFT");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect16)) {
+            blinky.changeDirection("DOWN");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect18)) {
+            blinky.changeDirection("LEFT");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect17)) {
+            blinky.changeDirection("UP");
+        }
+        else if (blinky.checkWallCollision(blinkyPNG, collisionRect5)) {
+            blinky.changeDirection("RIGHT");
+        }
+    }
+
+    public void pinkyPathing() {
+        if (pinky.checkWallCollision(pinkyPNG, collisionRect3)) {
+            pinky.changeDirection("UP");
+        }
+        else if (pinky.checkWallCollision(pinkyPNG, collisionRect4)) {
+            pinky.changeDirection("RIGHT");
+        }
+        else if (pinky.checkWallCollision(pinkyPNG, collisionRect1)) {
+            pinky.changeDirection("DOWN");
+        }
+        else if (pinky.checkWallCollision(pinkyPNG, collisionRect2)) {
+            pinky.changeDirection("LEFT");
+        }
+    }
+
+    public void clydePathing() {
+        if (clyde.checkWallCollision(clydePNG, collisionRect21)) {
+            clyde.setXPosition(clyde.getXPosition()+3);
+            clyde.changeDirection("UP");
+        }
+        else if (clyde.checkWallCollision(clydePNG, collisionRect15)) {
+            clyde.setYPosition(clyde.getYPosition()+3);
+            clyde.changeDirection("LEFT");
+        }
+        else if (clyde.checkWallCollision(clydePNG, collisionRect3)) {
+            clyde.setXPosition(clyde.getXPosition()+3);
+            clyde.changeDirection("UP");
+        }
+        else if (clyde.checkWallCollision(clydePNG, collisionRect4)) {
+            clyde.setYPosition(clyde.getYPosition()+3);
+            clyde.changeDirection("RIGHT");
+        }
+        else if (clyde.checkWallCollision(clydePNG, collisionRect12)) {
+            clyde.setXPosition(clyde.getXPosition()-3);
+            clyde.changeDirection("UP");
+        }
+        else if (clyde.checkWallCollision(clydePNG, collisionRect9)) {
+            clyde.setYPosition(clyde.getYPosition()+3);
+            clyde.changeDirection("RIGHT");
+        }
+        else if (clyde.checkWallCollision(clydePNG, collisionRect10)) {
+            clyde.setXPosition(clyde.getXPosition()-3);
+            clyde.changeDirection("DOWN");
+        }
+        else if (clyde.checkWallCollision(clydePNG, collisionRect22)) {
+            clyde.setYPosition(clyde.getYPosition()-3);
+            clyde.changeDirection("LEFT");
+        }
+    }
+
 
     /*
      * Starts main game-loop
@@ -212,6 +405,29 @@ public class PacManController {
 
         pacMan = new PacMan();
 
+        inky = new Ghost();
+        pinky = new Ghost();
+        blinky = new Ghost();
+        clyde = new Ghost();
+
+        ghosts = Arrays.asList(inkyPNG, pinkyPNG, blinkyPNG, clydePNG);
+
+        inky.changeDirection("DOWN");
+        inky.setXPosition(548);
+        inky.setYPosition(24);
+        
+        pinky.changeDirection("LEFT");
+        pinky.setXPosition(395);
+        pinky.setYPosition(290);
+
+        blinky.changeDirection("RIGHT");
+        blinky.setXPosition(23);
+        blinky.setYPosition(32);
+
+        clyde.changeDirection("LEFT");
+        clyde.setXPosition(768);
+        clyde.setYPosition(378);
+
 		gameOverScreen.setVisible(false);
         gameOverText.setVisible(false);
         restartGame.setVisible(false);
@@ -239,7 +455,7 @@ public class PacManController {
     public void updateGUI() {
         startButton.setDisable(true);
         String name = usernameInput.getText();
-        if (pacMan.validateUsername(name)) {
+        if (PacManUser.validateUsername(name)) {
             startButton.setDisable(false);
         } else {
             startButton.setDisable(true);
@@ -310,7 +526,7 @@ public class PacManController {
             scoreText.setVisible(true);
             score.setVisible(true);
 
-            pacMan.setUsername(usernameInput.getText());
+            PacMan.setUsername(usernameInput.getText());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Could not start game");
@@ -333,7 +549,7 @@ public class PacManController {
 
 
         // Save score to username in file
-        PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore(), "src/main/resources/ui/JSON/scores.json");
+        PacmanPersistence.saveHighscore(PacMan.getUsername(), PacMan.getScore(), "src/main/resources/ui/JSON/scores.json");
         // Displays score in scoreboard
         String usersString = "";
         List<PacManUser> UserArray = PacmanPersistence.fetchHighscore("src/main/resources/ui/JSON/scores.json");
@@ -376,7 +592,7 @@ public class PacManController {
         for (ImageView pellet : pellets) {
             pellet.setVisible(true);
         }
-        pacMan.setScore(0);
+        PacMan.setScore(0);
         pacManGif.setLayoutX(330);
         pacManGif.setLayoutY(115);
         PacMan.setDX(0);;
@@ -384,6 +600,22 @@ public class PacManController {
         PacMan.setRotate(0);
         PacMan.setXPosition(330);
         PacMan.setYPosition(115);
+        
+        inky.changeDirection("DOWN");
+        inky.setXPosition(548);
+        inky.setYPosition(24);
+        
+        pinky.changeDirection("LEFT");
+        pinky.setXPosition(395);
+        pinky.setYPosition(290);
+
+        blinky.changeDirection("RIGHT");
+        blinky.setXPosition(23);
+        blinky.setYPosition(32);
+
+        clyde.changeDirection("LEFT");
+        clyde.setXPosition(768);
+        clyde.setYPosition(378);
 
         updateGUI();
 
