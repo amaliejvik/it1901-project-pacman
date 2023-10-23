@@ -152,14 +152,16 @@ public class PacManController {
                 clydePNG.setLayoutY(clyde.getYPosition());
                 
                 // COLLISION CHECK
-                if (PacMan.checkWallCollision(pacManGif, walls)) {
+                if (Collisions.PacmanWallCollision(pacManGif, walls)) {
                     PacMan.setDX(0);
                     PacMan.setDY(0);
                 }
                 
-                pacMan.checkPelletCollision(pacManGif, pellets);
+                if (Collisions.PacmanPelletCollision(pacManGif, pellets)) {
+                    PacMan.setScore(PacMan.getScore()+10);
+                }
 
-                if (pacMan.checkGhostCollision(pacManGif, ghosts)) {
+                if (Collisions.PacmanGhostCollision(pacManGif, ghosts)) {
                     gameOver();
                 }
                 
@@ -169,12 +171,12 @@ public class PacManController {
                 clydePathing();
 
                 // UPDATES SCORE
-                score.setText(Integer.toString(pacMan.getScore()));
+                score.setText(Integer.toString(PacMan.getScore()));
 
                 // ROTATES PACMAN
                 pacManGif.setRotate(pacMan.rotationAngle());
 
-                if (pacMan.getScore() >= 560) {
+                if (PacMan.getScore() >= 560) {
                     gameOver();
                 }
 
@@ -479,7 +481,7 @@ public class PacManController {
             scoreText.setVisible(true);
             score.setVisible(true);
 
-            pacMan.setUsername(usernameInput.getText());
+            PacMan.setUsername(usernameInput.getText());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Could not start game");
@@ -500,7 +502,7 @@ public class PacManController {
         highScores.setVisible(true);
         toggleLightmode.setVisible(true);
         // Save score to username in file
-        PacmanPersistence.saveHighscore(pacMan.getUsername(), pacMan.getScore(), "src/main/resources/ui/JSON/scores.json");
+        PacmanPersistence.saveHighscore(PacMan.getUsername(), PacMan.getScore(), "src/main/resources/ui/JSON/scores.json");
         // Displays score in scoreboard
         String usersString = "";
         List<PacManUser> UserArray = PacmanPersistence.fetchHighscore("src/main/resources/ui/JSON/scores.json");
@@ -538,7 +540,7 @@ public class PacManController {
         for (ImageView pellet : pellets) {
             pellet.setVisible(true);
         }
-        pacMan.setScore(0);
+        PacMan.setScore(0);
         pacManGif.setLayoutX(330);
         pacManGif.setLayoutY(115);
         PacMan.setDX(0);;

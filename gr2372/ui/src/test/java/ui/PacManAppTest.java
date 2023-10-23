@@ -90,34 +90,34 @@ public class PacManAppTest extends ApplicationTest {
 
         while (true) {
             type(KeyCode.RIGHT, 1);
-            if (PacMan.checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
                 break;
             }
         }
 
         while (true) {
             type(KeyCode.DOWN, 1);
-            if (PacMan.checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
                 break;
             }
         }
 
         while (true) {
             type(KeyCode.LEFT, 1);
-            if (PacMan.checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
                 break;
             }
         }
 
         while (true) {
             type(KeyCode.UP, 1);
-            if (PacMan.checkWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
                 break;
             }
         }
 
-        assertEquals(180, controller.getPacMan().getScore());
+        assertEquals(180, PacMan.getScore());
         
     }
 
-}   
+}

@@ -1,10 +1,5 @@
 package core;
 
-import java.util.List;
-
-import javafx.scene.image.ImageView;
-import javafx.scene.shape.Rectangle;
-
 /**
  * Controlls the logic of collision and user-input, and the response to these events.
  * Also performs username-validation.
@@ -17,23 +12,16 @@ public class PacMan {
     private static double rotate;
     private static double xPosition = 330;
     private static double yPosition = 115;
-    private int score;
-    private String username;
-    
-    /*
-     * Constructor for a PacMan-object
-     */
-    public PacMan() {
-        return;
-    }
+    private static int score;
+    private static String username;
 
     //Various getters and setters
-    public int getScore() {
-        return this.score;
+    public static int getScore() {
+        return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public static void setScore(int newScore) {
+        score = newScore;
     }
 
     public static double getXPosition() {
@@ -52,12 +40,12 @@ public class PacMan {
         yPosition = y;
     }
 
-    public String getUsername() {
+    public static String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static void setUsername(String newUsername) {
+        username = newUsername;
     }
 
     public static double getDX() {
@@ -125,58 +113,6 @@ public class PacMan {
             dx = 0;
             rotate = 3;
         }
-    }
-
-    /**
-     * if pacman collides with a wall, movement stops, e.g. dx and dy are set to 0.
-     * Pacman's position bounces back 3px from the wall to ensure Pacman does not stop in a wall.
-     * @param pacMan pacman-image
-     * @param walls lsit of all walls on map
-     * @return boolean if PacMan has collided with wall, false if no collision
-     */
-    public static boolean checkWallCollision(ImageView pacMan, List<Rectangle> walls) {
-        for (Rectangle wall : walls) {
-
-            if (pacMan.getBoundsInParent().intersects(wall.getBoundsInParent())) {
-                if (dx == 1) {
-                    xPosition -= 3;
-                } else if (dx == -1) {
-                    xPosition += 3;
-                } else if (dy == 1) {
-                    yPosition -= 3;
-                } else if (dy == -1) {
-                    yPosition += 3;
-                }
-
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * When pacman collides with a pellet,
-     * if-statement checks if pellet has already been consumed.
-     * If not, user is given 10 points and pellet is set to invisible
-     * @param pacMan pacman-image
-     * @param pellets list of all pellets on map
-     */
-    public void checkPelletCollision(ImageView pacMan, List<ImageView> pellets) {
-        for (ImageView pellet : pellets) {
-            if (pacMan.getBoundsInParent().intersects(pellet.getBoundsInParent()) && pellet.isVisible()) {
-                score += 10;
-                pellet.setVisible(false);
-            }
-        }
-    }
-
-    public boolean checkGhostCollision(ImageView pacMan, List<ImageView> ghosts) {
-        for (ImageView ghost : ghosts) {
-            if (pacMan.getBoundsInParent().intersects(ghost.getBoundsInParent())) {
-                return true;
-            }
-        }
-        return false;
     }
 
     /**
