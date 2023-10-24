@@ -404,6 +404,8 @@ public class PacManController {
             }
         });
 
+        chooseYellowPacMan();
+        
         walls = Arrays.asList(rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, 
                             rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27);
         
@@ -445,7 +447,6 @@ public class PacManController {
         restartGame.setVisible(false);
         highScores.setVisible(false);
         startButton.setDisable(true);
-        checkMark.setVisible(false);
         cherry.setVisible(false);
 
         createAndConfigureTimeline();
@@ -468,13 +469,12 @@ public class PacManController {
     public void updateGUI() {
         startButton.setDisable(true);
         String name = usernameInput.getText();
-        if (PacManUser.validateUsername(name)) {
-            startButton.setDisable(false);
-        } else {
+        if (!PacManUser.validateUsername(name)) {
             startButton.setDisable(true);
+        } else {
+            startButton.setDisable(false);
         }
     }
-
     /**
      * Hides the startscreen and starts the game and music when startbutton is pressed.
      * Updates map to light- or darkmode depending on users choice in startscreen

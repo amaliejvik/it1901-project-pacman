@@ -8,10 +8,10 @@ import javafx.scene.shape.Rectangle;
 public class Collisions {
 
     /**
-     * if pacman collides with a wall, movement stops, e.g. dx and dy are set to 0.
+     * if pacman collides with a wall in the list, movement stops, e.g. dx and dy are set to 0.
      * Pacman's position bounces back 3px from the wall to ensure Pacman does not stop in a wall.
      * @param pacManImage pacman-image
-     * @param walls lsit of all walls on map
+     * @param walls list of all walls on map
      * @return boolean if PacMan has collided with wall, false if no collision
      */
     public static boolean PacmanWallCollision(ImageView pacManImage, List<Rectangle> walls) {
@@ -29,6 +29,19 @@ public class Collisions {
                 }
                 return true;
             }
+        }
+        return false;
+    }
+
+    /**
+     * Tests if pacman collides with a spesific wall
+     * @param pacManImage pacman-image
+     * @param walls A wall in the map
+     * @return boolean if PacMan has collided with wall, false if no collision
+     */
+    public static boolean PacmanWallCollision(ImageView pacManImage, Rectangle wall) {
+        if (pacManImage.getBoundsInParent().intersects(wall.getBoundsInParent()) && wall.isVisible()) {
+            return true;
         }
         return false;
     }
@@ -64,6 +77,11 @@ public class Collisions {
         return false;
     }
 
+    /**
+     * When pacman collides with a cherry, return true
+     * @param pacManImage pacman-image
+     * @param cherry cherry-image
+     */
     public static boolean PacmanCherryCollision(ImageView pacManImage, ImageView cherry) {
         if (pacManImage.getBoundsInParent().intersects(cherry.getBoundsInParent()) && cherry.isVisible()) {
             return true;
