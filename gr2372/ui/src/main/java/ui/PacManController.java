@@ -132,6 +132,9 @@ public class PacManController {
     @FXML
     private CheckBox toggleLightmode;
 
+    @FXML 
+    private ImageView cherry;
+
 	/**
      * Creates the main game-loop for the application.
      * Updates pacmans position and rotation, checks for collisions, updates score, triggers gameover
@@ -180,6 +183,15 @@ public class PacManController {
                     PacMan.setScore(PacMan.getScore()+10);
                 }
 
+                if (PacMan.getScore() == 40) {
+                    cherry.setVisible(true);
+                }
+
+                if (Collisions.PacmanCherryCollision(pacManGif, cherry)) {
+                    cherry.setVisible(false);
+                    PacMan.setScore(PacMan.getScore()+100);
+                }
+
                 if (Collisions.PacmanGhostCollision(pacManGif, ghosts)) {
                     gameOver();
                 }
@@ -195,7 +207,7 @@ public class PacManController {
                 // ROTATES PACMAN
                 pacManGif.setRotate(pacMan.rotationAngle());
 
-                if (PacMan.getScore() >= 560) {
+                if (PacMan.getScore() >= 660) {
                     gameOver();
                 }
 
@@ -434,6 +446,7 @@ public class PacManController {
         highScores.setVisible(false);
         startButton.setDisable(true);
         checkMark.setVisible(false);
+        cherry.setVisible(false);
 
         createAndConfigureTimeline();
 
@@ -546,6 +559,7 @@ public class PacManController {
         restartGame.setVisible(true);
         highScores.setVisible(true);
         toggleLightmode.setVisible(true);
+        cherry.setVisible(false);
 
 
         // Save score to username in file
@@ -577,6 +591,7 @@ public class PacManController {
         gameOverText.setVisible(false);
         restartGame.setVisible(false);
         highScores.setVisible(false);
+        cherry.setVisible(false);
         
         startButton.setVisible(true);
         startScreen.setVisible(true);

@@ -331,6 +331,11 @@
             <Image url="@../smalldot.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="cherry" fitHeight="65.0" fitWidth="50.0" layoutX="394.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../cherry.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="blinkyPNG" fitHeight="65.0" fitWidth="56.0" layoutX="23.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../ghosts/ghostBlinky.png" />

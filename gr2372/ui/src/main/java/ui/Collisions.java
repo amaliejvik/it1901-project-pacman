@@ -63,4 +63,12 @@ public class Collisions {
         }
         return false;
     }
+
+    public static boolean PacmanCherryCollision(ImageView pacManImage, ImageView cherry) {
+        if (pacManImage.getBoundsInParent().intersects(cherry.getBoundsInParent()) && cherry.isVisible()) {
+            return true;
+        }
+        return false;
+    }
+
 }
