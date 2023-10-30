@@ -23,11 +23,7 @@ public class PacmanPersistence {
   public static void saveHighscore(String name, double score, String path) {
     try {
       List<PacManUser> scores = fetchHighscore(path);
-
       PacManUser pacManUser = new PacManUser(name, score);
-      PacManUser testUser = new PacManUser("test", 15);
-      System.out.println(testUser);
-      System.out.println(pacManUser);
       scores.add(pacManUser);
 
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
