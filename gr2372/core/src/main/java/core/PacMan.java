@@ -12,41 +12,27 @@ public class PacMan {
     private static double rotate;
     private static double xPosition = 330;
     private static double yPosition = 115;
-    private static int score;
-    private static String username;
+    // private static int score;
+    // private static String username;
 
     //Various getters and setters
-    public static int getScore() {
-        return score;
-    }
-
-    public static void setScore(int newScore) {
-        score = newScore;
-    }
-
+    
     public static double getXPosition() {
         return xPosition;
     }
-
+    
     public static void setXPosition(double x) {
         xPosition = x;
     }
-
+    
     public static double getYPosition() {
         return yPosition;
     }
-
+    
     public static void setYPosition(double y) {
         yPosition = y;
     }
-
-    public static String getUsername() {
-        return username;
-    }
-
-    public static void setUsername(String newUsername) {
-        username = newUsername;
-    }
+    
 
     public static double getDX() {
         return dx;
@@ -70,6 +56,14 @@ public class PacMan {
 
     public static void setRotate(double r) {
         rotate = r;
+    }
+
+    public static void reset() {
+        setDX(0);
+        setDY(0);
+        setRotate(0);
+        setXPosition(330);
+        setYPosition(115);
     }
 
     /**
@@ -106,7 +100,7 @@ public class PacMan {
      * 3 -> down.
      * @return correct rotation angle corresponding to direction of travel
      */
-    public double rotationAngle() {
+    public static double rotationAngle() {
         // RIGHT
         if (rotate == 0) {
             return 0;
