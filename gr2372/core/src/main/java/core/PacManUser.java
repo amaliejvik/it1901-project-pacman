@@ -18,21 +18,27 @@ public class PacManUser {
         this.score = score;
     }
 
+    /**
+    * Constructor for a new player
+    **/
+    public PacManUser() {
+    }
+
     //Various getters and setters
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+    
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public double getScore() {
-        return this.score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     /**
@@ -50,6 +56,10 @@ public class PacManUser {
             return false;
         }
         return true;
+    }
+
+    public void reset(){
+        setScore(0);
     }
 
     //toString method to give PacManUser-objects a text-representation
