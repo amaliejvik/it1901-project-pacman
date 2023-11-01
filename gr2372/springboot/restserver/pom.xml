@@ -6,8 +6,8 @@
      <packaging>jar</packaging>
 
     <parent>
-        <groupId>gr2372</groupId>
-        <artifactId>PacMan</artifactId>
+        <groupId>it1901.gr2372</groupId>
+        <artifactId>parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../..</relativePath>
     </parent>
