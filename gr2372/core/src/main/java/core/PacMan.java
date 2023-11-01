@@ -1,7 +1,8 @@
 package core;
 
 /**
- * Controlls the logic of collision and user-input, and the response to these events.
+ * Controlls the logic of collision and user-input, and the response to these
+ * events.
  * Also performs username-validation.
  * 
  */
@@ -12,27 +13,24 @@ public class PacMan {
     private static double rotate;
     private static double xPosition = 330;
     private static double yPosition = 115;
-    // private static int score;
-    // private static String username;
 
-    //Various getters and setters
-    
+    // Various getters and setters
+
     public static double getXPosition() {
         return xPosition;
     }
-    
+
     public static void setXPosition(double x) {
         xPosition = x;
     }
-    
+
     public static double getYPosition() {
         return yPosition;
     }
-    
+
     public static void setYPosition(double y) {
         yPosition = y;
     }
-    
 
     public static double getDX() {
         return dx;
@@ -69,7 +67,9 @@ public class PacMan {
     /**
      * Changes PacMan's direction of travel and rotation.
      * Receives key inputs from PacManApp.java.
-     * Sets the static variables dx, dy and rotation which are read by the timeline function in the controller.
+     * Sets the static variables dx, dy and rotation which are read by the timeline
+     * function in the controller.
+     * 
      * @param string the direction of the corresponding arrow key typed.
      */
     public static void changeDirection(String string) {
@@ -98,6 +98,7 @@ public class PacMan {
      * 1 -> left,
      * 2 -> up,
      * 3 -> down.
+     * 
      * @return correct rotation angle corresponding to direction of travel
      */
     public static double rotationAngle() {
