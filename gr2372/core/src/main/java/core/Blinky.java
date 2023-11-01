@@ -20,38 +20,27 @@ public class Blinky extends Ghost {
     public void pathing(ImageView blinky, List<Rectangle> blinkyCollisionRectangles) {
         if (checkWallCollision(blinky, blinkyCollisionRectangles.get(0))) {
             changeDirection("DOWN");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(1))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(1))) {
             changeDirection("RIGHT");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(2))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(2))) {
             changeDirection("UP");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(3))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(3))) {
             changeDirection("RIGHT");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(4))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(4))) {
             changeDirection("DOWN");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(5))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(5))) {
             changeDirection("LEFT");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(6))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(6))) {
             changeDirection("UP");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(7))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(7))) {
             changeDirection("LEFT");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(8))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(8))) {
             changeDirection("DOWN");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(9))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(9))) {
             changeDirection("LEFT");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(10))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(10))) {
             changeDirection("UP");
-        }
-        else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(11))) {
+        } else if (checkWallCollision(blinky, blinkyCollisionRectangles.get(11))) {
             changeDirection("RIGHT");
         }
     }

@@ -15,68 +15,48 @@ public class Inky extends Ghost {
         super.changeDirection("DOWN");
         super.setXPosition(548);
         super.setYPosition(24);
-        
     }
 
     public void pathing(ImageView inky, List<Rectangle> inkyCollisionRectangles) {
         if (checkWallCollision(inky, inkyCollisionRectangles.get(0))) {
             changeDirection("RIGHT");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(1))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(1))) {
             changeDirection("UP");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(2))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(2))) {
             changeDirection("RIGHT");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(3))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(3))) {
             changeDirection("DOWN");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(4))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(4))) {
             changeDirection("LEFT");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(5))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(5))) {
             changeDirection("UP");
-        }
-        else if (checkWallCollision(inky,inkyCollisionRectangles.get(6))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(6))) {
             changeDirection("LEFT");
-        }
-        else if (checkWallCollision(inky,inkyCollisionRectangles.get(7))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(7))) {
             changeDirection("DOWN");
-        }
-        else if (checkWallCollision(inky,inkyCollisionRectangles.get(8))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(8))) {
             changeDirection("LEFT");
-        }
-        else if (checkWallCollision(inky,inkyCollisionRectangles.get(9))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(9))) {
             changeDirection("UP");
-        }
-        else if (checkWallCollision(inky,inkyCollisionRectangles.get(10))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(10))) {
             changeDirection("LEFT");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(11))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(11))) {
             changeDirection("DOWN");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(12))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(12))) {
             changeDirection("LEFT");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(13))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(13))) {
             changeDirection("UP");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(14))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(14))) {
             changeDirection("RIGHT");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(15))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(15))) {
             changeDirection("DOWN");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(16))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(16))) {
             changeDirection("RIGHT");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(17))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(17))) {
             changeDirection("UP");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(18))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(18))) {
             changeDirection("RIGHT");
-        }
-        else if (checkWallCollision(inky, inkyCollisionRectangles.get(19))) {
+        } else if (checkWallCollision(inky, inkyCollisionRectangles.get(19))) {
             changeDirection("DOWN");
         }
     }

@@ -9,22 +9,23 @@ public class PacManUser {
     private double score;
 
     /**
-    * Constructor for a new player
-    * @param String username of player
-    * @param double Score of player at gameover
-    **/
+     * Constructor for a new player
+     * 
+     * @param String username of player
+     * @param double Score of player at gameover
+     **/
     public PacManUser(String username, double score) {
         this.username = username;
         this.score = score;
     }
 
     /**
-    * Constructor for a new player
-    **/
+     * Constructor for a new player
+     **/
     public PacManUser() {
     }
 
-    //Various getters and setters
+    // Various getters and setters
     public double getScore() {
         return score;
     }
@@ -32,13 +33,15 @@ public class PacManUser {
     public void setScore(double score) {
         this.score = score;
     }
-    
+
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        if (validateUsername(username)) {
+            this.username = username;
+        }
     }
 
     /**
@@ -58,11 +61,11 @@ public class PacManUser {
         return true;
     }
 
-    public void reset(){
+    public void reset() {
         setScore(0);
     }
 
-    //toString method to give PacManUser-objects a text-representation
+    // toString method to give PacManUser-objects a text-representation
     @Override
     public String toString() {
         return "Username=" + getUsername() + ", Score=" + getScore() + "\n";

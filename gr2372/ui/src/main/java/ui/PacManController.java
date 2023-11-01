@@ -34,7 +34,7 @@ import persistence.PacmanPersistence;
 
 public class PacManController {
 
-    //Data-oriented and gameloop attributes
+    // Data-oriented and gameloop attributes
     private Inky inky;
     private Pinky pinky;
     private Blinky blinky;
@@ -50,7 +50,6 @@ public class PacManController {
     private List<ImageView> ghostsPNG;
     private Timeline timeline;
     private MediaPlayer mediaPlayer;
-    private String chosenPacManColor;
     private PacManUser pacManUser;
 
     // Fxml-attributes
@@ -68,10 +67,12 @@ public class PacManController {
 
     @FXML
     private Rectangle collisionRect1, collisionRect2, collisionRect3, collisionRect4, collisionRect5, collisionRect6,
-            collisionRect7, collisionRect8, collisionRect9, collisionRect10, collisionRect11, collisionRect12, collisionRect13,
-            collisionRect14, collisionRect15, collisionRect16, collisionRect17, collisionRect18, collisionRect19, collisionRect20,
+            collisionRect7, collisionRect8, collisionRect9, collisionRect10, collisionRect11, collisionRect12,
+            collisionRect13,
+            collisionRect14, collisionRect15, collisionRect16, collisionRect17, collisionRect18, collisionRect19,
+            collisionRect20,
             collisionRect21, collisionRect22, collisionRect23, collisionRect24;
-    
+
     @FXML
     private Rectangle rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13,
             rect14, rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26,
@@ -117,7 +118,7 @@ public class PacManController {
 
     @FXML
     private Label choosePacManText;
-  
+
     @FXML
     private Label score;
 
@@ -142,12 +143,13 @@ public class PacManController {
     @FXML
     private CheckBox toggleLightmode;
 
-    @FXML 
+    @FXML
     private ImageView cherry;
 
-	/**
+    /**
      * Creates the main game-loop for the application.
-     * Updates pacmans position and rotation, checks for collisions, updates score, triggers gameover
+     * Updates pacmans position and rotation, checks for collisions, updates score,
+     * triggers gameover
      */
     public void createAndConfigureTimeline() {
         this.timeline = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
@@ -169,15 +171,15 @@ public class PacManController {
                     ghostsPNG.get(i).setLayoutX(ghosts.get(i).getXPosition());
                     ghostsPNG.get(i).setLayoutY(ghosts.get(i).getYPosition());
                 }
-                
+
                 // COLLISION CHECK
                 if (Collisions.PacmanWallCollision(pacManGif, walls)) {
                     PacMan.setDX(0);
                     PacMan.setDY(0);
                 }
-                
+
                 if (Collisions.PacmanPelletCollision(pacManGif, pellets)) {
-                    pacManUser.setScore(pacManUser.getScore()+10);
+                    pacManUser.setScore(pacManUser.getScore() + 10);
                 }
 
                 if (pacManUser.getScore() == 40) {
@@ -186,13 +188,13 @@ public class PacManController {
 
                 if (Collisions.PacmanCherryCollision(pacManGif, cherry)) {
                     cherry.setVisible(false);
-                    pacManUser.setScore(pacManUser.getScore()+100);
+                    pacManUser.setScore(pacManUser.getScore() + 100);
                 }
 
                 if (Collisions.PacmanGhostCollision(pacManGif, ghostsPNG)) {
                     gameOver();
                 }
-                
+
                 inky.pathing(inkyPNG, inkyCollisionRectangles);
                 blinky.pathing(blinkyPNG, blinkyCollisionRectangles);
                 pinky.pathing(pinkyPNG, pinkyCollisionRectangles);
@@ -216,19 +218,20 @@ public class PacManController {
     /*
      * Starts main game-loop
      */
-    public void startTimeline(){
+    public void startTimeline() {
         timeline.play();
     }
 
     /*
      * Is executed as game initializes.
-     * Initializes music-player, organises FXML-elements into lists, generates PacMan object, hides various FXML-elements 
+     * Initializes music-player, organises FXML-elements into lists, generates
+     * PacMan object, hides various FXML-elements
      * from the screen, configures timeline
      */
     public void initialize() {
-        //Music-player
+        // Music-player
         mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/ui/PacManAudio.mp3").toString()));
-        //If music ends, restart
+        // If music ends, restart
         mediaPlayer.setOnEndOfMedia(new Runnable() {
             @Override
             public void run() {
@@ -238,7 +241,7 @@ public class PacManController {
         });
 
         chooseYellowPacMan();
-        
+
         pacManUser = new PacManUser();
         inky = new Inky();
         pinky = new Pinky();
@@ -250,26 +253,34 @@ public class PacManController {
         pinky.reset();
         clyde.reset();
 
-        walls = Arrays.asList(rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12, rect13, rect14, 
-                            rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27);
-        
-        pellets = Arrays.asList(pellet1, pellet2, pellet3, pellet4, pellet5, pellet6, pellet7, pellet8, pellet9, pellet10, pellet11, pellet12, pellet13,
-                        pellet14, pellet15, pellet16, pellet17, pellet18, pellet19, pellet20, pellet21, pellet22, pellet23, pellet24, pellet25,
-                        pellet26, pellet27, pellet28, pellet29, pellet30, pellet31, pellet32, pellet33, pellet34, pellet35, pellet36, pellet37,
-                        pellet38, pellet39, pellet40, pellet41, pellet42, pellet43, pellet44, pellet45, pellet46, pellet47, pellet48, pellet49,
-                        pellet50, pellet51, pellet52, pellet53, pellet54, pellet55, pellet56);
+        walls = Arrays.asList(rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10, rect11, rect12,
+                rect13, rect14,
+                rect15, rect16, rect17, rect18, rect19, rect20, rect21, rect22, rect23, rect24, rect25, rect26, rect27);
+
+        pellets = Arrays.asList(pellet1, pellet2, pellet3, pellet4, pellet5, pellet6, pellet7, pellet8, pellet9,
+                pellet10, pellet11, pellet12, pellet13,
+                pellet14, pellet15, pellet16, pellet17, pellet18, pellet19, pellet20, pellet21, pellet22, pellet23,
+                pellet24, pellet25,
+                pellet26, pellet27, pellet28, pellet29, pellet30, pellet31, pellet32, pellet33, pellet34, pellet35,
+                pellet36, pellet37,
+                pellet38, pellet39, pellet40, pellet41, pellet42, pellet43, pellet44, pellet45, pellet46, pellet47,
+                pellet48, pellet49,
+                pellet50, pellet51, pellet52, pellet53, pellet54, pellet55, pellet56);
 
         testCollisionRectangles = Arrays.asList(collisionRect1, collisionRect2, collisionRect3, collisionRect4);
-        inkyCollisionRectangles = Arrays.asList(collisionRect23, collisionRect12, collisionRect9, collisionRect10, collisionRect22, 
-                                                collisionRect21, collisionRect15, collisionRect24, collisionRect20, collisionRect19, 
-                                                collisionRect14, collisionRect16, collisionRect18, collisionRect17, collisionRect5, 
-                                                collisionRect6, collisionRect13, collisionRect11, collisionRect7, collisionRect8);
-        blinkyCollisionRectangles = Arrays.asList(collisionRect6, collisionRect13, collisionRect11, collisionRect7, collisionRect8, 
-                                                collisionRect20, collisionRect19, collisionRect14, collisionRect16, collisionRect18, 
-                                                collisionRect17, collisionRect5);
+        inkyCollisionRectangles = Arrays.asList(collisionRect23, collisionRect12, collisionRect9, collisionRect10,
+                collisionRect22,
+                collisionRect21, collisionRect15, collisionRect24, collisionRect20, collisionRect19,
+                collisionRect14, collisionRect16, collisionRect18, collisionRect17, collisionRect5,
+                collisionRect6, collisionRect13, collisionRect11, collisionRect7, collisionRect8);
+        blinkyCollisionRectangles = Arrays.asList(collisionRect6, collisionRect13, collisionRect11, collisionRect7,
+                collisionRect8,
+                collisionRect20, collisionRect19, collisionRect14, collisionRect16, collisionRect18,
+                collisionRect17, collisionRect5);
         pinkyCollisionRectangles = Arrays.asList(collisionRect3, collisionRect4, collisionRect1, collisionRect2);
-        clydeCollisionRectangles = Arrays.asList(collisionRect21, collisionRect15, collisionRect3, collisionRect4, collisionRect12, 
-                                                collisionRect9, collisionRect10, collisionRect22);
+        clydeCollisionRectangles = Arrays.asList(collisionRect21, collisionRect15, collisionRect3, collisionRect4,
+                collisionRect12,
+                collisionRect9, collisionRect10, collisionRect22);
 
         ghostsPNG = Arrays.asList(inkyPNG, pinkyPNG, blinkyPNG, clydePNG);
         ghosts = Arrays.asList(inky, pinky, blinky, clyde);
@@ -286,8 +297,24 @@ public class PacManController {
         return pacManGif;
     }
 
-    public PacManUser getPacManUser(){
+    public ImageView getCheckMark() {
+        return checkMark;
+    }
+
+    public ImageView getMapGrid() {
+        return mapGrid;
+    }
+
+    public ImageView getCherry() {
+        return cherry;
+    }
+
+    public PacManUser getPacManUser() {
         return pacManUser;
+    }
+
+    public List<ImageView> getGhosts() {
+        return ghostsPNG;
     }
 
     public List<Rectangle> getTestCollisionRectangles() {
@@ -307,8 +334,10 @@ public class PacManController {
             startButton.setDisable(false);
         }
     }
+
     /**
-     * Hides the startscreen and starts the game and music when startbutton is pressed.
+     * Hides the startscreen and starts the game and music when startbutton is
+     * pressed.
      * Updates map to light- or darkmode depending on users choice in startscreen
      */
     @FXML
@@ -317,26 +346,8 @@ public class PacManController {
         try {
 
             setComponentsVisible(false, startButton, startScreen, username,
-                                usernameInput, pacManText, toggleLightmode, checkMark, choosePacManText, 
-                                yellowPacManPhoto, greenPacManPhoto, pinkPacManPhoto, orangePacManPhoto );
-
-            switch (chosenPacManColor) {
-                case ("YELLOW") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelYellow.gif"));
-                    break;
-
-                case ("GREEN") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelGreen.gif"));
-                    break;
-
-                case ("PINK") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelPink.gif"));
-                    break;
-
-                case ("ORANGE") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelOrange.gif"));
-                    break;
-            }
+                    usernameInput, pacManText, toggleLightmode, checkMark, choosePacManText,
+                    yellowPacManPhoto, greenPacManPhoto, pinkPacManPhoto, orangePacManPhoto);
 
             if (toggleLightmode.isSelected()) {
                 mapGrid.setImage(new Image("file:src/main/resources/ui/mapgridLight.png"));
@@ -360,11 +371,11 @@ public class PacManController {
 
             score.setText("0");
 
-            setComponentsVisible(true, scoreText,score);
-            
+            setComponentsVisible(true, scoreText, score);
+
             pacManUser.setUsername(usernameInput.getText());
             pacManUser.setScore(0);
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Could not start game");
@@ -379,10 +390,11 @@ public class PacManController {
     public void gameOver() {
         timeline.stop();
         // Set GameOver screen visible
-        
+
         // Save score to username in file
-        PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(), "src/main/resources/ui/JSON/scores.json");
-        
+        PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
+                "src/main/resources/ui/JSON/scores.json");
+
         // Displays score in scoreboard
         String usersString = "";
         List<PacManUser> UserArray = PacmanPersistence.fetchHighscore("src/main/resources/ui/JSON/scores.json");
@@ -391,9 +403,9 @@ public class PacManController {
             buf.append(user.toString());
         }
         usersString = buf.toString();
-        
+
         highScores.setText(usersString);
-        
+
         setComponentsVisible(true, gameOverScreen, gameOverText, restartGame, highScores, toggleLightmode);
     }
 
@@ -405,19 +417,19 @@ public class PacManController {
     @FXML
     private void handleRestartGameButton() {
         setComponentsVisible(false, gameOverScreen, gameOverText, restartGame, highScores, cherry);
-       
+
         usernameInput.clear();
 
-        setComponentsVisible(true, startButton, startScreen,username,
-                            choosePacManText,yellowPacManPhoto,greenPacManPhoto,
-                            pinkPacManPhoto, orangePacManPhoto,usernameInput,pacManText);
-        
+        setComponentsVisible(true, startButton, startScreen, username,
+                choosePacManText, yellowPacManPhoto, greenPacManPhoto,
+                pinkPacManPhoto, orangePacManPhoto, usernameInput, pacManText);
+
         for (ImageView pellet : pellets) {
             pellet.setVisible(true);
         }
         pacManGif.setLayoutX(330);
         pacManGif.setLayoutY(115);
-        
+
         pacManUser.reset();
         PacMan.reset();
         inky.reset();
@@ -430,32 +442,35 @@ public class PacManController {
     }
 
     @FXML
-    private void chooseYellowPacMan(){
+    private void chooseYellowPacMan() {
         checkMark.setLayoutX(427);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "YELLOW";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelYellow.gif"));
     }
+
     @FXML
-    private void chooseGreenPacMan(){
+    private void chooseGreenPacMan() {
         checkMark.setLayoutX(497);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "GREEN";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelGreen.gif"));
     }
+
     @FXML
-    private void choosePinkPacMan(){
+    private void choosePinkPacMan() {
         checkMark.setLayoutX(565);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "PINK";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelPink.gif"));
     }
+
     @FXML
-    private void chooseOrangePacMan(){
+    private void chooseOrangePacMan() {
         checkMark.setLayoutX(625);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "ORANGE";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelOrange.gif"));
     }
 
     private void setComponentsVisible(boolean isVisible, Node... components) {

@@ -13,7 +13,7 @@ public class Ghost {
     private double dy = 0;
     private double xPosition;
     private double yPosition;
-    
+
     /*
      * Constructor for a ghost-object
      */
@@ -21,7 +21,7 @@ public class Ghost {
         return;
     }
 
-    //Various getters and setters
+    // Various getters and setters
 
     public double getXPosition() {
         return xPosition;
@@ -42,7 +42,7 @@ public class Ghost {
     public double getDX() {
         return dx;
     }
-    
+
     public void setDX(double x) {
         dx = x;
     }
@@ -57,7 +57,9 @@ public class Ghost {
 
     /**
      * Changes the ghosts direction of travel.
-     * Sets the variables dx and dy which are read by the timeline function in the controller.
+     * Sets the variables dx and dy which are read by the timeline function in the
+     * controller.
+     * 
      * @param string the direction of the corresponding arrow key typed.
      */
     public void changeDirection(String string) {
@@ -78,15 +80,17 @@ public class Ghost {
 
     /**
      * Checks if ghost collides with a wall
-     * Ghosts position bounces back 3px from the wall to ensure it does not stop in a wall.
+     * Ghosts position bounces back 3px from the wall to ensure it does not stop in
+     * a wall.
+     * 
      * @param ghost pacman-image
-     * @param wall wall to check collision with
+     * @param wall  wall to check collision with
      * @return boolean if ghost has collided with wall, false if no collision
      */
     public boolean checkWallCollision(ImageView ghost, Rectangle wall) {
         if (ghost.getBoundsInParent().intersects(wall.getBoundsInParent())) {
             return true;
-            }
+        }
         return false;
     }
 }

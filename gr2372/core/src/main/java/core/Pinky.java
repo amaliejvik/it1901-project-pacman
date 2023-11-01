@@ -20,14 +20,11 @@ public class Pinky extends Ghost {
     public void pathing(ImageView pinky, List<Rectangle> pinkyCollisionRectangles) {
         if (checkWallCollision(pinky, pinkyCollisionRectangles.get(0))) {
             changeDirection("UP");
-        }
-        else if (checkWallCollision(pinky, pinkyCollisionRectangles.get(1))) {
+        } else if (checkWallCollision(pinky, pinkyCollisionRectangles.get(1))) {
             changeDirection("RIGHT");
-        }
-        else if (checkWallCollision(pinky, pinkyCollisionRectangles.get(2))) {
+        } else if (checkWallCollision(pinky, pinkyCollisionRectangles.get(2))) {
             changeDirection("DOWN");
-        }
-        else if (checkWallCollision(pinky, pinkyCollisionRectangles.get(3))) {
+        } else if (checkWallCollision(pinky, pinkyCollisionRectangles.get(3))) {
             changeDirection("LEFT");
         }
     }
