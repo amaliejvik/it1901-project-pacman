@@ -6,14 +6,11 @@ import java.io.FileWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import core.PacManUser;
 
 public class PacmanPersistence {
-    
   /**
    * Writes username and score to .json file "scores.json"
    * Uses gson (see README)
