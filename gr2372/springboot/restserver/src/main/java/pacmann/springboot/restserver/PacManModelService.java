@@ -2,10 +2,9 @@ package pacmann.springboot.restserver;
 
 import java.io.File;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import core.PacManUser;
+import persistence.PacmanPersistence;
 
 @Service
 public class PacManModelService {
@@ -13,7 +12,7 @@ public class PacManModelService {
         // If found, remove it using removeAll()
       
 
-    private String scoresPath2 = new File(System.getProperty("user.dir")).getParent();
+    private String systemPath = new File(System.getProperty("user.dir")).getParent();
 
     public String removeFolder(String filePath, String folderToRemove) {
         int lastIndex = filePath.lastIndexOf(folderToRemove) - 1;
@@ -29,14 +28,17 @@ public class PacManModelService {
     return filePath;
     }
     public List<PacManUser> getHighScores() {
-        String correctPath = removeFolder(scoresPath2, "springboot");
-        String scoresPath = "/core/src/main/java/persistence/JSON/scores.json"; //TODO: legge denne mappa inne i core
+        String correctPath = removeFolder(systemPath, "springboot");
+        String scoresPath = "/core/src/main/java/persistence/JSON/remoteScores.json";
         return persistence.PacmanPersistence.fetchHighscore(correctPath+scoresPath);
     }
 
-    public void addHighScore(PacManUser user) {
-        String name = user.getUsername();
-        double score = user.getScore();
-        persistence.PacmanPersistence.saveHighscore(name, score, scoresPath2);
+    public void addHighScore(String user) {
+        PacManUser pacManUser = PacmanPersistence.deserializeIndividualHighScore(user);
+        String correctPath = removeFolder(systemPath, "springboot");
+        String scoresPath = "/core/src/main/java/persistence/JSON/remoteScores.json";
+        String name = pacManUser.getUsername();
+        double score = pacManUser.getScore();
+        persistence.PacmanPersistence.saveHighscore(name, score, correctPath+scoresPath);
     }
 }

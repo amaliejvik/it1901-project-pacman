@@ -19,8 +19,8 @@ public class PacManModelController {
         return service.getHighScores();
     }
 
-    @PostMapping
-    public void addHighScore(@RequestBody PacManUser user){
+    @PutMapping
+    public void addHighScore(@RequestBody String user){
         service.addHighScore(user);
     }
 }

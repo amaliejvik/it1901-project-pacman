@@ -18,6 +18,12 @@ public class PacManUser {
         this.score = score;
     }
 
+    /**
+    * Empty constructor for a new player
+    **/
+    public PacManUser() {
+    }
+
     //Various getters and setters
     public String getUsername() {
         return this.username;
