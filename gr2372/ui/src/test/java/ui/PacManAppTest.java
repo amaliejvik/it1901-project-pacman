@@ -218,6 +218,9 @@ public class PacManAppTest extends ApplicationTest {
         }
         assertEquals(140, controller.getPacManUser().getScore());
 
+        controller.gameOver();
+        clickOn("#restartGame");
+
     }
 
 }
