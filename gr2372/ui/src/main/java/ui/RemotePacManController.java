@@ -51,7 +51,6 @@ public class RemotePacManController {
     private List<ImageView> ghostsPNG;
     private Timeline timeline;
     private MediaPlayer mediaPlayer;
-    private String chosenPacManColor;
     private PacManUser pacManUser;
 
     // Fxml-attributes
@@ -321,24 +320,6 @@ public class RemotePacManController {
                                 usernameInput, pacManText, toggleLightmode, checkMark, choosePacManText, 
                                 yellowPacManPhoto, greenPacManPhoto, pinkPacManPhoto, orangePacManPhoto );
 
-            switch (chosenPacManColor) {
-                case ("YELLOW") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelYellow.gif"));
-                    break;
-
-                case ("GREEN") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelGreen.gif"));
-                    break;
-
-                case ("PINK") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelPink.gif"));
-                    break;
-
-                case ("ORANGE") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelOrange.gif"));
-                    break;
-            }
-
             if (toggleLightmode.isSelected()) {
                 mapGrid.setImage(new Image("file:src/main/resources/ui/mapgridLight.png"));
 
@@ -453,28 +434,28 @@ public class RemotePacManController {
         checkMark.setLayoutX(427);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "YELLOW";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelYellow.gif"));
     }
     @FXML
     private void chooseGreenPacMan(){
         checkMark.setLayoutX(497);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "GREEN";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelGreen.gif"));
     }
     @FXML
     private void choosePinkPacMan(){
         checkMark.setLayoutX(565);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "PINK";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelPink.gif"));
     }
     @FXML
     private void chooseOrangePacMan(){
         checkMark.setLayoutX(625);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "ORANGE";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelOrange.gif"));
     }
 
     private void setComponentsVisible(boolean isVisible, Node... components) {
