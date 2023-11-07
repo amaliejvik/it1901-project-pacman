@@ -19,7 +19,7 @@ public class PacManUser {
     }
 
     /**
-    * Constructor for a new player
+    * Empty constructor for a new player
     **/
     public PacManUser() {
     }

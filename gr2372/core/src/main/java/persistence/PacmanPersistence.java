@@ -6,14 +6,11 @@ import java.io.FileWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import core.PacManUser;
 
 public class PacmanPersistence {
-    
   /**
    * Writes username and score to .json file "scores.json"
    * Uses gson (see README)
@@ -62,5 +59,38 @@ public class PacmanPersistence {
       System.out.println(e.getLocalizedMessage());
     }
     return scores;
+  }
+
+  public static List<PacManUser> deserializeHighScoreList(String rawJsonData) {
+    Gson gson = new Gson();
+    List<PacManUser> scores = new ArrayList<PacManUser>();
+    try {
+      PacManUser[] scoreData = gson.fromJson(rawJsonData, PacManUser[].class);
+
+      // Convert to list for easier access
+      if (scoreData != null) {
+        for (PacManUser user : scoreData) {
+          scores.add(user);
+        }
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+      System.out.println("Could not find file");
+      System.out.println(e.getLocalizedMessage());
+    }
+    return scores;
+  }
+
+  public static PacManUser deserializeIndividualHighScore(String rawJsonData) {
+    Gson gson = new Gson();
+    PacManUser user = null;
+    try {
+      user = gson.fromJson(rawJsonData, PacManUser.class);
+    } catch (Exception e) {
+      e.printStackTrace();
+      System.out.println("Could not deserialize user data");
+      System.out.println(e.getLocalizedMessage());
+    }
+    return user;
   }
 }
