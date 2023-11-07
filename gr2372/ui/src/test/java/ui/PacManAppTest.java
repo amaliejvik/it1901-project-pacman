@@ -85,38 +85,37 @@ public class PacManAppTest extends ApplicationTest {
         // Simulate clicking on startbutton
         clickOn("#startButton");
 
-        controller.initialize();
         controller.startTimeline();
 
         while (true) {
             type(KeyCode.RIGHT, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(0))) {
                 break;
             }
         }
 
         while (true) {
             type(KeyCode.DOWN, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(1))) {
                 break;
             }
         }
 
         while (true) {
             type(KeyCode.LEFT, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(2))) {
                 break;
             }
         }
 
         while (true) {
             type(KeyCode.UP, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getCollisionRectangles())) {
+            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(3))) {
                 break;
             }
         }
 
-        assertEquals(180, PacMan.getScore());
+        assertEquals(180, controller.getPacManUser().getScore());
         
     }
 
