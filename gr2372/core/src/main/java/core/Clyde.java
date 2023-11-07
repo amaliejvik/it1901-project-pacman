@@ -1,54 +1,61 @@
 package core;
 
 import java.util.List;
-
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * Pathing for the orange ghost.
+ */
 public class Clyde extends Ghost {
 
-    public Clyde() {
-        return;
-    }
+  /**
+   * Constructor for Clyde.
+   */
+  public Clyde() {
+    return;
+  }
 
-    public void reset() {
-        super.changeDirection("LEFT");
-        super.setXPosition(768);
-        super.setYPosition(378);
-    }
+  /**
+   * Resets ghost to start position.
+   */
+  public void reset() {
+    super.changeDirection("LEFT");
+    super.setXposition(768);
+    super.setYposition(378);
+  }
 
-    public void pathing(ImageView clyde, List<Rectangle> clydeCollisionRectangles) {
-        if (checkWallCollision(clyde, clydeCollisionRectangles.get(0))) {
-            setXPosition(getXPosition()+3);
-            changeDirection("UP");
-        }
-        else if (checkWallCollision(clyde, clydeCollisionRectangles.get(1))) {
-            setYPosition(getYPosition()+3);
-            changeDirection("LEFT");
-        }
-        else if (checkWallCollision(clyde,clydeCollisionRectangles.get(2))) {
-            setXPosition(getXPosition()+3);
-            changeDirection("UP");
-        }
-        else if (checkWallCollision(clyde,clydeCollisionRectangles.get(3))) {
-            setYPosition(getYPosition()+3);
-            changeDirection("RIGHT");
-        }
-        else if (checkWallCollision(clyde, clydeCollisionRectangles.get(4))) {
-            setXPosition(getXPosition()-3);
-            changeDirection("UP");
-        }
-        else if (checkWallCollision(clyde,clydeCollisionRectangles.get(5))) {
-            setYPosition(getYPosition()+3);
-            changeDirection("RIGHT");
-        }
-        else if (checkWallCollision(clyde, clydeCollisionRectangles.get(6))) {
-            setXPosition(getXPosition()-3);
-            changeDirection("DOWN");
-        }
-        else if (checkWallCollision(clyde, clydeCollisionRectangles.get(7))) {
-            setYPosition(getYPosition()-3);
-            changeDirection("LEFT");
-        }
+  /**
+   * Sets the path for the ghost through the map.
+
+   * @param clyde The ghost
+   * @param clydeCollisionRectangles Collisionrectangles for the path
+   */
+  public void pathing(ImageView clyde, List<Rectangle> clydeCollisionRectangles) {
+    if (checkWallCollision(clyde, clydeCollisionRectangles.get(0))) {
+      setXposition(getXposition());
+      changeDirection("UP");
+    } else if (checkWallCollision(clyde, clydeCollisionRectangles.get(1))) {
+      setYposition(getYposition());
+      changeDirection("LEFT");
+    } else if (checkWallCollision(clyde, clydeCollisionRectangles.get(2))) {
+      setXposition(getXposition());
+      changeDirection("UP");
+    } else if (checkWallCollision(clyde, clydeCollisionRectangles.get(3))) {
+      setYposition(getYposition());
+      changeDirection("RIGHT");
+    } else if (checkWallCollision(clyde, clydeCollisionRectangles.get(4))) {
+      setXposition(getXposition());
+      changeDirection("UP");
+    } else if (checkWallCollision(clyde, clydeCollisionRectangles.get(5))) {
+      setYposition(getYposition());
+      changeDirection("RIGHT");
+    } else if (checkWallCollision(clyde, clydeCollisionRectangles.get(6))) {
+      setXposition(getXposition());
+      changeDirection("DOWN");
+    } else if (checkWallCollision(clyde, clydeCollisionRectangles.get(7))) {
+      setYposition(getYposition());
+      changeDirection("LEFT");
     }
+  }
 }

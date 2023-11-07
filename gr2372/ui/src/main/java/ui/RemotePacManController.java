@@ -157,27 +157,27 @@ public class RemotePacManController {
             public void handle(ActionEvent event) {
 
                 // UPDATES PACMAN'S POSITION-VARIABLES
-                PacMan.setXPosition(PacMan.getXPosition() + PacMan.getDX());
-                PacMan.setYPosition(PacMan.getYPosition() + PacMan.getDY());
+                PacMan.setXposition(PacMan.getXposition() + PacMan.getDx());
+                PacMan.setYposition(PacMan.getYposition() + PacMan.getDy());
 
                 // GRAPHICALLY UPDATES PACMAN'S POSITION
-                pacManGif.setLayoutX(PacMan.getXPosition());
-                pacManGif.setLayoutY(PacMan.getYPosition());
+                pacManGif.setLayoutX(PacMan.getXposition());
+                pacManGif.setLayoutY(PacMan.getYposition());
 
                 for (int i = 0; i < 4; i++) {
-                    ghosts.get(i).setXPosition(ghosts.get(i).getXPosition() + ghosts.get(i).getDX());
-                    ghosts.get(i).setYPosition(ghosts.get(i).getYPosition() + ghosts.get(i).getDY());
-                    ghostsPNG.get(i).setLayoutX(ghosts.get(i).getXPosition());
-                    ghostsPNG.get(i).setLayoutY(ghosts.get(i).getYPosition());
+                    ghosts.get(i).setXposition(ghosts.get(i).getXposition() + ghosts.get(i).getDx());
+                    ghosts.get(i).setYposition(ghosts.get(i).getYposition() + ghosts.get(i).getDy());
+                    ghostsPNG.get(i).setLayoutX(ghosts.get(i).getXposition());
+                    ghostsPNG.get(i).setLayoutY(ghosts.get(i).getYposition());
                 }
                 
                 // COLLISION CHECK
-                if (Collisions.PacmanWallCollision(pacManGif, walls)) {
-                    PacMan.setDX(0);
-                    PacMan.setDY(0);
+                if (Collisions.pacmanWallCollision(pacManGif, walls)) {
+                    PacMan.setDx(0);
+                    PacMan.setDx(0);
                 }
                 
-                if (Collisions.PacmanPelletCollision(pacManGif, pellets)) {
+                if (Collisions.pacmanPelletCollision(pacManGif, pellets)) {
                     pacManUser.setScore(pacManUser.getScore()+10);
                 }
 
@@ -185,12 +185,12 @@ public class RemotePacManController {
                     cherry.setVisible(true);
                 }
 
-                if (Collisions.PacmanCherryCollision(pacManGif, cherry)) {
+                if (Collisions.pacmanCherryCollision(pacManGif, cherry)) {
                     cherry.setVisible(false);
                     pacManUser.setScore(pacManUser.getScore()+100);
                 }
 
-                if (Collisions.PacmanGhostCollision(pacManGif, ghostsPNG)) {
+                if (Collisions.pacmanGhostCollision(pacManGif, ghostsPNG)) {
                     gameOver();
                 }
                 

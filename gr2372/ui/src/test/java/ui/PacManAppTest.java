@@ -19,104 +19,104 @@ import javafx.stage.Stage;
 
 public class PacManAppTest extends ApplicationTest {
 
-    private Parent root;
-    private PacManController controller;
+  private Parent root;
+  private PacManController controller;
 
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("app/PacMan.fxml"));
-        root = fxmlLoader.load();
-        this.controller = fxmlLoader.getController();
+  @Override
+  public void start(Stage stage) throws IOException {
+    FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("app/PacMan.fxml"));
+    root = fxmlLoader.load();
+    this.controller = fxmlLoader.getController();
 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setMaximized(false);
-        stage.show();
+    Scene scene = new Scene(root);
+    stage.setScene(scene);
+    stage.setMaximized(false);
+    stage.show();
 
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.RIGHT) {
-                    PacMan.changeDirection("RIGHT");
-                } else if (event.getCode() == KeyCode.LEFT) {
-                    PacMan.changeDirection("LEFT");
-                } else if (event.getCode() == KeyCode.DOWN) {
-                    PacMan.changeDirection("DOWN");
-                } else if (event.getCode() == KeyCode.UP) {
-                    PacMan.changeDirection("UP");
-                }
-            }
-        });
-
-
-    }
-
-    public Parent getRootNode() {
-        return root;
-    }
-
-
-
-    @BeforeEach
-    public void initializeGame(){
-        // Simulate clicking on the username TextField
-        clickOn("#usernameInput");
-
-        // Simulate typing a username
-        write("TestUser");
-
-    }
-
-    @Test
-    public void testGameStart() {
-
-        // Check that username was written
-        verifyThat("#usernameInput", hasText("TestUser"));
-
-        // Simulate clicking on startbutton
-        clickOn("#startButton");
-
-    }
-
-
-    @Test
-    public void testPacManMovementAndScore() {
-
-        // Simulate clicking on startbutton
-        clickOn("#startButton");
-
-        controller.startTimeline();
-
-        while (true) {
-            type(KeyCode.RIGHT, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(0))) {
-                break;
-            }
+    scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+      @Override
+      public void handle(KeyEvent event) {
+        if (event.getCode() == KeyCode.RIGHT) {
+          PacMan.changeDirection("RIGHT");
+        } else if (event.getCode() == KeyCode.LEFT) {
+          PacMan.changeDirection("LEFT");
+        } else if (event.getCode() == KeyCode.DOWN) {
+          PacMan.changeDirection("DOWN");
+        } else if (event.getCode() == KeyCode.UP) {
+          PacMan.changeDirection("UP");
         }
+      }
+    });
 
-        while (true) {
-            type(KeyCode.DOWN, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(1))) {
-                break;
-            }
-        }
 
-        while (true) {
-            type(KeyCode.LEFT, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(2))) {
-                break;
-            }
-        }
+  }
 
-        while (true) {
-            type(KeyCode.UP, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(3))) {
-                break;
-            }
-        }
+  public Parent getRootNode() {
+    return root;
+  }
 
-        assertEquals(180, controller.getPacManUser().getScore());
-        
+
+
+  @BeforeEach
+  public void initializeGame(){
+    // Simulate clicking on the username TextField
+    clickOn("#usernameInput");
+
+    // Simulate typing a username
+    write("TestUser");
+
+  }
+
+  @Test
+  public void testGameStart() {
+
+    // Check that username was written
+    verifyThat("#usernameInput", hasText("TestUser"));
+
+    // Simulate clicking on startbutton
+    clickOn("#startButton");
+
+  }
+
+
+  @Test
+  public void testPacManMovementAndScore() {
+
+    // Simulate clicking on startbutton
+    clickOn("#startButton");
+
+    controller.startTimeline();
+
+    while (true) {
+      type(KeyCode.RIGHT, 1);
+      if (Collisions.pacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(0))) {
+        break;
+      }
     }
+
+    while (true) {
+      type(KeyCode.DOWN, 1);
+      if (Collisions.pacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(1))) {
+        break;
+      }
+    }
+
+    while (true) {
+      type(KeyCode.LEFT, 1);
+      if (Collisions.pacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(2))) {
+        break;
+      }
+    }
+
+    while (true) {
+      type(KeyCode.UP, 1);
+      if (Collisions.pacmanWallCollision(controller.getPacmanGif(), controller.getTestCollisionRectangles().get(3))) {
+        break;
+      }
+    }
+
+    assertEquals(180, controller.getPacManUser().getScore());
+    
+  }
 
 }
