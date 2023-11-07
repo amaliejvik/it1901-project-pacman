@@ -24,19 +24,19 @@ import javafx.stage.Stage;
 
 public class PacManAppTest extends ApplicationTest {
 
-    private Parent root;
-    private PacManController controller;
+  private Parent root;
+  private PacManController controller;
 
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("app/PacMan.fxml"));
-        root = fxmlLoader.load();
-        this.controller = fxmlLoader.getController();
+  @Override
+  public void start(Stage stage) throws IOException {
+    FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("app/PacMan.fxml"));
+    root = fxmlLoader.load();
+    this.controller = fxmlLoader.getController();
 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setMaximized(false);
-        stage.show();
+    Scene scene = new Scene(root);
+    stage.setScene(scene);
+    stage.setMaximized(false);
+    stage.show();
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -134,7 +134,7 @@ public class PacManAppTest extends ApplicationTest {
 
         while (true) {
             type(KeyCode.RIGHT, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(),
+            if (Collisions.pacmanWallCollision(controller.getPacmanGif(),
                     controller.getTestCollisionRectangles().get(0))) {
                 break;
             }
@@ -148,7 +148,7 @@ public class PacManAppTest extends ApplicationTest {
 
         while (true) {
             type(KeyCode.DOWN, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(),
+            if (Collisions.pacmanWallCollision(controller.getPacmanGif(),
                     controller.getTestCollisionRectangles().get(1))) {
                 break;
             }
@@ -162,7 +162,7 @@ public class PacManAppTest extends ApplicationTest {
 
         while (true) {
             type(KeyCode.LEFT, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(),
+            if (Collisions.pacmanWallCollision(controller.getPacmanGif(),
                     controller.getTestCollisionRectangles().get(2))) {
                 break;
             }
@@ -176,7 +176,7 @@ public class PacManAppTest extends ApplicationTest {
 
         while (true) {
             type(KeyCode.UP, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(),
+            if (Collisions.pacmanWallCollision(controller.getPacmanGif(),
                     controller.getTestCollisionRectangles().get(3))) {
                 break;
             }
@@ -204,7 +204,7 @@ public class PacManAppTest extends ApplicationTest {
 
         while (true) {
             type(KeyCode.RIGHT, 1);
-            if (Collisions.PacmanWallCollision(controller.getPacmanGif(),
+            if (Collisions.pacmanWallCollision(controller.getPacmanGif(),
                     controller.getTestCollisionRectangles().get(0))) {
                 break;
             }
@@ -212,7 +212,7 @@ public class PacManAppTest extends ApplicationTest {
 
         while (true) {
             type(KeyCode.LEFT, 1);
-            if (Collisions.PacmanGhostCollision(controller.getPacmanGif(), controller.getGhosts())) {
+            if (Collisions.pacmanGhostCollision(controller.getPacmanGif(), controller.getGhosts())) {
                 break;
             }
         }
@@ -222,5 +222,4 @@ public class PacManAppTest extends ApplicationTest {
         clickOn("#restartGame");
 
     }
-
-}
+  }

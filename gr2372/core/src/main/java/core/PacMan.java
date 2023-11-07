@@ -17,42 +17,43 @@ public class PacMan {
     private static double yPosition = 115;
     private static final List<String> DIRECTIONS = Arrays.asList("RIGHT", "DOWN", "UP", "LEFT");
 
-    // Various getters and setters
+  // Various getters and setters
 
-    public static double getXPosition() {
-        return xPosition;
-    }
+  public static double getXposition() {
+    return xPosition;
+  }
 
-    public static void setXPosition(double x) {
-        xPosition = x;
-    }
+  public static void setXposition(double x) {
+    xPosition = x;
+  }
 
-    public static double getYPosition() {
+    public static double getYposition() {
         return yPosition;
     }
 
-    public static void setYPosition(double y) {
+    public static void setYposition(double y) {
         yPosition = y;
     }
 
-    public static double getDX() {
+    public static double getDx() {
         return dx;
     }
 
-    public static double getDY() {
+    public static double getDy() {
         return dy;
     }
 
+    
+    public static void setDx(double x) {
+      dx = x;
+    }
+    
+    public static void setDy(double y) {
+      dy = y;
+    }
+    
     public static String getRotate() {
         return rotate;
-    }
-
-    public static void setDX(double x) {
-        dx = x;
-    }
-
-    public static void setDY(double y) {
-        dy = y;
     }
 
     public static void setRotate(String direction) {
@@ -65,11 +66,11 @@ public class PacMan {
      * to the default start-values
      */
     public static void reset() {
-        setDX(0);
-        setDY(0);
+        setDx(0);
+        setDy(0);
         setRotate("RIGHT");
-        setXPosition(330);
-        setYPosition(115);
+        setXposition(330);
+        setYposition(115);
     }
 
     /**
@@ -132,6 +133,6 @@ public class PacMan {
             return 270;
         }
         // DOWN
-        return 90;
+      return 90;
     }
 }

@@ -6,36 +6,36 @@ import org.junit.jupiter.api.Assertions;
 
 public class PacManTest {
 
-    @Test
-    @DisplayName("Test Pacman changeDirection()")
-    public void testPacManChangeDirection() {
-        // Test Right
-        PacMan.changeDirection("RIGHT");
+  @Test
+  @DisplayName("Test Pacman changeDirection()")
+  public void testPacManChangeDirection() {
+    // Test Right
+    PacMan.changeDirection("RIGHT");
 
-        Assertions.assertEquals(1, PacMan.getDX());
-        Assertions.assertEquals(0, PacMan.getDY());
+    Assertions.assertEquals(1, PacMan.getDx());
+    Assertions.assertEquals(0, PacMan.getDy());
 
-        // Test Left
-        PacMan.changeDirection("LEFT");
-        Assertions.assertEquals(-1, PacMan.getDX());
-        Assertions.assertEquals(0, PacMan.getDY());
+    // Test Left
+    PacMan.changeDirection("LEFT");
+    Assertions.assertEquals(-1, PacMan.getDx());
+    Assertions.assertEquals(0, PacMan.getDy());
 
-        // Test Up
-        PacMan.changeDirection("UP");
-        Assertions.assertEquals(-1, PacMan.getDY());
-        Assertions.assertEquals(0, PacMan.getDX());
+    // Test Up
+    PacMan.changeDirection("UP");
+    Assertions.assertEquals(-1, PacMan.getDy());
+    Assertions.assertEquals(0, PacMan.getDx());
 
         // Test Down
         PacMan.changeDirection("DOWN");
-        Assertions.assertEquals(1, PacMan.getDY());
-        Assertions.assertEquals(0, PacMan.getDX());
+        Assertions.assertEquals(1, PacMan.getDy());
+        Assertions.assertEquals(0, PacMan.getDx());
     }
 
     @Test
     @DisplayName("Test Pacman start position")
     public void testPacManStartPos() {
-        Assertions.assertEquals(330, PacMan.getXPosition());
-        Assertions.assertEquals(115, PacMan.getYPosition());
+        Assertions.assertEquals(330, PacMan.getXposition());
+        Assertions.assertEquals(115, PacMan.getYposition());
     }
 
     @Test
@@ -56,16 +56,16 @@ public class PacManTest {
         PacMan.reset();
 
         // Test speed
-        Assertions.assertEquals(0, PacMan.getDX());
-        Assertions.assertEquals(0, PacMan.getDY());
+        Assertions.assertEquals(0, PacMan.getDx());
+        Assertions.assertEquals(0, PacMan.getDy());
 
         // Test rotation
         Assertions.assertEquals("RIGHT", PacMan.getRotate());
         Assertions.assertEquals(0, PacMan.rotationAngle());
 
         // Test position
-        Assertions.assertEquals(330, PacMan.getXPosition());
-        Assertions.assertEquals(115, PacMan.getYPosition());
+        Assertions.assertEquals(330, PacMan.getXposition());
+        Assertions.assertEquals(115, PacMan.getYposition());
 
     }
 

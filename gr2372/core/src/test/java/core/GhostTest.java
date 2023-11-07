@@ -12,8 +12,8 @@ public class GhostTest {
         Inky inky = new Inky();
         inky.reset();
 
-        Assertions.assertEquals(548, inky.getXPosition());
-        Assertions.assertEquals(24, inky.getYPosition());
+        Assertions.assertEquals(548, inky.getXposition());
+        Assertions.assertEquals(24, inky.getYposition());
     }
 
     @Test
@@ -22,8 +22,8 @@ public class GhostTest {
         Blinky blinky = new Blinky();
         blinky.reset();
 
-        Assertions.assertEquals(23, blinky.getXPosition());
-        Assertions.assertEquals(32, blinky.getYPosition());
+        Assertions.assertEquals(23, blinky.getXposition());
+        Assertions.assertEquals(32, blinky.getYposition());
     }
 
     @Test
@@ -32,8 +32,8 @@ public class GhostTest {
         Clyde Clyde = new Clyde();
         Clyde.reset();
 
-        Assertions.assertEquals(768, Clyde.getXPosition());
-        Assertions.assertEquals(378, Clyde.getYPosition());
+        Assertions.assertEquals(768, Clyde.getXposition());
+        Assertions.assertEquals(378, Clyde.getYposition());
     }
 
     @Test
@@ -42,8 +42,8 @@ public class GhostTest {
         Pinky Pinky = new Pinky();
         Pinky.reset();
 
-        Assertions.assertEquals(395, Pinky.getXPosition());
-        Assertions.assertEquals(290, Pinky.getYPosition());
+        Assertions.assertEquals(395, Pinky.getXposition());
+        Assertions.assertEquals(290, Pinky.getYposition());
     }
 
     @Test
@@ -52,28 +52,28 @@ public class GhostTest {
         Ghost ghost = new Ghost();
 
         // Ghost should stands still when initialized
-        Assertions.assertEquals(0, ghost.getDX());
-        Assertions.assertEquals(0, ghost.getDY());
+        Assertions.assertEquals(0, ghost.getDx());
+        Assertions.assertEquals(0, ghost.getDy());
 
         // Test RIGHT
         ghost.changeDirection("RIGHT");
-        Assertions.assertEquals(1, ghost.getDX());
-        Assertions.assertEquals(0, ghost.getDY());
+        Assertions.assertEquals(1, ghost.getDx());
+        Assertions.assertEquals(0, ghost.getDy());
 
         // Test LEFT
         ghost.changeDirection("LEFT");
-        Assertions.assertEquals(-1, ghost.getDX());
-        Assertions.assertEquals(0, ghost.getDY());
+        Assertions.assertEquals(-1, ghost.getDx());
+        Assertions.assertEquals(0, ghost.getDy());
 
         // Test UP
         ghost.changeDirection("UP");
-        Assertions.assertEquals(0, ghost.getDX());
-        Assertions.assertEquals(-1, ghost.getDY());
+        Assertions.assertEquals(0, ghost.getDx());
+        Assertions.assertEquals(-1, ghost.getDy());
 
         // Test RIGHT
         ghost.changeDirection("DOWN");
-        Assertions.assertEquals(0, ghost.getDX());
-        Assertions.assertEquals(1, ghost.getDY());
+        Assertions.assertEquals(0, ghost.getDx());
+        Assertions.assertEquals(1, ghost.getDy());
 
     }
 

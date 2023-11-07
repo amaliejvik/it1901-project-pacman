@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PacManController">
+<AnchorPane fx:id="mainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/17.0.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.RemotePacManController">
    <children>
       <ImageView fx:id="mapGrid" fitHeight="458.0" fitWidth="933.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -336,22 +336,22 @@
             <Image url="@../cherry.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="blinkyPng" fitHeight="65.0" fitWidth="56.0" layoutX="23.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="blinkyPNG" fitHeight="65.0" fitWidth="56.0" layoutX="23.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../ghosts/ghostBlinky.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="clydePng" fitHeight="65.0" fitWidth="56.0" layoutX="768.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="clydePNG" fitHeight="65.0" fitWidth="56.0" layoutX="768.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../ghosts/ghostClyde.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pinkyPng" fitHeight="150.0" fitWidth="56.0" layoutX="395.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pinkyPNG" fitHeight="150.0" fitWidth="56.0" layoutX="395.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../ghosts/ghostPinky.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="inkyPng" fitHeight="65.0" fitWidth="56.0" layoutX="548.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="inkyPNG" fitHeight="65.0" fitWidth="56.0" layoutX="548.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../ghosts/ghostInky.png" />
          </image>
@@ -363,7 +363,7 @@
             <Font name="Impact" size="62.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameInput" layoutX="397.0" layoutY="166.0" onKeyPressed="#updateGui" onKeyTyped="#updateGui" />
+      <TextField fx:id="usernameInput" layoutX="397.0" layoutY="166.0" onKeyPressed="#updateGUI" onKeyTyped="#updateGUI" />
       <Label fx:id="username" layoutX="277.0" layoutY="165.0" prefHeight="29.0" prefWidth="98.0" text="Username:">
          <font>
             <Font size="20.0" />
@@ -446,6 +446,6 @@
       <Rectangle fx:id="collisionRect23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="558.0" layoutY="171.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
       <Rectangle fx:id="collisionRect24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="533.0" layoutY="299.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
       <TextArea fx:id="highScores" layoutX="339.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0" promptText="HIGHSCORES TEST:" text=" " />
-      <Button fx:id="restartGame" layoutX="384.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleRestartGameButton" onMouseClicked="#handleRestartGameButton" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
+      <Button fx:id="restartGame" layoutX="384.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#handleRestartGameButton" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
    </children>
 </AnchorPane>
