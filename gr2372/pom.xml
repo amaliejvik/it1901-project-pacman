@@ -53,18 +53,7 @@
                     <version>3.11.0</version>
                     <configuration>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-maven-plugin</artifactId>
-                    <version>0.0.8</version>
-                    <!-- Default configuration for running -->
-                    <!-- Usage: mvn javafx:run -->
-                    <configuration>
-                        <!-- syntax: module-name/full-app-class-name -->
-                        <mainClass>PacMan.ui/ui.PacManApp</mainClass>
-                    </configuration>
-                </plugin>
+                </plugin>             
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
@@ -131,5 +120,6 @@
     <modules>
         <module>core</module>
         <module>ui</module>
+        <module>springboot/restserver</module>
     </modules>
 </project>
