@@ -67,6 +67,9 @@ public class PacManAppTest extends ApplicationTest {
         // Simulate typing a username
         write("TestUser");
 
+        //Mark as test
+        controller.setIsTest(true);
+
     }
 
     @Test

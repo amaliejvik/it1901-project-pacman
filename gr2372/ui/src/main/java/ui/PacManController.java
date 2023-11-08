@@ -7,6 +7,9 @@ import core.Inky;
 import core.PacMan;
 import core.PacManUser;
 import core.Pinky;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import javafx.animation.KeyFrame;
@@ -53,6 +56,7 @@ public class PacManController {
   private Timeline timeline;
   private MediaPlayer mediaPlayer;
   private PacManUser pacManUser;
+  private boolean isTest;
 
   // Fxml-attributes
   @FXML
@@ -526,6 +530,14 @@ public class PacManController {
     return testCollisionRectangles;
   }
 
+  public boolean getIsTest() {
+    return isTest;
+  }
+
+  public void setIsTest(boolean isTest) {
+    this.isTest = isTest;
+  }
+
   /**
    * Disables the startbutton if the username is invalid.
    */
@@ -595,20 +607,48 @@ public class PacManController {
     timeline.stop();
     
     // Save score to username in file
-    PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(), 
-    "src/main/resources/ui/JSON/scores.json");
-    
-    // Displays score in scoreboard
-    String usersString = "";
-    List<PacManUser> userArray = PacmanPersistence
-    .fetchHighscore("src/main/resources/ui/JSON/scores.json");
-    StringBuffer buf = new StringBuffer();
-    for (PacManUser user : userArray) {
-      buf.append(user.toString());
+    if (!isTest) {
+      PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
+          "src/main/resources/ui/JSON/scores.json");
+
+      // Displays score in scoreboard
+      String usersString = "";
+      List<PacManUser> userArray = PacmanPersistence
+          .fetchHighscore("src/main/resources/ui/JSON/scores.json");
+      StringBuffer buf = new StringBuffer();
+      for (PacManUser user : userArray) {
+        buf.append(user.toString());
+      }
+      usersString = buf.toString();
+
+      highScores.setText(usersString);
+
+    //Saves scores from the mvn tests in a separate file  
+    } else {
+      PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
+          "src/main/resources/ui/JSON/apptestScores.json");
+
+      // Displays score in scoreboard
+      String usersString = "";
+      List<PacManUser> userArray = PacmanPersistence
+          .fetchHighscore("src/main/resources/ui/JSON/apptestScores.json");
+      StringBuffer buf = new StringBuffer();
+      for (PacManUser user : userArray) {
+        buf.append(user.toString());
+      }
+
+      usersString = buf.toString();
+
+      highScores.setText(usersString);
+
+       //Deletes content of apptestScores.json file
+      try {
+        new FileWriter("src/main/resources/ui/JSON/apptestScores.json", false).close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      
     }
-    usersString = buf.toString();
-    
-    highScores.setText(usersString);
     
     // Set GameOver screen visible
     setComponentsVisible(true, gameOverScreen, gameOverText, restartGame, 
