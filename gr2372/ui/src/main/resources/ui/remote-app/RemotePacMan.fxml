@@ -363,7 +363,7 @@
             <Font name="Impact" size="62.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameInput" layoutX="397.0" layoutY="166.0" onKeyPressed="#updateGUI" onKeyTyped="#updateGUI" />
+      <TextField fx:id="usernameInput" layoutX="397.0" layoutY="166.0" onKeyPressed="#updateGui" onKeyTyped="#updateGui" />
       <Label fx:id="username" layoutX="277.0" layoutY="165.0" prefHeight="29.0" prefWidth="98.0" text="Username:">
          <font>
             <Font size="20.0" />
