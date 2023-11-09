@@ -216,7 +216,7 @@ public class RemotePacManAppTest extends ApplicationTest {
                 break;
             }
         }
-        assertEquals(170, controller.getPacManUser().getScore());
+        assertEquals(140, controller.getPacManUser().getScore());
 
         controller.gameOver();
         clickOn("#restartGame");

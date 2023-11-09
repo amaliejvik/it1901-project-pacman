@@ -220,6 +220,10 @@ public class RemotePacManController {
         timeline.play();
     }
 
+    public void stopTimeline() {
+        timeline.stop();
+    }
+
     /*
      * Is executed as game initializes.
      * Initializes music-player, organises FXML-elements into lists, generates PacMan object, hides various FXML-elements 
@@ -278,6 +282,9 @@ public class RemotePacManController {
         startButton.setDisable(true);
 
         createAndConfigureTimeline();
+
+        PacMan.setXposition(330);
+        PacMan.setYposition(115);
 
         updateGui();
     }

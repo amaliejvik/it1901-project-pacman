@@ -428,6 +428,10 @@ public class PacManController {
     timeline.play();
   }
 
+  public void stopTimeline() {
+    timeline.stop();
+  }
+
   /**
    * Is executed as game initializes.
    * Initializes music-player, organises FXML-elements into lists, generates PacMan object, 
