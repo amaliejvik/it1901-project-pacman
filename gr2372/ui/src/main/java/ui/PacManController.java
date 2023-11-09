@@ -7,6 +7,9 @@ import core.Inky;
 import core.PacMan;
 import core.PacManUser;
 import core.Pinky;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import javafx.animation.KeyFrame;
@@ -52,8 +55,8 @@ public class PacManController {
   private List<ImageView> ghostsPng;
   private Timeline timeline;
   private MediaPlayer mediaPlayer;
-  private String chosenPacManColor;
   private PacManUser pacManUser;
+  private boolean isTest;
 
   // Fxml-attributes
   @FXML
@@ -503,12 +506,36 @@ public class PacManController {
     return pacManGif;
   }
 
+  public ImageView getCheckMark() {
+    return checkMark;
+  }
+
+  public ImageView getMapGrid() {
+    return mapGrid;
+  }
+
+  public ImageView getCherry() {
+    return cherry;
+  }
+
   public PacManUser getPacManUser() {
     return pacManUser;
   }
 
+  public List<ImageView> getGhosts() {
+    return ghostsPng;
+  }
+
   public List<Rectangle> getTestCollisionRectangles() {
     return testCollisionRectangles;
+  }
+
+  public boolean getIsTest() {
+    return isTest;
+  }
+
+  public void setIsTest(boolean isTest) {
+    this.isTest = isTest;
   }
 
   /**
@@ -537,27 +564,6 @@ public class PacManController {
       setComponentsVisible(false, startButton, startScreen, username,
                 usernameInput, pacManText, toggleLightmode, checkMark, choosePacManText, 
                 yellowPacManPhoto, greenPacManPhoto, pinkPacManPhoto, orangePacManPhoto);
-
-      switch (chosenPacManColor) {
-        case ("YELLOW"):
-          pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelYellow.gif"));
-          break;
-
-        case ("GREEN"):
-          pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelGreen.gif"));
-          break;
-
-        case ("PINK"):
-          pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelPink.gif"));
-          break;
-
-        case ("ORANGE"):
-          pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelOrange.gif"));
-          break;
-        default:
-          pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelYellow.gif"));
-          break;
-      }
 
       if (toggleLightmode.isSelected()) {
         mapGrid.setImage(new Image("file:src/main/resources/ui/mapgridLight.png"));
@@ -599,24 +605,52 @@ public class PacManController {
    */
   public void gameOver() {
     timeline.stop();
-    // Set GameOver screen visible
     
     // Save score to username in file
-    PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(), 
-                                    "src/main/resources/ui/JSON/scores.json");
-    
-    // Displays score in scoreboard
-    String usersString = "";
-    List<PacManUser> userArray = PacmanPersistence
-                                 .fetchHighscore("src/main/resources/ui/JSON/scores.json");
-    StringBuffer buf = new StringBuffer();
-    for (PacManUser user : userArray) {
-      buf.append(user.toString());
+    if (!isTest) {
+      PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
+          "src/main/resources/ui/JSON/scores.json");
+
+      // Displays score in scoreboard
+      String usersString = "";
+      List<PacManUser> userArray = PacmanPersistence
+          .fetchHighscore("src/main/resources/ui/JSON/scores.json");
+      StringBuffer buf = new StringBuffer();
+      for (PacManUser user : userArray) {
+        buf.append(user.toString());
+      }
+      usersString = buf.toString();
+
+      highScores.setText(usersString);
+
+    //Saves scores from the mvn tests in a separate file  
+    } else {
+      PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
+          "src/main/resources/ui/JSON/apptestScores.json");
+
+      // Displays score in scoreboard
+      String usersString = "";
+      List<PacManUser> userArray = PacmanPersistence
+          .fetchHighscore("src/main/resources/ui/JSON/apptestScores.json");
+      StringBuffer buf = new StringBuffer();
+      for (PacManUser user : userArray) {
+        buf.append(user.toString());
+      }
+
+      usersString = buf.toString();
+
+      highScores.setText(usersString);
+
+       //Deletes content of apptestScores.json file
+      try {
+        new FileWriter("src/main/resources/ui/JSON/apptestScores.json", false).close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      
     }
-    usersString = buf.toString();
     
-    highScores.setText(usersString);
-    
+    // Set GameOver screen visible
     setComponentsVisible(true, gameOverScreen, gameOverText, restartGame, 
                          highScores, toggleLightmode);
   }
@@ -658,7 +692,7 @@ public class PacManController {
     checkMark.setLayoutX(427);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    this.chosenPacManColor = "YELLOW";
+    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelYellow.gif"));
   }
 
   @FXML
@@ -666,7 +700,7 @@ public class PacManController {
     checkMark.setLayoutX(497);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    this.chosenPacManColor = "GREEN";
+    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelGreen.gif"));
   }
 
   @FXML
@@ -674,7 +708,7 @@ public class PacManController {
     checkMark.setLayoutX(565);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    this.chosenPacManColor = "PINK";
+    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelPink.gif"));
   }
 
   @FXML
@@ -682,7 +716,7 @@ public class PacManController {
     checkMark.setLayoutX(625);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    this.chosenPacManColor = "ORANGE";
+    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelOrange.gif"));
   }
 
   private void setComponentsVisible(boolean isVisible, Node... components) {
