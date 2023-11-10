@@ -14,6 +14,7 @@ import core.Ghost;
 import core.Inky;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -26,8 +27,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+// import javafx.scene.media.Media;
+// import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -48,10 +49,9 @@ public class RemotePacManController {
     private List<Rectangle> clydeCollisionRectangles;
     private List<ImageView> pellets;
     private List<Ghost> ghosts;
-    private List<ImageView> ghostsPNG;
+    private List<ImageView> ghostsPng;
     private Timeline timeline;
-    private MediaPlayer mediaPlayer;
-    private String chosenPacManColor;
+    // private MediaPlayer mediaPlayer;
     private PacManUser pacManUser;
 
     // Fxml-attributes
@@ -167,8 +167,8 @@ public class RemotePacManController {
                 for (int i = 0; i < 4; i++) {
                     ghosts.get(i).setXposition(ghosts.get(i).getXposition() + ghosts.get(i).getDx());
                     ghosts.get(i).setYposition(ghosts.get(i).getYposition() + ghosts.get(i).getDy());
-                    ghostsPNG.get(i).setLayoutX(ghosts.get(i).getXposition());
-                    ghostsPNG.get(i).setLayoutY(ghosts.get(i).getYposition());
+                    ghostsPng.get(i).setLayoutX(ghosts.get(i).getXposition());
+                    ghostsPng.get(i).setLayoutY(ghosts.get(i).getYposition());
                 }
                 
                 // COLLISION CHECK
@@ -190,7 +190,7 @@ public class RemotePacManController {
                     pacManUser.setScore(pacManUser.getScore()+100);
                 }
 
-                if (Collisions.pacmanGhostCollision(pacManGif, ghostsPNG)) {
+                if (Collisions.pacmanGhostCollision(pacManGif, ghostsPng)) {
                     gameOver();
                 }
                 
@@ -221,6 +221,10 @@ public class RemotePacManController {
         timeline.play();
     }
 
+    public void stopTimeline() {
+        timeline.stop();
+    }
+
     /*
      * Is executed as game initializes.
      * Initializes music-player, organises FXML-elements into lists, generates PacMan object, hides various FXML-elements 
@@ -228,15 +232,15 @@ public class RemotePacManController {
      */
     public void initialize() {
         //Music-player
-        mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/ui/PacManAudio.mp3").toString()));
-        //If music ends, restart
-        mediaPlayer.setOnEndOfMedia(new Runnable() {
-            @Override
-            public void run() {
-                mediaPlayer.seek(Duration.ZERO);
-                mediaPlayer.play();
-            }
-        });
+        // mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/ui/PacManAudio.mp3").toString()));
+        // //If music ends, restart
+        // mediaPlayer.setOnEndOfMedia(new Runnable() {
+        //     @Override
+        //     public void run() {
+        //         mediaPlayer.seek(Duration.ZERO);
+        //         mediaPlayer.play();
+        //     }
+        // });
 
         chooseYellowPacMan();
         
@@ -272,7 +276,7 @@ public class RemotePacManController {
         clydeCollisionRectangles = Arrays.asList(collisionRect21, collisionRect15, collisionRect3, collisionRect4, collisionRect12, 
                                                 collisionRect9, collisionRect10, collisionRect22);
 
-        ghostsPNG = Arrays.asList(inkyPNG, pinkyPNG, blinkyPNG, clydePNG);
+        ghostsPng = Arrays.asList(inkyPNG, pinkyPNG, blinkyPNG, clydePNG);
         ghosts = Arrays.asList(inky, pinky, blinky, clyde);
 
         setComponentsVisible(false, gameOverScreen, gameOverText, restartGame, highScores, cherry);
@@ -280,16 +284,36 @@ public class RemotePacManController {
 
         createAndConfigureTimeline();
 
-        updateGUI();
+        PacMan.setXposition(330);
+        PacMan.setYposition(115);
+        PacMan.setRotate("RIGHT");
+
+        updateGui();
     }
 
     public ImageView getPacmanGif() {
         return pacManGif;
     }
 
+    public ImageView getCheckMark() {
+        return checkMark;
+      }
+    
+      public ImageView getMapGrid() {
+        return mapGrid;
+      }
+    
+      public ImageView getCherry() {
+        return cherry;
+      }
+
     public PacManUser getPacManUser(){
         return pacManUser;
     }
+
+    public List<ImageView> getGhosts() {
+        return ghostsPng;
+      }
 
     public List<Rectangle> getTestCollisionRectangles() {
         return testCollisionRectangles;
@@ -299,7 +323,7 @@ public class RemotePacManController {
      * Disables the startbutton if the username is invalid
      */
     @FXML
-    public void updateGUI() {
+    public void updateGui() {
         startButton.setDisable(true);
         String name = usernameInput.getText();
         if (!PacManUser.validateUsername(name)) {
@@ -314,30 +338,12 @@ public class RemotePacManController {
      */
     @FXML
     private void handleStartButton() {
-        mediaPlayer.play();
+        // mediaPlayer.play();
         try {
 
             setComponentsVisible(false, startButton, startScreen, username,
                                 usernameInput, pacManText, toggleLightmode, checkMark, choosePacManText, 
                                 yellowPacManPhoto, greenPacManPhoto, pinkPacManPhoto, orangePacManPhoto );
-
-            switch (chosenPacManColor) {
-                case ("YELLOW") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelYellow.gif"));
-                    break;
-
-                case ("GREEN") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelGreen.gif"));
-                    break;
-
-                case ("PINK") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelPink.gif"));
-                    break;
-
-                case ("ORANGE") :
-                    pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelOrange.gif"));
-                    break;
-            }
 
             if (toggleLightmode.isSelected()) {
                 mapGrid.setImage(new Image("file:src/main/resources/ui/mapgridLight.png"));
@@ -402,6 +408,7 @@ public class RemotePacManController {
         // Save score to username in file
         remoteServerAccess.putHighScore(pacManUser.getUsername(), pacManUser.getScore());
 
+        Platform.runLater(() -> {
         // Displays score in scoreboard
         String usersString = "";
         List<PacManUser> UserArray = remoteServerAccess.getHighScores();
@@ -412,7 +419,7 @@ public class RemotePacManController {
         usersString = buf.toString();
         
         highScores.setText(usersString);
-        
+        });
         setComponentsVisible(true, gameOverScreen, gameOverText, restartGame, highScores, toggleLightmode);
     }
 
@@ -444,7 +451,7 @@ public class RemotePacManController {
         pinky.reset();
         clyde.reset();
 
-        updateGUI();
+        updateGui();
 
     }
 
@@ -453,28 +460,28 @@ public class RemotePacManController {
         checkMark.setLayoutX(427);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "YELLOW";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelYellow.gif"));
     }
     @FXML
     private void chooseGreenPacMan(){
         checkMark.setLayoutX(497);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "GREEN";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelGreen.gif"));
     }
     @FXML
     private void choosePinkPacMan(){
         checkMark.setLayoutX(565);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "PINK";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelPink.gif"));
     }
     @FXML
     private void chooseOrangePacMan(){
         checkMark.setLayoutX(625);
         checkMark.setLayoutY(242);
         checkMark.setVisible(true);
-        this.chosenPacManColor = "ORANGE";
+        pacManGif.setImage(new Image("file:src/main/resources/ui/PacManModelOrange.gif"));
     }
 
     private void setComponentsVisible(boolean isVisible, Node... components) {

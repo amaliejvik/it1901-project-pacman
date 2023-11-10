@@ -22,14 +22,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class PacManAppTest extends ApplicationTest {
+public class RemotePacManAppTest extends ApplicationTest {
 
   private Parent root;
-  private PacManController controller;
+  private RemotePacManController controller;
 
   @Override
   public void start(Stage stage) throws IOException {
-    FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("app/PacMan.fxml"));
+    FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("remote-app/RemotePacMan.fxml"));
     root = fxmlLoader.load();
     this.controller = fxmlLoader.getController();
 
@@ -66,9 +66,6 @@ public class PacManAppTest extends ApplicationTest {
 
         // Simulate typing a username
         write("TestUser");
-
-        //Mark as test
-        controller.setIsTest(true);
 
     }
 
@@ -193,7 +190,6 @@ public class PacManAppTest extends ApplicationTest {
         Assertions.assertEquals(270, controller.getPacmanGif().getRotate());
 
         controller.stopTimeline();
-
     }
 
     @Test
