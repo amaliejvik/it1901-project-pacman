@@ -27,8 +27,8 @@ public class Blinky extends Ghost {
 
   /**
    * Sets the path for the ghost through the map.
-
-   * @param blinky The ghost
+   *
+   * @param blinky                    The ghost
    * @param blinkyCollisionRectangles Collisionrectangles for the path
    */
   public void pathing(ImageView blinky, List<Rectangle> blinkyCollisionRectangles) {

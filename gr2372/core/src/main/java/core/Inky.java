@@ -23,13 +23,13 @@ public class Inky extends Ghost {
     super.changeDirection("DOWN");
     super.setXposition(548);
     super.setYposition(24);
-    
+
   }
 
   /**
    * Sets the path for the ghost through the map.
-
-   * @param inky The ghost
+   *
+   * @param inky                    The ghost
    * @param inkyCollisionRectangles Collisionrectangles for the path
    */
   public void pathing(ImageView inky, List<Rectangle> inkyCollisionRectangles) {

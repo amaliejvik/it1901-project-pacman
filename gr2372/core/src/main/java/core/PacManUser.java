@@ -9,23 +9,23 @@ public class PacManUser {
   private double score;
 
   /**
-  * Constructor for a new player.
-
-  * @param username username of player
-  * @param score Score of player at gameover
-  **/
+   * Constructor for a new player.
+   *
+   * @param username username of player
+   * @param score    Score of player at gameover
+   **/
   public PacManUser(String username, double score) {
     this.username = username;
     this.score = score;
   }
 
   /**
-  * Empty constructor for a new player
-  **/
+   * Empty constructor for a new player.
+   **/
   public PacManUser() {
   }
 
-  //Various getters and setters
+  // Various getters and setters
   public double getScore() {
     return score;
   }
@@ -33,7 +33,7 @@ public class PacManUser {
   public void setScore(double score) {
     this.score = score;
   }
-  
+
   public String getUsername() {
     return username;
   }
@@ -44,7 +44,7 @@ public class PacManUser {
 
   /**
    * Input validation on username, e.g. no spaces or empty strings
-
+   *
    * @param name username from player
    * @return true if the username is valid, else false
    */
@@ -63,7 +63,7 @@ public class PacManUser {
     setScore(0);
   }
 
-  //toString method to give PacManUser-objects a text-representation
+  // toString method to give PacManUser-objects a text-representation
   @Override
   public String toString() {
     return "Username=" + getUsername() + ", Score=" + getScore() + "\n";
