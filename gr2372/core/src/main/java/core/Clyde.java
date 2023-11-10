@@ -27,8 +27,8 @@ public class Clyde extends Ghost {
 
   /**
    * Sets the path for the ghost through the map.
-
-   * @param clyde The ghost
+   *
+   * @param clyde                    The ghost
    * @param clydeCollisionRectangles Collisionrectangles for the path
    */
   public void pathing(ImageView clyde, List<Rectangle> clydeCollisionRectangles) {

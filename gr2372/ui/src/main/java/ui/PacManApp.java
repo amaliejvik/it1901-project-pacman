@@ -26,7 +26,7 @@ public class PacManApp extends Application {
     stage.setMaximized(false);
     stage.show();
 
-    //Registers keyboard-input
+    // Registers keyboard-input
     scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
       @Override
       public void handle(KeyEvent event) {
@@ -44,8 +44,8 @@ public class PacManApp extends Application {
   }
 
   /**
-  * Main start method for application.
-  */
+   * Main start method for application.
+   */
   public static void main(String[] args) {
     launch();
   }

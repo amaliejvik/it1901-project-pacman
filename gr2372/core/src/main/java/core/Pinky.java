@@ -27,8 +27,8 @@ public class Pinky extends Ghost {
 
   /**
    * Sets the path for the ghost through the map.
-
-   * @param pinky The ghost
+   *
+   * @param pinky                    The ghost
    * @param pinkyCollisionRectangles Collisionrectangles for the path
    */
   public void pathing(ImageView pinky, List<Rectangle> pinkyCollisionRectangles) {
