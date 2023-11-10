@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -26,8 +27,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+// import javafx.scene.media.Media;
+// import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -54,7 +55,7 @@ public class PacManController {
   private List<Ghost> ghosts;
   private List<ImageView> ghostsPng;
   private Timeline timeline;
-  private MediaPlayer mediaPlayer;
+  // private MediaPlayer mediaPlayer;
   private PacManUser pacManUser;
   private boolean isTest;
 
@@ -439,16 +440,16 @@ public class PacManController {
    */
   public void initialize() {
     //Music-player
-    mediaPlayer = new MediaPlayer(new Media(getClass()
-    .getResource("/ui/PacManAudio.mp3").toString()));
-    //If music ends, restart
-    mediaPlayer.setOnEndOfMedia(new Runnable() {
-      @Override
-      public void run() {
-        mediaPlayer.seek(Duration.ZERO);
-        mediaPlayer.play();
-      }
-    });
+    // mediaPlayer = new MediaPlayer(new Media(getClass()
+    // .getResource("/ui/PacManAudio.mp3").toString()));
+    // //If music ends, restart
+    // mediaPlayer.setOnEndOfMedia(new Runnable() {
+    //   @Override
+    //   public void run() {
+    //     mediaPlayer.seek(Duration.ZERO);
+    //     mediaPlayer.play();
+    //   }
+    // });
 
     chooseYellowPacMan();
     
@@ -502,6 +503,10 @@ public class PacManController {
     startButton.setDisable(true);
 
     createAndConfigureTimeline();
+
+    PacMan.setXposition(330);
+    PacMan.setYposition(115);
+    PacMan.setRotate("RIGHT");
 
     updateGui();
   }
@@ -562,7 +567,7 @@ public class PacManController {
    */
   @FXML
   private void handleStartButton() {
-    mediaPlayer.play();
+    // mediaPlayer.play();
     try {
 
       setComponentsVisible(false, startButton, startScreen, username,
@@ -615,6 +620,7 @@ public class PacManController {
       PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
           "src/main/resources/ui/JSON/scores.json");
 
+      Platform.runLater(()-> {
       // Displays score in scoreboard
       String usersString = "";
       List<PacManUser> userArray = PacmanPersistence
@@ -627,6 +633,7 @@ public class PacManController {
 
       highScores.setText(usersString);
 
+    });
     //Saves scores from the mvn tests in a separate file  
     } else {
       PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),

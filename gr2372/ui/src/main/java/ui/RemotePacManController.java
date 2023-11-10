@@ -14,6 +14,7 @@ import core.Ghost;
 import core.Inky;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -26,8 +27,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+// import javafx.scene.media.Media;
+// import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -50,7 +51,7 @@ public class RemotePacManController {
     private List<Ghost> ghosts;
     private List<ImageView> ghostsPng;
     private Timeline timeline;
-    private MediaPlayer mediaPlayer;
+    // private MediaPlayer mediaPlayer;
     private PacManUser pacManUser;
 
     // Fxml-attributes
@@ -231,15 +232,15 @@ public class RemotePacManController {
      */
     public void initialize() {
         //Music-player
-        mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/ui/PacManAudio.mp3").toString()));
-        //If music ends, restart
-        mediaPlayer.setOnEndOfMedia(new Runnable() {
-            @Override
-            public void run() {
-                mediaPlayer.seek(Duration.ZERO);
-                mediaPlayer.play();
-            }
-        });
+        // mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/ui/PacManAudio.mp3").toString()));
+        // //If music ends, restart
+        // mediaPlayer.setOnEndOfMedia(new Runnable() {
+        //     @Override
+        //     public void run() {
+        //         mediaPlayer.seek(Duration.ZERO);
+        //         mediaPlayer.play();
+        //     }
+        // });
 
         chooseYellowPacMan();
         
@@ -285,6 +286,7 @@ public class RemotePacManController {
 
         PacMan.setXposition(330);
         PacMan.setYposition(115);
+        PacMan.setRotate("RIGHT");
 
         updateGui();
     }
@@ -336,7 +338,7 @@ public class RemotePacManController {
      */
     @FXML
     private void handleStartButton() {
-        mediaPlayer.play();
+        // mediaPlayer.play();
         try {
 
             setComponentsVisible(false, startButton, startScreen, username,
@@ -406,6 +408,7 @@ public class RemotePacManController {
         // Save score to username in file
         remoteServerAccess.putHighScore(pacManUser.getUsername(), pacManUser.getScore());
 
+        Platform.runLater(() -> {
         // Displays score in scoreboard
         String usersString = "";
         List<PacManUser> UserArray = remoteServerAccess.getHighScores();
@@ -416,7 +419,7 @@ public class RemotePacManController {
         usersString = buf.toString();
         
         highScores.setText(usersString);
-        
+        });
         setComponentsVisible(true, gameOverScreen, gameOverText, restartGame, highScores, toggleLightmode);
     }
 

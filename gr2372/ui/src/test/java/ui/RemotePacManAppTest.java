@@ -189,6 +189,7 @@ public class RemotePacManAppTest extends ApplicationTest {
         Assertions.assertEquals(180, controller.getPacManUser().getScore());
         Assertions.assertEquals(270, controller.getPacmanGif().getRotate());
 
+        controller.stopTimeline();
     }
 
     @Test
