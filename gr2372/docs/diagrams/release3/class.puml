@@ -1,0 +1,231 @@
+@startuml
+' UI
+class Blinky extends Ghost{
+    + Blinky()
+    + void reset()
+    + void pathing(ImageView, List<Rectangle>)
+}
+
+class Clyde  extends Ghost{
+    + Clyde()
+    + void reset()
+    + void pathing(ImageView, List<Rectangle>)
+}
+
+class Ghost{
+   - dx: double = 0
+   - dy: double = 0
+   - xposition: double
+   - yposition: double
+   + Ghosts()
+   + double getXposition()
+   + void setXposition(double)
+   + double getYposition(double)
+   + void setYposition(double)
+   + double getDx()
+   + void setDx(double)
+   + double getDy()
+   + void setDy(double)
+   + void changeDirection(String)
+   + boolean checkWallCollision(ImageView, Rectangle)
+}
+
+class Inky extends Ghost{
+    + Inky()
+    + void reset()
+    + void pathing(ImageView, List<Rectangle>)
+}
+
+class PacMan {
++ static dx: double = 0
++ static dy: double = 0
+- xPosition: double = 330
+- yPosition: double = 115
+- static rotate: double
+- score: int
+- username: String
++ PacMan()
++ int getScore()
++ void setScore()
++ double getXPosition()
++ double getYPosition()
++ void setXPosition(double)
++ void setYPosition(double)
++ String getUsername()
++ void setUsername(String)
++ static double getDX()
++ static double getDY()
++ static void setDY(double)
++ static void setRotate(double)
++ static double getRotate()
++ boolean validateUsername(String)
++ static void changeDirection(String)
++ void checkWallCollision(ImageView, List<Rectangle>)
++ void checkPelletCollision(ImageView, List<Rectangle>)
++ double rotationAngle()
+}
+
+class PacManUser{
+- username: String
+- score: double
++ PacManUser(String, double)
++ String getUsername()
++ void setUsername(String)
++ double getScore()
++ void setScore(int)
++ String toString()
+}
+
+class Pinky extends Ghost{
+    + Pinky()
+    + void reset()
+    + void pathing(ImageView, List<Rectangle>)
+}
+
+class PacManPersistance{
++ static void saveHighscore(String, double, String)
++ static List<PacManUser> fetchHighscore(String)
++ static List<PacManUser> deserializeHighScoreList(String)
++ static PacManUser deserializeIndividualHighScore(String)
+}
+
+' UI
+class Collisions{
+ + static boolean pacmanWallCollision(ImageView, List<Rectangle>)
+ + static boolean pacmanWallCollision(ImageView, Rectangle)
+ + static boolean pacmanPelletCollision(ImageView, List<ImageView>)
+ + static boolean pacmanGhostCollision(ImageView, List<ImageView>)
+ + static boolean pacmanCherryCollision(ImageView, ImageView)
+}
+
+class PacManApp extends Application{
++ static void main(String[])
++ void start(Stage)
+}
+
+class PacManController {
+- inky: Inky
+- pinky: Pinky
+- blinky: Blinky
+- clyde: Clyde
+- walls: List<Rectangle>
+- testCollisionRectangles: List<Rectangle>
+- inkyCollisionRectangles: List<Rectangle>
+- blinkyCollisionRectangles: List<Rectangle>
+- pinkyCollisionRectangles: List<Rectangle>
+- clydeCollisionRectangles: List<Rectangle>
+- pellets: List<ImageView>
+- ghosts: List<Ghost>
+- ghostsPng: List<ImageView> 
+- timeline: Timeline
+- mediaPlayer: MediaPlayer
+- pacManUser: PacManUser
+- isTest: boolean
++ void createAndConfigureTimeline()
++ void startTimeline()
+- void initialize()
++ ImageView getPacManGif()
++ ImageView getCheckMark()
++ ImageView getMapGrid()
++ ImageView getCherry()
++ PacManUser getPacManUser()
++ List<ImageView> getGhosts()
++ List<Rectangle> getTestCollisionRectangles()
++ boolean getIsTest()
++ void setIsTest(boolean)
++ void updateGUI()
+- void handleStartButton()
++ void gameOver()
+- void handleRestartGameButton()
+- void chooseYellowPacMan()
+- void chooseGreenPacMan()
+- void choosePinkPacMan()
+- void chooseOrangePacMan()
+- void setComponentsVisible(boolean, Node... )
+}
+
+class RemotePacManApp extends Application{
++ void start(Stage)
++ static void main(String[])
+}
+
+class RemotePacManController{
+- inky: Inky
+- pinky: Pinky
+- blinky: Blinky
+- clyde: Clyde
+- walls: List<Rectangle>
+- testCollisionRectangles: List<Rectangle>
+- inkyCollisionRectangles: List<Rectangle>
+- blinkyCollisionRectangles: List<Rectangle>
+- pinkyCollisionRectangles: List<Rectangle>
+- clydeCollisionRectangles: List<Rectangle>
+- pellets: List<ImageView>
+- ghosts: List<Ghost>
+- ghostsPng: List<ImageView> 
+- timeline: Timeline
+- mediaPlayer: MediaPlayer
+- pacManUser: PacManUser
+- isTest: boolean
++ void createAndConfigureTimeline()
++ void startTimeline()
+- void initialize()
++ ImageView getPacManGif()
++ ImageView getCheckMark()
++ ImageView getMapGrid()
++ ImageView getCherry()
++ PacManUser getPacManUser()
++ List<ImageView> getGhosts()
++ List<Rectangle> getTestCollisionRectangles()
++ boolean getIsTest()
++ void setIsTest(boolean)
++ void updateGUI()
+- void handleStartButton()
++ URI initializeURI()
++ void gameOver()
+- void handleRestartGameButton()
+- void chooseYellowPacMan()
+- void chooseGreenPacMan()
+- void choosePinkPacMan()
+- void chooseOrangePacMan()
+- void setComponentsVisible(boolean, Node... )
+}
+
+class RemotePacManModelAccess{
+- endpointBaseUri: final URI
+- static final APPLICATION_JSON: String = "application/json"
+- static final ACCEPT_HEADER: String = "Accept"
+- static final CONTENT_TYPE_HEADER: String = "Content-Type"
+- gson: Gson
++ RemotePacManModelAccess(URI)
++ List<PacManUser> getHighScores()
++ void putHighScore(String, double)
++ public List<PacManUser> deserializeHighScoreList(String)
+}
+
+' Restserver
+class PacManModelApplication{
++ static void main(String[])
+}
+
+
+class PacManModelController {
+    + service: PacManModelService
+    + List<PacManUser> getAllHighScores()
+    + void addHighScore(user: String)
+}
+
+class PacManModelService{
+- systemPath : String = new File(System.getProperty("user.dir")).getParent()
++ String removeFolder(String, String)
++ List<PacManUser> getHighScores()
++ void addHighScore(String)
+}
+
+
+PacManApp "1" -- "1" PacManController 
+PacManController  "1" -- "1" PacMan
+PacManController "1" -- "1" PacManPersistance
+PacManPersistance "1" -- "many" PacManUser
+
+@enduml

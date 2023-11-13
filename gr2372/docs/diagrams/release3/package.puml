@@ -1,0 +1,34 @@
+@startuml
+component javafx {
+	package fxml
+}
+component core {
+	package PacMan.core
+	package PacMan.persistence
+}
+
+component ui {
+	package PacMan.ui
+}
+ui ..> core
+ui ..> PacMan.core
+
+
+ui ..> javafx
+
+component gson {
+
+}
+component springboot{
+	package PacMan.restserver
+}
+
+PacMan.persistence ..> PacMan.core
+PacMan.persistence ..> gson
+
+PacMan.ui ..> PacMan.restserver
+PacMan.restserver ..> core
+PacMan.restserver ..> gson
+
+
+@enduml

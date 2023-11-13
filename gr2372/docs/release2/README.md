@@ -130,7 +130,7 @@ Images that illustrates these photos can be found at the bottom of this README-f
    
    Spotbugs and Checkstyle are tools for checking our code quality. While Spotbugs looks for bug patterns in the code, Checkstyle makes sure that our code adheres to a coding standard. Together with jacoco which was implemented in release 1, these tools guarantee a solid code quality check.
 
-   A more thorough explination on these tools below.
+   A more thorough explination on these tools can be found [here](/gr2372/docs/codequality/README.md).
 
 <br>
 
@@ -145,63 +145,9 @@ Images that illustrates these photos can be found at the bottom of this README-f
 <br>
 
 # Our workflow and workhabits
-We have made certain choices in order to work on our project in an efficient way, which in many ways is inspired by SCRUM - a framework for agile project management and product development. We see each iteration (release) as a sprint, where we work on developing our application further.
 
-<br>
+We have written about our workflow and work habits  [here](/gr2372/docs/workflow/README.md).
 
-**Group meetings**
-
-A typical week for our group consists of three group meetings; on Monday, on Tuesday and on Thursday. These meetings last for about 2 hours, but of course we adjust this so it matches the workload. We always start our Monday meetings by talking about what remains to be done before the next due date and what we plan do get done that spesific week. In this way, we split all the tasks connected to a release into smaller pieces, which makes them more manageable and easier to handle. It is also easier to get a sence of how on track we are when we divide the task into smaller steps.
-
-At the beginning of all meetings, we give a status report on what we are working on and how it is going. This is inspired by “The Daily Scrum” in SCRUM. In addition, we write a small report from each meeting that summarizes what we have talked about in short. These reports are saved in our shared TeamSpace on Notion, where we also keep track on deadlines and which criteria each deliverable has. In this way, it is easy for all team members to look back on what we have discussed and agreed upon for instance if some details are forgotten or if someone was not able to participate on a group meeting.
-
-In our first meeting after we had delivered the first release, we tried to reflect upon the previous sprint as the “Sprint Retrospective” in SCRUM suggests. We talked about what had worked well, and where there was room for improvements in our work habits and work flow. This is important in order to improve how we work together as a team and is something we will continue to do after each sprint. 
-
-<br>
-
-### GitLab
-
-We also use GitLab frequently in order to keep track of the development of our application.
-
-<br>
-
-**Milestones, labels and issues**
-
-At the beginning of each iteration, we start by creating a new Milestone for that very iteration. This is followed by a conversation about what needs to be done for the release; what are the new demands and which new features do we want to implement. Based on this conversation, we create issues assigned to the Milestone. 
-
-The issues are also assigned with a Label that says something about the priority; Minor, Moderate or Critical. This makes it easier for us to ensure that the application fulfills all requirements given. It also decreases the amount of time we spend on choosing an issue, because we can easily see which issues are the most important to get done.
-
-<br>
-
-**Assigning issues and branches**
-
-Once we have agreed upon our goals for the release and created issues, we start to assign issues in order to actually get them done. We usually choose which issue we want to work on freely, and whether we want to work alone or together. After deciding on an issue, we mark it as assigned to ourselves, in order to avoid two people working on the same problem without knowing about it. We then create a new branch in order to keep the code connected to different issues separate. This contributes to a cleaner code and workflow.
-
-In week 39 we learned from the lecture that branches connected to an issue nr.#, should be named “#-what-is-fixed”. Since we did not know about this from scratch, we started following this naming-convention in the middle of release2. However, we do see the advantages of it - it makes it a lot easier to see what is being done in each branch and it is easier to switch between branches quickly.
-
-<br>
-
-**Commits, pushing and merge requests**
-
-In the process of working on an issue, we add our changes to the staging area and usually commit our changes at the end of a working session. We make sure to write a commit message in imperative, so it is easy for the others to see what a commit does in order to avoid confusion and uncertainty. The commit message consists of a headline which summarizes the changes, a body for more detail, and a footer with the related issue and possible co-authors. 
-
-We also push to the issue-branch, when we consider the code (or part of the code) “done”. In this way, others can switch to that branch, pull and for instance check that everything is working as it should. When we are completely done with an issue, we create a merge request that requests to merge the branch into master. In the merge request, we make sure to write which changes the branch will add to master as well as which issue it closes with  a #issue-number. We also make sure that the merge request has the correct label and milestone, and that it is assigned to the person who had the issue. 
-
-<br>
-
-**Appove and merge**
-
-Once a merge request is created, we ask the others to review it and give feedback on the code. When it has been approved by at least one of the others and potential changes has been made, we merge the branch with master and close the issue. We then start at the top again by choosing a new issue, repeating the process. 
-
-<br>
-
-**Reflection**
-
-We feel that this workflow has worked out well for us. The milestones, issues and labels provide a great overview of the application and help us keeping track of tasks, who is working with what and in general keep track on where we are on everything. The group meetings have contributed to enhancing the group feeling; we make important decisions regarding the application’s future together - we all have the possiblility to impact the application. In addition, we share information, opinions and ideas and we ask each other for help if we are stuck on something. The group meetings also ensures that everyone has the same vision of how the deliverable will turn out.
-
-We usually sit together at campus when we are working, which makes discussing and asking others for help very accessible. We have chosen to not use LiveShare, because we experienced it as very buggy and it became more of a disadvantage rather than an advantage. However, we have often been co-programming when the situation was appropriate. The advantage of this is that while one person is programming, the other can think ahead and scout out possible problems or solutions to future parts of the commit.
-
-<br>
 
 
 # Our approach to testing
