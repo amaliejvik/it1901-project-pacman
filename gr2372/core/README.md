@@ -149,6 +149,10 @@ Handles the persistence in the application, in other words storing of a player's
 
 <br>
 
+# Comment on the Sorting of Highscores
+
+We chose to sort the highscores in chronological order, instead of whomever has the highest score. We want to give the player a sense of progress throughout the games played. They can look back and see their previous scores in sequential order and feel a sense of mastery.
+
 # Approach to testing of the core module
 
 We have four different test classes:
