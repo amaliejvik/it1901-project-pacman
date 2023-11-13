@@ -26,10 +26,18 @@ public class PacManUserTest {
   public void testUserNameValidation() {
     String testName1 = "";
     String testName2 = "n";
-    String testName3 = "Name";
+    String testName3 = "Name ";
+    String testName4 = "Name";
     Assertions.assertEquals(false, PacManUser.validateUsername(testName1));
     Assertions.assertEquals(false, PacManUser.validateUsername(testName2));
-    Assertions.assertEquals(true, PacManUser.validateUsername(testName3));
+    Assertions.assertEquals(false, PacManUser.validateUsername(testName3));
+    Assertions.assertEquals(true, PacManUser.validateUsername(testName4));
   }
 
+  @Test
+  @DisplayName("Test toString()")
+  public void testToString() {
+    PacManUser test = new PacManUser("Test", 100);
+    Assertions.assertEquals("Username=Test, Score=100.0\n", test.toString());
+  }
 }

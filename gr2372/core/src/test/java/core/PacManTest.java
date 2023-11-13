@@ -96,4 +96,12 @@ public class PacManTest {
     Assertions.assertEquals(0, PacMan.rotationAngle());
 
   }
+
+  @Test
+  @DisplayName("Test validation of direction")
+  public void testValidation() {
+    Assertions.assertThrows(IllegalArgumentException.class, () -> {
+      PacMan.validateDirection("test");
+    });
+  }
 }

@@ -57,7 +57,7 @@ public class PacManController {
   private Timeline timeline;
   // private MediaPlayer mediaPlayer;
   private PacManUser pacManUser;
-  private boolean isTest;
+  private boolean isTest = false;
 
   // Fxml-attributes
   @FXML

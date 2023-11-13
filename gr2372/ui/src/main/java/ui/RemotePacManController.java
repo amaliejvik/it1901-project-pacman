@@ -58,6 +58,7 @@ public class RemotePacManController {
   private Timeline timeline;
   // private MediaPlayer mediaPlayer;
   private PacManUser pacManUser;
+  private boolean isTest = false;
 
   // Fxml-attributes
   @FXML
@@ -554,6 +555,14 @@ public class RemotePacManController {
     return testCollisionRectangles;
   }
 
+  public boolean getIsTest() {
+    return isTest;
+  }
+
+  public void setIsTest(boolean isTest) {
+    this.isTest = isTest;
+  }
+
   /**
    * Disables the startbutton if the username is invalid.
    */
@@ -620,8 +629,14 @@ public class RemotePacManController {
    */
   public URI initializeUri() {
     URI server = null;
+    String url = "";
+    if (isTest) {
+      url = "http://localhost:8080/api/highscores/test";
+    } else {
+      url = "http://localhost:8080/api/highscores";
+    }
     try {
-      server = new URI("http://localhost:8080/api/highscores");
+      server = new URI(url);
     } catch (URISyntaxException e) {
       System.out.println(e.getLocalizedMessage());
     }

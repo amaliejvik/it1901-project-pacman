@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.testfx.api.FxAssert.verifyThat;
 
 import core.PacMan;
+
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -72,6 +76,9 @@ public class RemotePacManAppTest extends ApplicationTest {
 
     // Simulate typing a username
     write("TestUser");
+
+    // Mark as test
+    controller.setIsTest(true);
 
   }
 
@@ -228,5 +235,16 @@ public class RemotePacManAppTest extends ApplicationTest {
     controller.gameOver();
     clickOn("#restartGame");
 
+  }
+
+  @AfterAll
+  public static void removeAllHighScores() {
+    // Deletes content of .json file after completed test
+    String systemPath = new File(System.getProperty("user.dir")).getParent();
+    try {
+      new FileWriter(systemPath + "/core/src/test/java/core/JSON/testScores.json", false).close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }

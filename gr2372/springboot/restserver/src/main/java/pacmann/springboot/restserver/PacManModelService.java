@@ -1,6 +1,8 @@
 package pacmann.springboot.restserver;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import core.PacManUser;
@@ -8,11 +10,13 @@ import persistence.PacmanPersistence;
 
 @Service
 public class PacManModelService {
-    // Check if the word is present in string
-        // If found, remove it using removeAll()
-      
 
-    private String systemPath = new File(System.getProperty("user.dir")).getParent();
+    private final String systemPath = new File(System.getProperty("user.dir")).getParent();
+    private final String globalPath = removeFolder(systemPath, "springboot");
+    private String finalPath = globalPath + "/core/src/main/java/persistence/JSON/remoteScores.json";
+
+    public PacManModelService() {
+    }
 
     public String removeFolder(String filePath, String folderToRemove) {
         int lastIndex = filePath.lastIndexOf(folderToRemove) - 1;
@@ -27,18 +31,33 @@ public class PacManModelService {
     }
     return filePath;
     }
+    
+    public void setPersistanceLocation(String location) {
+        finalPath = globalPath + location;
+    }
+
     public List<PacManUser> getHighScores() {
-        String correctPath = removeFolder(systemPath, "springboot");
-        String scoresPath = "/core/src/main/java/persistence/JSON/remoteScores.json";
-        return persistence.PacmanPersistence.fetchHighscore(correctPath+scoresPath);
+        return persistence.PacmanPersistence.fetchHighscore(finalPath);
     }
 
     public void addHighScore(String user) {
         PacManUser pacManUser = PacmanPersistence.deserializeIndividualHighScore(user);
-        String correctPath = removeFolder(systemPath, "springboot");
-        String scoresPath = "/core/src/main/java/persistence/JSON/remoteScores.json";
         String name = pacManUser.getUsername();
         double score = pacManUser.getScore();
-        persistence.PacmanPersistence.saveHighscore(name, score, correctPath+scoresPath);
+        persistence.PacmanPersistence.saveHighscore(name, score, finalPath);
     }
+
+    public void addHighScore(PacManUser user) {
+        String name = user.getUsername();
+        double score = user.getScore();
+        persistence.PacmanPersistence.saveHighscore(name, score, finalPath);
+    }
+
+    public void removeAllHighScores() {
+        try {
+            new FileWriter(finalPath, false).close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }   
 }
