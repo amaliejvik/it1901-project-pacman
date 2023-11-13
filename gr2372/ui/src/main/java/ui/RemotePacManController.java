@@ -26,12 +26,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-// import javafx.scene.media.Media;
-// import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+
+// Commented out because of incompatability with Eclipse Che. Works locally.
+// import javafx.scene.media.Media;
+// import javafx.scene.media.MediaPlayer;
 
 /**
  * The main game-loop,
@@ -366,11 +368,11 @@ public class RemotePacManController {
       @Override
       public void handle(ActionEvent event) {
 
-        // UPDATES PACMAN'S POSITION-VARIABLES
+        // Updates PacMans position variables
         PacMan.setXposition(PacMan.getXposition() + PacMan.getDx());
         PacMan.setYposition(PacMan.getYposition() + PacMan.getDy());
 
-        // GRAPHICALLY UPDATES PACMAN'S POSITION
+        // Graphically updates PacMans position
         pacManGif.setLayoutX(PacMan.getXposition());
         pacManGif.setLayoutY(PacMan.getYposition());
 
@@ -381,7 +383,7 @@ public class RemotePacManController {
           ghostsPng.get(i).setLayoutY(ghosts.get(i).getYposition());
         }
 
-        // COLLISION CHECK
+        // Collision check
         if (Collisions.pacmanWallCollision(pacManGif, walls)) {
           PacMan.setDx(0);
           PacMan.setDx(0);
@@ -409,10 +411,10 @@ public class RemotePacManController {
         pinky.pathing(pinkyPng, pinkyCollisionRectangles);
         clyde.pathing(clydePng, clydeCollisionRectangles);
 
-        // UPDATES SCORE
+        // Updates score
         score.setText(Double.toString(pacManUser.getScore()));
 
-        // ROTATES PACMAN
+        // Rotates PacMan
         pacManGif.setRotate(PacMan.rotationAngle());
 
         if (pacManUser.getScore() >= 660) {

@@ -26,13 +26,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-// import javafx.scene.media.Media;
-// import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import persistence.PacmanPersistence;
+
+// Commented out because of incompatability with Eclipse Che. Works locally.
+// import javafx.scene.media.Media;
+// import javafx.scene.media.MediaPlayer;
 
 /**
  * Contains the main game loop, and methods controlling the graphical elements
@@ -365,11 +367,11 @@ public class PacManController {
       @Override
       public void handle(ActionEvent event) {
 
-        // UPDATES PACMAN'S POSITION-VARIABLES
+        // Updates PacMans position variables
         PacMan.setXposition(PacMan.getXposition() + PacMan.getDx());
         PacMan.setYposition(PacMan.getYposition() + PacMan.getDy());
 
-        // GRAPHICALLY UPDATES PACMAN'S POSITION
+        // Graphically updates PacMans position
         pacManGif.setLayoutX(PacMan.getXposition());
         pacManGif.setLayoutY(PacMan.getYposition());
 
@@ -380,7 +382,7 @@ public class PacManController {
           ghostsPng.get(i).setLayoutY(ghosts.get(i).getYposition());
         }
 
-        // COLLISION CHECK
+        // Collision check
         if (Collisions.pacmanWallCollision(pacManGif, walls)) {
           PacMan.setDx(0);
           PacMan.setDy(0);
@@ -408,10 +410,10 @@ public class PacManController {
         pinky.pathing(pinkyPng, pinkyCollisionRectangles);
         clyde.pathing(clydePng, clydeCollisionRectangles);
 
-        // UPDATES SCORE
+        // Updates score
         score.setText(Double.toString(pacManUser.getScore()));
 
-        // ROTATES PACMAN
+        // Rotates PacMan
         pacManGif.setRotate(PacMan.rotationAngle());
 
         if (pacManUser.getScore() >= 660) {

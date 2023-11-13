@@ -1,43 +1,71 @@
 package pacmann.springboot.restserver;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import core.PacManUser;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Connects server requests and the PacManModelService class.
+ */
 @RestController
 @RequestMapping("/api/highscores")
 public class PacManModelController {
 
-    public PacManModelController() {
-    }
-   
-    @Autowired
-    private PacManModelService service;
+  @Autowired
+  private PacManModelService service;
 
-    @GetMapping
-    public List<PacManUser> getAllHighScores(){
-        service.setPersistanceLocation("/core/src/main/java/persistence/JSON/remoteScores.json");
-        return service.getHighScores();
-    }
+  /**
+   * Empty constructor.
+   */
+  public PacManModelController() {
+  }
 
-    @GetMapping("/test")
-    public List<PacManUser> getAllTestHighScores(){
-        service.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
-        return service.getHighScores();
-    }
+  /**
+   * Get the save-data from the service-layer.
+   *
+   * @return The saved highscores
+   */
+  @GetMapping
+  public List<PacManUser> getAllHighScores() {
+    service.setPersistanceLocation("/core/src/main/java/persistence/JSON/remoteScores.json");
+    return service.getHighScores();
+  }
 
-    @PutMapping
-    public void addHighScore(@RequestBody String user){
-        service.setPersistanceLocation("/core/src/main/java/persistence/JSON/remoteScores.json");
-        service.addHighScore(user);
-    }
+  /**
+   * Get the testdata from the service-layer.
+   *
+   * @return The saved testscores
+   */
+  @GetMapping("/test")
+  public List<PacManUser> getAllTestHighScores() {
+    service.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
+    return service.getHighScores();
+  }
 
-    @PutMapping("/test")
-    public void addTestHighScore(@RequestBody String user){
-        service.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
-        service.addHighScore(user);
-    }
+  /**
+   * Send a highscore to the serivce-layer.
+   *
+   * @param user User to be saved
+   */
+  @PutMapping
+  public void addHighScore(@RequestBody String user) {
+    service.setPersistanceLocation("/core/src/main/java/persistence/JSON/remoteScores.json");
+    service.addHighScore(user);
+  }
+
+  /**
+   * Send a testscore to the serivce-layer.
+   *
+   * @param user Testuser to be saved
+   */
+  @PutMapping("/test")
+  public void addTestHighScore(@RequestBody String user) {
+    service.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
+    service.addHighScore(user);
+  }
 }

@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.testfx.api.FxAssert.verifyThat;
 
 import core.PacMan;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -237,6 +236,9 @@ public class RemotePacManAppTest extends ApplicationTest {
 
   }
 
+  /**
+   * Removes the highscores used for testing.
+   */
   @AfterAll
   public static void removeAllHighScores() {
     // Deletes content of .json file after completed test
