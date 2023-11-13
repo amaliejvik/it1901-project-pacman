@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -64,7 +63,7 @@ public class PacmanModelApplicationTests {
   @Test
   public void testControllerGetHighScores() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.get(url)
-           .accept(MediaType.APPLICATION_JSON))
+           .accept("application/json"))
            .andExpect(MockMvcResultMatchers.status().isOk())
            .andReturn();
 
@@ -74,8 +73,8 @@ public class PacmanModelApplicationTests {
   public void testControllerPutHighScore() throws Exception {
     final String json = gson.toJson(player4);
     mockMvc.perform(MockMvcRequestBuilders.put(url)
-           .contentType(MediaType.APPLICATION_JSON).characterEncoding("UTF-8")
-           .content(json).accept(MediaType.APPLICATION_JSON))
+           .contentType("application/json").characterEncoding("UTF-8")
+           .content(json).accept("application/json"))
            .andExpect(MockMvcResultMatchers.status().isOk());
   }
 

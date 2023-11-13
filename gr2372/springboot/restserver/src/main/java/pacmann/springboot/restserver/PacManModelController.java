@@ -19,6 +19,7 @@ public class PacManModelController {
 
     @GetMapping
     public List<PacManUser> getAllHighScores(){
+        service.setPersistanceLocation("/core/src/main/java/persistence/JSON/remoteScores.json");
         return service.getHighScores();
     }
 
@@ -30,6 +31,7 @@ public class PacManModelController {
 
     @PutMapping
     public void addHighScore(@RequestBody String user){
+        service.setPersistanceLocation("/core/src/main/java/persistence/JSON/remoteScores.json");
         service.addHighScore(user);
     }
 
