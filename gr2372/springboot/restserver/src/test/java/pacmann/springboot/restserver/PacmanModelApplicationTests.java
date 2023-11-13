@@ -2,9 +2,9 @@ package pacmann.springboot.restserver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import com.google.gson.Gson;
 import core.PacManUser;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;
@@ -21,11 +21,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-
+/**
+ * Tests features of the Springboot layer.
+ */
 @AutoConfigureMockMvc
 @TestInstance(Lifecycle.PER_CLASS)
-@ContextConfiguration(classes = 
-  {PacManModelApplication.class, PacManModelController.class, PacManModelService.class})
+@ContextConfiguration(classes = { PacManModelApplication.class,
+    PacManModelController.class, PacManModelService.class })
 @WebMvcTest
 public class PacmanModelApplicationTests {
 
@@ -43,41 +45,56 @@ public class PacmanModelApplicationTests {
   private final PacManUser player2 = new PacManUser("Player2", 330);
   private final PacManUser player3 = new PacManUser("Player3", 660);
   private final PacManUser player4 = new PacManUser("Player4", 200);
-;
-
 
   @Test
   public void contextLoads() throws Exception {
     assertNotNull(pacManModelService);
   }
 
+  /**
+   * Sets up the database for testing.
+   */
   @BeforeAll
-  public void setup() throws IllegalStateException, IOException {
+  public void setup() {
     pacManModelService = new PacManModelService();
     pacManModelService.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
-    
+
     pacManModelService.addHighScore(player1);
     pacManModelService.addHighScore(player2);
     pacManModelService.addHighScore(player3);
   }
+
+  /**
+   * Tests a GET-request to the server.
+   *
+   * @throws Exception Connection error
+   */
   @Test
   public void testControllerGetHighScores() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.get(url)
-           .accept("application/json"))
-           .andExpect(MockMvcResultMatchers.status().isOk())
-           .andReturn();
+        .accept("application/json"))
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andReturn();
 
   }
 
+  /**
+   * Tests a PUT-request to the server.
+   *
+   * @throws Exception Connection error
+   */
   @Test
   public void testControllerPutHighScore() throws Exception {
     final String json = gson.toJson(player4);
     mockMvc.perform(MockMvcRequestBuilders.put(url)
-           .contentType("application/json").characterEncoding("UTF-8")
-           .content(json).accept("application/json"))
-           .andExpect(MockMvcResultMatchers.status().isOk());
+        .contentType("application/json").characterEncoding("UTF-8")
+        .content(json).accept("application/json"))
+        .andExpect(MockMvcResultMatchers.status().isOk());
   }
 
+  /**
+   * Tests if the data read is the same as the data written.
+   */
   @Test
   public void testServiceGetAndPutHighScores() {
     List<PacManUser> pacManUserList = new ArrayList<>();
@@ -95,6 +112,9 @@ public class PacmanModelApplicationTests {
     assertEquals(jsonExpected, jsonActual);
   }
 
+  /**
+   * Removes the highscores.
+   */
   @AfterAll
   public void removeHighScores() {
     pacManModelService.removeAllHighScores();
