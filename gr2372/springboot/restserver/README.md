@@ -23,4 +23,11 @@ The "@Autowired" annotation is used to inject a "PacManModelService" instance in
 
 
 ## Approach to testing of the springboot/restserver module: 
-*TODO* 
+
+The approach to testing has been a two-part process.
+<br>
+The first part tests the RemotePacManModelController class. The testing here relates to the GET- and PUT-methods of the controller. This is done to ensure that the program is able to transfer information between the HTTP request and the service class.
+<br>
+The second part tests the PacManModelService class. This part tests that the information sent to the rest-server with addHighScore() is the same as the information returned with getHighscores().
+<br>
+The scores stored from the tests are deleted upon the test's completion.

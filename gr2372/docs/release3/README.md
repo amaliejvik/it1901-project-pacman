@@ -179,5 +179,6 @@ In the new release we have added a new sequential diagram that shows how storage
 <br>
 
 ### 6. Improved our code quality
-*TODO* 
-
+Multiple tools have been used to ensure a high degree of quality in our code. Spotbugs and Checkstyle has been used for this. The current release has zero checkstyle warnings, and every class is formatted according to Google Style. Spotbugs does show a warning about certain "classes needed for analysis were missing", but this has been determined to be a bug with Spotbugs documented [here](https://stackoverflow.com/questions/56279567/how-to-fix-the-following-classes-needed-for-analysis-were-missing).
+<br>
+Older code has also been revised, so that no duplicate code is present. This involved rewriting certain methods to also be used in tests, using inheritance and moving code out of the controllers.
