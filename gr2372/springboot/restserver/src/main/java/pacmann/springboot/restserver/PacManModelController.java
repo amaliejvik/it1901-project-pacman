@@ -10,6 +10,9 @@ import core.PacManUser;
 @RestController
 @RequestMapping("/api/highscores")
 public class PacManModelController {
+
+    public PacManModelController() {
+    }
    
     @Autowired
     private PacManModelService service;
@@ -19,8 +22,20 @@ public class PacManModelController {
         return service.getHighScores();
     }
 
+    @GetMapping("/test")
+    public List<PacManUser> getAllTestHighScores(){
+        service.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
+        return service.getHighScores();
+    }
+
     @PutMapping
     public void addHighScore(@RequestBody String user){
+        service.addHighScore(user);
+    }
+
+    @PutMapping("/test")
+    public void addTestHighScore(@RequestBody String user){
+        service.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
         service.addHighScore(user);
     }
 }

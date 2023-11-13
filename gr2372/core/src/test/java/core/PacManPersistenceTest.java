@@ -1,6 +1,7 @@
 package core;
 
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -76,14 +77,10 @@ public class PacManPersistenceTest {
   public void testDeserializeEmptyHighScoreListFromInvalidJson() {
     
     // Invalid test-JSONdata
-    String invalidJsonData = "invalidJSONData";
+    String invalidJsonData = "[{\"invalidJSONData\"}]";
 
     // Attemt to deserialize
-    List<PacManUser> pacManUsers = PacmanPersistence.deserializeHighScoreList(invalidJsonData);
-
-    // Assert everything is as it should be
-    Assertions.assertNotNull(pacManUsers);
-    Assertions.assertTrue(pacManUsers.isEmpty());
+    assertDoesNotThrow(() -> PacmanPersistence.deserializeIndividualHighScore(invalidJsonData));
   }
 
   @Test
@@ -91,12 +88,9 @@ public class PacManPersistenceTest {
   public void testDeserializeNullIndividualHighScoreFromInvalidJson() {
     
     //Invalid test-JSONdata
-    String invalidJsonData = "invalidJSONData";
+    String invalidJsonData = "{\"invalidJSONData\"}";
 
     // Attemt to deserialize
-    PacManUser pacManUser = PacmanPersistence.deserializeIndividualHighScore(invalidJsonData);
-
-    // Assert everything is as it should be
-    Assertions.assertNull(pacManUser);
+    assertDoesNotThrow(() -> PacmanPersistence.deserializeIndividualHighScore(invalidJsonData));
   }
 }

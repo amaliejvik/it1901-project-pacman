@@ -86,7 +86,6 @@ public class PacmanPersistence {
         }
       }
     } catch (Exception e) {
-      e.printStackTrace();
       System.out.println("Could not find file");
       System.out.println(e.getLocalizedMessage());
     }
@@ -105,7 +104,6 @@ public class PacmanPersistence {
     try {
       user = gson.fromJson(rawJsonData, PacManUser.class);
     } catch (Exception e) {
-      e.printStackTrace();
       System.out.println("Could not deserialize user data");
       System.out.println(e.getLocalizedMessage());
     }
