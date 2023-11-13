@@ -142,16 +142,20 @@ For the third release, the group got the choice of either extending the JavaFX a
 
 After some discussion, the consensus leaned towards sticking with JavaFX, as none of the team members had earlier experience with the new frontend technologies suggested. Although it would be interesting to learn something new, we concluded it would be very time consuming and an unreliable factor to the project.
 
+<br>
+
 ### 1. Implemented new functionality
 
 As mentioned above, we chose to implement new functionality for our application.
 
-This is what we chose to implement for the 3rd release, based upon Userstory4:
+This is what we chose to implement for the 3rd release, based upon [Userstory4](/gr2372/docs/userstories/userstory4.md):
 
 - Ghosts: Inky, Pinky, Blinky and Clyde from the original pacman game have added to the gave. If they collide with PacMan, it's game over.
 
 - Berries: after playing a while a berry pops up on the screen, and if pacman eats it, it gets an extra score
 - Color choice: you can now chose pacman to 4 different colours: pink, green, yellow and orange.
+
+<br>
 
 ### 2. Implemented REST API with SpringBoot
 
@@ -159,9 +163,21 @@ One of the primary goals for this release is to eliminate the need for the clien
 
 There are numerous ways to implement a RESTAPI, and we chose to use Spring Boot which is a tool that makes this possible. We opted for Spring Boot due to its inherent simplicity, widespread adoption, and its significant relevance in professional settings.
 
+<br>
+
 ### 3. Written tests for new functionality and generally improved the test coverage
 
-*TODO*
+The implementation of the RestAPI as well as adding new functionality to the application led to many new classes and methods in multiple modules.
+In other words, a lot of new code needed to be tested in order to maintain a good test coverage.
+
+More on the finalized tests made for release3 can be found at the bottom of the READMEs for each of the modules:
+
+- [Approach to testing in Core](/gr2372/core/README.md#approach-to-testing-of-the-core-module)
+
+- [Approach to testing in UI](/gr2372/ui/README.md#approach-to-testing-of-the-ui-module)
+
+- [Approach to testing in Restserver](/gr2372/springboot/restserver/README.md#approach-to-testing-of-the-springbootrestserver-module)
+
 
 <br>
 
@@ -181,3 +197,11 @@ In the new release we have added a new sequential diagram that shows how storage
 ### 6. Improved our code quality
 *TODO* 
 
+## Comment on implicit storage
+In our program PacMan, we have chosen to use implicit storage, meaning that
+the user doesn't have to handle the storage process. 
+In other words, when a user interacts with the program, such as saving their 
+name, our program automatically determines the appropriate location for 
+storing this data. This makes it easier for users to manage their data, since 
+they don't need to worry about the details surrounding the storage process, 
+and therefore giving a more user-friendly experience.

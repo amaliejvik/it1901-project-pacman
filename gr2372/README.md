@@ -82,7 +82,9 @@ Underneath you can see the architecture diagram for the project, which is thorou
 The group has attempted having the best possible workflow during this project. This can be read about in detail under [workflow](/gr2372/docs/workflow/README.md) in docs.
 
 ## Testing
-*TODO*
+
+The group's approach to testing of the application can be read about in detail [here](/gr2372/docs/testing/README.md).
+
 
 ## Current versions of software
 
