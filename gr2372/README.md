@@ -74,7 +74,7 @@ The project is organized into distinct modules, with each module dedicated to sp
 - [springboot/restserver](/gr2372/springboot/restserver/README.md): Involves the REST API and server built on the Spring Boot framework.
 
 Underneath you can see the architecture diagram for the project, which is thoroughly explained in the [readme](/gr2372/docs/diagrams/release3/README.md).
-![Package diagram](image-1.png)
+![Package diagram](/gr2372/docs/diagrams/release3/package.png)
 
 
 ## Workflow
