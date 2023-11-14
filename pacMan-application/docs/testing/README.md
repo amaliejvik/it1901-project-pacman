@@ -22,9 +22,9 @@ In release 3, it was necessary to write even more tests. This was due to our app
 
 A more detailed explanation on testing of each module is given at the bottom of the README for each module linked below.
 
-[Approach to testing in Core](/gr2372/core/README.md#approach-to-testing-of-the-core-module)
+[Approach to testing in Core](/pacMan-application/core/README.md#approach-to-testing-of-the-core-module)
 
-[Approach to testing in UI](/gr2372/ui/README.md#approach-to-testing-of-the-ui-module)
+[Approach to testing in UI](/pacMan-application/ui/README.md#approach-to-testing-of-the-ui-module)
 
-[Approach to testing in Restserver](/gr2372/springboot/restserver/README.md#approach-to-testing-of-the-springbootrestserver-module)
+[Approach to testing in Restserver](/pacMan-application/springboot/restserver/README.md#approach-to-testing-of-the-springbootrestserver-module)
 

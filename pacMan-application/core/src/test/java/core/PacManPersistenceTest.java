@@ -1,7 +1,7 @@
 package core;
 
-
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -40,7 +40,7 @@ public class PacManPersistenceTest {
   @Test
   @DisplayName("Test deserialization of highscorelist from JSON")
   public void testDeserializeHighScoreList() {
-    
+
     // Test-JSONdata, multiple users
     String jsonData = "[{\"username\":\"User1\",\"score\":100},"
         + "{\"username\":\"User2\",\"score\":150}]";
@@ -75,7 +75,7 @@ public class PacManPersistenceTest {
   @Test
   @DisplayName("Test deserialization of highscorelist from invalid JSON")
   public void testDeserializeEmptyHighScoreListFromInvalidJson() {
-    
+
     // Invalid test-JSONdata
     String invalidJsonData = "[{\"invalidJSONData\"}]";
 
@@ -86,8 +86,8 @@ public class PacManPersistenceTest {
   @Test
   @DisplayName("Test deserialization of individual highscore from invalid JSON")
   public void testDeserializeNullIndividualHighScoreFromInvalidJson() {
-    
-    //Invalid test-JSONdata
+
+    // Invalid test-JSONdata
     String invalidJsonData = "{\"invalidJSONData\"}";
 
     // Attemt to deserialize

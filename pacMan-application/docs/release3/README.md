@@ -5,7 +5,7 @@
 This is the README for the third and last release of our PacMan game. Underneath you can see the filestructure:
 
    ```
-├── gr2372
+├── pacMan-application
 |   ├── .vscode  
 |   |      ├── launch.json
 |   |      └── settings.json                        
@@ -148,7 +148,7 @@ After some discussion, the consensus leaned towards sticking with JavaFX, as non
 
 As mentioned above, we chose to implement new functionality for our application.
 
-This is what we chose to implement for the 3rd release, based upon [Userstory4](/gr2372/docs/userstories/userstory4.md):
+This is what we chose to implement for the 3rd release, based upon [Userstory4](/pacMan-application/docs/userstories/userstory4.md):
 
 - Ghosts: Inky, Pinky, Blinky and Clyde from the original pacman game have added to the gave. If they collide with PacMan, it's game over.
 
@@ -172,18 +172,18 @@ In other words, a lot of new code needed to be tested in order to maintain a goo
 
 More on the finalized tests made for release3 can be found at the bottom of the READMEs for each of the modules:
 
-- [Approach to testing in Core](/gr2372/core/README.md#approach-to-testing-of-the-core-module)
+- [Approach to testing in Core](/pacMan-application/core/README.md#approach-to-testing-of-the-core-module)
 
-- [Approach to testing in UI](/gr2372/ui/README.md#approach-to-testing-of-the-ui-module)
+- [Approach to testing in UI](/pacMan-application/ui/README.md#approach-to-testing-of-the-ui-module)
 
-- [Approach to testing in Restserver](/gr2372/springboot/restserver/README.md#approach-to-testing-of-the-springbootrestserver-module)
+- [Approach to testing in Restserver](/pacMan-application/springboot/restserver/README.md#approach-to-testing-of-the-springbootrestserver-module)
 
 
 <br>
 
 ### 4. Updated the package- class- and sequential-diagram with PlantUML
 
-In the new release we have added a new sequential diagram that shows how storage is done remotely. This makes it easier to understand the similarities and differences between local and remote storage. Also the other diagram: class and architecture have been updated so that they now include the new functionality and restserver implementation. You can read more about the diagrams and see them [here](/gr2372/docs/diagrams/release3/README.md).
+In the new release we have added a new sequential diagram that shows how storage is done remotely. This makes it easier to understand the similarities and differences between local and remote storage. Also the other diagram: class and architecture have been updated so that they now include the new functionality and restserver implementation. You can read more about the diagrams and see them [here](/pacMan-application/docs/diagrams/release3/README.md).
 
 
 <br>

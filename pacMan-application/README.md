@@ -12,26 +12,26 @@ Our goal for this application was to create a game that resembles the original P
 *TODO*: local or remote?
 We are using the project management build tool, Maven.
 
-To build the application, run  `mvn install -DskipTests` from the root-folder (**gr2372**-folder). In addition to building, this command will run all tests and code-quality-checks.
+To build the application, run  `mvn install -DskipTests` from the root-folder (**pacMan-application**-folder). In addition to building, this command will run all tests and code-quality-checks.
 
 ```bat
-cd gr2372
+cd pacMan-application
 mvn install -DskipTests
 ```
 
-To run the application, run  `mvn javafx:run` from the **ui**-module (>gr2372>**ui**). This can be done by first running `cd gr2372/ui` followed by `mvn javafx:run`.
+To run the application, run  `mvn javafx:run` from the **ui**-module (>pacMan-application>**ui**). This can be done by first running `cd pacMan-application/ui` followed by `mvn javafx:run`.
 
 ```bat
-cd gr2372/ui
+cd pacMan-application/ui
 mvn javafx:run
 ```
 
 ## How to test the application
 
- To run the tests on the application, run  `mvn test` from the (**gr2372**-folder).
+ To run the tests on the application, run  `mvn test` from the (**pacMan-application**-folder).
 
  ```bat
-cd gr2372
+cd pacMan-application
 mvn test
 ```
 
@@ -39,23 +39,23 @@ mvn test
 
 By clicking on the links below you will be redirected to the README-files from each release.
 
-[Documentation for release1](/gr2372/docs/release1/README.md)
+[Documentation for release1](/pacMan-application/docs/release1/README.md)
 
-[Documentation for release2](/gr2372/docs/release2/README.md)
+[Documentation for release2](/pacMan-application/docs/release2/README.md)
 
-[Documentation for release3](/gr2372/docs/release3/README.md)
+[Documentation for release3](/pacMan-application/docs/release3/README.md)
 
 By clicking the links below, you will be redirected to our 4 different user stories, which the functionality has been based upon.
 
-[User Scenario 1: Roger](/gr2372/docs/userstories/userstory1.md)
+[User Scenario 1: Roger](/pacMan-application/docs/userstories/userstory1.md)
 
-[User Scenario 2: Selma](/gr2372/docs/userstories/userstory2.md)
+[User Scenario 2: Selma](/pacMan-application/docs/userstories/userstory2.md)
 
-[User Scenario 3: Turid](/gr2372/docs/userstories/userstory3.md)
+[User Scenario 3: Turid](/pacMan-application/docs/userstories/userstory3.md)
 
-[User Scenario 4: Eric](/gr2372/docs/userstories/userstory4.md)
+[User Scenario 4: Eric](/pacMan-application/docs/userstories/userstory4.md)
 
-The rest of the documentation for this project can be found in the [docs-folder](/gr2372/docs). This includes README-files for our workflow, our approach to testing, code quality and diagrams.
+The rest of the documentation for this project can be found in the [docs-folder](/pacMan-application/docs). This includes README-files for our workflow, our approach to testing, code quality and diagrams.
 
 ## Eclipse Che
 
@@ -67,23 +67,23 @@ Click the link below to open the project in Eclipse Che. Please note you must ha
 
 The project is organized into distinct modules, with each module dedicated to specific functionalities or aspects of the architecture. We have categorized them into core, UI, and Spring Boot/REST server:
 
-- [core](/gr2372/core/README.md): Includes classes for the representation and storage of high scores.
+- [core](/pacMan-application/core/README.md): Includes classes for the representation and storage of high scores.
 
-- [ui](/gr2372/ui/README.md): Encompasses the application user interface, developed using JavaFX and FXML.
+- [ui](/pacMan-application/ui/README.md): Encompasses the application user interface, developed using JavaFX and FXML.
 
-- [springboot/restserver](/gr2372/springboot/restserver/README.md): Involves the REST API and server built on the Spring Boot framework.
+- [springboot/restserver](/pacMan-application/springboot/restserver/README.md): Involves the REST API and server built on the Spring Boot framework.
 
-Underneath you can see the architecture diagram for the project, which is thoroughly explained in the [readme](/gr2372/docs/diagrams/release3/README.md).
-![Package diagram](/gr2372/docs/diagrams/release3/package.png)
+Underneath you can see the architecture diagram for the project, which is thoroughly explained in the [readme](/pacMan-application/docs/diagrams/release3/README.md).
+![Package diagram](/pacMan-application/docs/diagrams/release3/package.png)
 
 
 ## Workflow
 
-The group has attempted having the best possible workflow during this project. This can be read about in detail under [workflow](/gr2372/docs/workflow/README.md) in docs.
+The group has attempted having the best possible workflow during this project. This can be read about in detail under [workflow](/pacMan-application/docs/workflow/README.md) in docs.
 
 ## Testing
 
-The group's approach to testing of the application can be read about in detail [here](/gr2372/docs/testing/README.md).
+The group's approach to testing of the application can be read about in detail [here](/pacMan-application/docs/testing/README.md).
 
 
 ## Current versions of software

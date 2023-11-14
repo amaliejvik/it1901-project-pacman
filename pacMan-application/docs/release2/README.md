@@ -93,7 +93,7 @@ Images that illustrates these photos can be found at the bottom of this README-f
 
 ### 3. Improved the test coverage
    
-   We have written a more detailed test for the user-interface and PacManController ([PacManAppTest](/gr2372/ui/src/test/java/ui/PacManAppTest.java))
+   We have written a more detailed test for the user-interface and PacManController ([PacManAppTest](/pacMan-application/ui/src/test/java/ui/PacManAppTest.java))
    We now have a test coverage on 38% in core, 82% in persistence  and 71% in ui.
 
    The two photos of the generated jacoco-reports can be found in docs>release2. 
@@ -102,7 +102,7 @@ Images that illustrates these photos can be found at the bottom of this README-f
    
 ### 4. Connected our data tier to JSON
 
-   Userdata is now stored in [Scores](/gr2372/ui/src/main/resources/ui/JSON/scores.json) as a .json file, instead of being stored in a .txt-file. This has a few practical consequences:
+   Userdata is now stored in [Scores](/pacMan-application/ui/src/main/resources/ui/JSON/scores.json) as a .json file, instead of being stored in a .txt-file. This has a few practical consequences:
 
    - Instead of storing the userdata as strings in a .txt file, the scores are stored as objects
   
@@ -110,7 +110,7 @@ Images that illustrates these photos can be found at the bottom of this README-f
   
    - This has been changed since JSON allows text representation of java-objects. This makes the code easier to understand than with strings.
   
-   - The conversion from java-objects to JSON and back has been done with GSON in the class [PacManPersistence.java](/gr2372/core/src/main/java/Persistence/PacManPersistence.java) to simplify the conversion-process. Version of the GSON-dependency is documented in the root-README.
+   - The conversion from java-objects to JSON and back has been done with GSON in the class [PacManPersistence.java](/pacMan-application/core/src/main/java/Persistence/PacManPersistence.java) to simplify the conversion-process. Version of the GSON-dependency is documented in the root-README.
    
 <br>
 
@@ -122,7 +122,7 @@ Images that illustrates these photos can be found at the bottom of this README-f
 
    The class-diagram gives a clear picture on how the different classes are connected. 
 
-   The diagrams can be found in the [diagrams-folder](/gr2372/docs/diagrams/release2) for release 2, both photos of them and their PlantUML script.
+   The diagrams can be found in the [diagrams-folder](/pacMan-application/docs/diagrams/release2) for release 2, both photos of them and their PlantUML script.
 
 
 <br>
@@ -131,7 +131,7 @@ Images that illustrates these photos can be found at the bottom of this README-f
    
    Spotbugs and Checkstyle are tools for checking our code quality. While Spotbugs looks for bug patterns in the code, Checkstyle makes sure that our code adheres to a coding standard. Together with jacoco which was implemented in release 1, these tools guarantee a solid code quality check.
 
-   A more thorough explination on these tools can be found [here](/gr2372/docs/codequality/README.md).
+   A more thorough explination on these tools can be found [here](/pacMan-application/docs/codequality/README.md).
 
 <br>
 
@@ -147,13 +147,13 @@ Images that illustrates these photos can be found at the bottom of this README-f
 
 ## Our workflow and workhabits
 
-We have written about our workflow and work habits  [here](/gr2372/docs/workflow/README.md).
+We have written about our workflow and work habits  [here](/pacMan-application/docs/workflow/README.md).
 
 
 
 ## Our approach to testing
 
-Updated documentation on our finalized approach to testing can be found [here](/gr2372/docs/testing/README.md).
+Updated documentation on our finalized approach to testing can be found [here](/pacMan-application/docs/testing/README.md).
 
 <br>
 
