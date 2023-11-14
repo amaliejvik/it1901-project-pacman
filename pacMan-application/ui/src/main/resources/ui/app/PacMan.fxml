@@ -12,16 +12,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PacManController">
+<AnchorPane fx:id="mainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/17.0.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PacManController">
    <children>
       <ImageView fx:id="mapGrid" fitHeight="458.0" fitWidth="933.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../mapgrid.png" />
+            <Image url="@../applicationImages/gameElementImages/mapgrid.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pacManGif" fitHeight="65.0" fitWidth="56.0" layoutX="330.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../PacManModelYellow.gif" />
+            <Image url="@../applicationImages/pacManImages/PacManModelYellow.gif" />
          </image>
       </ImageView>
       <Rectangle fx:id="rect1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutY="-5.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="848.0" />
@@ -53,307 +53,307 @@
       <Rectangle fx:id="rect27" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="99.0" layoutY="355.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
       <ImageView fx:id="pellet38" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet32" fitHeight="40.0" fitWidth="27.0" layoutX="563.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet5" fitHeight="29.0" fitWidth="27.0" layoutX="326.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet28" fitHeight="29.0" fitWidth="27.0" layoutX="782.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet34" fitHeight="40.0" fitWidth="27.0" layoutX="782.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet45" fitHeight="40.0" fitWidth="27.0" layoutX="782.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet56" fitHeight="40.0" fitWidth="27.0" layoutX="782.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet20" fitHeight="29.0" fitWidth="27.0" layoutX="782.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet11" fitHeight="29.0" fitWidth="27.0" layoutX="782.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet10" fitHeight="29.0" fitWidth="27.0" layoutX="720.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet9" fitHeight="29.0" fitWidth="27.0" layoutX="656.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet55" fitHeight="40.0" fitWidth="27.0" layoutX="720.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet54" fitHeight="40.0" fitWidth="27.0" layoutX="656.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet43" fitHeight="40.0" fitWidth="27.0" layoutX="642.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet18" fitHeight="40.0" fitWidth="27.0" layoutX="628.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet44" fitHeight="40.0" fitWidth="27.0" layoutX="711.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet33" fitHeight="40.0" fitWidth="27.0" layoutX="707.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet27" fitHeight="40.0" fitWidth="27.0" layoutX="707.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet19" fitHeight="40.0" fitWidth="27.0" layoutX="707.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet17" fitHeight="40.0" fitWidth="27.0" layoutX="563.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet1" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet2" fitHeight="29.0" fitWidth="27.0" layoutX="99.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet3" fitHeight="29.0" fitWidth="27.0" layoutX="176.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet12" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet21" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet29" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet35" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet46" fitHeight="29.0" fitWidth="27.0" layoutX="24.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet47" fitHeight="29.0" fitWidth="27.0" layoutX="99.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet48" fitHeight="29.0" fitWidth="27.0" layoutX="176.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet37" fitHeight="29.0" fitWidth="27.0" layoutX="176.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet36" fitHeight="29.0" fitWidth="27.0" layoutX="113.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet30" fitHeight="29.0" fitWidth="27.0" layoutX="113.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet22" fitHeight="29.0" fitWidth="27.0" layoutX="113.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet13" fitHeight="29.0" fitWidth="27.0" layoutX="113.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet14" fitHeight="29.0" fitWidth="27.0" layoutX="190.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet4" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet6" fitHeight="29.0" fitWidth="27.0" layoutX="409.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet7" fitHeight="29.0" fitWidth="27.0" layoutX="483.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet8" fitHeight="29.0" fitWidth="27.0" layoutX="563.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet53" fitHeight="29.0" fitWidth="27.0" layoutX="563.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet52" fitHeight="29.0" fitWidth="27.0" layoutX="483.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet51" fitHeight="29.0" fitWidth="27.0" layoutX="409.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet50" fitHeight="29.0" fitWidth="27.0" layoutX="326.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet49" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet31" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet24" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet15" fitHeight="29.0" fitWidth="27.0" layoutX="252.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet16" fitHeight="29.0" fitWidth="27.0" layoutX="483.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet42" fitHeight="29.0" fitWidth="27.0" layoutX="563.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet25" fitHeight="40.0" fitWidth="27.0" layoutX="563.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet39" fitHeight="29.0" fitWidth="27.0" layoutX="326.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet40" fitHeight="29.0" fitWidth="27.0" layoutX="409.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet41" fitHeight="29.0" fitWidth="27.0" layoutX="483.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet26" fitHeight="40.0" fitWidth="27.0" layoutX="642.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pellet23" fitHeight="40.0" fitWidth="27.0" layoutX="177.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../smalldot.png" />
+            <Image url="@../applicationImages/gameElementImages/smalldot.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cherry" fitHeight="65.0" fitWidth="50.0" layoutX="394.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../cherry.png" />
+            <Image url="@../applicationImages/gameElementImages/cherry.png" />
          </image>
       </ImageView>
       <ImageView fx:id="blinkyPng" fitHeight="65.0" fitWidth="56.0" layoutX="23.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../ghosts/ghostBlinky.png" />
+            <Image url="@../applicationImages/ghostImages/ghostBlinky.png" />
          </image>
       </ImageView>
       <ImageView fx:id="clydePng" fitHeight="65.0" fitWidth="56.0" layoutX="768.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../ghosts/ghostClyde.png" />
+            <Image url="@../applicationImages/ghostImages/ghostClyde.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pinkyPng" fitHeight="150.0" fitWidth="56.0" layoutX="395.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../ghosts/ghostPinky.png" />
+            <Image url="@../applicationImages/ghostImages/ghostPinky.png" />
          </image>
       </ImageView>
       <ImageView fx:id="inkyPng" fitHeight="65.0" fitWidth="56.0" layoutX="548.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../ghosts/ghostInky.png" />
+            <Image url="@../applicationImages/ghostImages/ghostInky.png" />
          </image>
       </ImageView>
       
@@ -392,22 +392,22 @@
       </Label>
       <ImageView fx:id="yellowPacManPhoto" fitHeight="46.0" fitWidth="44.0" layoutX="401.0" layoutY="209.0" onMouseClicked="#chooseYellowPacMan" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../PacManPhoto-yellow.png" />
+            <Image url="@../applicationImages/pacManImages/PacManPhoto-yellow.png" />
          </image>
       </ImageView>
       <ImageView fx:id="greenPacManPhoto" fitHeight="46.0" fitWidth="44.0" layoutX="472.0" layoutY="209.0" onMouseClicked="#chooseGreenPacMan" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../PacManPhoto-green.png" />
+            <Image url="@../applicationImages/pacManImages/PacManPhoto-green.png" />
          </image>
       </ImageView>
       <ImageView fx:id="pinkPacManPhoto" fitHeight="46.0" fitWidth="44.0" layoutX="541.0" layoutY="210.0" onMouseClicked="#choosePinkPacMan" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../PacManPhoto-pink.png" />
+            <Image url="@../applicationImages/pacManImages/PacManPhoto-pink.png" />
          </image>
       </ImageView>
       <ImageView fx:id="orangePacManPhoto" fitHeight="46.0" fitWidth="44.0" layoutX="604.0" layoutY="210.0" onMouseClicked="#chooseOrangePacMan" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../PacManPhoto-orange.png" />
+            <Image url="@../applicationImages/pacManImages/PacManPhoto-orange.png" />
          </image>
       </ImageView>
       <Rectangle fx:id="gameOverScreen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="351.0" layoutX="217.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="439.0" />
@@ -444,7 +444,7 @@
       <Button fx:id="restartGame" layoutX="384.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleRestartGameButton" onMouseClicked="#handleRestartGameButton" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
       <ImageView fx:id="checkMark" fitHeight="24.0" fitWidth="29.0" layoutX="625.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../chekcmark.png" />
+            <Image url="@../applicationImages/gameElementImages/checkmark.png" />
          </image>
       </ImageView>
    </children>
