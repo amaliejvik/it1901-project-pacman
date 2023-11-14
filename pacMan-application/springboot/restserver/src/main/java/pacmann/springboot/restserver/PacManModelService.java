@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.stereotype.Service;
-import persistence.PacmanPersistence;
+import persistence.PacManPersistence;
 
 /**
  * Configures the PacManModel service,
@@ -49,7 +49,7 @@ public class PacManModelService {
   }
 
   public List<PacManUser> getHighScores() {
-    return persistence.PacmanPersistence.fetchHighscore(finalPath);
+    return persistence.PacManPersistence.fetchHighscore(finalPath);
   }
 
   /**
@@ -58,10 +58,10 @@ public class PacManModelService {
    * @param user User to be saved
    */
   public void addHighScore(String user) {
-    PacManUser pacManUser = PacmanPersistence.deserializeIndividualHighScore(user);
+    PacManUser pacManUser = PacManPersistence.deserializeIndividualHighScore(user);
     String name = pacManUser.getUsername();
     double score = pacManUser.getScore();
-    persistence.PacmanPersistence.saveHighscore(name, score, finalPath);
+    persistence.PacManPersistence.saveHighscore(name, score, finalPath);
   }
 
   /**
@@ -72,7 +72,7 @@ public class PacManModelService {
   public void addHighScore(PacManUser user) {
     String name = user.getUsername();
     double score = user.getScore();
-    persistence.PacmanPersistence.saveHighscore(name, score, finalPath);
+    persistence.PacManPersistence.saveHighscore(name, score, finalPath);
   }
 
   /**

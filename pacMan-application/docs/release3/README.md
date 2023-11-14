@@ -150,16 +150,16 @@ As mentioned above, we chose to implement new functionality for our application.
 
 This is what we chose to implement for the 3rd release, based upon [Userstory4](/pacMan-application/docs/userstories/userstory4.md):
 
-- Ghosts: Inky, Pinky, Blinky and Clyde from the original pacman game have added to the gave. If they collide with PacMan, it's game over.
+- Ghosts: Inky, Pinky, Blinky and Clyde from the original PacMan game have added to the gave. If they collide with PacMan, it's game over.
 
-- Berries: after playing a while a berry pops up on the screen, and if pacman eats it, it gets an extra score
-- Color choice: you can now chose pacman to 4 different colours: pink, green, yellow and orange.
+- Berries: after playing a while a berry pops up on the screen, and if PacMan eats it, it gets an extra score
+- Color choice: you can now chose PacMan to 4 different colours: pink, green, yellow and orange.
 
 <br>
 
 ### 2. Implemented REST API with SpringBoot
 
-One of the primary goals for this release is to eliminate the need for the client to store their high scores locally. Instead we aim to implement a REST API to enable that the application stores high scores remotely on a server. This implementation has numerous benefits, but most importantly the ability for multiple users to save their high scores in the same place. This means that users can compete with eachother indirectly from different machines.
+One of the primary goals for this release is to eliminate the need for the client to store their highscores locally. Instead we aim to implement a REST API to enable that the application stores highscores remotely on a server. This implementation has numerous benefits, but most importantly the ability for multiple users to save their highscores in the same place. This means that users can compete with eachother indirectly from different machines.
 
 There are numerous ways to implement a RESTAPI, and we chose to use Spring Boot which is a tool that makes this possible. We opted for Spring Boot due to its inherent simplicity, widespread adoption, and its significant relevance in professional settings.
 

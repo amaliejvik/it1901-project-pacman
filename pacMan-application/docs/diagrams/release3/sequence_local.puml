@@ -17,7 +17,7 @@ PacManController -> PacManUser: setScore(score)
 ==game start==
 ==game over==
 
-PacManController ->PacManPersistence: saveHighScore(username, score)
+PacManController ->PacManPersistence: saveHighscore(username, score)
 PacManPersistence -> FileReader: FileReader(path)
 FileReader -> PacManPersistence: scores
 PacManPersistence -> PacManUser: PacManUser(username,score)

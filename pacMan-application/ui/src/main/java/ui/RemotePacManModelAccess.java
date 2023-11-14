@@ -37,7 +37,7 @@ public class RemotePacManModelAccess {
    *
    * @return A list of PacManUsers in database.
    */
-  public List<PacManUser> getHighScores() {
+  public List<PacManUser> getHighscores() {
     HttpRequest request = HttpRequest.newBuilder(endpointBaseUri)
         .header(ACCEPT_HEADER, APPLICATION_JSON)
         .GET()
@@ -45,7 +45,7 @@ public class RemotePacManModelAccess {
     try {
       final HttpResponse<String> response = HttpClient.newBuilder().build().send(request,
           HttpResponse.BodyHandlers.ofString());
-      this.highscores = deserializeHighScoreList(response.body());
+      this.highscores = deserializeHighscoreList(response.body());
     } catch (IOException | InterruptedException e) {
       throw new RuntimeException(e);
     }
@@ -56,10 +56,10 @@ public class RemotePacManModelAccess {
    * Sends a highscore to be stored in the database.
    *
    * @param username  Name of the user.
-   * @param highScore The score of the user.
+   * @param highscore The score of the user.
    */
-  public void putHighScore(String username, double highScore) {
-    PacManUser user = new PacManUser(username, highScore);
+  public void putHighscore(String username, double highscore) {
+    PacManUser user = new PacManUser(username, highscore);
     String json = gson.toJson(user);
     // System.out.println(json);
     try {
@@ -81,7 +81,7 @@ public class RemotePacManModelAccess {
    * @param jsonData The raw JSON data
    * @return List of PacManUsers
    */
-  public List<PacManUser> deserializeHighScoreList(String jsonData) {
+  public List<PacManUser> deserializeHighscoreList(String jsonData) {
     List<PacManUser> scores = new ArrayList<PacManUser>();
     PacManUser[] scoreData = gson.fromJson(jsonData, PacManUser[].class);
     if (scoreData != null) {

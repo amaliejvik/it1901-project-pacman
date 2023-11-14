@@ -11,16 +11,16 @@ import javafx.scene.shape.Rectangle;
 public class Collisions {
 
   /**
-   * if pacman collides with a wall in the list, movement stops, e.g. dx and dy
+   * if PacMan collides with a wall in the list, movement stops, e.g. dx and dy
    * are set to 0.
-   * Pacman's position bounces back 3px from the wall to ensure Pacman does not
+   * PacMan's position bounces back 3px from the wall to ensure PacMan does not
    * stop in a wall.
    *
-   * @param pacManImage pacman-image
+   * @param pacManImage PacMan-image
    * @param walls       list of all walls on map
    * @return boolean if PacMan has collided with wall, false if no collision
    */
-  public static boolean pacmanWallCollision(ImageView pacManImage, List<Rectangle> walls) {
+  public static boolean pacManWallCollision(ImageView pacManImage, List<Rectangle> walls) {
     for (Rectangle wall : walls) {
 
       if (pacManImage.getBoundsInParent().intersects(wall.getBoundsInParent())) {
@@ -40,13 +40,13 @@ public class Collisions {
   }
 
   /**
-   * Tests if pacman collides with a spesific wall.
+   * Tests if PacMan collides with a spesific wall.
    *
-   * @param pacManImage pacman-image
+   * @param pacManImage PacMan-image
    * @param wall        A wall in the map
    * @return boolean if PacMan has collided with wall, false if no collision
    */
-  public static boolean pacmanWallCollision(ImageView pacManImage, Rectangle wall) {
+  public static boolean pacManWallCollision(ImageView pacManImage, Rectangle wall) {
     if (pacManImage.getBoundsInParent().intersects(wall.getBoundsInParent()) && wall.isVisible()) {
       return true;
     }
@@ -54,14 +54,14 @@ public class Collisions {
   }
 
   /**
-   * When pacman collides with a pellet,
+   * When PacMan collides with a pellet,
    * if-statement checks if pellet has already been consumed.
    * If not, user is given 10 points and pellet is set to invisible.
    *
-   * @param pacManImage pacman-image
+   * @param pacManImage PacMan-image
    * @param pellets     list of all pellets on map
    */
-  public static boolean pacmanPelletCollision(ImageView pacManImage, List<ImageView> pellets) {
+  public static boolean pacManPelletCollision(ImageView pacManImage, List<ImageView> pellets) {
     for (ImageView pellet : pellets) {
       if (pacManImage.getBoundsInParent().intersects(pellet.getBoundsInParent())
           && pellet.isVisible()) {
@@ -73,12 +73,12 @@ public class Collisions {
   }
 
   /**
-   * When pacman collides with a ghost -> game over.
+   * When PacMan collides with a ghost -> game over.
    *
-   * @param pacManImage pacman-image
+   * @param pacManImage PacMan-image
    * @param ghosts      list of all ghosts on map
    */
-  public static boolean pacmanGhostCollision(ImageView pacManImage, List<ImageView> ghosts) {
+  public static boolean pacManGhostCollision(ImageView pacManImage, List<ImageView> ghosts) {
     for (ImageView ghost : ghosts) {
       if (pacManImage.getBoundsInParent().intersects(ghost.getBoundsInParent())) {
         return true;
@@ -88,12 +88,12 @@ public class Collisions {
   }
 
   /**
-   * When pacman collides with a cherry, return true.
+   * When PacMan collides with a cherry, return true.
    *
-   * @param pacManImage pacman-image
+   * @param pacManImage PacMan-image
    * @param cherry      cherry-image
    */
-  public static boolean pacmanCherryCollision(ImageView pacManImage, ImageView cherry) {
+  public static boolean pacManCherryCollision(ImageView pacManImage, ImageView cherry) {
     if (pacManImage.getBoundsInParent().intersects(cherry.getBoundsInParent())
         && cherry.isVisible()) {
       return true;

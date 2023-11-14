@@ -440,7 +440,7 @@
       <Rectangle fx:id="collisionRect22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="777.0" layoutY="437.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
       <Rectangle fx:id="collisionRect23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="558.0" layoutY="171.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
       <Rectangle fx:id="collisionRect24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="533.0" layoutY="299.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-      <TextArea fx:id="highScores" layoutX="339.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0" promptText="HIGHSCORES TEST:" text=" " />
+      <TextArea fx:id="highscores" layoutX="339.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0" promptText="HIGHSCORES TEST:" text=" " />
       <Button fx:id="restartGame" layoutX="384.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#handleRestartGameButton" prefHeight="25.0" prefWidth="110.0" text="Restart game" />
       <ImageView fx:id="checkMark" fitHeight="24.0" fitWidth="29.0" layoutX="625.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
          <image>

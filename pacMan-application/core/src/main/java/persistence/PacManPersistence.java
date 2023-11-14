@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Handles the persistence in the application.
  */
-public class PacmanPersistence {
+public class PacManPersistence {
   /**
    * Writes username and score to .json file "scores.json"
    * Uses gson (see README)
