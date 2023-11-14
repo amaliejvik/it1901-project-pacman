@@ -1,0 +1,22 @@
+@startuml
+actor       User        as Foo
+
+
+==game start==
+==game over==
+Foo -> RemotePacManController: : gameOver
+RemotePacManController -> URI: initializeURI() 
+URI -> RemotePacManController: server
+RemotePacManController -> RemotePacManModelAccess: RemotePacManModelAccess(server)
+RemotePacManController -> RemotePacManModelAccess: putHighScore(username, score)
+RemotePacManModelAccess -> PacManUser: getUserName()
+RemotePacManModelAccess <- PacManUser: username
+RemotePacManModelAccess -> PacManUser: getScore()
+RemotePacManModelAccess <- PacManUser: score
+RemotePacManModelAccess -> PacManUser: PacManUser(username, highScore)
+RemotePacManModelAccess -> HttpRequest: newBuilder(endpointBaseURI)
+RemotePacManModelAccess -> HttpRequest: PUT(BodyPublishers.ofString(json))
+HttpRequest <- RemotePacManModelAccess: request
+HttpRequest -> HttpClient: send request 
+
+@enduml

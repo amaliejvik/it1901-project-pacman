@@ -2,37 +2,97 @@
 
 This is the main documentation for a JavaFX version of the game PacMan, from the class IT1901 (1.semester 2023-2024).
 It has been made collaboratively with Søren Boucher, Amalie Johansen-Vik, Jenny Müller and Herman Østenby.
-It will contain a total of 3 releases (only 2 has currently been made).
+It will contain a total of 3 releases.
 
-# Documentation and User Scenario
+## About the application
 
-[Documentation for release1](/gr2372/docs/release1/)
+Our goal for this application was to create a game that resembles the original PacMan arcade game. The user enters a username and can choose between lightmode/darkmode and different colors of PacMan, before starting the game. PacMan is controlled with the arrow keys, and the goal is to move around the maze gathering as many points as possible by eating pellets. This must be done without crashing in the four ghosts roaming the board. The game is over when hit by a ghost or when all pellets are eaten, and a highscorelist is revealed.
 
-[Documentation for release2](/gr2372/docs/release2)
-
-[User Scenario](/gr2372/docs/brukerhistorier/brukerhistorier.md)
-
-# How to build and run the application
+## How to build and run the application
+*TODO*: local or remote?
 We are using the project management build tool, Maven.
 
-To build the application, run  `mvn install` from the root-folder (**gr2372**-folder). In addition to building, this command will run all tests and code-quality-checks.
+To build the application, run  `mvn install -DskipTests` from the root-folder (**gr2372**-folder). In addition to building, this command will run all tests and code-quality-checks.
 
-To run the application, run  `mvn javafx:run` from the **ui**-module (>gr2372>**ui**). This can be done by first running `cd gr2372/ui` followed by `mvn javafx:run`. 
+```bat
+cd gr2372
+mvn install -DskipTests
+```
 
-**Eclipse Che**
+To run the application, run  `mvn javafx:run` from the **ui**-module (>gr2372>**ui**). This can be done by first running `cd gr2372/ui` followed by `mvn javafx:run`.
 
-   Click the link below to open the project in Eclipse Che. Please note you must have access to the repository in GitLab, as this is a private project.
+```bat
+cd gr2372/ui
+mvn javafx:run
+```
 
-   [Open in Eclipse Che](https://che.stud.ntnu.no/dashboard/#https://gitlab.stud.idi.ntnu.no/it1901/groups-2023/gr2372/gr2372?new)
+## How to test the application
+
+ To run the tests on the application, run  `mvn test` from the (**gr2372**-folder).
+
+ ```bat
+cd gr2372
+mvn test
+```
+
+## Documentation and User Scenario
+
+By clicking on the links below you will be redirected to the README-files from each release.
+
+[Documentation for release1](/gr2372/docs/release1/README.md)
+
+[Documentation for release2](/gr2372/docs/release2/README.md)
+
+[Documentation for release3](/gr2372/docs/release3/README.md)
+
+By clicking the links below, you will be redirected to our 4 different user stories, which the functionality has been based upon.
+
+[User Scenario 1: Roger](/gr2372/docs/userstories/userstory1.md)
+
+[User Scenario 2: Selma](/gr2372/docs/userstories/userstory2.md)
+
+[User Scenario 3: Turid](/gr2372/docs/userstories/userstory3.md)
+
+[User Scenario 4: Eric](/gr2372/docs/userstories/userstory4.md)
+
+The rest of the documentation for this project can be found in the [docs-folder](/gr2372/docs). This includes README-files for our workflow, our approach to testing, code quality and diagrams.
+
+## Eclipse Che
+
+Click the link below to open the project in Eclipse Che. Please note you must have access to the repository in GitLab, as this is a private project.
+
+[Open in Eclipse Che](https://che.stud.ntnu.no/dashboard/#https://gitlab.stud.idi.ntnu.no/it1901/groups-2023/gr2372/gr2372?new)
+
+## Project Architecture
+
+The project is organized into distinct modules, with each module dedicated to specific functionalities or aspects of the architecture. We have categorized them into core, UI, and Spring Boot/REST server:
+
+- [core](/gr2372/core/README.md): Includes classes for the representation and storage of high scores.
+
+- [ui](/gr2372/ui/README.md): Encompasses the application user interface, developed using JavaFX and FXML.
+
+- [springboot/restserver](/gr2372/springboot/restserver/README.md): Involves the REST API and server built on the Spring Boot framework.
+
+Underneath you can see the architecture diagram for the project, which is thoroughly explained in the [readme](/gr2372/docs/diagrams/release3/README.md).
+![Package diagram](/gr2372/docs/diagrams/release3/package.png)
 
 
-# Current versions of software
+## Workflow
+
+The group has attempted having the best possible workflow during this project. This can be read about in detail under [workflow](/gr2372/docs/workflow/README.md) in docs.
+
+## Testing
+
+The group's approach to testing of the application can be read about in detail [here](/gr2372/docs/testing/README.md).
+
+
+## Current versions of software
 
 Java version: 17.0.8
 
 Maven version: 3.9.4
 
-# Dependencies required to run application and tests
+## Dependencies required to run application and tests
 
 **JavaFX:**
 
