@@ -700,6 +700,7 @@ public class RemotePacManController {
     pacManGif.setLayoutX(330);
     pacManGif.setLayoutY(115);
 
+    chooseYellowPacMan();
     pacManUser.reset();
     PacMan.reset();
     inky.reset();
