@@ -24,6 +24,8 @@ The "@Autowired" annotation is used to inject a "PacManModelService" instance in
 
 ## Approach to testing of the springboot/restserver module: 
 
+There is one test class for the springboot/restserver module. 
+<br>
 The approach to testing has been a two-part process.
 <br>
 The first part tests the RemotePacManModelController class. The testing here relates to the GET- and PUT-methods of the controller. This is done to ensure that the program is able to transfer information between the HTTP request and the service class.
@@ -31,3 +33,14 @@ The first part tests the RemotePacManModelController class. The testing here rel
 The second part tests the PacManModelService class. This part tests that the information sent to the rest-server with addHighScore() is the same as the information returned with getHighscores().
 <br>
 The scores stored from the tests are deleted upon the test's completion.
+<br>
+![Spring Boot Test Coverage](/pacMan-application/docs/release3/jacoco3/springbootTestCoverage.png)
+<br>
+The PacManModelController has a lower test coverage because of duplicate methods that were necessary to seperate test scores from real scores earned in game. Test scores are sent to a different JSON file and deleted upon the test's completion.
+<br>
+
+![Controller test coverage](/pacMan-application/docs/release3/jacoco3/PacManModelControllerTestCoverage.png)
+<br>
+![Detailed controller test coverage](/pacMan-application/docs/release3/jacoco3/detailedTestCoverageInController.png)
+<br>
+Both sets of get and put methods are identical, the only difference is where the score is stored.

@@ -9,18 +9,36 @@ It will contain a total of 3 releases.
 Our goal for this application was to create a game that resembles the original PacMan arcade game. The user enters a username and can choose between lightmode/darkmode and different colors of PacMan, before starting the game. PacMan is controlled with the arrow keys, and the goal is to move around the maze gathering as many points as possible by eating pellets. This must be done without crashing in the four ghosts roaming the board. The game is over when hit by a ghost or when all pellets are eaten, and a highscorelist is revealed.
 
 ## How to build and run the application
-*TODO*: local or remote?
-We are using the project management build tool, Maven.
 
-To build the application, run  `mvn install -DskipTests` from the root-folder (**pacMan-application**-folder). In addition to building, this command will run all tests and code-quality-checks.
+We used Maven for project management. 
+
+**TODO** *Change between local and remote?*
+
+**All commands shown below assume that your terminal is in the gr2372 folder.** If unsure, open a new terminal tab and try the commands again.
+
+An initial [mvn clean install -DskipTests](#clean-install) must be performed before starting the server or running or testing the application.
+
+#### Clean install
+
+To build the application, run `mvn clean install -DskipTests` from the folder containing the parent pom.xml file. The parent pom is located in the *gr2372/**pacMan-application*** directory. The clean install command cleans all previous build files, if any, and creates new class files. The tests are skipped for this preliminary command to avoid any potetential errors with out of date class files. If a test fails or throws an error the clean install process is interrupted and the correct class files are not installed. The following commands navigate to the correct folder and initiate the clean install.
 
 ```bat
 cd pacMan-application
-mvn install -DskipTests
+mvn clean install -DskipTests
 ```
 
-To run the application, run  `mvn javafx:run` from the **ui**-module (>pacMan-application>**ui**). This can be done by first running `cd pacMan-application/ui` followed by `mvn javafx:run`.
+#### Start the server
 
+The server that the application uses to store high scores must be started before running the application. To start the server, navigate to the *gr2372/pacMan-application/springboot/**restserver*** directory, and run the `mvn spring-boot:run` command. After the server has started, the application must be run from a different terminal tab or window. Terminal commands shown below.
+
+```bat
+cd pacMan-application/springboot/restserver
+mvn spring-boot:run
+```
+
+#### Run the application
+
+In a new terminal tab or window, navigate to the the **ui**-module and run the `mvn javafx:run` command. The **ui**-module is located in the *gr2372/pacMan-application/**ui*** directory. Terminal commands shown below.
 ```bat
 cd pacMan-application/ui
 mvn javafx:run
@@ -28,7 +46,7 @@ mvn javafx:run
 
 ## How to test the application
 
- To run the tests on the application, run  `mvn test` from the (**pacMan-application**-folder).
+ To run the tests on the application, run the  `mvn test` command from the **pacMan-application** folder. The server must be running before beginning the tests. See [Start the Server](#start-the-server) for more information.
 
  ```bat
 cd pacMan-application
