@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.stereotype.Service;
-import persistence.PacmanPersistence;
+import persistence.PacManPersistence;
 
 /**
  * Configures the PacManModel service,
@@ -48,8 +48,8 @@ public class PacManModelService {
     finalPath = globalPath + location;
   }
 
-  public List<PacManUser> getHighScores() {
-    return persistence.PacmanPersistence.fetchHighscore(finalPath);
+  public List<PacManUser> getHighscores() {
+    return persistence.PacManPersistence.fetchHighscore(finalPath);
   }
 
   /**
@@ -57,11 +57,11 @@ public class PacManModelService {
    *
    * @param user User to be saved
    */
-  public void addHighScore(String user) {
-    PacManUser pacManUser = PacmanPersistence.deserializeIndividualHighScore(user);
+  public void addHighscore(String user) {
+    PacManUser pacManUser = PacManPersistence.deserializeIndividualHighscore(user);
     String name = pacManUser.getUsername();
     double score = pacManUser.getScore();
-    persistence.PacmanPersistence.saveHighscore(name, score, finalPath);
+    persistence.PacManPersistence.saveHighscore(name, score, finalPath);
   }
 
   /**
@@ -69,16 +69,16 @@ public class PacManModelService {
    *
    * @param user User to be saved
    */
-  public void addHighScore(PacManUser user) {
+  public void addHighscore(PacManUser user) {
     String name = user.getUsername();
     double score = user.getScore();
-    persistence.PacmanPersistence.saveHighscore(name, score, finalPath);
+    persistence.PacManPersistence.saveHighscore(name, score, finalPath);
   }
 
   /**
    * Deletes all highscores.
    */
-  public void removeAllHighScores() {
+  public void removeAllHighscores() {
     try {
       new FileWriter(finalPath, false).close();
     } catch (IOException e) {

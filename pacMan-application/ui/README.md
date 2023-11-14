@@ -63,7 +63,7 @@ This class controls the main game-loop and holds the methods controlling the gra
 
 - gameOver() -> void: Stops the main game-loop (timeline) and the music, saves userdata to file and displays a game-over screen with highscores. Executed when PacMan collides with a ghost or has eaten all pellets
 
-- handleRestartGameButton() -> void: Resets PacMan1s and the ghosts' position, speed and direction to default start-values . In addition,  score is reset to 0 and the startscreen is displayed. Executed when user clicks on #restartButton
+- handleRestartGameButton() -> void: Resets PacMan's and the ghosts' position, speed and direction to default start-values . In addition,  score is reset to 0 and the startscreen is displayed. Executed when user clicks on #restartButton
 
 - chooseYellowPacMan() -> void: Sets position of checkmark to correspond with the yellow PacMan being chosen, and the Yellow PacManGif is assigned to the ImageView representing PacMan. Executed when user clicks on the Yellow PacMan in the choose-color-of-PacMan-menu on the start screen
 
@@ -93,11 +93,11 @@ This class contains logic for making remote requests to the PacMan-model API, so
 
 ### Methods
 
-- getHighScores() -> List<'PacManUser'> : Sends a HTTP GET request to the remote endpoint in order to retrieve the highscores from the server. The response is given as JSON data, so it is deserialized into a PacManUser list, which then is returned. Else, a RuntimeException is thrown
+- getHighscores() -> List<'PacManUser'> : Sends a HTTP GET request to the remote endpoint in order to retrieve the highscores from the server. The response is given as JSON data, so it is deserialized into a PacManUser list, which then is returned. Else, a RuntimeException is thrown
 
-- putHighScore(String, double) -> void: Tries to save the input parameters String (username) and double (score) remotely. The PacManUser is serialized into JSON using GSON, before a HTTP PUT request is sent to the remote endpoint to add the user data. Else, a RuntimeException is thrown
+- putHighscore(String, double) -> void: Tries to save the input parameters String (username) and double (score) remotely. The PacManUser is serialized into JSON using GSON, before a HTTP PUT request is sent to the remote endpoint to add the user data. Else, a RuntimeException is thrown
 
-- deserializeHighScoreList(String) -> List<'PacManUser'> : Deserializes the input parameter String from JSON to a list of PacManUser-objects using GSON, and returns this list
+- deserializeHighscoreList(String) -> List<'PacManUser'> : Deserializes the input parameter String from JSON to a list of PacManUser-objects using GSON, and returns this list
 
 ## Collisions
 

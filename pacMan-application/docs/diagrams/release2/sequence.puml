@@ -12,14 +12,14 @@ PacManController -> PacMan: setUserName
 Foo -> PacManApp: arrowkeys
 PacManApp -> PacMan: changeDirection
 
-PacManController -> pacManController: gameOver
-PacManController -> PacManPersistance: saveHighScore
+PacManController -> PacManController: gameOver
+PacManController -> PacManPersistance: saveHighscore
 PacManPersistance -> PacMan: getUsername, getScore
 
 PacManController -> PacManPersistance: fetchScoreBoard
-pacManController -> "~#highScores: TextArea" : setText
+PacManController -> "~#highscores: TextArea" : setText
 
 Foo -> "~#handleRestartGameButton": click
-"~#handleRestartGameButton" -> pacManController: handleRestartGameButton
+"~#handleRestartGameButton" -> PacManController: handleRestartGameButton
 
 @enduml

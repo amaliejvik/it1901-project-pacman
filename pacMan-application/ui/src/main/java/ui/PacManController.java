@@ -30,7 +30,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import persistence.PacmanPersistence;
+import persistence.PacManPersistence;
 
 // Commented out because of incompatability with Eclipse Che. Works locally.
 // import javafx.scene.media.Media;
@@ -345,7 +345,7 @@ public class PacManController {
   private Button restartGame;
 
   @FXML
-  private TextArea highScores;
+  private TextArea highscores;
 
   @FXML
   private Button backButton;
@@ -358,7 +358,7 @@ public class PacManController {
 
   /**
    * Creates the main game-loop for the application.
-   * Updates pacmans position and rotation, checks for collisions, updates score,
+   * Updates PacMan's position and rotation, checks for collisions, updates score,
    * triggers gameover.
    */
   public void createAndConfigureTimeline() {
@@ -367,11 +367,11 @@ public class PacManController {
       @Override
       public void handle(ActionEvent event) {
 
-        // Updates PacMans position variables
+        // Updates PacMan's position variables
         PacMan.setXposition(PacMan.getXposition() + PacMan.getDx());
         PacMan.setYposition(PacMan.getYposition() + PacMan.getDy());
 
-        // Graphically updates PacMans position
+        // Graphically updates PacMan's position
         pacManGif.setLayoutX(PacMan.getXposition());
         pacManGif.setLayoutY(PacMan.getYposition());
 
@@ -383,12 +383,12 @@ public class PacManController {
         }
 
         // Collision check
-        if (Collisions.pacmanWallCollision(pacManGif, walls)) {
+        if (Collisions.pacManWallCollision(pacManGif, walls)) {
           PacMan.setDx(0);
           PacMan.setDy(0);
         }
 
-        if (Collisions.pacmanPelletCollision(pacManGif, pellets)) {
+        if (Collisions.pacManPelletCollision(pacManGif, pellets)) {
           pacManUser.setScore(pacManUser.getScore() + 10);
         }
 
@@ -396,12 +396,12 @@ public class PacManController {
           cherry.setVisible(true);
         }
 
-        if (Collisions.pacmanCherryCollision(pacManGif, cherry)) {
+        if (Collisions.pacManCherryCollision(pacManGif, cherry)) {
           cherry.setVisible(false);
           pacManUser.setScore(pacManUser.getScore() + 100);
         }
 
-        if (Collisions.pacmanGhostCollision(pacManGif, ghostsPng)) {
+        if (Collisions.pacManGhostCollision(pacManGif, ghostsPng)) {
           gameOver();
         }
 
@@ -503,7 +503,7 @@ public class PacManController {
     ghostsPng = Arrays.asList(inkyPng, pinkyPng, blinkyPng, clydePng);
     ghosts = Arrays.asList(inky, pinky, blinky, clyde);
 
-    setComponentsVisible(false, gameOverScreen, gameOverText, restartGame, highScores, cherry);
+    setComponentsVisible(false, gameOverScreen, gameOverText, restartGame, highscores, cherry);
     startButton.setDisable(true);
 
     createAndConfigureTimeline();
@@ -515,7 +515,7 @@ public class PacManController {
     updateGui();
   }
 
-  public ImageView getPacmanGif() {
+  public ImageView getPacManGif() {
     return pacManGif;
   }
 
@@ -625,18 +625,18 @@ public class PacManController {
       String path = "";
       if (isTest) {
         path = "src/main/resources/ui/JSON/apptestScores.json";
-        
+
       } else {
         path = "src/main/resources/ui/JSON/scores.json";
 
       }
-      
-      PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
+
+      PacManPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
           path);
 
       // Displays score in scoreboard
       String usersString = "";
-      List<PacManUser> userArray = PacmanPersistence
+      List<PacManUser> userArray = PacManPersistence
           .fetchHighscore(path);
       StringBuffer buf = new StringBuffer();
       for (PacManUser user : userArray) {
@@ -644,8 +644,7 @@ public class PacManController {
       }
       usersString = buf.toString();
 
-      highScores.setText(usersString);
-
+      highscores.setText(usersString);
 
       // Deletes content of apptestScores.json file
       if (isTest) {
@@ -656,10 +655,10 @@ public class PacManController {
         }
       }
     });
-  
+
     // Set GameOver screen visible
     setComponentsVisible(true, gameOverScreen, gameOverText, restartGame,
-        highScores, toggleLightmode);
+        highscores, toggleLightmode);
   }
 
   /**
@@ -669,7 +668,7 @@ public class PacManController {
    */
   @FXML
   private void handleRestartGameButton() {
-    setComponentsVisible(false, gameOverScreen, gameOverText, restartGame, highScores, cherry);
+    setComponentsVisible(false, gameOverScreen, gameOverText, restartGame, highscores, cherry);
 
     usernameInput.clear();
 

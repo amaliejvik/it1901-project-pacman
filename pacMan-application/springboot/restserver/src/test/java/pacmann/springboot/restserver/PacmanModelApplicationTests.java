@@ -59,9 +59,9 @@ public class PacmanModelApplicationTests {
     pacManModelService = new PacManModelService();
     pacManModelService.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
 
-    pacManModelService.addHighScore(player1);
-    pacManModelService.addHighScore(player2);
-    pacManModelService.addHighScore(player3);
+    pacManModelService.addHighscore(player1);
+    pacManModelService.addHighscore(player2);
+    pacManModelService.addHighscore(player3);
   }
 
   /**
@@ -70,7 +70,7 @@ public class PacmanModelApplicationTests {
    * @throws Exception Connection error
    */
   @Test
-  public void testControllerGetHighScores() throws Exception {
+  public void testControllerGetHighscores() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.get(url)
         .accept("application/json"))
         .andExpect(MockMvcResultMatchers.status().isOk())
@@ -84,7 +84,7 @@ public class PacmanModelApplicationTests {
    * @throws Exception Connection error
    */
   @Test
-  public void testControllerPutHighScore() throws Exception {
+  public void testControllerPutHighscore() throws Exception {
     final String json = gson.toJson(player4);
     mockMvc.perform(MockMvcRequestBuilders.put(url)
         .contentType("application/json").characterEncoding("UTF-8")
@@ -96,7 +96,7 @@ public class PacmanModelApplicationTests {
    * Tests if the data read is the same as the data written.
    */
   @Test
-  public void testServiceGetAndPutHighScores() {
+  public void testServiceGetAndPutHighscores() {
     List<PacManUser> pacManUserList = new ArrayList<>();
     pacManUserList.add(player1);
     pacManUserList.add(player2);
@@ -104,10 +104,10 @@ public class PacmanModelApplicationTests {
     pacManUserList.add(player4);
 
     String player4String = gson.toJson(player4);
-    pacManModelService.addHighScore(player4String);
+    pacManModelService.addHighscore(player4String);
 
     String jsonExpected = gson.toJson(pacManUserList);
-    String jsonActual = gson.toJson(pacManModelService.getHighScores());
+    String jsonActual = gson.toJson(pacManModelService.getHighscores());
 
     assertEquals(jsonExpected, jsonActual);
   }
@@ -116,7 +116,7 @@ public class PacmanModelApplicationTests {
    * Removes the highscores.
    */
   @AfterAll
-  public void removeHighScores() {
-    pacManModelService.removeAllHighScores();
+  public void removeHighscores() {
+    pacManModelService.removeAllHighscores();
   }
 }
