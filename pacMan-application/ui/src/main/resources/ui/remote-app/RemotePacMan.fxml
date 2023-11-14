@@ -364,17 +364,17 @@
          </font>
       </Label>
       <TextField fx:id="usernameInput" layoutX="397.0" layoutY="166.0" onKeyPressed="#updateGui" onKeyTyped="#updateGui" />
-      <Label fx:id="username" layoutX="260.0" layoutY="165.0" prefHeight="29.0" prefWidth="98.0" text="Username:">
+      <Label fx:id="username" layoutX="260.0" layoutY="165.0" prefHeight="29.0" prefWidth="130.0" text="Username:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Text fx:id="scoreText" fill="WHITE" layoutX="710.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Score:" wrappingWidth="201.4999999999999">
+      <Text fx:id="scoreText" fill="WHITE" layoutX="710.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Score:" wrappingWidth="201.0">
          <font>
             <Font name="Impact" size="15.0" />
          </font>
       </Text>
-      <Label fx:id="score" alignment="CENTER" layoutX="804.0" layoutY="-2.0" prefHeight="23.0" prefWidth="38.0" text="0" textAlignment="JUSTIFY" textFill="WHITE">
+      <Label fx:id="score" alignment="CENTER" layoutX="795.0" layoutY="-2.0" prefHeight="23.0" prefWidth="50.0" text="0" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
             <Font name="Impact" size="15.0" />
          </font>
