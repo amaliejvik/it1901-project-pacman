@@ -159,7 +159,7 @@ This is what we chose to implement for the 3rd release, based upon [Userstory4](
 
 ### 2. Implemented REST API with SpringBoot
 
-One of the primary goals for this release is to eliminate the need for the client to store their highscores locally. Instead we aim to implement a REST API to enable that the application stores highscores remotely on a server. This implementation has numerous benefits, but most importantly the ability for multiple users to save theirhigh scores in the same place. This means that users can compete with eachother indirectly from different machines.
+One of the primary goals for this release is to eliminate the need for the client to store their highscores locally. Instead we aim to implement a REST API to enable that the application stores highscores remotely on a server. This implementation has numerous benefits, but most importantly the ability for multiple users to save their highscores in the same place. This means that users can compete with eachother indirectly from different machines.
 
 There are numerous ways to implement a RESTAPI, and we chose to use Spring Boot which is a tool that makes this possible. We opted for Spring Boot due to its inherent simplicity, widespread adoption, and its significant relevance in professional settings.
 

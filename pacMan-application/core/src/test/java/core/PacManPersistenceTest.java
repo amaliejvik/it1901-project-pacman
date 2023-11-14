@@ -39,14 +39,14 @@ public class PacManPersistenceTest {
 
   @Test
   @DisplayName("Test deserialization of highscorelist from JSON")
-  public void testDeserializeHighscoreList() {
+  public void testDeserializeHighScoreList() {
 
     // Test-JSONdata, multiple users
     String jsonData = "[{\"username\":\"User1\",\"score\":100},"
         + "{\"username\":\"User2\",\"score\":150}]";
 
     // Attempt to deserialize
-    List<PacManUser> pacManUsers = PacManPersistence.deserializeHighscoreList(jsonData);
+    List<PacManUser> pacManUsers = PacManPersistence.deserializeHighScoreList(jsonData);
 
     // Assert everything is as it should be
     Assertions.assertEquals(2, pacManUsers.size());
@@ -58,13 +58,13 @@ public class PacManPersistenceTest {
 
   @Test
   @DisplayName("Test deserialization of individual highscore from JSON")
-  public void testDeserializeIndividualHighscore() {
+  public void testDeserializeIndividualHighScore() {
 
     // Test-JSONdata, one user
     String jsonData = "{\"username\":\"User1\",\"score\":100}";
 
     // Attempt to deserialize
-    PacManUser pacManUser = PacManPersistence.deserializeIndividualHighscore(jsonData);
+    PacManUser pacManUser = PacManPersistence.deserializeIndividualHighScore(jsonData);
 
     // Assert everything is as it should be
     Assertions.assertNotNull(pacManUser);
@@ -74,23 +74,23 @@ public class PacManPersistenceTest {
 
   @Test
   @DisplayName("Test deserialization of highscorelist from invalid JSON")
-  public void testDeserializeEmptyHighscoreListFromInvalidJson() {
+  public void testDeserializeEmptyHighScoreListFromInvalidJson() {
 
     // Invalid test-JSONdata
     String invalidJsonData = "[{\"invalidJSONData\"}]";
 
     // Attemt to deserialize
-    assertDoesNotThrow(() -> PacManPersistence.deserializeIndividualHighscore(invalidJsonData));
+    assertDoesNotThrow(() -> PacManPersistence.deserializeIndividualHighScore(invalidJsonData));
   }
 
   @Test
   @DisplayName("Test deserialization of individual highscore from invalid JSON")
-  public void testDeserializeNullIndividualHighscoreFromInvalidJson() {
+  public void testDeserializeNullIndividualHighScoreFromInvalidJson() {
 
     // Invalid test-JSONdata
     String invalidJsonData = "{\"invalidJSONData\"}";
 
     // Attemt to deserialize
-    assertDoesNotThrow(() -> PacManPersistence.deserializeIndividualHighscore(invalidJsonData));
+    assertDoesNotThrow(() -> PacManPersistence.deserializeIndividualHighScore(invalidJsonData));
   }
 }

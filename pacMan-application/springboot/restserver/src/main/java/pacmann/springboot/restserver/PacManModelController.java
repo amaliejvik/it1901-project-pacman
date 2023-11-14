@@ -33,7 +33,7 @@ public class PacManModelController {
   @GetMapping
   public List<PacManUser> getAllHighscores() {
     service.setPersistanceLocation("/core/src/main/java/persistence/JSON/remoteScores.json");
-    return service.getHighscores();
+    return service.getHighScores();
   }
 
   /**
@@ -44,7 +44,7 @@ public class PacManModelController {
   @GetMapping("/test")
   public List<PacManUser> getAllTestHighscores() {
     service.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
-    return service.getHighscores();
+    return service.getHighScores();
   }
 
   /**
@@ -55,7 +55,7 @@ public class PacManModelController {
   @PutMapping
   public void addHighscore(@RequestBody String user) {
     service.setPersistanceLocation("/core/src/main/java/persistence/JSON/remoteScores.json");
-    service.addHighscore(user);
+    service.addHighScore(user);
   }
 
   /**
@@ -66,6 +66,6 @@ public class PacManModelController {
   @PutMapping("/test")
   public void addTestHighscore(@RequestBody String user) {
     service.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
-    service.addHighscore(user);
+    service.addHighScore(user);
   }
 }

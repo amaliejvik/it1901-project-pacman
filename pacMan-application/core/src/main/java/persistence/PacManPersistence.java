@@ -29,11 +29,11 @@ public class PacManPersistence {
       scores.add(pacManUser);
 
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
-      File highscoreFile = new File(path);
-      FileWriter highscoreWriter = new FileWriter(highscoreFile, StandardCharsets.UTF_8);
-      gson.toJson(scores, highscoreWriter);
+      File highScoreFile = new File(path);
+      FileWriter highScoreWriter = new FileWriter(highScoreFile, StandardCharsets.UTF_8);
+      gson.toJson(scores, highScoreWriter);
       System.out.println("Score saved");
-      highscoreWriter.close();
+      highScoreWriter.close();
     } catch (Exception e) {
       e.printStackTrace();
       System.out.println("Score failed to save");
@@ -73,7 +73,7 @@ public class PacManPersistence {
    * @param jsonData The raw JSON data
    * @return List of PacManUsers
    */
-  public static List<PacManUser> deserializeHighscoreList(String jsonData) {
+  public static List<PacManUser> deserializeHighScoreList(String jsonData) {
     Gson gson = new Gson();
     List<PacManUser> scores = new ArrayList<PacManUser>();
     try {
@@ -98,7 +98,7 @@ public class PacManPersistence {
    * @param rawJsonData The raw JSON data
    * @return List of PacManUsers
    */
-  public static PacManUser deserializeIndividualHighscore(String rawJsonData) {
+  public static PacManUser deserializeIndividualHighScore(String rawJsonData) {
     Gson gson = new Gson();
     PacManUser user = null;
     try {

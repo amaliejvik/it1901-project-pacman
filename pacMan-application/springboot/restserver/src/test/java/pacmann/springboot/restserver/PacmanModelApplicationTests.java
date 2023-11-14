@@ -59,9 +59,9 @@ public class PacmanModelApplicationTests {
     pacManModelService = new PacManModelService();
     pacManModelService.setPersistanceLocation("/core/src/test/java/core/JSON/testScores.json");
 
-    pacManModelService.addHighscore(player1);
-    pacManModelService.addHighscore(player2);
-    pacManModelService.addHighscore(player3);
+    pacManModelService.addHighScore(player1);
+    pacManModelService.addHighScore(player2);
+    pacManModelService.addHighScore(player3);
   }
 
   /**
@@ -104,10 +104,10 @@ public class PacmanModelApplicationTests {
     pacManUserList.add(player4);
 
     String player4String = gson.toJson(player4);
-    pacManModelService.addHighscore(player4String);
+    pacManModelService.addHighScore(player4String);
 
     String jsonExpected = gson.toJson(pacManUserList);
-    String jsonActual = gson.toJson(pacManModelService.getHighscores());
+    String jsonActual = gson.toJson(pacManModelService.getHighScores());
 
     assertEquals(jsonExpected, jsonActual);
   }
@@ -117,6 +117,6 @@ public class PacmanModelApplicationTests {
    */
   @AfterAll
   public void removeHighscores() {
-    pacManModelService.removeAllHighscores();
+    pacManModelService.removeAllHighScores();
   }
 }

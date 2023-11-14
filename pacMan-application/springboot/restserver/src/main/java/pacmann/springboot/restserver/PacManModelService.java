@@ -48,7 +48,7 @@ public class PacManModelService {
     finalPath = globalPath + location;
   }
 
-  public List<PacManUser> getHighscores() {
+  public List<PacManUser> getHighScores() {
     return persistence.PacManPersistence.fetchHighscore(finalPath);
   }
 
@@ -57,8 +57,8 @@ public class PacManModelService {
    *
    * @param user User to be saved
    */
-  public void addHighscore(String user) {
-    PacManUser pacManUser = PacManPersistence.deserializeIndividualHighscore(user);
+  public void addHighScore(String user) {
+    PacManUser pacManUser = PacManPersistence.deserializeIndividualHighScore(user);
     String name = pacManUser.getUsername();
     double score = pacManUser.getScore();
     persistence.PacManPersistence.saveHighscore(name, score, finalPath);
@@ -69,7 +69,7 @@ public class PacManModelService {
    *
    * @param user User to be saved
    */
-  public void addHighscore(PacManUser user) {
+  public void addHighScore(PacManUser user) {
     String name = user.getUsername();
     double score = user.getScore();
     persistence.PacManPersistence.saveHighscore(name, score, finalPath);
@@ -78,7 +78,7 @@ public class PacManModelService {
   /**
    * Deletes all highscores.
    */
-  public void removeAllHighscores() {
+  public void removeAllHighScores() {
     try {
       new FileWriter(finalPath, false).close();
     } catch (IOException e) {
