@@ -143,9 +143,9 @@ Handles the persistence in the application, in other words storing of a player's
 
 - fetchHighscore(String) -> List<'PacManUser'>: Reads from a .json file which path is given by the input parameter String, and transforms this into a list of PacManUser-objects
 
-- deserializeHighScoreList(String) -> List<'PacManUser'>:  Uses GSON to deserialize JSON data given by the input parameter String into an an array of PacManUser-objects, which again is converted to a list for easier access
+- deserializeHighscoreList(String) -> List<'PacManUser'>:  Uses GSON to deserialize JSON data given by the input parameter String into an an array of PacManUser-objects, which again is converted to a list for easier access
 
-- deserializeIndividualHighScore(String) -> PacManUser: Uses GSON to deserialize JSON data given by the input parameter String into a single PacManUser-object which is returned
+- deserializeIndividualHighscore(String) -> PacManUser: Uses GSON to deserialize JSON data given by the input parameter String into a single PacManUser-object which is returned
 
 <br>
 

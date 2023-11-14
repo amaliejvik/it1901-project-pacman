@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class PacManTest {
 
   @Test
-  @DisplayName("Test Pacman changeDirection()")
+  @DisplayName("Test PacMan changeDirection()")
   public void testPacManChangeDirection() {
     // Test Right
     PacMan.changeDirection("RIGHT");
@@ -35,7 +35,7 @@ public class PacManTest {
   }
 
   @Test
-  @DisplayName("Test Pacman start position")
+  @DisplayName("Test PacMan start position")
   public void testPacManStartPos() {
     Assertions.assertEquals(330, PacMan.getXposition());
     Assertions.assertEquals(115, PacMan.getYposition());
@@ -73,7 +73,7 @@ public class PacManTest {
   }
 
   @Test
-  @DisplayName("Test Pacman rotation")
+  @DisplayName("Test PacMan rotation")
   public void testPacManRotation() {
 
     // Test default start rotation angle
