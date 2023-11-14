@@ -55,7 +55,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- test javafx with TextFX -->
+        <!-- test javafx with TestFX -->
         <dependency>
             <groupId>org.testfx</groupId>
             <artifactId>testfx-core</artifactId>
@@ -92,7 +92,7 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.8</version> <!-- use the latest version available -->
+                <version>0.0.8</version>
                 <configuration>
                     <mainClass>PacMan.ui/ui.RemotePacManApp</mainClass>
                 </configuration>

@@ -35,26 +35,6 @@
             <artifactId>junit-jupiter-params</artifactId>
         </dependency>
 
-        <!-- test javafx with TextFX -->
-        <dependency>
-            <groupId>org.testfx</groupId>
-            <artifactId>testfx-junit5</artifactId>
-            <version>4.0.16-alpha</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest</artifactId>
-            <version>2.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testfx</groupId>
-            <artifactId>testfx-core</artifactId>
-            <version>4.0.16-alpha</version> <!-- Use the latest version available -->
-            <scope>test</scope>
-        </dependency>
-
         <!-- Her kommer web-server-avhengighetene -->
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
@@ -95,7 +75,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <argLine>
-                    @{jaCoCoArgLine} <!--add-opens PacMan.springboot.rest/PacMan.springboot.restserver=ALL-UNNAMED -->
+                    @{jaCoCoArgLine}
                     </argLine>
                 </configuration>
             </plugin>
@@ -116,7 +96,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.10</version> <!-- Replace with the latest version -->
+                <version>0.8.10</version>
                 <configuration>
                     <propertyName>jaCoCoArgLine</propertyName>
                 </configuration>
