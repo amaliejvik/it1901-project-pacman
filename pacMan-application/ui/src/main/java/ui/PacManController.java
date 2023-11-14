@@ -621,51 +621,42 @@ public class PacManController {
     timeline.stop();
 
     // Save score to username in file
-    if (!isTest) {
+    Platform.runLater(() -> {
+      String path = "";
+      if (isTest) {
+        path = "src/main/resources/ui/JSON/apptestScores.json";
+        
+      } else {
+        path = "src/main/resources/ui/JSON/scores.json";
+
+      }
+      
       PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
-          "src/main/resources/ui/JSON/scores.json");
-
-      Platform.runLater(() -> {
-        // Displays score in scoreboard
-        String usersString = "";
-        List<PacManUser> userArray = PacmanPersistence
-            .fetchHighscore("src/main/resources/ui/JSON/scores.json");
-        StringBuffer buf = new StringBuffer();
-        for (PacManUser user : userArray) {
-          buf.append(user.toString());
-        }
-        usersString = buf.toString();
-
-        highScores.setText(usersString);
-
-      });
-      // Saves scores from the mvn tests in a separate file
-    } else {
-      PacmanPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
-          "src/main/resources/ui/JSON/apptestScores.json");
+          path);
 
       // Displays score in scoreboard
       String usersString = "";
       List<PacManUser> userArray = PacmanPersistence
-          .fetchHighscore("src/main/resources/ui/JSON/apptestScores.json");
+          .fetchHighscore(path);
       StringBuffer buf = new StringBuffer();
       for (PacManUser user : userArray) {
         buf.append(user.toString());
       }
-
       usersString = buf.toString();
 
       highScores.setText(usersString);
 
+
       // Deletes content of apptestScores.json file
-      try {
-        new FileWriter("src/main/resources/ui/JSON/apptestScores.json", false).close();
-      } catch (IOException e) {
-        e.printStackTrace();
+      if (isTest) {
+        try {
+          new FileWriter("src/main/resources/ui/JSON/apptestScores.json", false).close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
       }
-
-    }
-
+    });
+  
     // Set GameOver screen visible
     setComponentsVisible(true, gameOverScreen, gameOverText, restartGame,
         highScores, toggleLightmode);
@@ -692,6 +683,7 @@ public class PacManController {
     pacManGif.setLayoutX(330);
     pacManGif.setLayoutY(115);
 
+    chooseYellowPacMan();
     pacManUser.reset();
     PacMan.reset();
     inky.reset();
