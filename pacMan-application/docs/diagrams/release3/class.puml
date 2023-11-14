@@ -85,17 +85,17 @@ class Pinky extends Ghost{
 class PacManPersistance{
 + static void saveHighscore(String, double, String)
 + static List<PacManUser> fetchHighscore(String)
-+ static List<PacManUser> deserializeHighScoreList(String)
-+ static PacManUser deserializeIndividualHighScore(String)
++ static List<PacManUser> deserializeHighscoreList(String)
++ static PacManUser deserializeIndividualHighscore(String)
 }
 
 ' UI
 class Collisions{
- + static boolean pacmanWallCollision(ImageView, List<Rectangle>)
- + static boolean pacmanWallCollision(ImageView, Rectangle)
- + static boolean pacmanPelletCollision(ImageView, List<ImageView>)
- + static boolean pacmanGhostCollision(ImageView, List<ImageView>)
- + static boolean pacmanCherryCollision(ImageView, ImageView)
+ + static boolean pacManWallCollision(ImageView, List<Rectangle>)
+ + static boolean pacManWallCollision(ImageView, Rectangle)
+ + static boolean pacManPelletCollision(ImageView, List<ImageView>)
+ + static boolean pacManGhostCollision(ImageView, List<ImageView>)
+ + static boolean pacManCherryCollision(ImageView, ImageView)
 }
 
 class PacManApp extends Application{
@@ -198,9 +198,9 @@ class RemotePacManModelAccess{
 - static final CONTENT_TYPE_HEADER: String = "Content-Type"
 - gson: Gson
 + RemotePacManModelAccess(URI)
-+ List<PacManUser> getHighScores()
-+ void putHighScore(String, double)
-+ public List<PacManUser> deserializeHighScoreList(String)
++ List<PacManUser> getHighscores()
++ void putHighscore(String, double)
++ public List<PacManUser> deserializeHighscoreList(String)
 }
 
 ' Restserver
@@ -211,15 +211,15 @@ class PacManModelApplication{
 
 class PacManModelController {
     + service: PacManModelService
-    + List<PacManUser> getAllHighScores()
-    + void addHighScore(user: String)
+    + List<PacManUser> getAllHighscores()
+    + void addHighscore(user: String)
 }
 
 class PacManModelService{
 - systemPath : String = new File(System.getProperty("user.dir")).getParent()
 + String removeFolder(String, String)
-+ List<PacManUser> getHighScores()
-+ void addHighScore(String)
++ List<PacManUser> getHighscores()
++ void addHighscore(String)
 }
 
 

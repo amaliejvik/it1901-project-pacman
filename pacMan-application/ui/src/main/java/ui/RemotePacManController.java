@@ -346,7 +346,7 @@ public class RemotePacManController {
   private Button restartGame;
 
   @FXML
-  private TextArea highScores;
+  private TextArea highscores;
 
   @FXML
   private Button backButton;
@@ -359,7 +359,7 @@ public class RemotePacManController {
 
   /**
    * Creates the main game-loop for the application.
-   * Updates pacmans position and rotation, checks for collisions, updates score,
+   * Updates PacMan's position and rotation, checks for collisions, updates score,
    * triggers gameover.
    */
   public void createAndConfigureTimeline() {
@@ -368,11 +368,11 @@ public class RemotePacManController {
       @Override
       public void handle(ActionEvent event) {
 
-        // Updates PacMans position variables
+        // Updates PacMan's position variables
         PacMan.setXposition(PacMan.getXposition() + PacMan.getDx());
         PacMan.setYposition(PacMan.getYposition() + PacMan.getDy());
 
-        // Graphically updates PacMans position
+        // Graphically updates PacMan's position
         pacManGif.setLayoutX(PacMan.getXposition());
         pacManGif.setLayoutY(PacMan.getYposition());
 
@@ -384,12 +384,12 @@ public class RemotePacManController {
         }
 
         // Collision check
-        if (Collisions.pacmanWallCollision(pacManGif, walls)) {
+        if (Collisions.pacManWallCollision(pacManGif, walls)) {
           PacMan.setDx(0);
           PacMan.setDx(0);
         }
 
-        if (Collisions.pacmanPelletCollision(pacManGif, pellets)) {
+        if (Collisions.pacManPelletCollision(pacManGif, pellets)) {
           pacManUser.setScore(pacManUser.getScore() + 10);
         }
 
@@ -397,12 +397,12 @@ public class RemotePacManController {
           cherry.setVisible(true);
         }
 
-        if (Collisions.pacmanCherryCollision(pacManGif, cherry)) {
+        if (Collisions.pacManCherryCollision(pacManGif, cherry)) {
           cherry.setVisible(false);
           pacManUser.setScore(pacManUser.getScore() + 100);
         }
 
-        if (Collisions.pacmanGhostCollision(pacManGif, ghostsPng)) {
+        if (Collisions.pacManGhostCollision(pacManGif, ghostsPng)) {
           gameOver();
         }
 
@@ -517,7 +517,7 @@ public class RemotePacManController {
     ghostsPng = Arrays.asList(inkyPng, pinkyPng, blinkyPng, clydePng);
     ghosts = Arrays.asList(inky, pinky, blinky, clyde);
 
-    setComponentsVisible(false, gameOverScreen, gameOverText, restartGame, highScores, cherry);
+    setComponentsVisible(false, gameOverScreen, gameOverText, restartGame, highscores, cherry);
     startButton.setDisable(true);
 
     createAndConfigureTimeline();
@@ -529,7 +529,7 @@ public class RemotePacManController {
     updateGui();
   }
 
-  public ImageView getPacmanGif() {
+  public ImageView getPacManGif() {
     return pacManGif;
   }
 
@@ -661,22 +661,22 @@ public class RemotePacManController {
     RemotePacManModelAccess remoteServerAccess = new RemotePacManModelAccess(server);
 
     // Save score to username in file
-    remoteServerAccess.putHighScore(pacManUser.getUsername(), pacManUser.getScore());
+    remoteServerAccess.putHighscore(pacManUser.getUsername(), pacManUser.getScore());
 
     Platform.runLater(() -> {
       // Displays score in scoreboard
       String usersString = "";
-      List<PacManUser> userArray = remoteServerAccess.getHighScores();
+      List<PacManUser> userArray = remoteServerAccess.getHighscores();
       StringBuffer buf = new StringBuffer();
       for (PacManUser user : userArray) {
         buf.append(user.toString());
       }
       usersString = buf.toString();
 
-      highScores.setText(usersString);
+      highscores.setText(usersString);
     });
     setComponentsVisible(true, gameOverScreen, gameOverText,
-        restartGame, highScores, toggleLightmode);
+        restartGame, highscores, toggleLightmode);
   }
 
   /**
@@ -686,7 +686,7 @@ public class RemotePacManController {
    */
   @FXML
   private void handleRestartGameButton() {
-    setComponentsVisible(false, gameOverScreen, gameOverText, restartGame, highScores, cherry);
+    setComponentsVisible(false, gameOverScreen, gameOverText, restartGame, highscores, cherry);
 
     usernameInput.clear();
 

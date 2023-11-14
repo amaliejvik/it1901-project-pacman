@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Handles the persistence in the application.
  */
-public class PacmanPersistence {
+public class PacManPersistence {
   /**
    * Writes username and score to .json file "scores.json"
    * Uses gson (see README)
@@ -29,11 +29,11 @@ public class PacmanPersistence {
       scores.add(pacManUser);
 
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
-      File highScoreFile = new File(path);
-      FileWriter highScoreWriter = new FileWriter(highScoreFile, StandardCharsets.UTF_8);
-      gson.toJson(scores, highScoreWriter);
+      File highscoreFile = new File(path);
+      FileWriter highscoreWriter = new FileWriter(highscoreFile, StandardCharsets.UTF_8);
+      gson.toJson(scores, highscoreWriter);
       System.out.println("Score saved");
-      highScoreWriter.close();
+      highscoreWriter.close();
     } catch (Exception e) {
       e.printStackTrace();
       System.out.println("Score failed to save");
@@ -73,7 +73,7 @@ public class PacmanPersistence {
    * @param jsonData The raw JSON data
    * @return List of PacManUsers
    */
-  public static List<PacManUser> deserializeHighScoreList(String jsonData) {
+  public static List<PacManUser> deserializeHighscoreList(String jsonData) {
     Gson gson = new Gson();
     List<PacManUser> scores = new ArrayList<PacManUser>();
     try {
@@ -98,7 +98,7 @@ public class PacmanPersistence {
    * @param rawJsonData The raw JSON data
    * @return List of PacManUsers
    */
-  public static PacManUser deserializeIndividualHighScore(String rawJsonData) {
+  public static PacManUser deserializeIndividualHighscore(String rawJsonData) {
     Gson gson = new Gson();
     PacManUser user = null;
     try {

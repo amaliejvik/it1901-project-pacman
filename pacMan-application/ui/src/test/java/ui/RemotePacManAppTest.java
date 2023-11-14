@@ -89,7 +89,7 @@ public class RemotePacManAppTest extends ApplicationTest {
     // Check that yellow PacMan is default
     verifyThat("#checkMark", NodeMatchers.isVisible());
     String expectedImageUrlYellow = "file:src/main/resources/ui/PacManModelYellow.gif";
-    Image imageYellow = controller.getPacmanGif().getImage();
+    Image imageYellow = controller.getPacManGif().getImage();
     String currentImageUrlYellow = imageYellow.getUrl();
 
     Assertions.assertEquals(expectedImageUrlYellow, currentImageUrlYellow);
@@ -100,7 +100,7 @@ public class RemotePacManAppTest extends ApplicationTest {
     clickOn("#greenPacManPhoto");
     verifyThat("#checkMark", NodeMatchers.isVisible());
     String expectedImageUrlGreen = "file:src/main/resources/ui/PacManModelGreen.gif";
-    Image imageGreen = controller.getPacmanGif().getImage();
+    Image imageGreen = controller.getPacManGif().getImage();
     String currentImageUrlGreen = imageGreen.getUrl();
 
     Assertions.assertEquals(expectedImageUrlGreen, currentImageUrlGreen);
@@ -111,7 +111,7 @@ public class RemotePacManAppTest extends ApplicationTest {
     clickOn("#pinkPacManPhoto");
     verifyThat("#checkMark", NodeMatchers.isVisible());
     String expectedImageUrlPink = "file:src/main/resources/ui/PacManModelPink.gif";
-    Image imagePink = controller.getPacmanGif().getImage();
+    Image imagePink = controller.getPacManGif().getImage();
     String currentImageUrlPink = imagePink.getUrl();
 
     Assertions.assertEquals(expectedImageUrlPink, currentImageUrlPink);
@@ -122,7 +122,7 @@ public class RemotePacManAppTest extends ApplicationTest {
     clickOn("#orangePacManPhoto");
     verifyThat("#checkMark", NodeMatchers.isVisible());
     String expectedImageUrlOrange = "file:src/main/resources/ui/PacManModelOrange.gif";
-    Image imageOrange = controller.getPacmanGif().getImage();
+    Image imageOrange = controller.getPacManGif().getImage();
     String currentImageUrlOrange = imageOrange.getUrl();
 
     Assertions.assertEquals(expectedImageUrlOrange, currentImageUrlOrange);
@@ -142,64 +142,64 @@ public class RemotePacManAppTest extends ApplicationTest {
 
     controller.startTimeline();
 
-    double startXpos = controller.getPacmanGif().getLayoutX();
+    double startXpos = controller.getPacManGif().getLayoutX();
 
     while (true) {
       type(KeyCode.RIGHT, 1);
-      if (Collisions.pacmanWallCollision(controller.getPacmanGif(),
+      if (Collisions.pacManWallCollision(controller.getPacManGif(),
           controller.getTestCollisionRectangles().get(0))) {
         break;
       }
     }
 
     // Test that PacMan has moved to the right and rotation angle
-    double xposRight = controller.getPacmanGif().getLayoutX();
+    double xposRight = controller.getPacManGif().getLayoutX();
     Assertions.assertTrue(startXpos < xposRight);
-    Assertions.assertEquals(0, controller.getPacmanGif().getRotate());
-    double yposRight = controller.getPacmanGif().getLayoutY();
+    Assertions.assertEquals(0, controller.getPacManGif().getRotate());
+    double yposRight = controller.getPacManGif().getLayoutY();
 
     while (true) {
       type(KeyCode.DOWN, 1);
-      if (Collisions.pacmanWallCollision(controller.getPacmanGif(),
+      if (Collisions.pacManWallCollision(controller.getPacManGif(),
           controller.getTestCollisionRectangles().get(1))) {
         break;
       }
     }
 
     // Test that PacMan has moved downwards and rotation angle
-    double yposDown = controller.getPacmanGif().getLayoutY();
+    double yposDown = controller.getPacManGif().getLayoutY();
     Assertions.assertTrue(yposRight < yposDown);
-    Assertions.assertEquals(90, controller.getPacmanGif().getRotate());
-    double xposDown = controller.getPacmanGif().getLayoutX();
+    Assertions.assertEquals(90, controller.getPacManGif().getRotate());
+    double xposDown = controller.getPacManGif().getLayoutX();
 
     while (true) {
       type(KeyCode.LEFT, 1);
-      if (Collisions.pacmanWallCollision(controller.getPacmanGif(),
+      if (Collisions.pacManWallCollision(controller.getPacManGif(),
           controller.getTestCollisionRectangles().get(2))) {
         break;
       }
     }
 
     // Test that PacMan has moved to the left and rotation angle
-    double xposLeft = controller.getPacmanGif().getLayoutX();
+    double xposLeft = controller.getPacManGif().getLayoutX();
     Assertions.assertTrue(xposDown > xposLeft);
-    Assertions.assertEquals(180, controller.getPacmanGif().getRotate());
-    double yposLeft = controller.getPacmanGif().getLayoutY();
+    Assertions.assertEquals(180, controller.getPacManGif().getRotate());
+    double yposLeft = controller.getPacManGif().getLayoutY();
 
     while (true) {
       type(KeyCode.UP, 1);
-      if (Collisions.pacmanWallCollision(controller.getPacmanGif(),
+      if (Collisions.pacManWallCollision(controller.getPacManGif(),
           controller.getTestCollisionRectangles().get(3))) {
         break;
       }
     }
 
     // Test that PacMan has moved upwards and rotation angle
-    double yposUp = controller.getPacmanGif().getLayoutY();
+    double yposUp = controller.getPacManGif().getLayoutY();
     Assertions.assertTrue(yposLeft > yposUp);
 
     Assertions.assertEquals(180, controller.getPacManUser().getScore());
-    Assertions.assertEquals(270, controller.getPacmanGif().getRotate());
+    Assertions.assertEquals(270, controller.getPacManGif().getRotate());
 
     controller.stopTimeline();
   }
@@ -217,7 +217,7 @@ public class RemotePacManAppTest extends ApplicationTest {
 
     while (true) {
       type(KeyCode.RIGHT, 1);
-      if (Collisions.pacmanWallCollision(controller.getPacmanGif(),
+      if (Collisions.pacManWallCollision(controller.getPacManGif(),
           controller.getTestCollisionRectangles().get(0))) {
         break;
       }
@@ -225,7 +225,7 @@ public class RemotePacManAppTest extends ApplicationTest {
 
     while (true) {
       type(KeyCode.LEFT, 1);
-      if (Collisions.pacmanGhostCollision(controller.getPacmanGif(), controller.getGhosts())) {
+      if (Collisions.pacManGhostCollision(controller.getPacManGif(), controller.getGhosts())) {
         break;
       }
     }
@@ -240,7 +240,7 @@ public class RemotePacManAppTest extends ApplicationTest {
    * Removes the highscores used for testing.
    */
   @AfterAll
-  public static void removeAllHighScores() {
+  public static void removeAllHighscores() {
     // Deletes content of .json file after completed test
     String systemPath = new File(System.getProperty("user.dir")).getParent();
     try {

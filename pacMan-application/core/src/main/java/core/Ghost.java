@@ -83,7 +83,7 @@ public class Ghost {
    * Ghosts position bounces back 3px from the wall to ensure it does not stop in
    * a wall.
    *
-   * @param ghost pacman-image
+   * @param ghost PacMan-image
    * @param wall  wall to check collision with
    * @return boolean if ghost has collided with wall, false if no collision
    */
