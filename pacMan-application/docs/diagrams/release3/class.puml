@@ -1,5 +1,5 @@
-@startuml
-' UI
+@startuml Class Diagram
+' Core
 class Blinky extends Ghost{
     + Blinky()
     + void reset()
@@ -82,7 +82,7 @@ class Pinky extends Ghost{
     + void pathing(ImageView, List<Rectangle>)
 }
 
-class PacManPersistance{
+class PacManPersistence{
 + static void saveHighscore(String, double, String)
 + static List<PacManUser> fetchHighscore(String)
 + static List<PacManUser> deserializeHighscoreList(String)
@@ -215,6 +215,7 @@ class PacManModelController {
     + void addHighscore(user: String)
 }
 
+
 class PacManModelService{
 - systemPath : String = new File(System.getProperty("user.dir")).getParent()
 + String removeFolder(String, String)
@@ -222,10 +223,24 @@ class PacManModelService{
 + void addHighscore(String)
 }
 
+class Application {
+   + void start(Stage)
+}
 
-PacManApp "1" -- "1" PacManController 
-PacManController  "1" -- "1" PacMan
-PacManController "1" -- "1" PacManPersistance
-PacManPersistance "1" -- "many" PacManUser
 
+RemotePacManController  --> "1" PacManUser
+RemotePacManController  --> "*" Ghost
+RemotePacManController  --> "1" PacMan
+
+PacManController  --> "1" PacMan
+PacManController  --> "*" Ghost
+PacManController -->"1" PacManUser
+PacManApp --> "1" PacManController
+RemotePacManApp --> "1" RemotePacManController
+PacManController  --> "1" PacManPersistence
+PacManPersistence --> "*" PacManUser
+RemotePacManController --> "1" RemotePacManModelAccess
+
+
+PacManModelController --> "1" PacManModelService
 @enduml

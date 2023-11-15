@@ -20,8 +20,13 @@ Underneath you can see the diagram that illustrates the architecture of the proj
 ![package](package.png)
 
 ## Class diagram
-*TODO* skrive litt om hvordan klassediagrammet henger sammen. Herman fikser
-Underneath you can see the class diagram that illustrates the PacMan project:
+The class diagram illustrates the different methods and fields in the classes in our application, and the relations in between them. 
+- **The white arrows** show inheritance and which sublasses that inherit from which superclasses. For instance, you can see that the subclasses Inky, Pinky, Blinky and Clyde point to their super class Ghost
+  
+- **The black arrows** show directed associations along with their multiplicity. For instance, PacManController has a directed association to the Ghost class with the a "many"-multiplicity (*), because of its field with a list of Ghost-objects. 
+  
+- **The visibility** of the methods and fields are stated by the color of the icon before each of them. Green means that they are public and red means that they are private.
+  
 ![class](class.png)
 
 ## Sequence diagrams
