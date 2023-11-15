@@ -1,7 +1,6 @@
 package ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.testfx.api.FxAssert.verifyThat;
 
 import core.PacMan;
 import java.io.File;
@@ -20,7 +19,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
-import org.testfx.matcher.base.NodeMatchers;
 
 /**
  * Simulates games to check for faults in the logic.
