@@ -1,5 +1,5 @@
 # Restserver
-The springboot/restserver module takes care of managing the entire process related to saving high scores, as well as retrieving them for the purpose of generating a leaderboard at the end of the game. To implement this functionality, a REST server is created using the Spring Boot framework. 
+The springboot/restserver module manages the entire process related to saving high scores, as well as retrieving them for the purpose of generating a leaderboard at the end of the game. To implement this functionality, a REST server is created using the Spring Boot framework. 
 
 ## Classes: 
   - PacManModelApplication
@@ -16,10 +16,10 @@ It imports necessary classes, including Spring's annotations for RESTful web ser
 
 The @RequestMapping("/api/highscores") annotation at the class level specifies that all endpoints in this controller will be relative to "/api/highscores". 
 
-The "@Autowired" annotation is used to inject a "PacManModelService" instance into the controller. This implies that there exists a service class, PacManModelService, responsible for encapsulating the business logic associated with PacMan highscores. 
+The "@Autowired" annotation is used to inject a "PacManModelService" instance into the controller. This implies that there exists a service class, PacManModelService, responsible for encapsulating the logic associated with saving and retrieving PacMan highscores from the database via the persistence class.
 
 ## PacManModelService
- PacManModelService is used as a service class, meaning that it's methods deal with the interacting with PacMan highscores. The method called getHighScores takes care of fetching the highscores from the database, and the addHighScore method takes care of adding a new highscore. The two methods uses the PacManPersistence class in order to interact with the PacMan highscores.
+ PacManModelService is used as a service class, meaning that it's methods deal with the interacting with PacMan highscores. The method called getHighScores fetches the highscores from the database, and the addHighScore method adds a new highscore. The two methods uses the PacManPersistence class in order to interact with the PacMan highscores.
 
 
 ## Approach to testing of the springboot/restserver module: 

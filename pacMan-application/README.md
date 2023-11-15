@@ -1,12 +1,12 @@
 # README for PacMan
 
-This is the main documentation for a JavaFX version of the game PacMan, from the class IT1901 (1.semester 2023-2024).
-It has been made collaboratively with Søren Boucher, Amalie Johansen-Vik, Jenny Müller and Herman Østenby.
-It will contain a total of 3 releases.
+This is the main documentation for a JavaFX version of the game PacMan, from the class IT1901 (fall semester 2023).
+It has been made collaboratively by Søren Boucher, Amalie Johansen-Vik, Jenny Müller and Herman Østenby.
+It contains a total of 3 releases.
 
 ## About the application
 
-Our goal for this application was to create a game that resembles the original PacMan arcade game. The user enters a username and can choose between lightmode/darkmode and different colors of PacMan, before starting the game. PacMan is controlled with the arrow keys, and the goal is to move around the maze gathering as many points as possible by eating pellets. This must be done without crashing in the four ghosts roaming the board. The game is over when hit by a ghost or when all pellets are eaten, and a highscorelist is revealed.
+Our goal for this application was to create a game that resembles the original PacMan arcade game. The user enters a username and can choose between lightmode/darkmode and different colors of PacMan, before starting the game. PacMan is controlled with the arrow keys, and the goal is to move around the maze gathering as many points as possible by eating pellets. This must be done without crashing in the four ghosts roaming the board. The game is over when hit by a ghost or when all pellets are eaten, and a highscore list is revealed.
 
 ## How to build and run the application
 
@@ -63,7 +63,7 @@ By clicking on the links below you will be redirected to the README-files from e
 
 [Documentation for release3](/pacMan-application/docs/release3/README.md)
 
-By clicking the links below, you will be redirected to our 4 different user stories, which the functionality has been based upon.
+By clicking the links below, you will be redirected to our 4 different user stories, upon which the functionality has been based.
 
 [User Scenario 1: Roger](/pacMan-application/docs/userstories/userstory1.md)
 
@@ -89,15 +89,15 @@ The project is organized into distinct modules, with each module dedicated to sp
 
 - [ui](/pacMan-application/ui/README.md): Encompasses the application user interface, developed using JavaFX and FXML.
 
-- [springboot/restserver](/pacMan-application/springboot/restserver/README.md): Involves the REST API and server built on the Spring Boot framework.
+- [springboot/restserver](/pacMan-application/springboot/restserver/README.md): Utilizes the REST API to build a server with the Spring Boot framework.
 
-Underneath you can see the architecture diagram for the project, which is thoroughly explained in the [readme](/pacMan-application/docs/diagrams/release3/README.md).
+The architecture diagram for the project, which is thoroughly explained in the [readme](/pacMan-application/docs/diagrams/release3/README.md), is shown below.
 ![Package diagram](/pacMan-application/docs/diagrams/release3/package.png)
 
 
 ## Workflow
 
-The group has attempted having the best possible workflow during this project. This can be read about in detail under [workflow](/pacMan-application/docs/workflow/README.md) in docs.
+The group aimed to have an efficient workflow during this project. Detailed information can be found under [workflow](/pacMan-application/docs/workflow/README.md) in docs.
 
 ## Testing
 
