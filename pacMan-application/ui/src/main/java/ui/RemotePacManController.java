@@ -7,6 +7,7 @@ import core.Inky;
 import core.PacMan;
 import core.PacManUser;
 import core.Pinky;
+import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -58,6 +59,7 @@ public class RemotePacManController {
   private List<Ghost> ghosts;
   private List<ImageView> ghostsPng;
   private Timeline timeline;
+  private String projectPath = new File(System.getProperty("user.dir")).getParent();
   // private MediaPlayer mediaPlayer;
   private PacManUser pacManUser;
   private boolean isTest = false;
@@ -595,7 +597,7 @@ public class RemotePacManController {
 
       if (toggleLightmode.isSelected()) {
         mapGrid.setImage(new Image(
-              "file:src/main/resources/ui/applicationImages/gameElementImages/mapgridLight.png"));
+            "file:src/main/resources/ui/applicationImages/gameElementImages/mapgridLight.png"));
 
         for (ImageView pellet : pellets) {
           pellet.setImage(new Image(
@@ -605,11 +607,11 @@ public class RemotePacManController {
         score.setTextFill(Color.BLACK);
       } else {
         mapGrid.setImage(new Image(
-              "file:src/main/resources/ui/applicationImages/gameElementImages/mapgrid.png"));
+            "file:src/main/resources/ui/applicationImages/gameElementImages/mapgrid.png"));
 
         for (ImageView pellet : pellets) {
           pellet.setImage(new Image(
-                "file:src/main/resources/ui/applicationImages/gameElementImages/smalldot.png"));
+              "file:src/main/resources/ui/applicationImages/gameElementImages/smalldot.png"));
         }
         scoreText.setFill(Color.WHITE);
         score.setTextFill(Color.WHITE);
@@ -721,8 +723,8 @@ public class RemotePacManController {
     checkMark.setLayoutX(427);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    pacManGif.setImage(new Image(
-          "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelYellow.gif"));
+    pacManGif.setImage(new Image(projectPath
+        + "/ui/src/main/resources/ui/applicationImages/pacManImages/PacManModelYellow.gif"));
   }
 
   @FXML
@@ -730,8 +732,8 @@ public class RemotePacManController {
     checkMark.setLayoutX(497);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    pacManGif.setImage(new Image(
-          "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelGreen.gif"));
+    // pacManGif.setImage(new Image(
+    // "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelGreen.gif"));
   }
 
   @FXML
@@ -739,8 +741,8 @@ public class RemotePacManController {
     checkMark.setLayoutX(565);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    pacManGif.setImage(new Image(
-          "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelPink.gif"));
+    // pacManGif.setImage(new Image(
+    // "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelPink.gif"));
   }
 
   @FXML
@@ -748,8 +750,8 @@ public class RemotePacManController {
     checkMark.setLayoutX(625);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    pacManGif.setImage(new Image(
-          "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelOrange.gif"));
+    // pacManGif.setImage(new Image(
+    // "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelOrange.gif"));
   }
 
   private void setComponentsVisible(boolean isVisible, Node... components) {
