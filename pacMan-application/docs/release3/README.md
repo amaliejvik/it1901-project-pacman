@@ -2,7 +2,9 @@
 
 
 
-This is the README for the third and last release of our PacMan game. Underneath you can see the filestructure:
+This is the README for the third and last release of our PacMan game. 
+
+## Filestructure
 
    ```
 ├── pacMan-application
@@ -194,8 +196,22 @@ In the new release we have added a new sequential diagram that shows how scores 
 
 ### 6. Improved our code quality
 Multiple tools have been used to ensure a high degree of quality in our code. Spotbugs and Checkstyle has been used for this. The current release has zero checkstyle warnings, and every class is formatted according to Google Style. Spotbugs does show a warning about certain "classes needed for analysis were missing", but this has been determined to be a bug with Spotbugs documented [here](https://stackoverflow.com/questions/56279567/how-to-fix-the-following-classes-needed-for-analysis-were-missing).
-<br>
+
 Older code has also been revised, so that no duplicate code is present. This involved rewriting certain methods to also be used in tests, using inheritance and moving code out of the controllers.
 
 ## Comment on implicit storage
 In our program we chose to use implicit storage, meaning that the user doesn't have to handle the storage process. In other words, when a user interacts with the program, such as saving their name, our program automatically determines the appropriate location to store this data. This makes it easier for users to manage their data, since they don't need to worry about the details surrounding the storage process. We believe this gives a more user-friendly experience.
+
+## Images from the application
+
+**Image 1:** Start screen with PacMan-color menu
+![Start Screen](/pacMan-application/ui/src/main/resources/ui/README-Images/startScreenRelease3.png)
+
+**Image 2:** Ghosts, cherry and yellow PacMan
+![Ghosts and cherry](/pacMan-application/ui/src/main/resources/ui/README-Images/cherryRelease3.png)
+
+**Image 3:** Lightmode with green PacMan
+![Light mode](/pacMan-application/ui/src/main/resources/ui/README-Images/lightModeRelease3Image.png)
+
+**Image 4:** Highscore list revealed when the game is over
+![Highscore list](/pacMan-application/ui/src/main/resources/ui/README-Images/highscoreRelease3.png)
