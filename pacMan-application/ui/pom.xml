@@ -95,7 +95,39 @@
                 <version>0.0.8</version>
                 <configuration>
                     <mainClass>PacMan.ui/ui.RemotePacManApp</mainClass>
+                    <compress>2</compress>
+                    <noHeaderFiles>true</noHeaderFiles>
+                    <stripDebug>true</stripDebug>
+                    <noManPages>true</noManPages>
+                    <launcher>PacManfx</launcher>
+                    <jlinkImageName>PacManfx</jlinkImageName>
+                    <jlinkZipName>PacManfx</jlinkZipName>
                 </configuration>
+            </plugin>
+            <plugin>
+            <groupId>org.panteleyev</groupId>
+            <artifactId>jpackage-maven-plugin</artifactId>
+            <version>1.4.0</version>
+            <configuration>
+                <name>PacManfx</name>
+                <appVersion>1.0.0</appVersion>
+                <vendor>it1901</vendor>
+                <destination>target/dist</destination>
+                <module>PacMan.ui/ui.RemotePacManApp</module>
+                <runtimeImage>target/PacManfx</runtimeImage>
+                <javaOptions>
+                <option>-Dfile.encoding=UTF-8</option>
+                </javaOptions>
+                <!-- Linux options -->
+                <linuxShortcut>true</linuxShortcut>
+                <linuxMenuGroup>Utilities</linuxMenuGroup>
+
+                <!-- Windows options-->
+                <winDirChooser>true</winDirChooser>
+                <winShortcut>true</winShortcut>
+                <winMenu>true</winMenu>
+                <winMenuGroup>PacManfx</winMenuGroup>
+            </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

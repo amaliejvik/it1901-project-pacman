@@ -580,22 +580,26 @@ public class PacManController {
           yellowPacManPhoto, greenPacManPhoto, pinkPacManPhoto, orangePacManPhoto);
 
       if (toggleLightmode.isSelected()) {
-        mapGrid.setImage(new Image(
-              "file:src/main/resources/ui/applicationImages/gameElementImages/mapgridLight.png"));
+        mapGrid.setImage(new Image(getClass()
+            .getResource("/ui/applicationImages/gameElementImages/mapgridLight.png")
+            .toExternalForm()));
 
         for (ImageView pellet : pellets) {
-          pellet.setImage(new Image(
-              "file:src/main/resources/ui/applicationImages/gameElementImages/smalldotLight.png"));
+          pellet.setImage(new Image(getClass()
+              .getResource("/ui/applicationImages/gameElementImages/smalldotLight.png")
+              .toExternalForm()));
         }
         scoreText.setFill(Color.BLACK);
         score.setTextFill(Color.BLACK);
       } else {
-        mapGrid.setImage(new Image(
-              "file:src/main/resources/ui/applicationImages/gameElementImages/mapgrid.png"));
+        mapGrid.setImage(new Image(getClass()
+            .getResource("/ui/applicationImages/gameElementImages/mapgrid.png")
+            .toExternalForm()));
 
         for (ImageView pellet : pellets) {
-          pellet.setImage(new Image(
-                "file:src/main/resources/ui/applicationImages/gameElementImages/smalldot.png"));
+          pellet.setImage(new Image(getClass()
+              .getResource("/ui/applicationImages/gameElementImages/smalldot.png")
+              .toExternalForm()));
         }
         scoreText.setFill(Color.WHITE);
         score.setTextFill(Color.WHITE);
@@ -629,12 +633,12 @@ public class PacManController {
       String path = "";
       if (isTest) {
         path = "src/main/resources/ui/JSON/apptestScores.json";
-        
+
       } else {
         path = "src/main/resources/ui/JSON/scores.json";
 
       }
-      
+
       PacManPersistence.saveHighscore(pacManUser.getUsername(), pacManUser.getScore(),
           path);
 
@@ -650,7 +654,6 @@ public class PacManController {
 
       highscores.setText(usersString);
 
-
       // Deletes content of apptestScores.json file
       if (isTest) {
         try {
@@ -660,7 +663,7 @@ public class PacManController {
         }
       }
     });
-  
+
     // Set GameOver screen visible
     setComponentsVisible(true, gameOverScreen, gameOverText, restartGame,
         highscores, toggleLightmode);
@@ -704,8 +707,9 @@ public class PacManController {
     checkMark.setLayoutX(427);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    pacManGif.setImage(new Image(
-          "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelYellow.gif"));
+    pacManGif.setImage(new Image(getClass()
+        .getResource("/ui/applicationImages/pacManImages/PacManModelYellow.gif")
+        .toExternalForm()));
   }
 
   @FXML
@@ -713,8 +717,9 @@ public class PacManController {
     checkMark.setLayoutX(497);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    pacManGif.setImage(new Image(
-          "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelGreen.gif"));
+    pacManGif.setImage(new Image(getClass()
+        .getResource("/ui/applicationImages/pacManImages/PacManModelGreen.gif")
+        .toExternalForm()));
   }
 
   @FXML
@@ -722,8 +727,9 @@ public class PacManController {
     checkMark.setLayoutX(565);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    pacManGif.setImage(new Image(
-          "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelPink.gif"));
+    pacManGif.setImage(new Image(getClass()
+        .getResource("/ui/applicationImages/pacManImages/PacManModelPink.gif")
+        .toExternalForm()));
   }
 
   @FXML
@@ -731,8 +737,9 @@ public class PacManController {
     checkMark.setLayoutX(625);
     checkMark.setLayoutY(242);
     checkMark.setVisible(true);
-    pacManGif.setImage(new Image(
-          "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelOrange.gif"));
+    pacManGif.setImage(new Image(getClass()
+        .getResource("/ui/applicationImages/pacManImages/PacManModelOrange.gif")
+        .toExternalForm()));
   }
 
   private void setComponentsVisible(boolean isVisible, Node... components) {
