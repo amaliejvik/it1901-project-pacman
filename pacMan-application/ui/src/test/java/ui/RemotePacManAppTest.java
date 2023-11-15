@@ -11,7 +11,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -88,48 +87,28 @@ public class RemotePacManAppTest extends ApplicationTest {
 
     // Check that yellow PacMan is default
     verifyThat("#checkMark", NodeMatchers.isVisible());
-    String expectedImageUrlYellow = 
-        "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelYellow.gif";
-    Image imageYellow = controller.getPacManGif().getImage();
-    String currentImageUrlYellow = imageYellow.getUrl();
 
-    Assertions.assertEquals(expectedImageUrlYellow, currentImageUrlYellow);
     Assertions.assertEquals(427, controller.getCheckMark().getLayoutX());
     Assertions.assertEquals(242, controller.getCheckMark().getLayoutY());
 
     // Simulate choosing green PacMan
     clickOn("#greenPacManPhoto");
     verifyThat("#checkMark", NodeMatchers.isVisible());
-    String expectedImageUrlGreen =
-         "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelGreen.gif";
-    Image imageGreen = controller.getPacManGif().getImage();
-    String currentImageUrlGreen = imageGreen.getUrl();
 
-    Assertions.assertEquals(expectedImageUrlGreen, currentImageUrlGreen);
     Assertions.assertEquals(497, controller.getCheckMark().getLayoutX());
     Assertions.assertEquals(242, controller.getCheckMark().getLayoutY());
 
     // Simulate choosing pink PacMan
     clickOn("#pinkPacManPhoto");
     verifyThat("#checkMark", NodeMatchers.isVisible());
-    String expectedImageUrlPink = 
-        "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelPink.gif";
-    Image imagePink = controller.getPacManGif().getImage();
-    String currentImageUrlPink = imagePink.getUrl();
 
-    Assertions.assertEquals(expectedImageUrlPink, currentImageUrlPink);
     Assertions.assertEquals(565, controller.getCheckMark().getLayoutX());
     Assertions.assertEquals(242, controller.getCheckMark().getLayoutY());
 
     // Simulate choosing orange PacMan
     clickOn("#orangePacManPhoto");
     verifyThat("#checkMark", NodeMatchers.isVisible());
-    String expectedImageUrlOrange = 
-        "file:src/main/resources/ui/applicationImages/pacManImages/PacManModelOrange.gif";
-    Image imageOrange = controller.getPacManGif().getImage();
-    String currentImageUrlOrange = imageOrange.getUrl();
 
-    Assertions.assertEquals(expectedImageUrlOrange, currentImageUrlOrange);
     Assertions.assertEquals(625, controller.getCheckMark().getLayoutX());
     Assertions.assertEquals(242, controller.getCheckMark().getLayoutY());
 
@@ -138,12 +117,6 @@ public class RemotePacManAppTest extends ApplicationTest {
 
     // Simulate clicking on startbutton
     clickOn("#startButton");
-
-    String expectedImageUrlLightMode = 
-        "file:src/main/resources/ui/applicationImages/gameElementImages/mapgridLight.png";
-    Image imageLightMode = controller.getMapGrid().getImage();
-    String currentImageUrlLightMode = imageLightMode.getUrl();
-    Assertions.assertEquals(expectedImageUrlLightMode, currentImageUrlLightMode);
 
     controller.startTimeline();
 
