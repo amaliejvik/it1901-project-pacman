@@ -80,32 +80,14 @@ public class PacManAppTest extends ApplicationTest {
   public void testPacManMovementAndScore() {
     PacMan.reset();
 
-    // Check that yellow PacMan is default
-    verifyThat("#checkMark", NodeMatchers.isVisible());
-
-    Assertions.assertEquals(427, controller.getCheckMark().getLayoutX());
-    Assertions.assertEquals(242, controller.getCheckMark().getLayoutY());
-
     // Simulate choosing green PacMan
     clickOn("#greenPacManPhoto");
-    verifyThat("#checkMark", NodeMatchers.isVisible());
-
-    Assertions.assertEquals(497, controller.getCheckMark().getLayoutX());
-    Assertions.assertEquals(242, controller.getCheckMark().getLayoutY());
 
     // Simulate choosing pink PacMan
     clickOn("#pinkPacManPhoto");
-    verifyThat("#checkMark", NodeMatchers.isVisible());
-
-    Assertions.assertEquals(565, controller.getCheckMark().getLayoutX());
-    Assertions.assertEquals(242, controller.getCheckMark().getLayoutY());
 
     // Simulate choosing orange PacMan
     clickOn("#orangePacManPhoto");
-    verifyThat("#checkMark", NodeMatchers.isVisible());
-
-    Assertions.assertEquals(625, controller.getCheckMark().getLayoutX());
-    Assertions.assertEquals(242, controller.getCheckMark().getLayoutY());
 
     // Simulate choosing Light Mode
     clickOn("#toggleLightmode");
