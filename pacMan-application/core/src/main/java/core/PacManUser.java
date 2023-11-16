@@ -19,6 +19,11 @@ public class PacManUser {
     this.score = score;
   }
 
+  public PacManUser(PacManUser pacManUser) {
+    this.username = pacManUser.getUsername();
+    this.score = pacManUser.getScore();
+  }
+
   /**
    * Empty constructor for a new player.
    **/

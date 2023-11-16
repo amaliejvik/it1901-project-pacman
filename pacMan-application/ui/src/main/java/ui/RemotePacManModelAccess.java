@@ -9,6 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -49,7 +50,7 @@ public class RemotePacManModelAccess {
     } catch (IOException | InterruptedException e) {
       throw new RuntimeException(e);
     }
-    return highscores;
+    return Collections.unmodifiableList(highscores);
   }
 
   /**
