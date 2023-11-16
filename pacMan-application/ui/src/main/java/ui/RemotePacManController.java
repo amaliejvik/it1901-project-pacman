@@ -530,7 +530,7 @@ public class RemotePacManController {
     updateGui();
   }
 
-  public ImageView getPacManGif() {
+  protected ImageView getPacManGif() {
     return pacManGif;
   }
 
