@@ -9,7 +9,9 @@ import core.PacManUser;
 import core.Pinky;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -515,32 +517,20 @@ public class PacManController {
     updateGui();
   }
 
-  public ImageView getPacManGif() {
+  protected ImageView getPacManGif() {
     return pacManGif;
   }
 
-  public ImageView getCheckMark() {
-    return checkMark;
-  }
-
-  public ImageView getMapGrid() {
-    return mapGrid;
-  }
-
-  public ImageView getCherry() {
-    return cherry;
-  }
-
   public PacManUser getPacManUser() {
-    return pacManUser;
+    return new PacManUser(pacManUser);
   }
 
   public List<ImageView> getGhosts() {
-    return ghostsPng;
+    return Collections.unmodifiableList(ghostsPng);
   }
 
   public List<Rectangle> getTestCollisionRectangles() {
-    return testCollisionRectangles;
+    return Collections.unmodifiableList(testCollisionRectangles);
   }
 
   public boolean getIsTest() {
@@ -657,7 +647,8 @@ public class PacManController {
       // Deletes content of apptestScores.json file
       if (isTest) {
         try {
-          new FileWriter("src/main/resources/ui/JSON/apptestScores.json", false).close();
+          new FileWriter("src/main/resources/ui/JSON/apptestScores.json",
+              StandardCharsets.UTF_8, false).close();
         } catch (IOException e) {
           e.printStackTrace();
         }

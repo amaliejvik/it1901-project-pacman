@@ -30,10 +30,11 @@ public class PacManPersistence {
 
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
       File highScoreFile = new File(path);
-      FileWriter highScoreWriter = new FileWriter(highScoreFile, StandardCharsets.UTF_8);
-      gson.toJson(scores, highScoreWriter);
-      System.out.println("Score saved");
-      highScoreWriter.close();
+      try (FileWriter highScoreWriter = new FileWriter(highScoreFile, StandardCharsets.UTF_8)) {
+        gson.toJson(scores, highScoreWriter);
+        System.out.println("Score saved");
+        highScoreWriter.close();
+      }
     } catch (Exception e) {
       e.printStackTrace();
       System.out.println("Score failed to save");
@@ -48,10 +49,8 @@ public class PacManPersistence {
   public static List<PacManUser> fetchHighscore(String path) {
     Gson gson = new Gson();
     List<PacManUser> scores = new ArrayList<PacManUser>();
-    try {
-      FileReader reader = new FileReader(path, StandardCharsets.UTF_8);
+    try (FileReader reader = new FileReader(path, StandardCharsets.UTF_8)) {
       PacManUser[] scoreData = gson.fromJson(reader, PacManUser[].class);
-
       // Convert to list for easier access
       if (scoreData != null) {
         for (PacManUser user : scoreData) {

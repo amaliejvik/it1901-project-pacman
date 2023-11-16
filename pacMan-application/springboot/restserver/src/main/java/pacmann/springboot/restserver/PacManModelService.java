@@ -4,6 +4,7 @@ import core.PacManUser;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import persistence.PacManPersistence;
@@ -80,7 +81,7 @@ public class PacManModelService {
    */
   public void removeAllHighScores() {
     try {
-      new FileWriter(finalPath, false).close();
+      new FileWriter(finalPath, StandardCharsets.UTF_8, false).close();
     } catch (IOException e) {
       e.printStackTrace();
     }

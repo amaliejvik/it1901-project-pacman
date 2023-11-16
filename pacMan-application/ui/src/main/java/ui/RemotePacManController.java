@@ -10,6 +10,7 @@ import core.Pinky;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -529,32 +530,20 @@ public class RemotePacManController {
     updateGui();
   }
 
-  public ImageView getPacManGif() {
+  protected ImageView getPacManGif() {
     return pacManGif;
   }
 
-  public ImageView getCheckMark() {
-    return checkMark;
-  }
-
-  public ImageView getMapGrid() {
-    return mapGrid;
-  }
-
-  public ImageView getCherry() {
-    return cherry;
-  }
-
   public PacManUser getPacManUser() {
-    return pacManUser;
+    return new PacManUser(pacManUser);
   }
 
   public List<ImageView> getGhosts() {
-    return ghostsPng;
+    return Collections.unmodifiableList(ghostsPng);
   }
 
   public List<Rectangle> getTestCollisionRectangles() {
-    return testCollisionRectangles;
+    return Collections.unmodifiableList(testCollisionRectangles);
   }
 
   public boolean getIsTest() {
