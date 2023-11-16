@@ -23,6 +23,8 @@ The rest of the documentation for this project can be found in the [docs-folder]
   - [Testing](#testing)
   - [Current versions of software](#current-versions-of-software)
   - [Dependencies required to run application and tests](#dependencies-required-to-run-application-and-tests)
+  - [Plugin Versions](#plugin-versions)
+  - [Comment on Mediaplayer](#comment-on-mediaplayer)
 
 ## About the application
 
@@ -31,8 +33,6 @@ Our goal for this application was to create a game that resembles the original P
 ## How to build and run the application
 
 We used Maven for project management. 
-
-**TODO** *Change between local and remote?*
 
 **All commands shown below assume that your terminal is in the gr2372 folder.** If unsure, open a new terminal tab and try the commands again.
 
@@ -81,11 +81,12 @@ After entering the workspace, follow the guide on [How to build and run the appl
 
 [Open in Eclipse Che](https://che.stud.ntnu.no/dashboard/#https://gitlab.stud.idi.ntnu.no/it1901/groups-2023/gr2372/gr2372?new)
 
-**NOTE**: On the start screen of the application, a green checkmark appears on the PacMan-color the user has chosen, in order to fulfill design principles on feedback. For some reason, this checkmark does not appear when the application is ran in Eclipse Che. We are not sure why this problem has arisen, since it works perfectly when run locally with Maven and with JPackage. 
+**NOTE 1**: On the start screen of the application, a green checkmark appears on the PacMan-color the user has chosen, in order to fulfill design principles on feedback. For some reason, this checkmark does not appear when the application is ran in Eclipse Che. We are not sure why this problem has arisen, since it works perfectly when run locally with Maven and with JPackage. 
 
 How it is supposed to look is illustraded below:
 ![StartScreen](/pacMan-application/ui/src/main/resources/ui/README-Images/pacManStartScreen.png)
 
+**NOTE 2**: The use of Mediaplayer is also documented [here](#comment-on-mediaplayer)
 
 ## Releases
 
@@ -140,7 +141,7 @@ The group's approach to testing of the application can be read about in detail u
 
 Java version: 17.0.8
 
-Maven version: 3.9.4
+Maven version: 3.11.0
 
 ## Dependencies required to run application and tests
 
@@ -168,10 +169,10 @@ Maven version: 3.9.4
 
 **Test JavaFX with TextFX:**
 
-    testfx-junit5
+    testfx-core
     Version 4.0.16-alpha
 
-    testfx-core
+    testfx-junit5
     Version 4.0.16-alpha
 
     hamcrest
@@ -180,9 +181,54 @@ Maven version: 3.9.4
 **Jacoco:**
 
     org.jacoco.agent
-    Version 0.8.7
+    Version 0.8.10
 
 **GSON:**
 
     com.google.code.gson
     Version 2.10.1
+
+**Springboot**
+
+    spring-boot-starter-web
+    Version 2.7.5
+
+    spring-boot-starter-jetty
+    Version 2.7.5
+
+    spring-boot-starter-test
+    Version 2.7.5
+
+## Plugin Versions
+
+    Checkstyle
+    Version 10.3.4
+
+<br>
+
+    SpotBugs
+    Version 4.7.3.6
+
+## Comment on MediaPlayer
+
+In release 2, we added music as a new feature to our application with a MediaPlayer in PacManController. When clicking the start button, the old school PacMan soundtrack started playing. This worked perfectly when running the application locally with Maven. 
+
+However, this led to an error when trying to run it with Eclipse Che. We tried to reach out to both our Teaching Assistent, on Piazza and to the professional staff of the subject but no one seemed to understand what caused this problem. 
+
+As a result, we chose to comment out the code tied to the MediaPlayer in both PacManController and RemotePacManController. We did not want to remove it completely, because it was an important part of our expanded functionality in release 2. In addition we have documentation and a user story connected to it. 
+
+If you are to run the application or test *locally with Maven*, simply comment in the following lines in these classes, and you will hear the sound track:
+
+**PacManController**
+
+- Line 36-37
+- Line 60
+- Line 446-456
+- Line 575
+
+**RemotePacManController:**
+
+- Line 35-36
+- Line 61
+- Line 447-457
+- Line 589
