@@ -1,7 +1,18 @@
 # README for diagrams
 This is the documentation for all the diagrams to help visualize and understand the modules and classes interact with one another. 
 
-## Architecture diagram
+We have created the following diagrams:
+- [README for diagrams](#readme-for-diagrams)
+  - [Package diagram](#package-diagram)
+    - [Components](#components)
+    - [Component dependencies:](#component-dependencies)
+  - [Class diagram](#class-diagram)
+  - [Sequence diagrams](#sequence-diagrams)
+    - [sequence\_local](#sequence_local)
+    - [sequence\_remote](#sequence_remote)
+
+
+## Package diagram
 This diagram illustrates the high-level architecture of the PacMan game. The arrows indicate the dependencies, showing how different parts of the system rely on each other for functionality.
 
 ### Components

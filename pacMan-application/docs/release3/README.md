@@ -193,6 +193,10 @@ In the new release we have added a new sequential diagram that shows how storage
 The project has been configured with *jlink* and *jpackage* to produce a shippable product for the end user. After completing the [initial installation](/pacMan-application/README.md#clean-install) of the project, ensure the terminal is still in **/pacMan-application** and run the following commands **(Windows/Mac)**:
 
 ```bat
+mvn clean
+```
+
+```bat
 cd ui
 mvn javafx:jlink
 ```

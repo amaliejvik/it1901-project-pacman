@@ -16,6 +16,7 @@ The rest of the documentation for this project can be found in the [docs-folder]
       - [Run the application](#run-the-application)
   - [How to test the application](#how-to-test-the-application)
   - [Eclipse Che](#eclipse-che)
+  - [Shippable product](#shippable-product)
   - [Releases](#releases)
   - [Userstories](#userstories)
   - [Project Architecture](#project-architecture)
@@ -87,6 +88,11 @@ How it is supposed to look is illustraded below:
 ![StartScreen](/pacMan-application/ui/src/main/resources/ui/README-Images/pacManStartScreen.png)
 
 **NOTE 2**: The use of Mediaplayer is also documented [here](#comment-on-mediaplayer)
+
+## Shippable product
+
+The application can be produced into a shippable product.
+A guide can be found in the [here](/pacMan-application/docs/release3/README.md#5-made-the-application-a-shippable-product) in READme for release 3.
 
 ## Releases
 
@@ -226,14 +232,14 @@ If you are to run the application or test *locally with Maven*, simply comment i
 
 **PacManController**
 
-- Line 36-37
-- Line 60
-- Line 446-456
-- Line 575
+- Line 38-39
+- Line 62
+- Line 448-458
+- Line 565
 
 **RemotePacManController:**
 
-- Line 35-36
-- Line 61
-- Line 447-457
-- Line 589
+- Line 36-37
+- Line 62
+- Line 448-458
+- Line 578
