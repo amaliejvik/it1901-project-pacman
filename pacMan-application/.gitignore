@@ -7,6 +7,5 @@ target/
 org.eclipse.*.prefs
 
 **/.DS_Store
-scores.txt
 PacMan/
 bin/
