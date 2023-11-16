@@ -61,7 +61,6 @@ public class RemotePacManModelAccess {
   public void putHighscore(String username, double highscore) {
     PacManUser user = new PacManUser(username, highscore);
     String json = gson.toJson(user);
-    // System.out.println(json);
     try {
       HttpRequest request = HttpRequest.newBuilder(endpointBaseUri)
           .header(ACCEPT_HEADER, APPLICATION_JSON)

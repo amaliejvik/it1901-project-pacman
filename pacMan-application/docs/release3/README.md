@@ -159,7 +159,7 @@ This is what we chose to implement for the 3rd release, based upon [Userstory4](
 
 ### 2. Implemented REST API with SpringBoot
 
-One of the primary goals for this release is to eliminate the need for the client to store their highscores locally. Instead we aim to implement a REST API to enable that the application stores highscores remotely on a server. This implementation has numerous benefits, but most importantly the ability for multiple users to save their highscores in the same place. This means that users can compete with eachother indirectly from different machines.
+One of the primary goals for this release is to eliminate the need for the client to store their highscores locally. Instead we aim to implement a REST API to enable that the application stores highscores remotely on a server. This implementation has numerous benefits, but most importantly the ability for multiple users to save theirhigh scores in the same place. This means that users can compete with eachother indirectly from different machines.
 
 There are numerous ways to implement a RESTAPI, and we chose to use Spring Boot which is a tool that makes this possible. We opted for Spring Boot due to its inherent simplicity, widespread adoption, and its significant relevance in professional settings.
 
@@ -188,10 +188,25 @@ In the new release we have added a new sequential diagram that shows how storage
 
 <br>
 
-### 5. Made PacMan a shippable product
+### 5. Made the application a shippable product
 
-*TODO*
+The project has been configured with *jlink* and *jpackage* to produce a shippable product for the end user. After completing the [initial installation](/pacMan-application/README.md#clean-install) of the project, ensure the terminal is still in **/pacMan-application** and run the following commands **(Windows/Mac)**:
 
+```bat
+cd ui
+mvn javafx:jlink
+```
+
+This will produce a file named *"PacManfx.zip"* in **pacMan-application/ui/target**.
+Then (still in the /ui-folder) run the following command:
+
+```bat
+mvn jpackage:jpackage
+```
+
+This will produce a folder *"/dist"* in **pacMan-application/ui/target**, with an executable file inside named *"PacManfx-1.0.0.exe"*. This is the installer for the program. Run this file to install the package on your system. The program can then be run from a .exe-file in the installation-directory.
+
+Remember to [start the server](/pacMan-application/README.md#start-the-server) before running the app, or else an error will occur when the score is saved.
 <br>
 
 ### 6. Improved our code quality

@@ -16,7 +16,7 @@ After having decided that our project was going to be PacMan and having this ide
 
 A typical week for the group has usually consisted of three group meetings; on Monday, on Tuesday and on Thursday. These meetings lasted for about 2 hours, but of course we adjusted this from week to week so it matched the workload. Often we ended up sitting for many hours after these meetings, working on the project together.
 
-We always started our Monday meetings by talking about what remained to be done before the next due date and what we planned do get done that specific week. In this way, we split all the chores connected to a release into smaller pieces, which made them more manageable and easier to handle.
+We always started our Monday meetings by talking about what remained to be done before the next due date and what we planned to get done that specific week. In this way, we split all the chores connected to a release into smaller pieces, which made them more manageable and easier to handle.
 
 At the beginning of all meetings, we started by giving a status report on what we were working on and how it was going. This was inspired by "The Daily Scrum" in SCRUM. In addition, we wrote a small report from each meeting that summarized what we have talked about in short. These reports were saved in our shared TeamSpace in Notion, where we also kept track on deadlines and which criterias each deliverable had. This made it easy for all team members to look back on what we had discussed and agreed upon, for instance if someone was not able to participate on a group meeting.
 
@@ -93,11 +93,15 @@ The different parts of the cycle are described more detailed below.
 
 At the beginning of each iteration, we have started by creating a new Milestone for that very iteration. This has been followed by a conversation about what needs to be done for the release; what are the new demands and which new features do we want to implement. Based on this conversation, we have created issues assigned to the Milestone. We have tried to create as many issues as we can at the beginning of each release, but we also add issues along the way if we discover something that needs to be done or fixed.
 
+<br>
+
 **Our milestones:**
 
 1. Release 1: Implement basic PacManFeatures
 2. Release 2: Improved modular application
 3. Release 3: Final release
+
+<br>
 
 **We have also created these Labels:**
 
@@ -105,6 +109,8 @@ At the beginning of each iteration, we have started by creating a new Milestone 
 - Moderate
 - Critical
 - Bug
+
+<br>
 
 Each issue is assigned with the appropriate label(s), stating its type and priority. This makes it easier for us to ensure that the application fulfills all requirements given. It also decreases the amount of time we spend on choosing an issue, because we can easily see which issues are the most important to get done.
 
