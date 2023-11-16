@@ -24,7 +24,7 @@ The rest of the documentation for this project can be found in the [docs-folder]
   - [Current versions of software](#current-versions-of-software)
   - [Dependencies required to run application and tests](#dependencies-required-to-run-application-and-tests)
   - [Plugin Versions](#plugin-versions)
-  - [Comment on Mediaplayer](#comment-on-mediaplayer)
+  - [Comment on MediaPlayer](#comment-on-mediaplayer)
 
 ## About the application
 
@@ -208,6 +208,11 @@ Maven version: 3.11.0
 
     SpotBugs
     Version 4.7.3.6
+
+<br>
+
+    JPackage
+    Version 1.4.0
 
 ## Comment on MediaPlayer
 
